@@ -444,7 +444,7 @@ input.header-search-input {
     Sidebar
 ====================================================================================*/
 /*----------------------------------------
-    Sidebar Main Menu 
+    Sidebar Main Menu
 ------------------------------------------*/
 nav.top-nav {
   height: 122px;
@@ -1304,7 +1304,7 @@ tr.group {
     Login Page
 ------------------------------------------*/
 .login-form {
-  width: 280px; }
+  width: 400px; }
 
 .login-form-text {
   text-transform: uppercase;
