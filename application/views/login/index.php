@@ -1,11 +1,8 @@
 <div id="login-page" class="row">
-<<<<<<< HEAD
-  <div class="col s12 z-depth-4 card-panel">
-    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>login/checkLogin">
-=======
+
   <div class="col s12 z-depth-5 card-panel">
-    <form class="login-form">
->>>>>>> origin/master
+    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>login/checkLogin">
+
       <div class="row">
         <div class="input-field col s12 center">
           <h1>Bienvenido</h1>
@@ -48,26 +45,14 @@
           <button class="btn waves-effect waves-light col s12"/> Aceptar</button>
         </div>
       </div>
-<<<<<<< HEAD
-      <div class="row">
-        <div class="input-field col s6 m6 l6">
-          <p class="margin medium-small"><a href="<?php echo base_url(); ?>users/faithfulCreate">Registrese Ahora!</a></p>
-        </div>
-        <div class="input-field col s6 m6 l6">
-            <p class="margin right-align medium-small"><a href="page-forgot-password.html">Contraseña Perdida ?</a></p>
-        </div>
-      </div>
-=======
           <div class="row">
             <div class="input-field col s6 m6 l6">
-                <p><a class="btn waves-effect waves-light light-blue darken-4" href="{!!URL::to('login/create')!!}">Registrate Ahora</a></p>
+                <p><a class="btn waves-effect waves-light light-blue darken-4" href="<?php echo base_url(); ?>users/faithfulCreate">Registrate Ahora</a></p>
             </div>
             <div class="input-field col s6 m6 l6">
                 <p><a class="btn waves-effect waves-light light-blue darken-4">Recuperar Cuenta</a></p>
             </div>
           </div>
-
->>>>>>> origin/master
     </form>
   </div>
 </div>
