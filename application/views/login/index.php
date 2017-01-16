@@ -1,5 +1,5 @@
 <div id="login-page" class="row">
-  <div class="col s12 z-depth-4 card-panel">
+  <div class="col s12 z-depth-5 card-panel">
     <form class="login-form">
       <div class="row">
         <div class="input-field col s12 center">
@@ -33,14 +33,14 @@
           <a href="index.html" class="btn waves-effect waves-light col s12">Aceptar</a>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s6 m6 l6">
-          <p class="margin medium-small"><a href="<?php echo base_url(); ?>users/faithfulCreate">Registrese Ahora!</a></p>
-        </div>
-        <div class="input-field col s6 m6 l6">
-            <p class="margin right-align medium-small"><a href="page-forgot-password.html">Contraseña Perdida ?</a></p>
-        </div>
-      </div>
+          <div class="row">
+            <div class="input-field col s6 m6 l6">
+                <p><a class="btn waves-effect waves-light light-blue darken-4" href="{!!URL::to('login/create')!!}">Registrate Ahora</a></p>
+            </div>
+            <div class="input-field col s6 m6 l6">
+                <p><a class="btn waves-effect waves-light light-blue darken-4">Recuperar Cuenta</a></p>
+            </div>
+          </div>
 
     </form>
   </div>
