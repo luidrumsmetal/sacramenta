@@ -1,5 +1,15 @@
 <div id="login-page" class="row">
-
+  <div class="col s12 z-depth-4 card-panel teal">
+      <?php if($this->session->flashdata('success')) {?>
+          <div id="card-alert" class="card green">
+            <div class="card-content white-text">
+              <p><?php echo $this->session->flashdata('success') ?></p>
+            </div>
+            <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+      <?php } ?>
   <div class="col s12 z-depth-5 card-panel">
     <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>login/checkLogin">
 
