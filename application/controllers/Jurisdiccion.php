@@ -33,7 +33,7 @@ class Jurisdiccion extends CI_Controller{
         $this->session->set_flashdata('error','Ingrese correctamente los datos');
     }
     else {
-        $data = array(,
+        $data = array(
           'nombre' => $this->input->post('nombre'),
           'direccion' => $this->input->post('direccion'),
           'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
@@ -49,15 +49,23 @@ class Jurisdiccion extends CI_Controller{
               'tipoUsuario' => $tipoUsuario,
               'persona_id' => $persona_id
             );
-            
-            
+
+
         }
-        
+
     }
     $this->load->view('login/header');
     $this->load->view('users/faithfulCreate');
     $this->load->view('login/footer');
 
   }
-
+  //  parte joel
+  function autoCompleteParroquia()
+  {
+      if (isset($_GET['term'])) {
+          $data = strtolower($_GET['term']);
+          $this->Jurisdiccion_model->autoCompleteParroquia($data);
+      }
+  }
+  /// FIN -->
 }
