@@ -43,7 +43,7 @@
   <link href="<?php echo base_url(); ?>assets/demo/js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 </head>
 
-<body class="teal lighten-2">
+<body class="">
   <!-- Start Page Loading -->
   <div id="loader-wrapper">
       <div id="loader"></div>

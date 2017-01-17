@@ -556,7 +556,7 @@ input.header-search-input:focus {
     Sidebar
 ====================================================================================*/
 /*----------------------------------------
-    Sidebar Main Menu
+    Sidebar Main Menu 
 ------------------------------------------*/
 nav.top-nav {
   height: 122px;
@@ -1633,7 +1633,7 @@ tr.group:hover {
     Login Page
 ------------------------------------------*/
 .login-form {
-  width: 300px;
+  width: 380px;
 }
 
 .login-form-text {
