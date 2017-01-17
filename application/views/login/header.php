@@ -30,6 +30,7 @@
 
   <!-- CORE CSS-->
 
+
   <link href="<?php echo base_url(); ?>assets/demo/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="<?php echo base_url(); ?>assets/demo/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
     <!-- Custome CSS-->
@@ -39,10 +40,10 @@
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
   <link href="<?php echo base_url(); ?>assets/demo/js/plugins/prism/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="<?php echo base_url(); ?>assets/demo/js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
-
+  <link href="<?php echo base_url(); ?>assets/demo/js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 </head>
 
-<body class="teal lighten-2">
+<body class="">
   <!-- Start Page Loading -->
   <div id="loader-wrapper">
       <div id="loader"></div>

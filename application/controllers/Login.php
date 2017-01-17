@@ -7,6 +7,7 @@ class Login extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
+    $this->load->model('Users_model');
   }
 
   function index()
@@ -16,4 +17,49 @@ class Login extends CI_Controller{
     $this->load->view('login/footer');
   }
 
+  function checkLogin(){
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('email', 'Email', 'valid_email|required|xss_clean|trim');
+    $this->form_validation->set_rules('password', 'Contraseña', 'required|xss_clean|trim');
+    $ajax = $this->input->get('ajax');
+        if ($this->form_validation->run() == false)
+        {
+            if($ajax == true){
+                $json = array('result' => false);
+                echo json_encode($json);
+            }
+            else{
+                $this->session->set_flashdata('error','Os dados de acesso estão incorretos.');
+                redirect($this->login);
+            }
+        }
+        else {
+          $email = $this->input->post('email');
+          $password = $this->input->post('password');
+          #$this->load->library('encrypt');
+          #$senha = $this->encrypt->sha1($senha);
+          if (!$this->Users_model->checkLogin($email,$password)==False)
+          {
+              if($ajax == true){
+                    $json = array('result' => true);
+                    echo json_encode($json);
+                }
+                else{
+                    redirect(base_url().'home');
+                }
+          }
+          else
+          {
+                if($ajax == true){
+                    $json = array('result' => false);
+                    echo json_encode($json);
+                }
+                else{
+                    $this->session->set_flashdata('error','Os dados de acesso estão incorretos.');
+                    redirect($this->index);
+                }
+            }
+        }
+
+  }
 }

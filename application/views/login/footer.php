@@ -3,7 +3,7 @@ Scripts
 ================================================ -->
 
 <!-- jQuery Library -->
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/plugins/jquery-1.11.2.min.js"></script>
+
 <!--materialize js-->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/materialize.js"></script>
 <!--prism-->
@@ -17,6 +17,8 @@ Scripts
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/plugins.js"></script>
 <!--custom-script.js - Add your own theme custom JS-->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/custom-script.js"></script>
+<!--<script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>-->
+
 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/jquery.backstretch.js"></script>
 
