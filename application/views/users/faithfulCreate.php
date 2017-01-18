@@ -1,5 +1,15 @@
 <div id="login-page" class="row">
   <div class="col s12 z-depth-4 card-panel teal">
+      <?php if($this->session->flashdata('error')) {?>
+          <div id="card-alert" class="card red">
+            <div class="card-content white-text">
+              <p><?php echo $this->session->flashdata('error') ?></p>
+            </div>
+            <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+      <?php } ?>
     <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>users/faithfulRegister">
           <div class="row margin">
             <div class="input-field col s12 center">
@@ -72,14 +82,14 @@
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-communication-email prefix"></i>
-              <input id="email" type="email">
+              <input id="email" name="email" type="email">
               <label for="email" class="center-align">Email</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-action-lock-outline prefix"></i>
-              <input id="password" type="password">
+              <input id="password" name="password" type="password">
               <label for="password">Password</label>
             </div>
           </div>
@@ -92,7 +102,8 @@
           </div>-->
           <div class="row">
             <div class="input-field col s12">
-              <a href="index.html" class="btn waves-effect waves-light col s12">Register Now</a>
+              <!--<a href="index.html" class="btn waves-effect waves-light col s12">Register Now</a>-->
+                <button type="submit" class="btn waves-effect waves-light col s12"><i class="icon-ok icon-white"></i> Registrese Agora</button>
             </div>
             <div class="input-field col s12">
               <p class="margin center medium-small sign-up">Already have an account? <a href="<?php echo base_url(); ?>login">ATRAS</a></p>
