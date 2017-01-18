@@ -110,14 +110,14 @@
 			<div id="owl-work" class="owl-carousel">
 
 				<div class="item col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-					<img src="<?php echo base_url(); ?>assets/inicio/images/ceb.jpg" width="300" height="200">
+					<a href="<?php echo base_url(); ?>Acercade"><img src="<?php echo base_url(); ?>assets/inicio/images/ceb.jpg" width="300" height="200"></a>
 						<h5>¿QUÉ ES LA CEB?</h5>
 						<hr>
 						<p> <font color="black">La Conferencia Episcopal Boliviana es el organismo colegiado de todos los Obispos de Bolivia.</font></p>
 				</div>
 
 				<div class="item col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
-					<img src="<?php echo base_url(); ?>assets/inicio/images/team.jpg" width="300" height="200">
+					<a href="<?php echo base_url(); ?>Presiden"><img src="<?php echo base_url(); ?>assets/inicio/images/team.jpg" width="300" height="200"></a>
 						<h5>¿QUIÉNES LAS PRESIDEN?</h5	>
 						<hr>
 						<p><font color="black">La Conferencia Episcopal Boliviana está presidida por una directiva cuya gestión dura tres años.</font></p>
