@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui-1.9.2.custom.css" />
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-ui-1.9.2.custom.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
+
 <div id="login-page" class="row">
   <div class="col s12 z-depth-4 card-panel teal">
       <?php if($this->session->flashdata('error')) {?>
@@ -10,7 +14,7 @@
             </button>
           </div>
       <?php } ?>
-    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>jurisdiccion/addParroquia">
+    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>jurisdiccion/parroquiaRegistro">
           <div class="row margin">
             <div class="input-field col s12 center">
               <h4>Registro de Parroquia</h4>
@@ -31,12 +35,13 @@
               <label for="direccion" class="center-align">Direccion</label>
             </div>
           </div>
-          
+
           <div class="row margin">
             <div class="input-field col s12">
-              <i class="mdi-social-person-outline prefix"></i>
-              <input id="celular" name="celular" type="text">
-              <label for="celular" class="center-align">Jurisdiccion</label>
+              <i class="mdi-social-person-outline prefix"></i>                
+              <input id="jurisdiccion" name="jurisdiccion" type="text">
+              <input type="hidden" name="jurisdiccion_id" id="jurisdiccion_id">
+              <label for="jurisdiccion" class="center-align">Jurisdiccion</label>
             </div>
           </div>
           
@@ -59,10 +64,13 @@
     </form>
   </div>
 </div>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/plugins/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/plugins/formatter/jquery.formatter.min.js"></script>
 <script type="text/javascript">
-$('#fechanac').formatter({
-      'pattern': '{{99}}-{{99}}-{{9999}}',
+
+$("#jurisdiccion").autocomplete({
+       source: "<?php echo base_url(); ?>jurisdiccion/autoCompleteJurisdiccion",
+       minLength: 1,
+       select: function( event, ui ) {
+       $("#jurisdiccion_id").val(ui.item.id);
+       }
     });
 </script>

@@ -34,5 +34,22 @@ class Jurisdiccion_model extends CI_Model{
     }
     return FALSE;
   }
+  function autoCompleteJurisdiccion($q){
+        $this->db->select('*');
+        $this->db->limit(10);
+        $this->db->like('jurisdiccion', $q);
+        $query = $this->db->get('jurisdiccion');
+        if($query->num_rows() > 0){
+            foreach ($query->result_array() as $row){
+                $row_set[] = array('label'=>$row['jurisdiccion'],'id'=>$row['idJurisdiccion']);
+            }
+            echo json_encode($row_set);
+        }
+        /*else {
+          $row_set = "nada";
+          echo json_encode($row_set);
+        }*/
+    }
 
 }
+
