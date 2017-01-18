@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller{
+class Baptism extends CI_Controller{
 
   public function __construct()
   {
@@ -11,18 +11,15 @@ class Home extends CI_Controller{
 
   function index()
   {
-    $data['title'] = 'Inicio';
-    $this->load->view('template/header',$data);
-    $this->load->view('template/footer');
-  }
 
-  function priestCreate()
+  }
+  public function baptismCreate()
   {
-    $data['title'] = 'Registro de Sacerdotes';
+    $data['title'] = 'Registro Bautizo';
     $this->load->view('template/header',$data);
-    $this->load->view('users/priestCreate');
+    $this->load->view('sacramentos/baptism/baptismCreate');
     $this->load->view('template/footer');
-
   }
+
 
 }

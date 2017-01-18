@@ -60,12 +60,11 @@ class Jurisdiccion extends CI_Controller{
 
   }
   //  parte joel
-  function autoCompleteParroquia()
-  {
-      if (isset($_GET['term'])) {
-          $data = strtolower($_GET['term']);
-          $this->Jurisdiccion_model->autoCompleteParroquia($data);
-      }
-  }
+  public function autoCompleteParroquia(){
+        if (isset($_GET['term'])){
+            $q = strtolower($_GET['term']);
+            $this->Jurisdiccion_model->autoCompleteParroquia($q);
+        }
+    }
   /// FIN -->
 }
