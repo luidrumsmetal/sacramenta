@@ -10,10 +10,10 @@
             </button>
           </div>
       <?php } ?>
-    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>jurisdiccion/registroParroquia">
+    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>jurisdiccion/addParroquia">
           <div class="row margin">
             <div class="input-field col s12 center">
-              <h4>Registro de Fieles</h4>
+              <h4>Registro de Parroquia</h4>
             <p class="left">Informacion General</p>
             </div>
           </div><hr>

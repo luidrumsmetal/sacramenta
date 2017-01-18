@@ -26,4 +26,13 @@ class Jurisdiccion_model extends CI_Model{
         }*/
     }
 
+  function addParroquia($table, $data){
+    $this->db->insert($table, $data);
+    if ($this->db->affected_rows() == '1')
+    {
+      return TRUE;
+    }
+    return FALSE;
+  }
+
 }

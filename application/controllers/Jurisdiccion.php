@@ -15,15 +15,15 @@ class Jurisdiccion extends CI_Controller{
 
   }
 
-  function faithfulCreate()
+  function parroquiaCreate()
   {
     $data['msj_error'] = '';
-    $this->load->view('login/header');
-    $this->load->view('users/faithfulCreate',$data);
-    $this->load->view('login/footer');
+    $this->load->view('template/header');
+    $this->load->view('parroquia/alta_parroquia',$data);
+    $this->load->view('template/footer');
   }
 
-  function ParroquiaRegistro()
+  function parroquiaRegistro()
   {
     $this->load->library('form_validation');
     $this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[2]|xss_clean');
@@ -38,25 +38,24 @@ class Jurisdiccion extends CI_Controller{
           'direccion' => $this->input->post('direccion'),
           'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
         );
-        if ($this->Users_model->personRegister('persona',$data) == TRUE)
-        {
-          $ci = $this->input->post('ci');
-          $personWithCi = $this->Users_model->getId($ci);
-          $persona_id = $personWithCi->id;
-            $data = array(
-              'email' => $this->input->post('email'),
-              'password' => $this->input->post('password'),
-              'tipoUsuario' => $tipoUsuario,
-              'persona_id' => $persona_id
-            );
 
+        //COMPROBAMOS QUE TODOS LOS CAMPOS TENGAN DATOS
+
+        if(isset($nombre) && !empty($nombre) && isset($jurisdiccion_id) && !empty($jurisdiccion_id)){
+
+          //SI LOS CAMPOS ESTAN CORRECTOS LOS INSERTAMOS EN LA BASE DE DATOS
+          //LLAMAMOS AL MODELO Clientes_model QUE SE ENCARGARÁ DE INGRESAR LOS DATOS
+
+          $this->Jurisdiccion_model->addParroquia("parroquia",$data);
+         
+          redirect(base_url("jurisdiccion/agreagar_parroquia"));
 
         }
 
     }
-    $this->load->view('login/header');
-    $this->load->view('users/faithfulCreate');
-    $this->load->view('login/footer');
+    $this->load->view('template/header');
+    $this->load->view('parroquia/alta_parroquia');
+    $this->load->view('template/footer');
 
   }
   //  parte joel
