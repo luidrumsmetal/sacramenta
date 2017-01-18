@@ -156,5 +156,20 @@ class Users extends CI_Controller{
           $this->Users_model->autoCompleteTipoSacerdote($data);
       }
   }
+  function testare()
+  {
+    $this->load->helper('Testare_helper');
+    $ci = $this->input->get('ci');
+    testare($ci);
+      /*if (isset($_GET['pars'])) {
+        $pars = $_GET['pars'];
+        if ($this->Users_model->testare($pars) == TRUE) {
+          echo "disponible";
+        }
+        else {
+          echo "no disponible";
+        }
+      }*/
+  }
 
 }

@@ -174,7 +174,7 @@
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canonico</a>
                      <div class="collapsible-body" style="">
                          <ul>
-                             <li><a href="<?php echo base_url(); ?>baptism/baptismCreate"><i class="mdi-social-whatshot"></i>Bautizo</a>
+                             <li><a href="<?php echo base_url(); ?>baptism"><i class="mdi-social-whatshot"></i>Bautizo</a>
                              </li>
                              <li><a href="css-animations.html"><i class="mdi-action-accessibility"></i>P. Comunion</a>
                              </li>
