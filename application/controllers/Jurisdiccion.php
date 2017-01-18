@@ -39,18 +39,8 @@ class Jurisdiccion extends CI_Controller{
           'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
         );
 
-        //COMPROBAMOS QUE TODOS LOS CAMPOS TENGAN DATOS
-
-        if(isset($nombre) && !empty($nombre) && isset($jurisdiccion_id) && !empty($jurisdiccion_id)){
-
-          //SI LOS CAMPOS ESTAN CORRECTOS LOS INSERTAMOS EN LA BASE DE DATOS
-          //LLAMAMOS AL MODELO Clientes_model QUE SE ENCARGARÁ DE INGRESAR LOS DATOS
-
           $this->Jurisdiccion_model->addParroquia("parroquia",$data);
-         
-          redirect(base_url("jurisdiccion/agreagar_parroquia"));
-
-        }
+        
 
     }
     $this->load->view('template/header');
@@ -63,6 +53,15 @@ class Jurisdiccion extends CI_Controller{
         if (isset($_GET['term'])){
             $q = strtolower($_GET['term']);
             $this->Jurisdiccion_model->autoCompleteParroquia($q);
+        }
+    }
+
+
+    public function autoCompleteJurisdiccion(){
+        if (isset($_GET['term'])){
+            $q = strtolower($_GET['term']);
+           # $this->Jurisdiccion_model->autoCompleteJurisdiccion($q);
+            $this->Jurisdiccion_model->autoCompleteJurisdiccion($q);
         }
     }
   /// FIN -->
