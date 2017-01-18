@@ -80,11 +80,11 @@ http://www.tooplate.com/view/2078-adventure
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
             
-				<li><a href="#home" class="smoothScroll">INICIO</a></li> 
-				<li><a href="#work" class="smoothScroll">SOBRE NOSOTROS</a></li>
-				<li><a href="#team" class="smoothScroll">SACRAMENTOS</a></li>
-				<li><a href="#plan" class="smoothScroll">JURISDICCIONES</a></li>
-				<li><a href="#contact" class="smoothScroll">CONTÁCTANOS</a></li>
+				<li><a href="<?php echo base_url(); ?>#home" class="smoothScroll">INICIO</a></li> 
+				<li><a href="<?php echo base_url(); ?>#work" class="smoothScroll">SOBRE NOSOTROS</a></li>
+				<li><a href="<?php echo base_url(); ?>#team" class="smoothScroll">SACRAMENTOS</a></li>
+				<li><a href="<?php echo base_url(); ?>#plan" class="smoothScroll">JURISDICCIONES</a></li>
+				<li><a href="<?php echo base_url(); ?>#contact" class="smoothScroll">CONTÁCTANOS</a></li>
 				<li><a href="<?php echo base_url(); ?>login" target="_blank" class="smoothScroll">INICIAR SESIÓN</a></li>				
 			</ul>
 		</div>
