@@ -2,8 +2,11 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-ui-1.9.2.custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
 
-<div id="login-page" class="row">
-  <div class="col s12 z-depth-4 card-panel teal">
+<section id = "content">
+    <div class="section">
+      <div class="row">
+
+
       <?php if($this->session->flashdata('error')) {?>
           <div id="card-alert" class="card red">
             <div class="card-content white-text">
@@ -14,37 +17,42 @@
             </button>
           </div>
       <?php } ?>
-    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>jurisdiccion/parroquiaRegistro">
-          <div class="row margin">
-            <div class="input-field col s12 center">
-              <h4>Registro de Parroquia</h4>
-            <p class="left">Informacion General</p>
-            </div>
-          </div><hr>
-          <div class="row margin">
-            <div class="input-field col s12">
+
+          <div class="col s12 m12 l12">
+            <div class="card-panel">
+              <h1 align="center">Registro de Iglesia Parroquial</h1>
+              <h4 class="header2">Informacion General</h4>
+            <div class="row">
+          <form class="col s12" id="formParroquia" method="post" action="<?php echo base_url(); ?>jurisdiccion/parroquiaRegistro">
+
+
+          <div class="row">
+            <div class="input-field col s6">
               <i class="mdi-social-person-outline prefix"></i>
               <input id="nombre" name="nombre" type="text">
-              <label for="nombre" class="center-align">Nombre de la Iglesia Parroquial</label>
-            </div>
-          </div>
-          <div class="row margin">
-            <div class="input-field col s12">
-              <i class="mdi-social-person-outline prefix"></i>
-              <input id="direccion" name="direccion" type="text">
-              <label for="direccion" class="center-align">Direccion</label>
+              <label for="nombre">Nombre de la Iglesia Parroquial</label>
             </div>
           </div>
 
-          <div class="row margin">
-            <div class="input-field col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="mdi-social-person-outline prefix"></i>
+              <input id="direccion" name="direccion" type="text">
+              <label for="direccion" >Direccion</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
               <i class="mdi-social-person-outline prefix"></i>                
               <input id="jurisdiccion" name="jurisdiccion" type="text">
               <input type="hidden" name="jurisdiccion_id" id="jurisdiccion_id">
-              <label for="jurisdiccion" class="center-align">Jurisdiccion</label>
+              <label for="jurisdiccion" >Jurisdiccion</label>
             </div>
           </div>
+
           
+      
           <!--<div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-action-lock-outline prefix"></i>
@@ -54,16 +62,20 @@
           </div>-->
           <div class="row">
             <div class="input-field col s12">
-              <!--<a href="index.html" class="btn waves-effect waves-light col s12">Register Now</a>-->
-                <button type="submit" class="btn waves-effect waves-light col s12"><i class="icon-ok icon-white"></i> Registrar</button>
-            </div>
-            <div class="input-field col s12">
-              <p class="margin center medium-small sign-up">Already have an account? <a href="<?php echo base_url(); ?>login">ATRAS</a></p>
+              <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Registrar
+              <i class="mdi-content-send right"></i>
+              </button>
             </div>
           </div>
     </form>
+    </div>
+              </div>
+            </div>
+
+
   </div>
-</div>
+    </div>
+</section>
 <script type="text/javascript">
 
 $("#jurisdiccion").autocomplete({
