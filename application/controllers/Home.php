@@ -11,7 +11,16 @@ class Home extends CI_Controller{
 
   function index()
   {
-    $this->load->view('template/header');
+    $data['title'] = 'Inicio';
+    $this->load->view('template/header',$data);
+    $this->load->view('template/footer');
+  }
+
+  function priestCreate()
+  {
+    $data['title'] = 'Registro de Sacerdotes';
+    $this->load->view('template/header',$data);
+    $this->load->view('users/priestCreate');
     $this->load->view('template/footer');
 
   }

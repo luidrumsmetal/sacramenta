@@ -50,5 +50,47 @@ class Users_model extends CI_Model{
     }
     return FALSE;
   }
+  function autoCompleteCarnetPadre($data)
+  {
+    $this->db->select('*');
+    $this->db->limit(5);
+    $this->db->like('ci',$data);
+    $this->db->where('genero_id','1');
+    $query = $this->db->get('persona');
+    if ($query->num_rows() > 0) {
+      foreach ($query->result_array() as $row){
+          $row_set[] = array('label'=>'Carnet de Identidad: '.$row['ci'],'id'=>$row['id'], 'ci'=>$row['ci'], 'nombre'=>$row['nombre'].' '.$row['apellido']);
+      }
+      echo json_encode($row_set);
+    }
+  }
+  function autoCompleteCarnetMadre($data)
+  {
+    $this->db->select('*');
+    $this->db->limit(5);
+    $this->db->like('ci',$data);
+    $this->db->where('genero_id','2');
+    $query = $this->db->get('persona');
+    if ($query->num_rows() > 0) {
+      foreach ($query->result_array() as $row){
+          $row_set[] = array('label'=>'Carnet de Identidad: '.$row['ci'],'id'=>$row['id'], 'ci'=>$row['ci'], 'nombre'=>$row['nombre'].' '.$row['apellido']);
+      }
+      echo json_encode($row_set);
+    }
+  }
+  function autoCompleteCarnetPadrino($data)
+  {
+    $this->db->select('*');
+    $this->db->limit(5);
+    $this->db->like('ci',$data);
+    $this->db->where('genero_id','1');
+    $query = $this->db->get('persona');
+    if ($query->num_rows() > 0) {
+      foreach ($query->result_array() as $row){
+          $row_set[] = array('label'=>'Carnet de Identidad: '.$row['ci'],'id'=>$row['id'], 'ci'=>$row['ci'], 'nombre'=>$row['nombre'].' '.$row['apellido']);
+      }
+      echo json_encode($row_set);
+    }
+  }
 
 }

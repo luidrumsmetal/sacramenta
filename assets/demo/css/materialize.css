@@ -1,3 +1,10 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important;
 }
@@ -7586,7 +7593,7 @@ nav ul a span.badge {
 
 nav {
   color: #fff;
-  background-color: #00bcd4;
+  background-color: #ff6f00;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -8324,7 +8331,7 @@ button.btn-floating {
 
 .dropdown-content li > a, .dropdown-content li > span {
   font-size: 16px;
-  color: #ff4081;
+  color: #000;
   display: block;
   line-height: 22px;
   padding: 6.5px 16px;
@@ -9000,7 +9007,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field label {
-  color: #ddd;
+  color: #f57c00;
   position: absolute;
   top: 0.8rem;
   left: 0.75rem;
@@ -9014,7 +9021,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field label.active {
-  font-size: 0.8rem;
+  font-size: 1rem;
   -webkit-transform: translateY(-140%);
   -moz-transform: translateY(-140%);
   -ms-transform: translateY(-140%);
@@ -9026,6 +9033,7 @@ textarea.materialize-textarea + label:after {
   position: absolute;
   width: 3rem;
   font-size: 2rem;
+  color: #f6aa03;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -o-transition: color 0.2s;
@@ -9034,7 +9042,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field .prefix.active {
-  color: #fd8600;
+  color: #f6aa03;
 }
 
 .input-field .prefix ~ input,
@@ -9580,7 +9588,7 @@ input[type=checkbox]:not(:disabled) ~ .lever:active:after {
 .select-wrapper + label {
   position: absolute;
   top: -14px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 select {

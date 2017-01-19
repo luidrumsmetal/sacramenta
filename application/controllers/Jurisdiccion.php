@@ -15,15 +15,16 @@ class Jurisdiccion extends CI_Controller{
 
   }
 
-  function faithfulCreate()
+  function parroquiaCreate()
   {
     $data['msj_error'] = '';
-    $this->load->view('login/header');
-    $this->load->view('users/faithfulCreate',$data);
-    $this->load->view('login/footer');
+    $data['title'] = 'Registrar Parroquia';
+    $this->load->view('template/header',$data);
+    $this->load->view('parroquia/alta_parroquia',$data);
+    $this->load->view('template/footer');
   }
 
-  function ParroquiaRegistro()
+  function parroquiaRegistro()
   {
     $this->load->library('form_validation');
     $this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[2]|xss_clean');
@@ -38,34 +39,31 @@ class Jurisdiccion extends CI_Controller{
           'direccion' => $this->input->post('direccion'),
           'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
         );
-        if ($this->Users_model->personRegister('persona',$data) == TRUE)
-        {
-          $ci = $this->input->post('ci');
-          $personWithCi = $this->Users_model->getId($ci);
-          $persona_id = $personWithCi->id;
-            $data = array(
-              'email' => $this->input->post('email'),
-              'password' => $this->input->post('password'),
-              'tipoUsuario' => $tipoUsuario,
-              'persona_id' => $persona_id
-            );
 
+          $this->Jurisdiccion_model->addParroquia("parroquia",$data);
 
-        }
 
     }
-    $this->load->view('login/header');
-    $this->load->view('users/faithfulCreate');
-    $this->load->view('login/footer');
+    $this->load->view('template/header');
+    $this->load->view('parroquia/alta_parroquia');
+    $this->load->view('template/footer');
 
   }
   //  parte joel
-  function autoCompleteParroquia()
-  {
-      if (isset($_GET['term'])) {
-          $data = strtolower($_GET['term']);
-          $this->Jurisdiccion_model->autoCompleteParroquia($data);
-      }
-  }
+  public function autoCompleteParroquia(){
+        if (isset($_GET['term'])){
+            $q = strtolower($_GET['term']);
+            $this->Jurisdiccion_model->autoCompleteParroquia($q);
+        }
+    }
+
+
+    public function autoCompleteJurisdiccion(){
+        if (isset($_GET['term'])){
+            $q = strtolower($_GET['term']);
+           # $this->Jurisdiccion_model->autoCompleteJurisdiccion($q);
+            $this->Jurisdiccion_model->autoCompleteJurisdiccion($q);
+        }
+    }
   /// FIN -->
 }
