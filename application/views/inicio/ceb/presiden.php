@@ -74,6 +74,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           <li><a class="w3-padding-large" href="#">Link 1</a></li>
           <li><a class="w3-padding-large" href="#">Link 2</a></li>
           <li><a class="w3-padding-large" href="#">Link 3</a></li>
+          <li><a class="w3-padding-large" href="#">Link 4</a></li>         
           <li><a class="w3-padding-large" href="#">My Profile</a></li>
         </ul>
       </div>
@@ -104,8 +105,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           5. Sección de Pastoral Juvenil: Mons. Stanislaw Dowlaszewicz. Obispo Auxiliar de Santa Cruz.
           </font></p>
           </div>
-          <button onclick="myFunction('Demo2')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-arrow-down fa-fw w3-margin-right"></i> <b>Área de Pastoral Social Cáritas:</b></button>
-          <div id="Demo2" class="w3-accordion-content w3-container">
+          <button onclick="myFunction('Demo3')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-arrow-down fa-fw w3-margin-right"></i> <b>Área de Pastoral Social Cáritas:</b></button>
+          <div id="Demo3" class="w3-accordion-content w3-container">
           <font color="black"><p align="justify">
           1. Proyectos: Mons. Eugenio Coter (Presidente del Área). Obispo del Vicariato de Pando.<br>
           2. Sección de Salud: Mons. Cristobal Bialasik. Obispo de Oruro.<br>
@@ -113,7 +114,16 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           4. Sección de Movilidad Humana: Mons. Gonzalo del Castillo. Obispo Castrense Emérito.<br>
           5. Sección de Pastoral Penitenciaria: Mons. Luis Sainz. Arzobispo Auxiliar de Cochabamba.
           </font></p>
-          </div>  
+          </div>
+          <button onclick="myFunction('Demo4')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-arrow-down fa-fw w3-margin-right"></i> <b>Áreas de Educación :</b></button>
+          <div id="Demo4" class="w3-accordion-content w3-container">
+          <font color="black"><p align="justify">
+          1. Mons. Jesús Juárez Párraga, Arzobispo de Sucre. (Presidente)<br>
+          2. Mons.Fernando Bascopé. Obispo Castrense.<br>
+          3. Mons. Tito Solari. Arzobispo Emérito de Cochabamba.
+          </font></p>
+          </div>
+
           <br><br>       
         </div>      
       </div>
