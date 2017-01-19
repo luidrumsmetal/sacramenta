@@ -7593,7 +7593,7 @@ nav ul a span.badge {
 
 nav {
   color: #fff;
-  background-color: #ff6f00;
+  background-color: rgba(20, 23, 36, 1); /*propiedad de laura, no tocar excepto laura*/
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -7809,7 +7809,7 @@ nav .input-field label.active {
   padding: 30px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0); /*background login transparente*/
 }
 
 .card {
@@ -9007,7 +9007,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field label {
-  color: #f57c00;
+  color: #ddd;
   position: absolute;
   top: 0.8rem;
   left: 0.75rem;
@@ -9033,7 +9033,7 @@ textarea.materialize-textarea + label:after {
   position: absolute;
   width: 3rem;
   font-size: 2rem;
-  color: #f6aa03;
+  color: #000;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -o-transition: color 0.2s;
@@ -9042,7 +9042,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field .prefix.active {
-  color: #f6aa03;
+  color: #000;
 }
 
 .input-field .prefix ~ input,
