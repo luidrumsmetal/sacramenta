@@ -9007,7 +9007,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field label {
-  color: #ddd;
+  color: #ff8f00;
   position: absolute;
   top: 0.8rem;
   left: 0.75rem;
