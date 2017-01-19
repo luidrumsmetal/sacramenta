@@ -11,8 +11,13 @@ class Confirmacion extends CI_Controller{
   public function index()
   {
     
+  }
+
+  public function confirmacionCreate()
+  {
+    $data['title'] = 'Registro Confirmacion';
     $this->load->view('template/header');
-    $this->load->view('sacramentos/confirmacion/alta');
+    $this->load->view('sacramentos/confirmacion/confirmacionCreate');
     $this->load->view('template/footer');
     
   }
