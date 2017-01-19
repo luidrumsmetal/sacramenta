@@ -26,7 +26,7 @@ class Baptism extends CI_Controller{
   {
     $tipoUsuario = 'fiel';
     #$this->load->library('form_validation');
-    $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|required|min_length[5]|numeric|is_unique[persona.ci]|xss_clean');
+    $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|required|min_length[4]|numeric|is_unique[persona.ci]|xss_clean');
     $this->form_validation->set_rules('genero', 'Genero', 'trim|required|xss_clean');
     $this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[2]|xss_clean');
     $this->form_validation->set_rules('apellido', 'Apellido', 'trim|required|min_length[2]|xss_clean');
@@ -68,7 +68,7 @@ class Baptism extends CI_Controller{
             'fecha' => $this->input->post('fechabat'),
             'persona_id' => $persona_id,
             'parroquia_id' => $this->input->post('parroquia_id'),
-            'sacramento' => $sacramento,
+            'sacramento_id' => $sacramento,
             'ciudad_id' => $this->input->post('lugarNacimiento')
           );
           //registramos el certificado
@@ -76,7 +76,9 @@ class Baptism extends CI_Controller{
               $tipoPadre = 'Padre';
               $fecha = $this->input->post('fechabat');
               $certificateWithCi = $this->Sacrament_model->getCertificate($persona_id,$fecha);
-              $certificado_id = $certificateWithCi->id;
+              #echo $certificateWithCi;
+              #print_r($certificateWithCi);
+              $certificado_id = $certificateWithCi->idCertificado;
               $data = array(
                 'tipoPadre' => $tipoPadre,
                 'persona_id' => $this->input->post('carnetPadre_id'),
@@ -96,7 +98,7 @@ class Baptism extends CI_Controller{
                         'persona_id' => $this->input->post('carnetPadrino_id'),
                         'certificado_id' => $certificado_id
                       );
-                        if ($this->Sacramento_model->Register('certificadopadrino',$data) == TRUE) {
+                        if ($this->Sacrament_model->Register('certificadopadrino',$data) == TRUE) {
                           $this->session->set_flashdata('success','Bautizo registrado correctamente!');
                           redirect(base_url() . 'baptism/baptismCreate');
                         }
