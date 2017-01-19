@@ -150,16 +150,29 @@ class Users extends CI_Controller{
     }
 
   }
-  function autoCompleteTipoSacerdote(){
+  function autoCompleteCarnetPadre(){
       if (isset($_GET['term'])) {
           $data = strtolower($_GET['term']);
-          $this->Users_model->autoCompleteTipoSacerdote($data);
+          $this->Users_model->autoCompleteCarnetPadre($data);
       }
   }
+  function autoCompleteCarnetMadre(){
+      if (isset($_GET['term'])) {
+          $data = strtolower($_GET['term']);
+          $this->Users_model->autoCompleteCarnetMadre($data);
+      }
+  }
+  function autoCompleteCarnetPadrino(){
+      if (isset($_GET['term'])) {
+          $data = strtolower($_GET['term']);
+          $this->Users_model->autoCompleteCarnetPadre($data);
+      }
+  }
+
   function testare()
   {
     $this->load->helper('Testare_helper');
-    $ci = $this->input->get('ci');
+    $ci = $this->input->post('ci');
     testare($ci);
       /*if (isset($_GET['pars'])) {
         $pars = $_GET['pars'];

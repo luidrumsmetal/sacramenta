@@ -1,5 +1,5 @@
 <div id="login-page" class="row">
-  <div class="col s12 z-depth-4 card-panel teal">
+  <div class="col s12 z-depth-4">
       <?php if($this->session->flashdata('success')) {?>
           <div id="card-alert" class="card green">
             <div class="card-content white-text">

@@ -63,17 +63,11 @@
             <nav class="navbar-color">
                 <div class="nav-wrapper">
                     <ul class="left">
-                      <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="images/materialize-logo.png" alt="materialize logo"></a> <span class="logo-text">Materialize</span></h1></li>
+                      <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="<?php echo base_url(); ?>assets/demo/images/materialize-logo.png" alt="materialize logo"></a> <span class="logo-text">Materialize</span></h1></li>
                     </ul>
-                    <div class="header-search-wrapper hide-on-med-and-down">
-                        <i class="mdi-action-search"></i>
-                        <input type="text" name="Search" class="header-search-input z-depth-2" placeholder="Explore Materialize"/>
-                    </div>
+
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light translation-button"  data-activates="translation-dropdown"><img src="images/flag-icons/United-States.png" alt="USA" /></a>
-                        </li>
-                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen"><i class="mdi-action-settings-overscan"></i></a>
-                        </li>
+
                         <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown"><i class="mdi-social-notifications"><small class="notification-badge">5</small></i>
 
                         </a>
@@ -82,21 +76,6 @@
                         </li>
                     </ul>
                     <!-- translation-button -->
-                    <ul id="translation-dropdown" class="dropdown-content">
-                      <li>
-                        <a href="#!"><img src="images/flag-icons/United-States.png" alt="English" />  <span class="language-select">English</span></a>
-                      </li>
-                      <li>
-                        <a href="#!"><img src="images/flag-icons/France.png" alt="French" />  <span class="language-select">French</span></a>
-                      </li>
-                      <li>
-                        <a href="#!"><img src="images/flag-icons/China.png" alt="Chinese" />  <span class="language-select">Chinese</span></a>
-                      </li>
-                      <li>
-                        <a href="#!"><img src="images/flag-icons/Germany.png" alt="German" />  <span class="language-select">German</span></a>
-                      </li>
-
-                    </ul>
                     <!-- notifications-dropdown -->
                     <ul id="notifications-dropdown" class="dropdown-content">
                       <li>
@@ -138,11 +117,10 @@
          <li class="user-details orange lighten-1">
          <div class="row">
              <div class="col col s4 m4 l4">
-                 <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                 <img src="<?php echo base_url(); ?>assets/demo/images/admin.png" alt="" class="circle responsive-img valign profile-image">
              </div>
              <div class="col col s8 m8 l8">
-
-                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
+                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">Joel Rojas<i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
                      <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
                      </li>
                      <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
@@ -174,7 +152,7 @@
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canonico</a>
                      <div class="collapsible-body" style="">
                          <ul>
-                             <li><a href="<?php echo base_url(); ?>baptism"><i class="mdi-social-whatshot"></i>Bautizo</a>
+                             <li><a href="<?php echo base_url(); ?>baptism/baptismCreate"><i class="mdi-social-whatshot"></i>Bautizo</a>
                              </li>
                              <li><a href="css-animations.html"><i class="mdi-action-accessibility"></i>P. Comunion</a>
                              </li>
@@ -259,16 +237,7 @@
          <li><a href="changelogs.html"><i class="mdi-action-swap-vert-circle"></i> Changelogs</a>
          </li>
          <li class="li-hover"><div class="divider"></div></li>
-         <li class="li-hover"><p class="ultra-small margin more-text">Daily Sales</p></li>
-         <li class="li-hover">
-             <div class="row">
-                 <div class="col s12 m12 l12">
-                     <div class="sample-chart-wrapper">
-                         <div class="ct-chart ct-golden-section" id="ct2-chart"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-labels"><foreignObject style="overflow: visible;" x="45" y="105" width="21" height="30"><span class="ct-label ct-horizontal" xmlns="http://www.w3.org/1999/xhtml">1</span></foreignObject><foreignObject style="overflow: visible;" x="66" y="105" width="21" height="30"><span class="ct-label ct-horizontal" xmlns="http://www.w3.org/1999/xhtml">2</span></foreignObject><foreignObject style="overflow: visible;" x="87" y="105" width="21" height="30"><span class="ct-label ct-horizontal" xmlns="http://www.w3.org/1999/xhtml">3</span></foreignObject><foreignObject style="overflow: visible;" x="108" y="105" width="21" height="30"><span class="ct-label ct-horizontal" xmlns="http://www.w3.org/1999/xhtml">4</span></foreignObject><foreignObject style="overflow: visible;" x="129" y="105" width="21" height="30"><span class="ct-label ct-horizontal" xmlns="http://www.w3.org/1999/xhtml">5</span></foreignObject><foreignObject style="overflow: visible;" x="150" y="105" width="21" height="30"><span class="ct-label ct-horizontal" xmlns="http://www.w3.org/1999/xhtml">6</span></foreignObject><foreignObject style="overflow: visible;" x="171" y="105" width="21" height="30"><span class="ct-label ct-horizontal" xmlns="http://www.w3.org/1999/xhtml">7</span></foreignObject><foreignObject style="overflow: visible;" x="192" y="105" width="21" height="30"><span class="ct-label ct-horizontal" xmlns="http://www.w3.org/1999/xhtml">8</span></foreignObject><foreignObject style="overflow: visible;" y="85" x="-5" height="21.11111111111111" width="40"><span class="ct-label ct-vertical" xmlns="http://www.w3.org/1999/xhtml">0</span></foreignObject><foreignObject style="overflow: visible;" y="67.72727272727272" x="-5" height="21.11111111111111" width="40"><span class="ct-label ct-vertical" xmlns="http://www.w3.org/1999/xhtml">2</span></foreignObject><foreignObject style="overflow: visible;" y="50.45454545454545" x="-5" height="21.11111111111111" width="40"><span class="ct-label ct-vertical" xmlns="http://www.w3.org/1999/xhtml">4</span></foreignObject><foreignObject style="overflow: visible;" y="33.18181818181818" x="-5" height="21.11111111111111" width="40"><span class="ct-label ct-vertical" xmlns="http://www.w3.org/1999/xhtml">6</span></foreignObject><foreignObject style="overflow: visible;" y="15.909090909090907" x="-5" height="21.11111111111111" width="40"><span class="ct-label ct-vertical" xmlns="http://www.w3.org/1999/xhtml">8</span></foreignObject></g><g class="ct-grids"><line x1="45" x2="45" y1="5" y2="100" class="ct-grid ct-horizontal"></line><line x1="66" x2="66" y1="5" y2="100" class="ct-grid ct-horizontal"></line><line x1="87" x2="87" y1="5" y2="100" class="ct-grid ct-horizontal"></line><line x1="108" x2="108" y1="5" y2="100" class="ct-grid ct-horizontal"></line><line x1="129" x2="129" y1="5" y2="100" class="ct-grid ct-horizontal"></line><line x1="150" x2="150" y1="5" y2="100" class="ct-grid ct-horizontal"></line><line x1="171" x2="171" y1="5" y2="100" class="ct-grid ct-horizontal"></line><line x1="192" x2="192" y1="5" y2="100" class="ct-grid ct-horizontal"></line><line y1="100" y2="100" x1="45" x2="213" class="ct-grid ct-vertical"></line><line y1="82.72727272727272" y2="82.72727272727272" x1="45" x2="213" class="ct-grid ct-vertical"></line><line y1="65.45454545454545" y2="65.45454545454545" x1="45" x2="213" class="ct-grid ct-vertical"></line><line y1="48.18181818181818" y2="48.18181818181818" x1="45" x2="213" class="ct-grid ct-vertical"></line><line y1="30.909090909090907" y2="30.909090909090907" x1="45" x2="213" class="ct-grid ct-vertical"></line></g><g class="ct-series ct-series-a"><path d="M45,100L45,56.818C48.5,51.061,59,25.152,66,22.273C73,19.394,80,38.106,87,39.545C94,40.985,101,28.03,108,30.909C115,33.788,122,49.621,129,56.818C136,64.015,143,74.091,150,74.091C157,74.091,164,58.258,171,56.818C178,55.379,188.5,64.015,192,65.455L192,100" class="ct-area" values="5,9,7,8,5,3,5,4"></path><path d="M45,56.818C48.5,51.061,59,25.152,66,22.273C73,19.394,80,38.106,87,39.545C94,40.985,101,28.03,108,30.909C115,33.788,122,49.621,129,56.818C136,64.015,143,74.091,150,74.091C157,74.091,164,58.258,171,56.818C178,55.379,188.5,64.015,192,65.455" class="ct-line" values="5,9,7,8,5,3,5,4"></path><line x1="45" y1="56.81818181818182" x2="45.01" y2="56.81818181818182" class="ct-point" value="5"></line><line x1="66" y1="22.272727272727266" x2="66.01" y2="22.272727272727266" class="ct-point" value="9"></line><line x1="87" y1="39.54545454545455" x2="87.01" y2="39.54545454545455" class="ct-point" value="7"></line><line x1="108" y1="30.909090909090907" x2="108.01" y2="30.909090909090907" class="ct-point" value="8"></line><line x1="129" y1="56.81818181818182" x2="129.01" y2="56.81818181818182" class="ct-point" value="5"></line><line x1="150" y1="74.0909090909091" x2="150.01" y2="74.0909090909091" class="ct-point" value="3"></line><line x1="171" y1="56.81818181818182" x2="171.01" y2="56.81818181818182" class="ct-point" value="5"></line><line x1="192" y1="65.45454545454545" x2="192.01" y2="65.45454545454545" class="ct-point" value="4"></line></g></svg></div>
-                     </div>
-                 </div>
-             </div>
-         </li>
+
      <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 926px; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 659px;"></div></div></ul>
      <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
      </aside>

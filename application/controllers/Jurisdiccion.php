@@ -18,7 +18,8 @@ class Jurisdiccion extends CI_Controller{
   function parroquiaCreate()
   {
     $data['msj_error'] = '';
-    $this->load->view('template/header');
+    $data['title'] = 'Registrar Parroquia';
+    $this->load->view('template/header',$data);
     $this->load->view('parroquia/alta_parroquia',$data);
     $this->load->view('template/footer');
   }
@@ -40,7 +41,7 @@ class Jurisdiccion extends CI_Controller{
         );
 
           $this->Jurisdiccion_model->addParroquia("parroquia",$data);
-        
+
 
     }
     $this->load->view('template/header');
