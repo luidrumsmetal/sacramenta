@@ -114,21 +114,7 @@
                         <input placeholder="Ingrese el numero" id="numeroOne" name="numeroOne" type="password">
                         <label for="numero" class="active"><b>Numero</b></label>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="input-field col s4">
-                        <input placeholder="Ingrese la oficialia"id="oficialiaTwo" name="oficialiaTwo" type="text">
-                        <label for="oficialia" class=""><b>Oficialia</b></label>
-                      </div>
-                      <div class="input-field col s4">
-                        <input placeholder="Ingrese el libro"id="libroTwo" name="libroTwo" type="password">
-                        <label for="libro"><b>Libro</b></label>
-                      </div>
-                      <div class="input-field col s4">
-                        <input placeholder="Ingrese la pagina"id="paginaTwo" name="paginaTwo" type="password">
-                        <label for="pagina"><b>Pagina</b></label>
-                      </div>
-                    </div>
+                    </div><br>
                     <div class="row">
                     <!--  <h4 class="header2">Informacion de Familiares</h4>--><br>
 
