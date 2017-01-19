@@ -8,7 +8,7 @@ class Sacrament_model extends CI_Model{
     parent::__construct();
     //Codeigniter : Write Less Do More
   }
-  protected function Register($table, $data)
+  public function Register($table, $data)
   {
     $this->db->insert($table, $data);
     if ($this->db->affected_rows() == '1')
@@ -24,7 +24,7 @@ class Sacrament_model extends CI_Model{
     $this->db->where('persona_id', $persona_id);
     $consult = $this->db->get('certificado');
       if ($consult->num_rows()>0) {
-        return $query->row();
+        return $consult->row();
       }
       else
       {
