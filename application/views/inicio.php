@@ -124,21 +124,21 @@
 				</div>
 
 				<div class="item col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
-					<img src="<?php echo base_url(); ?>assets/inicio/images/team1.jpg" width="300" height="200">
+					<a href="<?php echo base_url(); ?>Representados"><img src="<?php echo base_url(); ?>assets/inicio/images/team1.jpg" width="300" height="200"></a>
 						<h5>¿QUIÉNES ESTÁN REPRESENTADOS?</h5>
 						<hr>
 						<p><font color="black">El Obispo representa al pueblo de Dios, a todos los católicos y católicas del país.</font></p>
 				</div>
 
 				<div class="item col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
-					<img src="<?php echo base_url(); ?>assets/inicio/images/organization.jpg" width="300" height="200">
+					<a href="<?php echo base_url(); ?>Organization"><img src="<?php echo base_url(); ?>assets/inicio/images/organization.jpg" width="300" height="200"></a>
 						<h5>¿CÓMO ESTA ORGANIZADA?</h5>
 						<hr>
 						<p><font color="black">Se basa en una estructura en la que muestra las relaciones entre sus diferentes partes y la función de cada una de ellas.</font></p>
 				</div>
 
 				<div class="item col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
-					<img src="<?php echo base_url(); ?>assets/inicio/images/priest.jpg" width="300" height="200">
+					<a href="<?php echo base_url(); ?>Asamblea"><img src="<?php echo base_url(); ?>assets/inicio/images/priest.jpg" width="300" height="200"></a>
 						<h5>¿QUÉ SIGNIFICA LA ASAMBLEA DE OBISPOS?</h5>
 						<hr>
 						<p><font color="black">La Asamblea es un espacio de animación pastoral y de reflexión a la luz de la fe.</font></p>

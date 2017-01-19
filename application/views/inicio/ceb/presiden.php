@@ -65,7 +65,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
       </div>
 
       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        <h4><b>Vocales de Área y su responsabilidad</b></h4><br>
+        <h4><b>Vocales de Área y su responsabilidad</b></h4><hr>
       <br>
 
       <!-- Navbar on small screens -->
@@ -74,6 +74,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           <li><a class="w3-padding-large" href="#">Link 1</a></li>
           <li><a class="w3-padding-large" href="#">Link 2</a></li>
           <li><a class="w3-padding-large" href="#">Link 3</a></li>
+          <li><a class="w3-padding-large" href="#">Link 4</a></li>         
           <li><a class="w3-padding-large" href="#">My Profile</a></li>
         </ul>
       </div>
@@ -104,8 +105,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           5. Sección de Pastoral Juvenil: Mons. Stanislaw Dowlaszewicz. Obispo Auxiliar de Santa Cruz.
           </font></p>
           </div>
-          <button onclick="myFunction('Demo2')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-arrow-down fa-fw w3-margin-right"></i> <b>Área de Pastoral Social Cáritas:</b></button>
-          <div id="Demo2" class="w3-accordion-content w3-container">
+          <button onclick="myFunction('Demo3')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-arrow-down fa-fw w3-margin-right"></i> <b>Área de Pastoral Social Cáritas:</b></button>
+          <div id="Demo3" class="w3-accordion-content w3-container">
           <font color="black"><p align="justify">
           1. Proyectos: Mons. Eugenio Coter (Presidente del Área). Obispo del Vicariato de Pando.<br>
           2. Sección de Salud: Mons. Cristobal Bialasik. Obispo de Oruro.<br>
@@ -113,11 +114,132 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           4. Sección de Movilidad Humana: Mons. Gonzalo del Castillo. Obispo Castrense Emérito.<br>
           5. Sección de Pastoral Penitenciaria: Mons. Luis Sainz. Arzobispo Auxiliar de Cochabamba.
           </font></p>
-          </div>  
+          </div>
+          <button onclick="myFunction('Demo4')" class="w3-btn-block w3-theme-l1 w3-left-align"><i class="fa fa-arrow-down fa-fw w3-margin-right"></i> <b>Áreas de Educación :</b></button>
+          <div id="Demo4" class="w3-accordion-content w3-container">
+          <font color="black"><p align="justify">
+          1. Mons. Jesús Juárez Párraga, Arzobispo de Sucre. (Presidente)<br>
+          2. Mons.Fernando Bascopé. Obispo Castrense.<br>
+          3. Mons. Tito Solari. Arzobispo Emérito de Cochabamba.
+          </font></p>
+          </div>
+
           <br><br>       
         </div>      
       </div>
       </div>
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Gran Canciller de la Universidad Católica Boliviana</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">1. Mons. Mons. Jorge Herbas Balderrama, Obispo Prelado de Aiquile<br></font> </p>
+          <br><br> 
+      </div>
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Consejo de asuntos económicos de la CEB</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">Presidente: Mons. Ricardo Centellas Guzman. Obispo de Potosí, Presidente de la CEB.<br>
+          1er Vocal del Consejo de Asuntos Económicos: Mons. Carlos Bürgler. Obispo del Vicariato de Reyes.<br>
+          2do Vocal de la Hermandad: Mons. René Leigue Cesarí, Obispo Auxiliar de Santa Cruz. </font> </p>
+          <br><br> 
+      </div>   
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Hermandad</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          Presidente: Mons. Eugenio Scarpellini Mazolleni, Obispo de la Diócesis de El Alto.<br>
+          1er Vocal de la Hermandad: Mons. Jesús Pérez Rodríguez, Arzobispo Emérito de Sucre.<br>
+          2do Vocal del Consejo de Asuntos Económicos: Mons. Adolfo Bittschi, Obispo Auxiliar de Sucre </font> </p>
+          <br><br> 
+      </div> 
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Consejo Episcopal Permanente</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          1. Presidente: Mons. Ricardo Centellas Guzmán, Obispo de Potosí.<br>
+          2. Vicepresidente: Mons. Oscar Aparicio Céspedes, Arzobispo de Cochabamba.<br>
+          3. Secretario General: Mons. Aurelio Pesoa, Obispo Auxiliar de La Paz. <br>
+          4. Presidente del Consejo de Asuntos Económicos: Mons. Eugenio Scarpellini, Obispo de la Diócesis de El Alto.<br>
+          5. Obispo Representante de las Áreas: Mons. Jesús Juárez Párraga, Arzobispo de Sucre.<br>
+          6. Vocales:<br>
+              - Primer Vocal: Representante de los Obispos, Vicarios Apostólicos: Mons. Antonio Reimann, Obispo del Vicariato de Ñuflo de Chavez.<br>
+              - Segundo Vocal: Mons. Sergio Gualberti Calandrina, Arzobispo de Santa Cruz.</font> </p>
+          <br><br> 
+      </div>  
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Fundación Jubileo</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          1. Presidente: Mons. Edmundo Abastoflor Montero, Arzobispo de La Paz.</font> </p>
+          <br><br> 
+      </div>  
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Fundación Vida y Familia</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          1. Presidente: Mons. Cristóbal Bialasik, svd, Obispo de Oruro.</font> </p>
+          <br><br> 
+      </div> 
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Consejo de la facultad de teología San Pablo</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          Presidente: Mons. Jorge Herbas Balderrama, ofm, Obispo Prelado de Aiquile.
+          1er Vocal: Mons. Robert Flock, Obispo Auxiliar de Cochabamba.<br>
+          2do Vocal: Mons. Percy Galván Flores, Obispo Prelado de Corocoro.<br>
+          3er Vocal: Mons. Fernando Bascopé Müller, Obispo Castrense. </font> </p>
+          <br><br> 
+      </div>  
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Delegado al CELAM</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          1. Delegado titular al CELAM: Mons. Aurelio Pesoa Ribera, Obispo Auxiliar de la Arquidiócesis de La Paz.<Br>
+          2. Secretario General de la CEB.<Br>
+          3. Delegado sustituto al CELAM: Mons. Edmundo Abastoflor Montero, Arzobispo de La Paz.</font> </p>
+          <br><br> 
+      </div> 
+
+      <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Representantes de la CEB asamblea de socios de la sociedad de responsabilidad limitada (SOABIA)</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          1. Mons. Adolfo Bittschi, Obispo Auxiliar de Sucre.</font> </p>
+          <br><br> 
+      </div> 
+
+       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Presidente del directorio del Foncresol</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          1. Presidente: Mons. Eugenio Coter, Obispo Vicario de Pando. </font> </p>
+          <br><br> 
+      </div>  
+
+       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Fundación PAX </b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          1 Presidente: Mons. Edmundo Abastoflor Montero, Arzobispo de La Paz.<br> 
+          2. Vicepresidente: Mons. Adolfo Bittschi, Obispo Auxiliar de Sucre.<br> 
+          3. Vocal: Mons. Gonzalo del Castillo, Obispo Emérito Castrense.</font> </p>
+          <br><br> 
+      </div> 
+                                            
+       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
+        <h4><b>Presidente de escuelas de Cristo</b></h4><br>
+        <hr class="w3-clear">
+          <font color="black"><p align="justify">
+          1. Presidente: Mons. Jorge Saldías, Obispo Auxiliar de La Paz. </font> </p>
+          <br><br> 
+      </div> 
 
     </div>     
     <!-- End Middle Column -->
@@ -127,7 +249,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
     <div class="w3-col m2">
       <div class="w3-card-2 w3-round w3-white w3-center">
         <div class="w3-container">
-          <p>Upcoming Events:</p>
+          <p></p>
           <img src="<?php echo base_url(); ?>assets/inicio/images/iglesia.jpg" style="width:100%;">
           <br><br>
           <p><button class="w3-btn w3-btn-block w3-theme-l4"><a href="http://www.iglesiaviva.net/" target="_blank" class="smoothScroll">Más sobre la CEB</button></p>

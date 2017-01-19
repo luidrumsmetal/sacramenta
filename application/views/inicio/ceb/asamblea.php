@@ -40,7 +40,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           <div class="w3-card-2 w3-round w3-white">
             <div class="w3-container w3-padding">
               <h6 class="w3-opacity">Conferencia Episcopal Boliviana</h6>
-              <img src="<?php echo base_url(); ?>assets/inicio/images/bg5.jpg" > 
+              <img src="<?php echo base_url(); ?>assets/inicio/images/bg3.jpg" > 
               <br>
               <br>
             </div>
@@ -50,11 +50,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
 
       
       <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-        <h4>¿Qué es la CEB?</h4><br>
+        <h4>¿Qué significa la Asamblea de Obispos para el país y para la Iglesia?</h4><br>
         <hr class="w3-clear">
-        <font color="black"><p align="center">CEB Conferencia Episcopal Boliviana por su siglas. </font> </p> <br>
-          <font color="black"><p align="justify">La Conferencia Episcopal Boliviana es el organismo colegiado de todos los Obispos de Bolivia. 
-          Se reúne en Asambleas periódicas dos veces por año y su objetivo es coordinar y animar el trabajo pastoral de la Iglesia Católica en Bolivia. Al mismo tiempo mantiene su mirada atenta en la realidad nacional a fin de llevar a cabo su misión de manera mas comprometida y verdadera </font> </p>
+          <font color="black"><p align="justify">La Asamblea es un espacio de animación pastoral y de reflexión a la luz de la fe, a fin de que la Iglesia Católica en el país sea cada vez más fiel a la misión encomendada por su fundador Jesucristo: el anuncio del Evangelio y la liberación integral de la persona. <br>
+          Durante las Asambleas se evalúa la labor pastoral de la Iglesia en distintos ámbitos y niveles y también se brinda una palabra orientadora a la sociedad boliviana frente a la compleja realidad social: económica, política, cultural, palabra que procura estar siempre inspirada en los principios evangélicos.<Br> 
+          En la Asamblea de Obispos también participan los representantes de los otros sectores del Pueblo de Dios, los presidentes de: <br>
+
+          1. La Conferencia Boliviana de Religiosos y Religiosas - CBR <Br>
+
+          2. La Conferencia Boliviana del Clero Diocesano - CBCD <br>
+
+          3. El Consejo Nacional de Laicos - CNL</font> </p>
           <br><br> 
       </div>
    
