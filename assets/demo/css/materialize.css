@@ -8821,7 +8821,7 @@ input[type=search]:disabled,
 input[type=search][readonly="readonly"],
 textarea.materialize-textarea:disabled,
 textarea.materialize-textarea[readonly="readonly"] {
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0);
   border-bottom: 1px dotted rgba(0, 0, 0, 0.26);
 }
 
@@ -8846,7 +8846,7 @@ input[type=search]:disabled + label,
 input[type=search][readonly="readonly"] + label,
 textarea.materialize-textarea:disabled + label,
 textarea.materialize-textarea[readonly="readonly"] + label {
-  color: rgba(0, 0, 0, 0.26);
+  color: #ff8f00;
 }
 
 input[type=text]:focus:not([readonly]),
@@ -9011,7 +9011,7 @@ textarea.materialize-textarea + label:after {
   position: absolute;
   top: 0.8rem;
   left: 0.75rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
   cursor: text;
   -webkit-transition: 0.2s ease-out;
   -moz-transition: 0.2s ease-out;
@@ -9021,7 +9021,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field label.active {
-  font-size: 1rem;
+  font-size: 1.3rem;
   -webkit-transform: translateY(-140%);
   -moz-transform: translateY(-140%);
   -ms-transform: translateY(-140%);
@@ -9588,7 +9588,7 @@ input[type=checkbox]:not(:disabled) ~ .lever:active:after {
 .select-wrapper + label {
   position: absolute;
   top: -14px;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 select {
