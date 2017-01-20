@@ -168,21 +168,18 @@ class Users extends CI_Controller{
           $this->Users_model->autoCompleteCarnetPadre($data);
       }
   }
+  function autoCompleteCarnetCommunion(){
+      if (isset($_GET['term'])) {
+          $data = strtolower($_GET['term']);
+          $this->Users_model->autoCompleteCarnetCommunion($data);
+      }
+  }
 
   function testare()
   {
     $this->load->helper('Testare_helper');
     $ci = $this->input->post('ci');
     testare($ci);
-      /*if (isset($_GET['pars'])) {
-        $pars = $_GET['pars'];
-        if ($this->Users_model->testare($pars) == TRUE) {
-          echo "disponible";
-        }
-        else {
-          echo "no disponible";
-        }
-      }*/
   }
 
 }
