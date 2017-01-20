@@ -147,6 +147,10 @@
          </li>
          <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-social-people"></i> Buscar Casados</a>
          </li>
+         <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/listParroquia" class="waves-effect waves-cyan"><i class="mdi-content-content-paste "></i> Lista Parroquia</a>
+         </li>
+         <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/parroquiaCreate" class="waves-effect waves-cyan"><i class="mdi-social-location-city"></i> Registrar Parroquia</a>
+         </li>
          <li class="no-padding">
              <ul class="collapsible collapsible-accordion">
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canonico</a>
