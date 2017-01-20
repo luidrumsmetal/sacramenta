@@ -108,4 +108,21 @@ class Users_model extends CI_Model{
 
   }
 
+  function autoCompleteCarnetConfirmacion($data)
+  {
+    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c WHERE a.ci = '$data' AND c.idSacramento = '2' AND a.id = b.persona_id AND b.sacramento_id = c.idSacramento");
+    if ($query->num_rows() > 0 ) {
+      foreach ($query->result_array() as $row){
+          $row_set[] = array('label'=>'Carnet de Identidad: '.$row['ci'],'id'=>$row['id'], 'ci'=>$row['ci'], 'nombre'=>$row['nombre'], 'apellido'=>$row['apellido'],'fechanac'=>$row['fechanacimiento']);
+      }
+      echo json_encode($row_set);
+    }
+    else {
+      $row_set[] = array('label'=>'Carnet de identidad no valido');
+      echo json_encode($row_set);
+    }
+
+  }
+
+
 }
