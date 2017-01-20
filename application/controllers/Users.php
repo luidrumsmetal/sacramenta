@@ -175,6 +175,13 @@ class Users extends CI_Controller{
       }
   }
 
+  function autoCompleteCarnetConfirmacion(){
+      if (isset($_GET['term'])) {
+          $data = strtolower($_GET['term']);
+          $this->Users_model->autoCompleteCarnetConfirmacion($data);
+      }
+  }
+
   function testare()
   {
     $this->load->helper('Testare_helper');
