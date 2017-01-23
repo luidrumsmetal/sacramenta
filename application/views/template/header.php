@@ -158,7 +158,7 @@
                              </li>
                              <li><a href="<?php echo base_url(); ?>confirmacion"><i class="mdi-action-wallet-giftcard"></i>Confirmacion</a>
                              </li>
-                             <li><a href="css-shadow.html"><i class="mdi-action-favorite"></i>Matrimonio</a>
+                             <li><a href="<?php echo base_url(); ?>matrimonio"><i class="mdi-action-favorite"></i>Matrimonio</a>
                              </li>
                          </ul>
                      </div>
