@@ -34,7 +34,7 @@
 
                   <div class="nav-wrapper">
                     <div class="col s12">
-                    <h1 class="brand-logo center">Registro Canonico <small>Matrimonio</small></h1>
+                    <h1 class="brand-logo center">Matrimonio</h1>
                     </div>
                   </div>
                 </nav>
@@ -43,12 +43,15 @@
                   <form class="col s12" id="formWedding" method="post" action="<?php echo base_url(); ?>matrimonio/matrimonioRegister">
 
                     <div class="row">
-                      <div class="input-field col s4">
+
+                      <div class="input-field col s6">
+                        <i class="mdi-action-credit-card prefix"></i>
                         <input placeholder="Carnet del esposo" id="carnetEsposo" name="carnetEsposo" type="text"><div id="msgUsuario"></div>
                         <input id="carnetEsposo_id" name="carnetEsposo_id" type="hidden">
                         <label for="carnetEsposo" class="active"><b>Carnet del esposo</b></label>
                       </div>
-                      <div class="input-field col s4">
+                      <div class="input-field col s6">
+                        <i class="mdi-action-credit-card prefix"></i>
                         <input placeholder="Carnet de la esposa" id="carnetEsposa" name="carnetEsposa" type="text"><div id="msgUsuario"></div>
                         <input id="carnetEsposa_id" name="carnetEsposa_id" type="hidden">
                         <label for="carnetEsposa" class="active"><b>Carnet de la esposa</b></label>
@@ -57,18 +60,18 @@
                     </div>
 
                     <div class="row">
-                      <div class="input-field col s4">
+                      <div class="input-field col s6">
+                        <i class="mdi-social-person prefix"></i>
                         <input placeholder="" id="nombreEsposo" name="nombreEsposo" type="text">
                         <label for="nombreEsposo" class="active"><b>Nombre de esposo</b></label>
                       </div>
-                      <div class="input-field col s4">
+
+                      <div class="input-field col s6">
+                        <i class="mdi-social-person-outline prefix"></i>
                         <input placeholder="" id="nombreEsposa" name="nombreEsposa" type="text">
                         <label for="nombreEsposa" class="active"><b>Nombre de la esposa</b></label>
                       </div>
-                      <div class="input-field col s4">
-                              <input placeholder="" id="fechacom" name="fechacom" type="date">
-                              <label for="first_name" class="active"><b>Fecha de Matrimonio</b></label>
-                        </div>
+
                       
                     </div><br>
 
@@ -78,11 +81,23 @@
                       
                     <div class="row">
                       <div class="input-field col s6">
+                        <i class="mdi-action-home prefix"></i>
                         <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text">
                         <input id="parroquia_id" name="parroquia_id" type="hidden">
                         <label for="parroquia" class="active"><b>Parroquia</b></label>
                       </div>
                       <div class="input-field col s6">
+                        <i class="mdi-action-event prefix"></i>
+                        <input placeholder="" id="fechacom" name="fechacom" type="date">
+                        <label for="first_name" class="active"><b>Fecha de Matrimonio</b></label>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s0">
+                          <i class="mdi-maps-map prefix"></i>&nbsp &nbsp
+                        </div>
+                      <div class="input-field col s11">
             				    <select id="lugarNacimiento" name="lugarNacimiento">
             				      <option value="" disabled selected>Selecccione un lugar</option>
             				      <option value="1">La Paz</option>
@@ -101,81 +116,109 @@
                   <!--  <h4 class="header2">Informacion de Registro</h4>--><br>
                     <div class="row">
                       <div class="input-field col s4">
+                        <i class="mdi-action-book prefix"></i>
                         <input placeholder="Ingrese el libro" id="libroOne" name="libroOne" type="text">
                         <label for="libro" class="active"><b>Libro</b></label>
                       </div>
                       <div class="input-field col s4">
+                        <i class="mdi-action-find-in-page prefix"></i>
                         <input placeholder="Ingrese el pagina" id="paginaOne" name="paginaOne" type="text">
-                        <label for="pagina" class="active"><b>Pagina</b></label>
+                        <label for="pagina" class="active"><b>Página</b></label>
                       </div>
                       <div class="input-field col s4">
+                        <i class="mdi-editor-format-list-numbered prefix"></i>
                         <input placeholder="Ingrese el numero" id="numeroOne" name="numeroOne" type="text">
-                        <label for="numero" class="active"><b>Numero</b></label>
+                        <label for="numero" class="active"><b>Número</b></label>
                       </div>
                     </div>
                     <br>
 
                     <div class="row">
                       <div class="input-field col s4">
+                        <i class="mdi-maps-store-mall-directory prefix"></i>
                         <input placeholder="Ingrese la Oficialia" id="oficialia" name="oficialia" type="text">
-                        <label for="oficialia" class="active"><b>Oficialia</b></label>
+                        <label for="oficialia" class="active"><b>Oficialía</b></label>
                       </div>
                       <div class="input-field col s4">
+                        <i class="mdi-editor-border-color prefix"></i>
                         <input placeholder="Ingrese el partido" id="partida" name="partida" type="text">
                         <label for="partida" class="active"><b>Partida</b></label>
                       </div>
                       <div class="input-field col s4">
+                        <i class="mdi-editor-format-list-numbered prefix"></i>
                         <input placeholder="Ingrese el numero" id="numeroOf" name="numeroOf" type="text">
-                        <label for="numeroOf" class="active"><b>Numero</b></label>
+                        <label for="numeroOf" class="active"><b>Número</b></label>
                       </div>
                     </div><br>
 
 
                     <div class="row">
                     <!--  <h4 class="header2">Informacion de Familiares</h4>--><br>
-                      <div class="input-field col s3">
+                      <div class="input-field col s6">
+                        <i class="mdi-action-credit-card prefix"></i>
                         <input placeholder="Ingrese el carnet de identidad" id="carnetPadrino" name="carnetPadrino" type="text">
                         <input placeholder="Ingrese el carnet de identidad" id="carnetPadrino_id" name="carnetPadrino_id" type="hidden">
                         <label for="carnetPadre" class="active"><b>CI del Padrino (Esposo)</b></label>
                       </div>
-                      <div class="input-field col s3">
+                      <div class="input-field col s6">
+                        <i class="mdi-social-person prefix"></i>
+                        <input placeholder="" id="nombrePadrino" name="nombrePadrino" type="text">
+                        <label for="nombrePadrino" class="active"><b>Nombre del Padrino (Esposo)</b></label>
+                      </div>
+
+                    </div>
+                    <br>
+										<div class="row">
+
+                      <div class="input-field col s6">
+                        <i class="mdi-action-credit-card prefix"></i>
                         <input placeholder="Ingrese el carnet de identidad" id="carnetMadrina" name="carnetMadrina" type="text">
                         <input placeholder="Ingrese el carnet de identidad" id="carnetMadrina_id" name="carnetMadrina_id" type="hidden">
                         <label for="carnetMadre" class="active"><b>CI de la Madrina (Esposo)</b></label>
                       </div>
-                      <div class="input-field col s3">
+
+                      <div class="input-field col s6">
+                        <i class="mdi-social-person prefix"></i>
+                        <input placeholder="" id="nombreMadrina" name="nombreMadrina" type="text">
+                        <label for="nombreMadrina" class="active"><b>Nombre de la Madrina (Esposo)</b></label>
+                      </div>
+										</div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                        <i class="mdi-action-credit-card prefix"></i>
                         <input placeholder="Ingrese el carnet de identidad" id="carnetPadrino1" name="carnetPadrino1" type="text">
                         <input placeholder="Ingrese el carnet de identidad" id="carnetPadrino1_id" name="carnetPadrino1_id" type="hidden">
                         <label for="carnetPadre" class="active"><b>CI del Padrino (Esposa)</b></label>
                       </div>
-                      <div class="input-field col s3">
-                        <input placeholder="Ingrese el carnet de identidad" id="carnetMadrina1" name="carnetMadrina1" type="text">
-                        <input placeholder="Ingrese el carnet de identidad" id="carnetMadrina1_id" name="carnetMadrina1_id" type="hidden">
-                        <label for="carnetMadre" class="active"><b>CI de la Madrina (Esposa)</b></label>
-                      </div>
-                    </div>
-										<div class="row">
-                      <div class="input-field col s3">
-                        <input placeholder="" id="nombrePadrino" name="nombrePadrino" type="text">
-                        <label for="nombrePadrino" class="active"><b>Nombre del Padrino (Esposo)</b></label>
-                      </div>
-                      <div class="input-field col s3">
-                        <input placeholder="" id="nombreMadrina" name="nombreMadrina" type="text">
-                        <label for="nombreMadrina" class="active"><b>Nombre de la Madrina (Esposo)</b></label>
-                      </div>
-                      <div class="input-field col s3">
+
+                      <div class="input-field col s6">
+                        <i class="mdi-social-person prefix"></i>
                         <input placeholder="" id="nombrePadrino1" name="nombrePadrino1" type="text">
                         <label for="nombrePadrino1" class="active"><b>Nombre del Padrino (Esposa)</b></label>
                       </div>
-                      <div class="input-field col s3">
+                    </div>
+
+                    <div class="row">
+
+                      <div class="input-field col s6">
+                        <i class="mdi-action-credit-card prefix"></i>
+                        <input placeholder="Ingrese el carnet de identidad" id="carnetMadrina1" name="carnetMadrina1" type="text">
+                        <input placeholder="Ingrese el carnet de identidad" id="carnetMadrina1_id" name="carnetMadrina1_id" type="hidden">
+                        <label for="carnetMadre" class="active"><b>CI de la Madrina (Esposa)</b></label>
+                      </div>                    
+
+                      <div class="input-field col s6">
+                        <i class="mdi-social-person prefix"></i>
                         <input placeholder="" id="nombreMadrina1" name="nombreMadrina1" type="text">
                         <label for="nombreMadrina1" class="active"><b>Nombre de la Madrina (Esposa)</b></label>
                       </div>
-										</div>
-
+                    </div>
 
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s7">
                           <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Registrar
                             <i class="mdi-content-send right"></i>
                           </button>

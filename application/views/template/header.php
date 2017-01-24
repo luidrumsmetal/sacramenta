@@ -149,16 +149,16 @@
          </li>
          <li class="no-padding">
              <ul class="collapsible collapsible-accordion">
-                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canonico</a>
+                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canónico</a>
                      <div class="collapsible-body" style="">
                          <ul>
-                             <li><a href="<?php echo base_url(); ?>baptism/baptismCreate"><i class="mdi-social-whatshot"></i>Bautizo</a>
+                             <li><a href="<?php echo base_url(); ?>baptism/baptismCreate"><i class=" mdi-editor-format-color-fill"></i>Bautizo</a>
                              </li>
-                             <li><a href="<?php echo base_url(); ?>firstCommunion"><i class="mdi-action-accessibility"></i>P. Comunion</a>
+                             <li><a href="<?php echo base_url(); ?>firstCommunion"><i class="mdi-action-accessibility"></i>P. Comunión</a>
                              </li>
-                             <li><a href="<?php echo base_url(); ?>confirmacion"><i class="mdi-action-wallet-giftcard"></i>Confirmacion</a>
+                             <li><a href="<?php echo base_url(); ?>confirmacion"><i class="mdi-social-whatshot"></i>Confirmación</a>
                              </li>
-                             <li><a href="<?php echo base_url(); ?>matrimonio"><i class="mdi-action-favorite"></i>Matrimonio</a>
+                             <li><a href="<?php echo base_url(); ?>Matrimonio""><i class="mdi-action-favorite"></i>Matrimonio</a>
                              </li>
                          </ul>
                      </div>
@@ -219,23 +219,14 @@
                          </ul>
                      </div>
                  </li>
-                 <li class="bold"><a href="app-widget.html" class="waves-effect waves-cyan"><i class="mdi-device-now-widgets"></i> Widgets</a>
-                 </li>
+
 
              </ul>
          </li>
-         <li class="li-hover"><div class="divider"></div></li>
-         <li class="li-hover"><p class="ultra-small margin more-text">MORE</p></li>
-         <li><a href="angular-ui.html"><i class="mdi-hardware-keyboard-tab"></i>SALIR</a>
-         </li>
-         <li><a href="css-grid.html"><i class="mdi-image-grid-on"></i> Grid</a>
-         </li>
-         <li><a href="css-color.html"><i class="mdi-editor-format-color-fill"></i> Color</a>
-         </li>
-         <li><a href="css-helpers.html"><i class="mdi-communication-live-help"></i> Helpers</a>
-         </li>
-         <li><a href="changelogs.html"><i class="mdi-action-swap-vert-circle"></i> Changelogs</a>
-         </li>
+         <li class="li-hover"><div class="divider"></div></li><br>
+         <li><a href="<?php echo base_url(); ?>login/logout"><i class="mdi-action-settings-power"></i>CERRAR SESIÓN</a>
+         </li><br>
+
          <li class="li-hover"><div class="divider"></div></li>
 
      <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 926px; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 659px;"></div></div></ul>
