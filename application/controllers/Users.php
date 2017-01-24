@@ -168,6 +168,27 @@ class Users extends CI_Controller{
           $this->Users_model->autoCompleteCarnetPadre($data);
       }
   }
+  function autoCompleteCarnetMadrina(){
+      if (isset($_GET['term'])) {
+          $data = strtolower($_GET['term']);
+          $this->Users_model->autoCompleteCarnetMadre($data);
+      }
+  }
+
+  function autoCompleteCarnetMatrimonioEsposo(){
+      if (isset($_GET['term'])) {
+          $data = strtolower($_GET['term']);
+          $this->Users_model->autoCompleteCarnetMatrimonioEsposo($data);
+      }
+  }
+
+  function autoCompleteCarnetMatrimonioEsposa(){
+      if (isset($_GET['term'])) {
+          $data = strtolower($_GET['term']);
+          $this->Users_model->autoCompleteCarnetMatrimonioEsposa($data);
+      }
+  }
+
   function autoCompleteCarnetCommunion(){
       if (isset($_GET['term'])) {
           $data = strtolower($_GET['term']);
