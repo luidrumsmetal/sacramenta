@@ -7834,12 +7834,12 @@ nav .input-field label.active {
 }
 
 .card.small .card-image, .card.medium .card-image, .card.large .card-image {
-  max-height: 60%;
+  max-height: 30%;
   overflow: hidden;
 }
 
 .card.small .card-content, .card.medium .card-content, .card.large .card-content {
-  max-height: 40%;
+  max-height: 70%;
   overflow: hidden;
 }
 
@@ -7853,7 +7853,7 @@ nav .input-field label.active {
 }
 
 .card.small {
-  height: 300px;
+  height: 750px;
 }
 
 .card.medium {

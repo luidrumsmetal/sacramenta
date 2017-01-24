@@ -137,9 +137,9 @@
              </div>
          </div>
          </li>
-         <li class="bold"><a href="index.html" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Inicio</a>
+         <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Inicio</a>
          </li>
-         <li class="bold"><a href="app-email.html" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
+         <li class="bold"><a href="<?php echo base_url(); ?>email" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>home/priestCreate" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Sacerdote</a>
          </li>

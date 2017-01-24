@@ -20,7 +20,7 @@ class Jurisdiccion extends CI_Controller{
     $data['msj_error'] = '';
     $data['title'] = 'Registrar Parroquia';
     $this->load->view('template/header',$data);
-    $this->load->view('parroquia/alta_parroquia',$data);
+    $this->load->view('parroquia/alta_parroquia');
     $this->load->view('template/footer');
   }
   function listParroquia()
@@ -32,7 +32,7 @@ class Jurisdiccion extends CI_Controller{
 
         $config['base_url'] = base_url().'jurisdiccion/listParroquia';
         $config['total_rows'] = $this->Jurisdiccion_model->count('parroquia');
-        $config['per_page'] = 4;
+        $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
         $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
@@ -74,10 +74,10 @@ class Jurisdiccion extends CI_Controller{
           'direccion' => $this->input->post('direccion'),
           'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
         );
-
           $this->Jurisdiccion_model->addParroquia("parroquia",$data);
-
-
+          //cambio joel
+          $this->session->set_flashdata('success','Parroquia registrada correctamente!');
+          redirect(base_url().'jurisdiccion/listParroquia');
     }
     $this->load->view('template/header');
     $this->load->view('parroquia/alta_parroquia');

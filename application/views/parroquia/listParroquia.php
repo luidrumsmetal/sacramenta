@@ -2,6 +2,26 @@
 <section id = "content">
     <div class="section">
       <div class="row">
+        <?php if($this->session->flashdata('error')) {?>
+            <div id="card-alert" class="card red">
+              <div class="card-content white-text">
+                <p><?php echo $this->session->flashdata('error') ?></p>
+              </div>
+              <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+        <?php } ?>
+        <?php if($this->session->flashdata('success')) {?>
+            <div id="card-alert" class="card green">
+              <div class="card-content white-text">
+                <p><?php echo $this->session->flashdata('success') ?></p>
+              </div>
+              <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+        <?php } ?>
           <?php if (!$results){ ?>
                         <h4 align="center">Lista de Parroquias</h4>
           <div id="borderless-table">
