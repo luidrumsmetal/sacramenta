@@ -137,15 +137,19 @@
              </div>
          </div>
          </li>
-         <li class="bold"><a href="index.html" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Inicio</a>
+         <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Inicio</a>
          </li>
-         <li class="bold"><a href="app-email.html" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
+         <li class="bold"><a href="<?php echo base_url(); ?>email" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>home/priestCreate" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Sacerdote</a>
          </li>
          <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
          </li>
          <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-social-people"></i> Buscar Casados</a>
+         </li>
+         <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/listParroquia" class="waves-effect waves-cyan"><i class="mdi-content-content-paste "></i> Lista Parroquia</a>
+         </li>
+         <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/parroquiaCreate" class="waves-effect waves-cyan"><i class="mdi-social-location-city"></i> Registrar Parroquia</a>
          </li>
          <li class="no-padding">
              <ul class="collapsible collapsible-accordion">

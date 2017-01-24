@@ -13,6 +13,7 @@ class Home extends CI_Controller{
   {
     $data['title'] = 'Inicio';
     $this->load->view('template/header',$data);
+    $this->load->view('home');
     $this->load->view('template/footer');
   }
 
