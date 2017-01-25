@@ -141,16 +141,40 @@
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>email" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
          </li>
-         <li class="bold"><a href="<?php echo base_url(); ?>home/priestCreate" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Sacerdote</a>
+         <li class="no-padding">
+              <ul class="collapsible collapsible-accordion">
+                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Sacerdotes</a>
+                     <div class="collapsible-body" style="">
+                         <ul>
+                             <li class="bold"><a href="<?php echo base_url(); ?>home/priestCreate" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Sacerdote</a>
+                             </li>
+                             <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista</a>
+                             </li>
+                             <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
+                             </li>
+                         </ul>
+                     </div>
+                 </li>
+              </ul>
          </li>
-         <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
-         </li>
-         <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-social-people"></i> Buscar Casados</a>
-         </li>
-         <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/listParroquia" class="waves-effect waves-cyan"><i class="mdi-content-content-paste "></i> Lista Parroquia</a>
-         </li>
-         <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/parroquiaCreate" class="waves-effect waves-cyan"><i class="mdi-social-location-city"></i> Registrar Parroquia</a>
-         </li>
+
+         <li class="no-padding">
+              <ul class="collapsible collapsible-accordion">
+                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-location-city"></i>Parroquias</a>
+                     <div class="collapsible-body" style="">
+                         <ul>
+                             <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/parroquiaCreate" class="waves-effect waves-cyan"><i class="mdi-social-location-city"></i> Registrar Parroquia</a>
+                             </li>
+                             <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/listParroquia" class="waves-effect waves-cyan"><i class="mdi-content-content-paste "></i> Lista Parroquia</a>
+                             </li>
+                             <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroquia</a>
+                             </li>
+                         </ul>
+                     </div>
+                 </li>
+              </ul>
+         </li>         
+
          <li class="no-padding">
              <ul class="collapsible collapsible-accordion">
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canónico</a>
@@ -167,65 +191,9 @@
                          </ul>
                      </div>
                  </li>
-                 <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i> Otras Opciones</a>
-                     <div class="collapsible-body" style="">
-                         <ul>
-                             <li><a href="ui-alerts.html">Alerts</a>
-                             </li>
-                             <li><a href="ui-buttons.html">Buttons</a>
-                             </li>
-                             <li><a href="ui-badges.html">Badges</a>
-                             </li>
-                             <li><a href="ui-breadcrumbs.html">Breadcrumbs</a>
-                             </li>
-                             <li><a href="ui-collections.html">Collections</a>
-                             </li>
-                             <li><a href="ui-collapsibles.html">Collapsibles</a>
-                             </li>
-                             <li><a href="ui-tabs.html">Tabs</a>
-                             </li>
-                             <li><a href="ui-navbar.html">Navbar</a>
-                             </li>
-                             <li><a href="ui-pagination.html">Pagination</a>
-                             </li>
-                             <li><a href="ui-preloader.html">Preloader</a>
-                             </li>
-                             <li><a href="ui-toasts.html">Toasts</a>
-                             </li>
-                             <li><a href="ui-tooltip.html">Tooltip</a>
-                             </li>
-                             <li><a href="ui-waves.html">Waves</a>
-                             </li>
-                         </ul>
-                     </div>
-                 </li>
-                 <li class="bold "><a class="collapsible-header waves-effect waves-cyan "><i class="mdi-av-queue"></i> Advanced UI <span class="new badge"></span></a>
-                     <div class="collapsible-body" style="display: block;">
-                         <ul>
-                             <li><a href="advanced-ui-chips.html">Chips</a>
-                             </li>
-                             <li class="active"><a href="advanced-ui-cards.html">Cards</a>
-                             </li>
-                             <li><a href="advanced-ui-modals.html">Modals</a>
-                             </li>
-                             <li><a href="advanced-ui-media.html">Media</a>
-                             </li>
-                             <li><a href="advanced-ui-range-slider.html">Range Slider</a>
-                             </li>
-                             <li><a href="advanced-ui-sweetalert.html">SweetAlert</a>
-                             </li>
-                             <li><a href="advanced-ui-nestable.html">Shortable &amp; Nestable</a>
-                             </li>
-                             <li><a href="advanced-ui-translation.html">Language Translation</a>
-                             </li>
-                             <li><a href="advanced-ui-highlight.html">Highlight</a>
-                             </li>
-                         </ul>
-                     </div>
-                 </li>
-
-
              </ul>
+         </li>
+         <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-social-people"></i> Buscar Casados</a>
          </li>
          <li class="li-hover"><div class="divider"></div></li><br>
          <li><a href="<?php echo base_url(); ?>login/logout"><i class="mdi-action-settings-power"></i>CERRAR SESIÓN</a>
