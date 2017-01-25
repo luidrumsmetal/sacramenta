@@ -55,7 +55,7 @@
                         <label for="first_name" class="active"><b>Fecha Nacimiento</b></label>
                       </div>
                     </div>
-                    
+
                       <div class="row">
                         <div class="input-field col s6">
                             <i class="mdi-action-account-circle prefix"></i>
@@ -84,13 +84,13 @@
                           <label for="parroquia" class="active"><b>Parroquia</b></label>
                         </div>
                     </div>
-                      
+
                     <div class="row">
                         <div class="input-field col s0">
                           <i class="mdi-maps-map prefix"></i>&nbsp &nbsp
                         </div>
                         <div class="input-field col s11">
-                          
+
                           <select id="lugarNacimiento" name="lugarNacimiento">
                             <option value="" disabled selected>Selecccion un lugar</option>
                             <option value="1">La Paz</option>
@@ -102,8 +102,8 @@
                             <option value="7">Beni</option>
                             <option value="8">Pando</option>
                             <option value="9">Tarija</option>
-                          </select>  
-                          <label><b>Lugar de Comunión</b> </label>                       
+                          </select>
+                          <label><b>Lugar de Comunión</b> </label>
                         </div>
 
                     </div>

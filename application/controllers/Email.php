@@ -89,7 +89,7 @@ class Email extends CI_Controller{
     }
     //$this->security->sanitize_filename($this->input->post('variable'));
     #echo $to;
-       $config = Array(
+      $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'smtp-relay.sendinblue.com',
             'smtp_port' => 587,
