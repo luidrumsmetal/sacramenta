@@ -36,7 +36,16 @@ class Email extends CI_Controller{
     echo $this->input->post('fecha');
     echo '<br>Lugar<br>';
     echo $this->input->post('lugar');*/
-
+    /*  PRUEBAS!! T_T
+    echo 'Id lugar = '.$placeSacrament.'<br>';
+    echo 'sacramento = '.$baptism.'<br>';
+    echo 'date ='.$date.'<br>';
+    if ($date != null) {
+      echo 'existe<br>';
+    }
+    else {
+      echo 'no existe<br>';
+    }*/
    if ($baptism =="si") {
       $token = 1;
         if ($getAllBaptism = $this->Email_model->getAllSacrament(1,$placeSacrament,$date)) {
@@ -94,8 +103,8 @@ class Email extends CI_Controller{
       else echo 'no hay casados';
     }
     //$this->security->sanitize_filename($this->input->post('variable'));
-    echo $to;
-    /*  $config = Array(
+    #echo $to;
+     $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'smtp-relay.sendinblue.com',
             'smtp_port' => 587,
@@ -118,7 +127,7 @@ class Email extends CI_Controller{
           else {
             $this->session->set_flashdata('error', 'No se a enviado el email');
           }
-          redirect(base_url("email"));*/
+          redirect(base_url("email"));
   }
 
 }
