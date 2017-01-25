@@ -50,6 +50,51 @@ class Users_model extends CI_Model{
     }
     return FALSE;
   }
+
+  function edit($a) {
+    $d = $this->db->query("SELECT a.*, b.*, c.*, d.* FROM persona a, sacerdote b, tipoSacerdote c, users d
+                            WHERE a.id = $a 
+                            AND b.tipoSacerdote_id = c.idTipoSacerdote 
+                            AND a.id = d.persona_id");
+    if ($d->num_rows() > 0) {
+        return $d->row();
+    }
+    else{
+      return false;
+    }   
+  }
+
+  function update($id) {
+    $id = $this->input->post('id');
+    $ci = $this->input->post('ci');
+    $nombre = $this->input->post('nombre');
+    $apellido = $this->input->post('apellido');
+    $fechanacimiento = $this->input->post('fechanacimiento');
+    //$parroquia = $this->input->post('parroquia');
+    $tipoSacerdote = $this->input->post('tipoSacerdote');
+    $email = $this->input->post('email');
+    $password = $this->input->post('password');
+
+    $data1 = array(
+      'ci' => $ci,
+      'fechanacimiento' => $fechanacimiento,
+      'nombre' => $nombre,
+      'apellido' => $apellido,
+      //'parroquia' => $parroquia,
+      //'tipoSacerdote_id' => $tipoSacerdote,
+    );
+    $this->db->where('id', $id);
+    $this->db->update('persona',$data1);
+    $data2 = array(
+      
+      'email' => $email,
+      'password' => $password
+
+    );
+    $this->db->where('id', $id);
+    $this->db->update('users',$data2);
+  }
+
   function autoCompleteCarnetPadre($data)
   {
     $this->db->select('*');
