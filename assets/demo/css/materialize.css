@@ -2901,7 +2901,7 @@ ul li {
 .divider {
   height: 1px;
   overflow: hidden;
-  background-color: #e0e0e0;
+  background-color: #f69f02;
 }
 
 blockquote {
@@ -7834,12 +7834,12 @@ nav .input-field label.active {
 }
 
 .card.small .card-image, .card.medium .card-image, .card.large .card-image {
-  max-height: 30%;
+  max-height: 15%;
   overflow: hidden;
 }
 
 .card.small .card-content, .card.medium .card-content, .card.large .card-content {
-  max-height: 70%;
+  max-height: 85%;
   overflow: hidden;
 }
 
@@ -7853,7 +7853,7 @@ nav .input-field label.active {
 }
 
 .card.small {
-  height: 750px;
+  height: 800px;
 }
 
 .card.medium {
@@ -9995,7 +9995,7 @@ select {
 }
 
 ul.side-nav.leftside-navigation li.active > a {
-  color: #00bcd4;
+  color: #f69f02;
 }
 
 #sidenav-overlay {

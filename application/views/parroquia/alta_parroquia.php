@@ -20,36 +20,40 @@
 
           <div class="col s12 m12 l12">
             <div class="card-panel">
-              <h1 align="center">Registro de Iglesia Parroquial</h1>
-              <h4 class="header2">Informacion General</h4>
+                <nav class="amber darken-4">
+                  <div class="nav-wrapper">
+                    <div class="col s12">
+                    <h1 class="brand-logo center">Registro de Parroquias</h1>
+                    </div>
+                  </div>
+                </nav>
+              <h4 class="header2"><b>Información General<b></h4><br>
             <div class="row">
           <form class="col s12" id="formParroquia" method="post" action="<?php echo base_url(); ?>jurisdiccion/parroquiaRegistro">
+        <div class="row">
+          <div class="input-field col s6">
+              <i class="mdi-action-home prefix"></i>
+              <input placeholder="Ingrese nombre de la parroquia" id="nombre" name="nombre" type="text">
+              <label for="parroquia" class="active"><b>Parroquia</b></label>
+         </div>  
+        </div>
 
+        <div class="row">
+          <div class="input-field col s6">
+              <i class="mdi-maps-directions-walk prefix"></i>
+              <input placeholder="Ingrese dirección" id="direccion" name="direccion" type="text">
+              <label for="parroquia" class="active"><b>Dirección</b></label>
+          </div>  
+        </div>
 
-          <div class="row">
-            <div class="input-field col s6">
-              <i class="mdi-social-person-outline prefix"></i>
-              <input id="nombre" name="nombre" type="text">
-              <label for="nombre">Nombre de la Iglesia Parroquial</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s6">
-              <i class="mdi-social-person-outline prefix"></i>
-              <input id="direccion" name="direccion" type="text">
-              <label for="direccion" >Direccion</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s6">
-              <i class="mdi-social-person-outline prefix"></i>                
-              <input id="jurisdiccion" name="jurisdiccion" type="text">
+        <div class="row">
+          <div class="input-field col s6">
+              <i class="mdi-maps-place prefix"></i>
+              <input placeholder="Ingrese jurisdicción" id="jurisdiccion" name="jurisdiccion" type="text">
               <input type="hidden" name="jurisdiccion_id" id="jurisdiccion_id">
-              <label for="jurisdiccion" >Jurisdiccion</label>
-            </div>
-          </div>
+              <label for="parroquia" class="active"><b>Jurisdicción</b></label>
+          </div>            
+        </div>
 
           
       
@@ -61,7 +65,7 @@
             </div>
           </div>-->
           <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s7">
               <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Registrar
               <i class="mdi-content-send right"></i>
               </button>

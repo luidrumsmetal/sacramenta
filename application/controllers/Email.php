@@ -24,16 +24,22 @@ class Email extends CI_Controller{
     $withFirstCommunion = $this->input->post('conPrimeraComunion');
     $confirmed = $this->input->post('confirmados');
     $married = $this->input->post('casados');
-    $placeSacrament = $this->input->post('lugarSacramento');
+    $placeSacrament = $this->input->post('lugar');
+    $date = $this->input->post('fecha');
     $to= '';
     $toBaptism = '';
     $toFirstCommunion = '';
     $toConfirmed = '';
     $toMarried = '';
     $toPlaceSacrament = '';
+    /*echo $to.'<br>';
+    echo $this->input->post('fecha');
+    echo '<br>Lugar<br>';
+    echo $this->input->post('lugar');*/
+
    if ($baptism =="si") {
       $token = 1;
-        if ($getAllBaptism = $this->Email_model->getAllSacrament(1)) {
+        if ($getAllBaptism = $this->Email_model->getAllSacrament(1,$placeSacrament,$date)) {
           foreach ($getAllBaptism as $dataBaptism) {
           #  echo $dataBaptism->email.'<br>';
             if ($token==1) $toBaptism = $dataBaptism->email;
@@ -47,7 +53,7 @@ class Email extends CI_Controller{
 
     if ($withFirstCommunion=="si") {
       $token = 1;
-        if ($getAllFirstCommunion = $this->Email_model->getAllSacrament(2)) {
+        if ($getAllFirstCommunion = $this->Email_model->getAllSacrament(2,$placeSacrament,$date)) {
           foreach ($getAllFirstCommunion as $dataFirstCommunion) {
             #echo $dataFirstCommunion->nombre.'<br>';
             if ($token==1) $toFirstCommunion = $dataFirstCommunion->email;
@@ -61,7 +67,7 @@ class Email extends CI_Controller{
     }
     if ($confirmed=="si") {
       $token = 1;
-      if ($getAllConfirmed = $this->Email_model->getAllSacrament(3) == true) {
+      if ($getAllConfirmed = $this->Email_model->getAllSacrament(3,$placeSacrament,$date) == true) {
         foreach ($getAllConfirmed as $dataCommunion) {
           $dataCommunion->nombre;
           if ($token==1) $toConfirmed = $dataCommunion->email;
@@ -75,7 +81,7 @@ class Email extends CI_Controller{
     }
     if ($married=="si") {
       $token = 1;
-      if ($getAllMarried = $this->Email_model->getAllSacrament(3)) {
+      if ($getAllMarried = $this->Email_model->getAllSacrament(3,$placeSacrament,$date)) {
         foreach ($getAllMarried as $dataMarried) {
           $dataMarried->nombre;
           if ($token==1) $toMarried = $dataMarried->email;
@@ -88,8 +94,8 @@ class Email extends CI_Controller{
       else echo 'no hay casados';
     }
     //$this->security->sanitize_filename($this->input->post('variable'));
-    #echo $to;
-       $config = Array(
+    echo $to;
+    /*  $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'smtp-relay.sendinblue.com',
             'smtp_port' => 587,
@@ -112,7 +118,7 @@ class Email extends CI_Controller{
           else {
             $this->session->set_flashdata('error', 'No se a enviado el email');
           }
-          redirect(base_url("email"));
+          redirect(base_url("email"));*/
   }
 
 }
