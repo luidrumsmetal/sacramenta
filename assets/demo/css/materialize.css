@@ -2901,7 +2901,7 @@ ul li {
 .divider {
   height: 1px;
   overflow: hidden;
-  background-color: #e0e0e0;
+  background-color: #f69f02;
 }
 
 blockquote {
@@ -9995,7 +9995,7 @@ select {
 }
 
 ul.side-nav.leftside-navigation li.active > a {
-  color: #00bcd4;
+  color: #f69f02;
 }
 
 #sidenav-overlay {
