@@ -148,7 +148,7 @@
                          <ul>
                              <li class="bold"><a href="<?php echo base_url(); ?>home/priestCreate" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Sacerdote</a>
                              </li>
-                             <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista</a>
+                             <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista</a>
                              </li>
                              <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
                              </li>
