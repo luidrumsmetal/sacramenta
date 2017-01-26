@@ -36,7 +36,16 @@ class Email extends CI_Controller{
     echo $this->input->post('fecha');
     echo '<br>Lugar<br>';
     echo $this->input->post('lugar');*/
-
+    /*  PRUEBAS!! T_T
+    echo 'Id lugar = '.$placeSacrament.'<br>';
+    echo 'sacramento = '.$baptism.'<br>';
+    echo 'date ='.$date.'<br>';
+    if ($date != null) {
+      echo 'existe<br>';
+    }
+    else {
+      echo 'no existe<br>';
+    }*/
    if ($baptism =="si") {
       $token = 1;
         if ($getAllBaptism = $this->Email_model->getAllSacrament(1,$placeSacrament,$date)) {
@@ -94,8 +103,8 @@ class Email extends CI_Controller{
       else echo 'no hay casados';
     }
     //$this->security->sanitize_filename($this->input->post('variable'));
-    echo $to;
-    /*  $config = Array(
+    #echo $to;
+     $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'smtp-relay.sendinblue.com',
             'smtp_port' => 587,
@@ -103,14 +112,19 @@ class Email extends CI_Controller{
             'smtp_pass' => 'f0XF1JjtwbgzCmd7',
             'mailtype'  => 'html'
         );
+        $htmlContent = '<h1 align="center"style="color:red;>Email Sacramentos </h1>';
+        $htmlContent .= '<p>Conferencia episcopal</p><br>';
+        $htmlContent .= '<h2>Mensaje: </h2><br>'.$this->input->post('mensaje');
+
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
         $this->email->from('joel.a.rojas.v@gmail.com', 'Joel Andy Rojas Valencia');
-        $this->email->to($to);
+        #$this->email->to($to);
+        $this->email->to('joel.a.rojas.v@gmail.com'); // NO CAMBIAR POR EL MOTIVO DEL SPAM  
         $this->email->cc('jhoel.rojas.valencia@gmail.com');
         #$this->email->bcc('them@their-example.com');
-          $this->email->subject($this->input->post('asunto'));
-          $this->email->message($this->input->post('mensaje'));
+        $this->email->subject($this->input->post('asunto'));
+        $this->email->message($htmlContent);
 
           if ($this->email->send()) {
             $this->session->set_flashdata('success', 'Email enviado correctamente');
@@ -118,7 +132,7 @@ class Email extends CI_Controller{
           else {
             $this->session->set_flashdata('error', 'No se a enviado el email');
           }
-          redirect(base_url("email"));*/
+          redirect(base_url("email"));
   }
 
 }
