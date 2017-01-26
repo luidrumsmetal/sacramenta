@@ -83,4 +83,35 @@ class Jurisdiccion_model extends CI_Model{
         $result =  !$one  ? $query->result() : $query->row();
         return $result;
     }
+
+  function edit_parroquia($a) {
+    
+    $d = $this->db->query("SELECT a.*, b.* FROM jurisdiccion a, parroquia b  WHERE b.idParroquia=$a AND a.idJurisdiccion = b.jurisdiccion_id")->row();
+    return $d;
+  }
+
+
+  function update_parroquia($idParroquia) {
+    $idParroquia = $this->input->post('idParroquia');
+    $nombre = $this->input->post('nombre');
+    $direccion = $this->input->post('direccion');
+    $jurisdiccion_id = $this->input->post('jurisdiccion_id');    
+    $jurisdiccion = $this->input->post('jurisdiccion');
+    $data = array(
+
+      'nombre' => $nombre,
+      'direccion' => $direccion,
+      'jurisdiccion_id'=>$jurisdiccion_id,
+      //'jurisdiccion'=>$jurisdiccion
+    );
+    $this->db->where('idParroquia', $idParroquia);
+    $this->db->update('parroquia', $data);
+
+  }
+
+  function delete($a) {
+    $this->db->delete('parroquia', array('idParroquia' => $a));
+    return;
+  } 
+
 }

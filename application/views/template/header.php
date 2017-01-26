@@ -76,33 +76,7 @@
                         </li>
                     </ul>
                     <!-- translation-button -->
-                    <!-- notifications-dropdown -->
-                    <ul id="notifications-dropdown" class="dropdown-content">
-                      <li>
-                        <h5>NOTIFICATIONS <span class="new badge">5</span></h5>
-                      </li>
-                      <li class="divider"></li>
-                      <li>
-                        <a href="#!"><i class="mdi-action-add-shopping-cart"></i> A new order has been placed!</a>
-                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 hours ago</time>
-                      </li>
-                      <li>
-                        <a href="#!"><i class="mdi-action-stars"></i> Completed the task</a>
-                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">3 days ago</time>
-                      </li>
-                      <li>
-                        <a href="#!"><i class="mdi-action-settings"></i> Settings updated</a>
-                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">4 days ago</time>
-                      </li>
-                      <li>
-                        <a href="#!"><i class="mdi-editor-insert-invitation"></i> Director meeting started</a>
-                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">6 days ago</time>
-                      </li>
-                      <li>
-                        <a href="#!"><i class="mdi-action-trending-up"></i> Generate monthly report</a>
-                        <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">1 week ago</time>
-                      </li>
-                    </ul>
+                    <!-- notifications-dropdown --> 
                 </div>
             </nav>
         </div>
@@ -163,9 +137,9 @@
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-location-city"></i>Parroquias</a>
                      <div class="collapsible-body" style="">
                          <ul>
-                             <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/parroquiaCreate" class="waves-effect waves-cyan"><i class="mdi-social-location-city"></i> Registrar Parroquia</a>
+                             <li class="bold"><a href="<?php echo base_url(); ?>Jurisdiccion/parroquiaCreate" class="waves-effect waves-cyan"><i class="mdi-social-location-city"></i> Registrar Parroquia</a>
                              </li>
-                             <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/listParroquia" class="waves-effect waves-cyan"><i class="mdi-content-content-paste "></i> Lista Parroquia</a>
+                             <li class="bold"><a href="<?php echo base_url(); ?>Jurisdiccion/listParroquia" class="waves-effect waves-cyan"><i class="mdi-content-content-paste "></i> Lista Parroquia</a>
                              </li>
                              <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroquia</a>
                              </li>
