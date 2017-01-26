@@ -147,7 +147,7 @@
                      </div>
                  </li>
               </ul>
-         </li>         
+         </li>
 
          <li class="no-padding">
              <ul class="collapsible collapsible-accordion">
@@ -160,7 +160,7 @@
                              </li>
                              <li><a href="<?php echo base_url(); ?>confirmacion"><i class="mdi-social-whatshot"></i>Confirmación</a>
                              </li>
-                             <li><a href="<?php echo base_url(); ?>Matrimonio""><i class="mdi-action-favorite"></i>Matrimonio</a>
+                             <li><a href="<?php echo base_url(); ?>Matrimonio"><i class="mdi-action-favorite"></i>Matrimonio</a>
                              </li>
                          </ul>
                      </div>

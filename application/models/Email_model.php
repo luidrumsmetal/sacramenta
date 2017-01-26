@@ -8,9 +8,19 @@ class Email_model extends CI_Model{
     parent::__construct();
     //Codeigniter : Write Less Do More
   }
-  function getAllSacrament($sacramento)
+  function getAllSacrament($sacramento,$lugar,$fecha)
   {
-    $query = $this->db->query("SELECT a.ci, a.nombre, a.apellido,  b.ciudad_id, d.email, d.tipoUsuario FROM persona a, certificado b, sacramento c, users d WHERE  a.id = b.persona_id AND a.id = d.persona_id AND b.sacramento_id = c.idSacramento AND c.idSacramento = '$sacramento'");
+      if (isset($lugar)) {
+          if (isset($fecha)) {
+            $query = $this->db->query("SELECT a.ci, a.nombre, a.apellido,  b.ciudad_id, d.email, d.tipoUsuario FROM persona a, certificado b, sacramento c, users d WHERE  a.id = b.persona_id AND a.id = d.persona_id AND b.sacramento_id = c.idSacramento AND c.idSacramento = '$sacramento' AND b.fecha = '$fecha' AND b.ciudad_id = '$lugar' ");
+          }
+          else {
+            $query = $this->db->query("SELECT a.ci, a.nombre, a.apellido,  b.ciudad_id, d.email, d.tipoUsuario FROM persona a, certificado b, sacramento c, users d WHERE  a.id = b.persona_id AND a.id = d.persona_id AND b.sacramento_id = c.idSacramento AND c.idSacramento = '$sacramento' AND b.ciudad_id = '$lugar'");
+          }
+      }
+      else {
+        $query = $this->db->query("SELECT a.ci, a.nombre, a.apellido,  b.ciudad_id, d.email, d.tipoUsuario FROM persona a, certificado b, sacramento c, users d WHERE  a.id = b.persona_id AND a.id = d.persona_id AND b.sacramento_id = c.idSacramento AND c.idSacramento = '$sacramento'");
+      }
       if ($query->num_rows() > 0 )
       {
         return $query->result();
