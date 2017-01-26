@@ -16,4 +16,33 @@ class Acercade extends CI_Controller{
     $this->load->view('inicio/footer');
   }
 
+    function asamblea()
+  {
+    $this->load->view('inicio/header');
+    $this->load->view('inicio/ceb/asamblea');
+    $this->load->view('inicio/footer');
+  }
+
+    function presiden()
+  {
+    $this->load->view('inicio/header');
+    $this->load->view('inicio/ceb/presiden');
+    $this->load->view('inicio/footer');
+  }
+
+    function representados()
+  {
+    $this->load->view('inicio/header');
+    $this->load->view('inicio/ceb/representados');
+    $this->load->view('inicio/footer');
+  }
+
+    function organization()
+  {
+    $this->load->view('inicio/header');
+    $this->load->view('inicio/ceb/organizacion');
+    $this->load->view('inicio/footer');
+  }
+
+
 }
