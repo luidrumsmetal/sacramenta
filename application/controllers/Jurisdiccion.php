@@ -100,5 +100,48 @@ class Jurisdiccion extends CI_Controller{
             $this->Jurisdiccion_model->autoCompleteJurisdiccion($q);
         }
     }
+
+  function edit() {
+    $kd = $this->uri->segment(3);
+    if ($kd == NULL) {
+      redirect('Jurisdiccion/listParroquia');
+    }
+    if ($this->form_validation->run('ParroquiaCrud') == false) {
+           $data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
+       } else {
+           $idParroquia = $this->session->userdata('idParroquia');
+           $idParroquia = $this->input->post('idParroquia');
+           $data = array(
+             'idParroquia' => $idParroquia,
+           );
+       }
+    $dt = $this->Jurisdiccion_model->edit_parroquia($kd);
+    $data['idParroquia'] = $dt->idParroquia;
+    $data['nombre'] = $dt->nombre;
+    $data['direccion'] = $dt->direccion;
+    $data['jurisdiccion_id']=$dt->jurisdiccion_id;
+    $data['jurisdiccion']=$dt->jurisdiccion;
+    $this->load->view('template/header');
+    $this->load->view('parroquia/edit_parroquia', $data);
+    $this->load->view('template/footer');
+  }
+
+    function update() {
+    if ($this->input->post('mit')) {
+
+      $idParroquia = $this->input->post('idParroquia');
+      $this->Jurisdiccion_model->update_parroquia($idParroquia);
+
+      redirect('Jurisdiccion/listParroquia');
+    } else{
+      redirect('Jurisdiccion/edit/'.$idParroquia);
+    }    
   /// FIN -->
+  }
+
+    function delete() {
+    $u = $this->uri->segment(3);
+    $this->Jurisdiccion_model->delete($u);
+    redirect('Jurisdiccion/listParroquia');
+  }
 }
