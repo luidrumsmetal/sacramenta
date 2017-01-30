@@ -6,9 +6,33 @@ class Users_model extends CI_Model{
   public function __construct()
   {
     parent::__construct();
+    $this->tableName = 'faithfuluser';
+		$this->primaryKey = 'id';
   }
 
   # Verificamos si un usuario esta registrado en el sistema
+  public function checkUser($data = array()){
+		$this->db->select($this->primaryKey);
+		$this->db->from($this->tableName);
+		$this->db->where(array('oauth_provider'=>$data['oauth_provider'],'oauth_uid'=>$data['oauth_uid']));
+		$prevQuery = $this->db->get();
+		$prevCheck = $prevQuery->num_rows();
+
+  		if($prevCheck > 0){
+  			$prevResult = $prevQuery->row_array();
+  			$data['modified'] = date("Y-m-d H:i:s");
+  			$update = $this->db->update($this->tableName,$data,array('id'=>$prevResult['id']));
+  			$userID = $prevResult['id'];
+  		}
+      else{
+  			$data['created'] = date("Y-m-d H:i:s");
+  			$data['modified'] = date("Y-m-d H:i:s");
+  			$insert = $this->db->insert($this->tableName,$data);
+  			$userID = $this->db->insert_id();
+  		}
+
+		return $userID?$userID:FALSE;
+    }
   function checkLogin($email, $password)
   {
 
@@ -32,6 +56,17 @@ class Users_model extends CI_Model{
 			return TRUE;
 		}
 		return FALSE;
+  }
+  function registerWithId($table, $data)
+  {
+      $this->db->insert($table,$data);
+      if ($this->db->affected_rows() == '1') {
+           $insert_id = $this->db->insert_id();
+           return $insert_id;
+      }
+      else {
+          return false;
+      }
   }
   function getID($ci)
   {
@@ -157,7 +192,7 @@ class Users_model extends CI_Model{
     }
 
   }
-  
+
   function count($table)
     {
         return $this->db->count_all($table);
@@ -175,6 +210,32 @@ class Users_model extends CI_Model{
         $query = $this->db->get();
         $result =  !$one  ? $query->result() : $query->row();
         return $result;
+    }
+
+    function autoCompleteFeligres($data)
+    {
+      $this->db->select('*');
+      $this->db->limit(5);
+      $this->db->like('nombres',$data);
+      $this->db->or_like('apellidoPaterno',$data);
+      $this->db->or_like('apellidoMaterno',$data);
+      $query = $this->db->get('persona');
+      if ($query->num_rows() > 0) {
+        foreach ($query->result_array() as $row){
+            $row_set[] = array('label'=>'Feligres: '.$row['nombres'].' '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'],'id'=>$row['id'], 'nombres'=>$row['nombres'].' '.$row['apellidoPaterno']);
+        }
+        echo json_encode($row_set);
+      }
+    }
+    function autoCompleteSacerdoteCelebrante($data)
+    {
+      $query = $this->db->query("SELECT l.*, g.idSacerdote FROM persona l, sacerdote g WHERE l.id = g.persona_id AND (l.nombres LIKE '%$data%' OR l.apellidoPaterno LIKE '%$data%' OR l.apellidoMaterno LIKE '%$data%') LIMIT 5");
+      if ($query->num_rows() > 0) {
+        foreach ($query->result_array() as $row){
+            $row_set[] = array('label'=>'Sacerdote: '.$row['nombres'].' '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'],'id'=>$row['idSacerdote'], 'nombres'=>$row['nombres'].' '.$row['apellidoPaterno']);
+        }
+        echo json_encode($row_set);
+      }
     }
 
 

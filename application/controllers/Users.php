@@ -17,12 +17,19 @@ class Users extends CI_Controller{
 
   }
 
-  function faithfulCreate()
+  function faithfulAccount()
   {
     $data['msj_error'] = '';
     $this->load->view('login/header');
-    $this->load->view('users/faithfulCreate',$data);
+    $this->load->view('users/faithfulAccount',$data);
     $this->load->view('login/footer');
+  }
+  function faithfulRegister()
+  {
+    $data['title'] = 'Registro Fiel';
+    $this->load->view('template/header',$data);
+    $this->load->view('users/faithfulRegister');
+    $this->load->view('template/footer');
   }
 
   function listSacerdote($offset = NULL)
@@ -60,14 +67,94 @@ class Users extends CI_Controller{
     $this->load->view('template/footer');
   }
 
+  function faithfullCreate()
+  {
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|min_length[5]|numeric|is_unique[persona.ci]|xss_clean');
+    $this->form_validation->set_rules('apellidoPaterno', 'Apellido Paterno', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('apellidoMaterno', 'Apellido Materno', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('nombres', 'Nombre', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('fechanac', 'Fecha nacimineto', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('genero', 'Genero', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('procedencia', 'Procedencia', 'trim|required|xss_clean');
+  /*  $this->form_validation->set_rules('orc', 'Oficialía de registro civil', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('libro', 'Libro', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('partida', 'Partida', 'trim|required|xss_clean');*/
+    $this->form_validation->set_message('required', 'El %s es importante');
+    if ($this->form_validation->run()==false) {
+        $this->session->set_flashdata('error','Ingrese correctamente los datos');
+        redirect(base_url() . 'users/faithfulRegister');
+    }
+    else {
+      $tipoGenero = $this->input->post('genero');
+      if ($tipoGenero == '1') {
+        $genero = 'masculino';
+      }
+      else {
+        $genero = 'femenino';
+      }
+        $data = array(
+          'ci' => $this->input->post('ci'),
+          'nombres' => $this->input->post('nombres'),
+          'apellidoPaterno' => $this->input->post('apellidoPaterno'),
+          'apellidoMaterno' => $this->input->post('apellidoMaterno'),
+          'fechanacimiento' => $this->input->post('fechanac'),
+          'procedencia' => $this->input->post('procedencia'),
+          'genero' => $genero
+        );
+        $persona_id = $this->Users_model->registerWithId('persona',$data);
+        if ($persona_id != False)
+        {
+          $padre = $this->input->post('apellidoNombrePadre');
+          $madre = $this->input->post('apellidoNombreMadre');
+          $procedenciaPadre = $this->input->post('procedenciaPadre');
+          $procedenciaMadre = $this->input->post('procedenciaMadre');
+          if ($padre != null ) {
+              $data = array(
+                  'apellidoNombrePadre' => $padre,
+                  'procedenciaPadre' => $procedenciaPadre,
+                  'persona_id' => $persona_id
+              );
+              $this->Users_model->personRegister('padresFiel',$data);
+          }
+          if ($madre != null) {
+              $data = array(
+                  'apellidoNombrePadre' => $madre,
+                  'procedenciaPadre' => $procedenciaMadre,
+                  'persona_id' => $persona_id
+              );
+              $this->Users_model->personRegister('padresFiel',$data);
+          }
 
-  function faithfulRegister()
+          $data = array(
+              'orc' => $this->input->post('orc'),
+              'libro' => $this->input->post('libro'),
+              'partida' => $this->input->post('partida'),
+              'persona_id' => $persona_id
+          );
+          if ($this->Users_model->personRegister('certificadonacimiento',$data)) {
+            $this->session->set_flashdata('success','Fiel Registrado correctamente!');
+            redirect(base_url() . 'users/faithfulRegister');
+          }
+          else {
+            $this->session->set_flashdata('error ','Error al registrar su informacion personal (Oficialía)');
+            redirect(base_url() . 'users/faithfulRegister');
+          }
+        }
+        else {
+          $this->session->set_flashdata('error ','Error al registrar su informacion personal (id persona)');
+          redirect(base_url() . 'users/faithfulRegister');
+        }
+    }
+  }
+  function faithfulAccountRegister()
   {
     $tipoUsuario = 'fiel';
     $this->load->library('form_validation');
-    $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|required|min_length[5]|numeric|is_unique[persona.ci]|xss_clean');
-    $this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('apellido', 'Apellido', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|min_length[5]|numeric|is_unique[cuenta.ci]|xss_clean');
+    $this->form_validation->set_rules('apellidoPaterno', 'Apellido Paterno', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('apellidoMaterno', 'Apellido Materno', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('nombres', 'Nombre', 'trim|required|min_length[2]|xss_clean');
     $this->form_validation->set_rules('fechanac', 'Fecha nacimineto', 'trim|required|xss_clean');
     $this->form_validation->set_rules('genero', 'Genero', 'trim|required|xss_clean');
     #$this->form_validation->set_rules('celular', 'Celular', 'trim|required|min_length[5]|max_length[12]|xss_clean');
@@ -82,14 +169,17 @@ class Users extends CI_Controller{
     else {
         $data = array(
           'ci'=> $this->input->post('ci'),
-          'nombre' => $this->input->post('nombre'),
-          'apellido' => $this->input->post('apellido'),
-          'fechanacimiento' => $this->input->post('fechanac'),
-          'genero_id' => $this->input->post('genero'),
+          'apellidoPaterno' => $this->input->post('apellidoPaterno'),
+          'apellidoMaterno' => $this->input->post('apellidoMaterno'),
+          'nombres' => $this->input->post('nombres'),
+          'correo' => $this->input->post('email'),
+          'password' => $this->input->post('password'),
           'celular' => $this->input->post('celular'),
-          'facebook' => $this->input->post('facebook')
+          'facebook' => $this->input->post('facebook'),
+          'fechanacimiento' => $this->input->post('fechanac'),
+          'genero' => $this->input->post('genero')
         );
-        if ($this->Users_model->personRegister('persona',$data) == TRUE)
+        if ($this->Users_model->personRegister('cuenta',$data) == TRUE)
         {
           $ci = $this->input->post('ci');
           $personWithCi = $this->Users_model->getId($ci);
@@ -238,6 +328,20 @@ class Users extends CI_Controller{
           $data = strtolower($_GET['term']);
           $this->Users_model->autoCompleteCarnetConfirmacion($data);
       }
+  }
+  function autoCompleteFeligres()
+  {
+    if (isset($_GET['term'])) {
+        $data = strtolower($_GET['term']);
+        $this->Users_model->autoCompleteFeligres($data);
+    }
+  }
+  function autoCompleteSacerdoteCelebrante()
+  {
+    if (isset($_GET['term'])) {
+        $data = strtolower($_GET['term']);
+        $this->Users_model->autoCompleteSacerdoteCelebrante($data);
+    }
   }
 
   function testare()
