@@ -8,13 +8,13 @@ class Login extends CI_Controller{
     parent::__construct();
     //Codeigniter : Write Less Do More
     $this->load->model('Users_model');
+
   }
 
-  function index()
-  {
-    $this->load->view('login/header');
-    $this->load->view('login/index');
-    $this->load->view('login/footer');
+  public function index(){
+  $this->load->view('login/header');
+  $this->load->view('login/index');
+  $this->load->view('login/footer');
   }
 
   function checkLogin(){
@@ -60,7 +60,6 @@ class Login extends CI_Controller{
                 }
             }
         }
-
   }
 
     function logout(){

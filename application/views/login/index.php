@@ -36,7 +36,7 @@
           <input id="email" name="email" type="text">
           <label for="email" class="center-align">Correo</label>
         </div>
-      </div>
+      </div><br>
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-action-lock-outline prefix"></i>
@@ -57,13 +57,13 @@
       </div>
           <div class="row">
             <div class="input-field col s6 m6 l6">
-                <p><a class="btn waves-effect waves-light light-blue darken-4" href="<?php echo base_url(); ?>users/faithfulCreate">Registrate Ahora</a></p>
+                <a class="btn waves-effect waves-light light-blue darken-4" href="<?php echo base_url(); ?>users/faithfulAccount">Registrate Ahora</a>
             </div>
             <div class="input-field col s6 m6 l6">
-                <p><a class="btn waves-effect waves-light light-blue darken-4">Recuperar Cuenta</a></p>
+                <a class="btn waves-effect waves-light light-blue darken-4">Recuperar Cuenta</a>
             </div>
           </div>
-    </form>
+          </form>
   </div>
 </div>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/plugins/jquery-1.11.2.min.js"></script>
@@ -78,8 +78,8 @@
             password: { required: true}
       },
       messages:{
-            email: { required: 'Campo Requerido.', email: 'Ingrese un Email válido'},
-            password: {required: 'Campo Requerido.'}
+            email: { required: '<b>Campo Requerido.</b>', email: '<b>Ingrese un Email válido</b>'},
+            password: {required: '<b>Campo Requerido.</b>'}
       },
       submitHandler: function (form){
           var datos = $(form).serialize();
