@@ -117,16 +117,16 @@
 <p><a class="waves-effect waves-light btn modal-trigger teal " id="call-modal" role="button" href="#notification" style="display: none ">Modal with Color</a>
                 </p>
 <div id="notification" class="modal" style="z-index: 1003; display: none; opacity: 0; transform: scaleX(0.7); top: 336.97px;">
-  <div class="modal-header teal white-text">
-    <h4 id="myModalLabel">Datos Incorrectos</h4>
-  </div>
-    <div class="modal-content teal white-text">
-      <p>El acceso a los datos es incorrecto, por favor intente de nuevo!</p>
-    </div>
-    <div class="modal-footer  teal lighten-4">
-      <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Disagree</a>
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
-    </div>
+
+<div class="modal-content">
+    <h4 align="center">Datos Incorrectos</h4>
+    <h6 style="text-align: center">Intente nuevamente</h6>
+</div>
+                  
+<div class="modal-footer orange">
+    <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">ACEPTAR</a>
+</div>
+
 </div>
     <!--  <a href="#notification" id="call-modal" role="button" class="btn" data-toggle="modal" style="display: none ">notification</a>
         <div id="notification" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

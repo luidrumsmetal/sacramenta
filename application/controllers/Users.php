@@ -61,7 +61,7 @@ class Users extends CI_Controller{
         $config['last_tag_close'] = '</li>';
 
     $this->pagination->initialize($config);
-    $data['results']= $this->Users_model->listGetSacerdote('persona, sacerdote, tiposacerdote',' idSacerdote, ci, nombre, apellido, tipoSacerdote','id = persona_id AND idTipoSacerdote = tipoSacerdote_id',$config['per_page'],$this->uri->segment(3));
+    $data['results']= $this->Users_model->listGetSacerdote('persona, sacerdote, tiposacerdote',' id, idSacerdote, ci, nombre, apellido, tipoSacerdote','id = persona_id AND idTipoSacerdote = tipoSacerdote_id',$config['per_page'],$this->uri->segment(3));
     $this->load->view('template/header',$data);
     $this->load->view('users/listSacerdote',$data);
     $this->load->view('template/footer');
@@ -277,6 +277,43 @@ class Users extends CI_Controller{
     }
 
   }
+
+  function sacerdoteEdit() {
+    $kd = $this->uri->segment(3);
+    if ($kd == NULL) {
+      redirect('users');
+    }
+     $dt = $this->Users_model->edit($kd);
+     $data1['ci'] = $dt->ci;
+     $data1['fechanacimiento'] = $dt->fechanacimiento;
+     $data1['nombre'] = $dt->nombre;
+     $data1['apellido'] = $dt->apellido;
+     //$data1['parroquia'] = $dt->parroquia_id;
+     $data1['tipoSacerdote'] = $dt->tipoSacerdote;
+     $data1['email'] = $dt->email;
+     $data1['password'] = $dt->password;
+     $data1['id'] = $kd;
+
+        $this->load->view('template/header');
+        $this->load->view('users/sacerdoteEdit', $data1);
+        $this->load->view('template/footer');
+
+  }
+
+  function update() {
+
+    if ($this->input->post('mit')) {
+
+      $idSacerdote = $this->input->post('idSacerdote');
+      $this->Users_model->update($idSacerdote);
+
+      redirect('users');
+    } else{
+      redirect('users/sacerdoteEdit/'.$idSacerdote);
+    }
+    
+  }
+
   function autoCompleteCarnetPadre(){
       if (isset($_GET['term'])) {
           $data = strtolower($_GET['term']);
