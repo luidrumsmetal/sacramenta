@@ -173,6 +173,8 @@ class Users_model extends CI_Model{
     }
   }
 
+  
+
 
   function autoCompleteCarnetCommunion($data)
   {
@@ -206,33 +208,83 @@ class Users_model extends CI_Model{
 
   }
 
-  function autoCompleteCarnetMatrimonioEsposo($data)
+
+
+
+/*$query = $this->db->query(  'SELECT subject
+                    FROM items
+                    WHERE subject LIKE 'Ma%'
+                  UNION ALL
+                    SELECT first_name
+                    FROM accounts
+                    WHERE first_name LIKE 'Ma%'
+                  UNION ALL
+                    SELECT description
+                    FROM items
+                    WHERE description LIKE 'Ma%'');*/
+
+
+
+
+  function autoCompleteEsposo($data)
   {
-    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c WHERE a.ci = '$data' AND a.genero_id = '1' AND c.idSacramento = '3' AND a.id = b.persona_id AND b.sacramento_id = c.idSacramento");
+    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c 
+                            WHERE c.idSacramento = '3'
+                            AND a.genero = 'masculino' 
+                            AND a.id = b.persona_id 
+                            AND b.sacramento_id = c.idSacramento
+                            AND (a.nombres LIKE '%$data%' OR a.apellidoPaterno LIKE '%$data%' OR a.apellidoMaterno LIKE '%$data%')
+                            GROUP BY a.nombres  LIMIT 5");
     if ($query->num_rows() > 0 ) {
       foreach ($query->result_array() as $row){
-          $row_set[] = array('label'=>'Carnet de Identidad: '.$row['ci'],'id'=>$row['id'], 'ci'=>$row['ci'], 'nombre'=>$row['nombre'], 'apellido'=>$row['apellido'],'fechanac'=>$row['fechanacimiento']);
+          $row_set[] = array('label'=>'Nombre: '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'].' '.$row['nombres'],'id'=>$row['id'], 'ci'=>$row['ci']);
       }
       echo json_encode($row_set);
     }
     else {
-      $row_set[] = array('label'=>'Carnet de identidad no valido');
+      $row_set[] = array('label'=>'Nombre no encontrado');
       echo json_encode($row_set);
     }
-
   }
 
-  function autoCompleteCarnetMatrimonioEsposa($data)
+  /*function autoCompleteEsposa($data)
   {
-    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c WHERE a.ci = '$data' AND a.genero_id = '2' AND c.idSacramento = '3' AND a.id = b.persona_id AND b.sacramento_id = c.idSacramento");
+    $this->db->select('*');
+    $this->db->from('persona a');
+    $this->db->join('persona a');
+    $this->db->join('persona a');
+    $this->db->limit(5);
+    $this->db->like('nombres',$data);
+    $this->db->or_like('apellidoPaterno',$data);
+    $this->db->or_like('apellidoMaterno',$data);
+    $this->db->where('genero_id','1');
+    $this->db->where('persona','id=persona_id');
+    $query = $this->db->get('persona');
+    if ($query->num_rows() > 0) {
+      foreach ($query->result_array() as $row){
+          $row_set[] = array('label'=>'Carnet de Identidad: '.$row['ci'],'id'=>$row['id'], 'ci'=>$row['ci'], 'nombre'=>$row['nombre'].' '.$row['apellido']);
+      }
+      echo json_encode($row_set);
+    }
+  }*/
+
+  function autoCompleteEsposa($data)
+  {
+    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c 
+                               WHERE c.idSacramento = '3' 
+                               AND a.genero = 'femenino'
+                               AND a.id = b.persona_id 
+                               AND b.sacramento_id = c.idSacramento 
+                               AND (a.nombres LIKE '%$data%' OR a.apellidoPaterno LIKE '%$data%' OR a.apellidoMaterno LIKE '%$data%')
+                               GROUP BY a.nombres  LIMIT 5");
     if ($query->num_rows() > 0 ) {
       foreach ($query->result_array() as $row){
-          $row_set[] = array('label'=>'Carnet de Identidad: '.$row['ci'],'id'=>$row['id'], 'ci'=>$row['ci'], 'nombre'=>$row['nombre'], 'apellido'=>$row['apellido'],'fechanac'=>$row['fechanacimiento']);
+          $row_set[] = array('label'=>'Nombre: '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'].' '.$row['nombres'],'id'=>$row['id'], 'ci'=>$row['ci']);
       }
       echo json_encode($row_set);
     }
     else {
-      $row_set[] = array('label'=>'Carnet de identidad no valido');
+      $row_set[] = array('label'=>'Nombre no encontrado');
       echo json_encode($row_set);
     }
 

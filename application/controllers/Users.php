@@ -332,6 +332,12 @@ class Users extends CI_Controller{
           $this->Users_model->autoCompleteCarnetPadre($data);
       }
   }
+  function autoCompleteSacerdote(){
+      if (isset($_GET['term'])) {
+          $data = strtolower($_GET['term']);
+          $this->Users_model->autoCompleteSacerdote($data);
+      }
+  }
   function autoCompleteCarnetMadrina(){
       if (isset($_GET['term'])) {
           $data = strtolower($_GET['term']);
@@ -339,17 +345,17 @@ class Users extends CI_Controller{
       }
   }
 
-  function autoCompleteCarnetMatrimonioEsposo(){
+  function autoCompleteEsposo(){
       if (isset($_GET['term'])) {
           $data = strtolower($_GET['term']);
-          $this->Users_model->autoCompleteCarnetMatrimonioEsposo($data);
+          $this->Users_model->autoCompleteEsposo($data);
       }
   }
 
-  function autoCompleteCarnetMatrimonioEsposa(){
+  function autoCompleteEsposa(){
       if (isset($_GET['term'])) {
           $data = strtolower($_GET['term']);
-          $this->Users_model->autoCompleteCarnetMatrimonioEsposa($data);
+          $this->Users_model->autoCompleteEsposa($data);
       }
   }
 
