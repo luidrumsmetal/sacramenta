@@ -35,9 +35,7 @@ class FirstCommunion extends CI_Controller{
     }
     else
     {
-      $ci = $this->input->post('persona_id');
-      $personWithCi = $this->Users_model->getId($ci);
-      $persona_id = $personWithCi->id;
+      $persona_id = $this->input->post('feligres_id');
       $sacramento = '2';
       $celebrante = '1';
       $certificador='1';

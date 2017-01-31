@@ -205,14 +205,14 @@ $(document).ready(function(){
         }
       });
     $("#sacerdote").autocomplete({
-        source: "<?php echo base_url(); ?>users/autoCompleteSacerdote",
+        source: "<?php echo base_url(); ?>users/autoCompleteSacerdoteCelebrante",
         minLength: 1,
         select: function (event, ui) {
             $("#sacerdoteCelebrante_id").val(ui.item.id);
         }
     });
     $("#sacerdote1").autocomplete({
-        source: "<?php echo base_url(); ?>users/autoCompleteSacerdote",
+        source: "<?php echo base_url(); ?>users/autoCompleteSacerdoteCelebrante",
         minLength: 1,
         select: function (event, ui) {
             $("#sacerdoteCertificador_id").val(ui.item.id);

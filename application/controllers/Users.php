@@ -386,6 +386,13 @@ class Users extends CI_Controller{
         $this->Users_model->autoCompleteSacerdoteCelebrante($data);
     }
   }
+  function autoCompleteFeligresConfirmacion()
+  {
+    if (isset($_GET['term'])) {
+        $data = strtolower($_GET['term']);
+        $this->Users_model->autoCompleteFeligresConfirmacion($data);
+    }
+  }
 
   function testare()
   {

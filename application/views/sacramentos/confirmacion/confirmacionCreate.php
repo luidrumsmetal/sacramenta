@@ -62,8 +62,8 @@
 
                       	<div class="input-field col s6">
                             <i class="mdi-action-event prefix"></i>
-                            <input placeholder="" id="fecha" name="fecha" type="date">
-                            <label for="fecha" class="active"><b>Fecha Confirmación</b></label>
+                            <input placeholder="" id="fechacom" name="fechacom" type="date">
+                            <label for="fechacom" class="active"><b>Fecha Confirmación</b></label>
                         </div>
                     </div>
 
@@ -76,21 +76,21 @@
                         </div>
                     </div>  
 
-                    <div class="row">               
+                  <div class="row">
                       <div class="input-field col s6">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese nombre del Celebrante" id="Celebrante" name="parroquia" type="text">
-                        <input id="parroquia_id" name="parroquia_id" type="hidden">
-                        <label for="parroquia" class="active"><b>Sacerdote Celebrante</b></label>
+                        <input placeholder="Ingrese el Sacerdote Celebrante" id="sacerdote" name="sacerdote" type="text">
+                        <input id="sacerdoteCelebrante_id" name="sacerdoteCelebrante_id" type="hidden">
+                        <label for="sacerdote" class="active"><b>Sacerdote Celebrante</b></label>
                       </div>
-
                       <div class="input-field col s6">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese nombre del Certificador" id="parroquia" name="parroquia" type="text">
-                        <input id="parroquia_id" name="parroquia_id" type="hidden">
-                        <label for="parroquia" class="active"><b>Sacerdote Certificador</b></label>
+                        <input placeholder="Ingrese el Sacerdote Certificador" id="sacerdote1" name="sacerdote1" type="text">
+                        <input id="sacerdoteCertificador_id" name="sacerdoteCertificador_id" type="hidden">
+                        <label for="sacerdote1" class="active"><b>Sacerdote Certificador</b></label>
                       </div>
-                    </div>                    
+                    </div>
+                 
                     <font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
                       <div class="input-field col s4">
@@ -115,13 +115,13 @@
 
                       <div class="input-field col s6">
                         <i class="mdi-social-person prefix"></i>
-                        <input placeholder="" id="nombrePadrino" name="nombrePadrino" type="text">
+                        <input placeholder="Ingrese el apellido y nombre " id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text">
                         <label for="nombrePadrino" class="active"><b>Nombre Padrino</b></label>
                       </div>    
 
                        <div class="input-field col s6">
                         <i class="mdi-social-person prefix"></i>
-                        <input placeholder="" id="nombreMadrina" name="nombreMadrina" type="text">
+                        <input placeholder="Ingrese el apellido y nombre " id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text">
                         <label for="nombrePadrino" class="active"><b>Nombre Madrina</b></label>
                       </div>                                          
 
@@ -156,7 +156,7 @@ $(document).ready(function(){
         }
       });
     $("#feligres").autocomplete({
-        source: "<?php echo base_url(); ?>firstCommunion/autoCompleteFeligres",
+        source: "<?php echo base_url(); ?>users/autoCompleteFeligresConfirmacion",
         minLength: 1,
         select: function( event, ui ) {
            $("#persona_id").val(ui.item.id);
@@ -168,56 +168,25 @@ $(document).ready(function(){
         select: function( event, ui ) {
            $("#jurisdiccion_id").val(ui.item.id);
         }
-      });     
-		$("#carnetPadre").autocomplete({
-				source: "<?php echo base_url(); ?>users/autoCompleteCarnetPadre",
-				minLength: 1,
-				select: function (event, ui) {
-						$("#carnetPadre_id").val(ui.item.id);
-             $("#nombrePadre").val(ui.item.nombre);
-				}
-		});
-    $("#carnetMadre").autocomplete({
-				source: "<?php echo base_url(); ?>users/autoCompleteCarnetMadre",
-				minLength: 1,
-				select: function (event, ui) {
-						$("#carnetMadre_id").val(ui.item.id);
-             $("#nombreMadre").val(ui.item.nombre);
-				}
-		});
-    $("#carnetPadrino").autocomplete({
-				source: "<?php echo base_url(); ?>users/autoCompleteCarnetPadrino",
-				minLength: 1,
-				select: function (event, ui) {
-						$("#carnetPadrino_id").val(ui.item.id);
-             $("#nombrePadrino").val(ui.item.nombre);
-				}
-		});
+      });
+    $("#sacerdote").autocomplete({
+        source: "<?php echo base_url(); ?>users/autoCompleteSacerdoteCelebrante",
+        minLength: 1,
+        select: function (event, ui) {
+            $("#sacerdoteCelebrante_id").val(ui.item.id);
+        }
+    });
+    $("#sacerdote1").autocomplete({
+        source: "<?php echo base_url(); ?>users/autoCompleteSacerdoteCelebrante",
+        minLength: 1,
+        select: function (event, ui) {
+            $("#sacerdoteCertificador_id").val(ui.item.id);
+        }
+    });           
+		
+    
 
-    $('#ci').focusout( function(){
-    if($('#ci').val()!= ""){
-        $.ajax({
-            type: "POST",
-            url: "<?php echo base_url(); ?>users/testare",
-            data: "ci="+$('#ci').val(),
-            beforeSend: function(){
-
-              $('#msgUsuario').html('<img src="<?php echo base_url(); ?>assets/loader.gif"/> verificando');
-            },
-            success: function( respuesta ){
-              if(respuesta == '1')
-                $('#msgUsuario').html("<div id='card-alert' class='card green'><div class='card-content white-text'><b>Carnet de identidad disponible</b></div></div>");
-              else if (respuesta == '0') {
-                $('#msgUsuario').html("<div id='card-alert' class='card red'><div class='card-content white-text'><b>Carnet de identidad No Disponible</b></div></div>");
-              }
-              else {
-                $('#msgUsuario').html("<div id='card-alert' class='card red'><div class='card-content white-text'><b>Ingrese un numero de carnet correcto</b></div></div>");
-              }
-
-            }
-        });
-    }
-});
+    
 });
 </script>
 

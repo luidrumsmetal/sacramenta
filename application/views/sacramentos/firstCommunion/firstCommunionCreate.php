@@ -61,7 +61,7 @@
                         <div class="input-field col s12">
                             <i class="mdi-action-account-circle prefix"></i>
                             <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text">
-                            <input id="persona_id" name="persona_id" type="hidden">                            
+                            <input id="feligres_id" name="feligres_id" type="hidden">                            
                             <label for="feligres" class="active"><b>Nombre</b></label>
                         </div>
                        <!-- <div class="input-field col s6">
@@ -153,7 +153,7 @@ $(document).ready(function(){
         source: "<?php echo base_url(); ?>firstCommunion/autoCompleteFeligres",
         minLength: 1,
         select: function( event, ui ) {
-           $("#persona_id").val(ui.item.id);
+           $("#feligres_id").val(ui.item.id);
         }
       });  
     $("#jurisdiccion").autocomplete({
