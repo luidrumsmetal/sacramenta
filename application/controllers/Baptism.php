@@ -50,7 +50,7 @@ class Baptism extends CI_Controller{
             'sacramento_id' => $sacramento,
             'sacerdoteCertificador_id' => $this->input->post('sacerdoteCertificador_id'),
             'sacerdoteCelebrante_id' => $this->input->post('sacerdoteCelebrante_id'),
-            'idJurisdiccion_id' => $this->input->post('jurisdiccion_id')
+            'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
           );
           //registramos el certificado
             if ($this->Sacrament_model->Register('certificado', $data) == TRUE) {
