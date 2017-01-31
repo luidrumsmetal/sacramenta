@@ -130,7 +130,7 @@ input:-webkit-autofill:active {
 }
 
 .red-text {
-  color: #F44336 !important;
+  color: #000 !important;
 }
 
 .red.darken-1 {

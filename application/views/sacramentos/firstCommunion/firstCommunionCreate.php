@@ -41,7 +41,8 @@
               <div class="card-panel">
                 <div class="row">
                   <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>firstCommunion/FirstCommunionRegister">
-                    <div class="row">
+                  <font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
+                    <!--<div class="row">
                       <div class="input-field col s6">
                         <i class="mdi-action-credit-card prefix"></i>
                         <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text"><div id="msgUsuario"></div>
@@ -54,20 +55,20 @@
                         <input placeholder="" id="fechanac" disabled  name="fechanac" type="date">
                         <label for="first_name" class="active"><b>Fecha Nacimiento</b></label>
                       </div>
-                    </div>
+                    </div>-->
 
                       <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
                             <i class="mdi-action-account-circle prefix"></i>
-                            <input placeholder="Ingrese su nombre completo" id
-                            <input placeholder="Ingrese su nombre completo" disabled id="nombre" name="nombre" type="text">
-                            <label for="nombre" class="active"><b>Nombre</b></label>
+                            <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text">
+                            <input id="feligres_id" name="feligres_id" type="hidden">                            
+                            <label for="feligres" class="active"><b>Nombre</b></label>
                         </div>
-                        <div class="input-field col s6">
+                       <!-- <div class="input-field col s6">
                           <i class="mdi-action-account-circle prefix"></i>
                           <input placeholder="Ingrese su nombre completo" disabled id="apellido" name="apellido" type="text">
                           <label for="apellido" class="active"><b>Apellido</b></label>
-                        </div>
+                        </div>-->
                       </div>
 
                       <div class="row">
@@ -86,28 +87,16 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s0">
-                          <i class="mdi-maps-map prefix"></i>&nbsp &nbsp
-                        </div>
-                        <div class="input-field col s11">
-
-                          <select id="lugarNacimiento" name="lugarNacimiento">
-                            <option value="" disabled selected>Selecccion un lugar</option>
-                            <option value="1">La Paz</option>
-                            <option value="2">Cochabamba</option>
-                            <option value="3">Santa Cruz</option>
-                            <option value="4">Oruro</option>
-                            <option value="5">Potosi</option>
-                            <option value="6">Sucre</option>
-                            <option value="7">Beni</option>
-                            <option value="8">Pando</option>
-                            <option value="9">Tarija</option>
-                          </select>
-                          <label><b>Lugar de Comunión</b> </label>
+                        <div class="input-field col s12">
+                            <i class="mdi-action-room prefix"></i>
+                            <input placeholder="Ingres lugar de Comunión" id="jurisdiccion" name="jurisdiccion" type="text">
+                            <input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden">                            
+                            <label for="jurisdiccion" class="active"><b>Lugar</b></label>
                         </div>
 
                     </div>
-                  <!--  <h4 class="header2">Informacion de Registro</h4>--><br>
+
+                  <font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
                       <div class="input-field col s4">
                         <i class="mdi-action-book prefix"></i>
@@ -124,23 +113,7 @@
                         <input placeholder="Ingrese el numero" id="numeroOne" name="numeroOne" type="text">
                         <label for="numero" class="active"><b>Número</b></label>
                       </div>
-                    </div><br>
-                    <div class="row">
-                    <!--  <h4 class="header2">Informacion de Familiares</h4>--><br>
-                      <div class="input-field col s4 offset-s4">
-                        <i class="mdi-action-credit-card prefix"></i>
-                        <input placeholder="Ingrese el carnet de identidad" id="carnetPadrino" name="carnetPadrino" type="text">
-                        <input placeholder="Ingrese el carnet de identidad" id="carnetPadrino_id" name="carnetPadrino_id" type="hidden">
-                        <label for="carnetPadrino" class="active"><b>Carnet de Identidad del Padrino</b></label>
-                      </div>
                     </div>
-										<div class="row">
-                      <div class="input-field col s4 offset-s4">
-                        <i class="mdi-social-person prefix"></i>
-                        <input placeholder="" id="nombrePadrino" name="nombrePadrino" type="text">
-                        <label for="nombrePadrino" class="active"><b>Nombre del Padrino</b></label>
-                      </div>
-										</div>
                     <Br><BR>
                     <div class="row">
                         <div class="input-field col s7">
@@ -176,6 +149,20 @@ $(document).ready(function(){
            $("#parroquia_id").val(ui.item.id);
         }
       });
+    $("#feligres").autocomplete({
+        source: "<?php echo base_url(); ?>firstCommunion/autoCompleteFeligres",
+        minLength: 1,
+        select: function( event, ui ) {
+           $("#feligres_id").val(ui.item.id);
+        }
+      });  
+    $("#jurisdiccion").autocomplete({
+        source: "<?php echo base_url(); ?>Jurisdiccion/autoCompleteJurisdiccion",
+        minLength: 1,
+        select: function( event, ui ) {
+           $("#jurisdiccion_id").val(ui.item.id);
+        }
+      });        
     $('#ci').autocomplete({
       source: "<?php echo base_url(); ?>users/autoCompleteCarnetCommunion",
       minLength: 5,

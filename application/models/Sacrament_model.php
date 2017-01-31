@@ -32,4 +32,29 @@ class Sacrament_model extends CI_Model{
       }
   }
 
+
+  function autoCompleteFeligres($q)
+  {
+    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c 
+                            WHERE c.idSacramento = '1' 
+                            AND a.id = b.persona_id 
+                            AND b.sacramento_id = c.idSacramento
+                            AND (a.nombres LIKE '%$q%' OR a.apellidoPaterno LIKE '%$q%' OR a.apellidoMaterno LIKE '%$q%')
+                            GROUP BY a.nombres  LIMIT 5");
+    if ($query->num_rows() > 0 ) {
+      foreach ($query->result_array() as $row){
+          $row_set[] = array('label'=>'Nombre: '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'].' '.$row['nombres'],'id'=>$row['id'], 'ci'=>$row['ci']);
+      }
+      echo json_encode($row_set);
+    }
+    else {
+      $row_set[] = array('label'=>'Nombre no encontrado');
+      echo json_encode($row_set);
+    }
+  }
+
+ 
+
+
+
 }

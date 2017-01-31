@@ -101,7 +101,7 @@ class Jurisdiccion_model extends CI_Model{
 
       'nombre' => $nombre,
       'direccion' => $direccion,
-      'jurisdiccion_id'=>$jurisdiccion_id,
+      'jurisdiccion_id'=>$jurisdiccion
       //'jurisdiccion'=>$jurisdiccion
     );
     $this->db->where('idParroquia', $idParroquia);
