@@ -1,43 +1,75 @@
-<div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="text-center">Sacramentos</h1>
-            <p class="text-center">Registre el sacramento que necesite y recoja su certificado en la parroquia
-              mas cercana</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <a href="../Formularios/NacimientoReg.php"> <img src="img/b.png" class="center-block img-circle img-responsive"></a>
-          </div>
-          <div class="col-md-4">
-             <h3 class="text-left">Bautizo</h3>
-            <p class="text-left">El primer sacramento que nos inicia en nuestra vida como catolicos.</p>
-          </div>
-          <div class="col-md-2">
-            <a href="../Formularios/Confirmacion.php"> <img src="img/c.png" class="center-block img-circle img-responsive"></a>
-          </div>
-          <div class="col-md-4">
-            <h3 class="text-left">Confirmacion</h3>
-            <p class="text-left">La confirmacion de nuestra fe catolica.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-2">
-            <a href="../Formularios/ComunionReg.php"><img src="img/pc.png" class="center-block img-circle img-responsive"></a>
-          </div>
-          <div class="col-md-4">
-            <h3 class="text-left">Primera Comunion</h3>
-            <p class="text-left">La primera vez que recibimos el cuerpo de Dios.</p>
-          </div>
-          <div class="col-md-2">
-            <a href="../Formularios/Matrimonio.php"> <img src="img/m.png" class="center-block img-circle img-responsive"></a>
-          </div>
-          <div class="col-md-4 text-center">
-            <h3 class="text-left">Matrimonio</h3>
-            <p class="text-left">La union entre dos catolicos segun dicta la ley de Dios.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+<br><Br>
+                        <div class="row">
+                            <!-- blog card -->
+                            <div class="col s12 m6 l3">
+                                <div class="blog-card" >
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img src="<?php echo base_url()?>assets/inicio/images/bh.jpg" alt="blog-img">
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-title grey-text text-darken-4"><a href="#" class="grey-text text-darken-4">Bautizo</a>
+                                        </h4>                                        
+                                        <div class="row">
+                                          <p>Es el sacramento por el que renacemos a la vida divina y somos hechos hijos de Dios.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="col s12 m6 l3">
+                                <div class="blog-card" >
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img src="<?php echo base_url()?>assets/inicio/images/ph.jpg" alt="blog-img">
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-title grey-text text-darken-4"><a href="#" class="grey-text text-darken-4">Primera Comunión</a>
+                                        </h4>                                        
+                                        <div class="row">                                         
+                                            <p>Es el sacramento en el que recibimos el cuerpo y la sangre de Cristo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>                            
+
+                            <div class="col s12 m6 l3">
+                                <div class="blog-card" >
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img src="<?php echo base_url()?>assets/inicio/images/ch.jpg" alt="blog-img">
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-title grey-text text-darken-4"><a href="#" class="grey-text text-darken-4">Confirmación</a>
+                                        </h4>                                        
+                                        <div class="row">
+                                            <p>Es el sacramento por el cual renovamos nuestra fe en Cristo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+
+                            <div class="col s12 m6 l3">
+                                <div class="blog-card" >
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img src="<?php echo base_url()?>assets/inicio/images/mh.jpg" alt="blog-img">
+                                    </div>
+                                    <div class="card-content">
+                                        <h4 class="card-title grey-text text-darken-4"><a href="#" class="grey-text text-darken-4">Matrimonio</a>
+                                        </h4>                                        
+                                        <div class="row">
+                                          <p>Es el sacramento que une indisolublemente al hombre y a la mujer.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+                          
+
+
+
+                    </div>
