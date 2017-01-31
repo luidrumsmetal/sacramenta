@@ -76,7 +76,7 @@
                         </li>
                     </ul>
                     <!-- translation-button -->
-                    <!-- notifications-dropdown --> 
+                    <!-- notifications-dropdown -->
                 </div>
             </nav>
         </div>
@@ -94,7 +94,7 @@
                  <img src="<?php echo base_url(); ?>assets/demo/images/admin.png" alt="" class="circle responsive-img valign profile-image">
              </div>
              <div class="col col s8 m8 l8">
-                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">Joel Rojas<i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
+                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nombres'); ?><i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
                      <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
                      </li>
                      <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
@@ -107,7 +107,7 @@
                      <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
                      </li>
                  </ul>
-                 <p class="user-roal">Administrator</p>
+                 <p class="user-roal"><?php echo $this->session->userdata('tipo'); ?></p>
              </div>
          </div>
          </li>
