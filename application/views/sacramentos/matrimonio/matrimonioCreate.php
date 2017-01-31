@@ -205,14 +205,14 @@ $(document).ready(function(){
         }
       });
     $("#sacerdote").autocomplete({
-        source: "<?php echo base_url(); ?>users/autoCompleteSacerdote",
+        source: "<?php echo base_url(); ?>users/autoCompleteSacerdoteCelebrante",
         minLength: 1,
         select: function (event, ui) {
             $("#sacerdoteCelebrante_id").val(ui.item.id);
         }
     });
     $("#sacerdote1").autocomplete({
-        source: "<?php echo base_url(); ?>users/autoCompleteSacerdote",
+        source: "<?php echo base_url(); ?>users/autoCompleteSacerdoteCelebrante",
         minLength: 1,
         select: function (event, ui) {
             $("#sacerdoteCertificador_id").val(ui.item.id);
@@ -222,14 +222,14 @@ $(document).ready(function(){
       source: "<?php echo base_url(); ?>users/autoCompleteEsposo",
       minLength: 1,
       select: function( event, ui ) {
-         $("#esposo_id").val(ui.item.ci);
+         $("#esposo_id").val(ui.item.id);
       }
     });
     $('#esposa').autocomplete({
       source: "<?php echo base_url(); ?>users/autoCompleteEsposa",
       minLength: 1,
       select: function( event, ui ) {
-         $("#esposa_id").val(ui.item.ci);
+         $("#esposa_id").val(ui.item.id);
       }
     });
     
