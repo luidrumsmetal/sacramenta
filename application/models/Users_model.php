@@ -87,7 +87,7 @@ class Users_model extends CI_Model{
     $this->db->update('persona',$data1);
     $data2 = array(
       
-      'email' => $email,
+      'email' => null,
       'password' => $password
 
     );

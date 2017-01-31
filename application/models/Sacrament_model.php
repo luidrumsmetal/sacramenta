@@ -32,4 +32,23 @@ class Sacrament_model extends CI_Model{
       }
   }
 
+  public function autoCompleteFeligres($q){
+        $this->db->select('*');
+        $this->db->limit(10);
+        $this->db->like('nombres', $q);
+        $query = $this->db->get('persona');
+        if($query->num_rows() > 0){
+            foreach ($query->result_array() as $row){
+                $row_set[] = array('label'=>$row['nombres'].' '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'],'apellidop'=>$row['apellidoPaterno'], 'apellidom'=>$row['apellidoMaterno']);
+            }
+            echo json_encode($row_set);
+        }
+        /*else {
+          $row_set = "nada";
+          echo json_encode($row_set);
+        }*/
+    } 
+
+
+
 }

@@ -170,28 +170,31 @@
 
 			<div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
 				<div class="team-wrapper">
-					<img src="<?php echo base_url(); ?>assets/inicio/images/bautism.jpg" class="img-responsive" alt="team img">
+					<a class="btn btn-lg" href="<?php echo base_url(); ?>Sacramentos"><img src="<?php echo base_url(); ?>assets/inicio/images/bautism.jpg" class="img-responsive" alt="team img">
 						<div class="team-des">
 							<h4>Bautizo</h4>
 						</div>
+					</a>	
 				</div>
 			</div>
 
 			<div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="1.3s">
 				<div class="team-wrapper">
-					<img src="<?php echo base_url(); ?>assets/inicio/images/primera1.jpeg" class="img-responsive" alt="team img">
+					<a class="btn btn-lg" href="<?php echo base_url(); ?>Sacramentos/primera"><img src="<?php echo base_url(); ?>assets/inicio/images/primera1.jpeg" class="img-responsive" alt="team img">
 						<div class="team-des">
 							<h4>Primera Comunión</h4>
 						</div>
+					</a>	
 				</div>
 			</div>
 
 			<div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="1.6s">
 				<div class="team-wrapper">
-					<img src="<?php echo base_url(); ?>assets/inicio/images/confir.jpg" class="img-responsive" alt="team img">
+					<a class="btn btn-lg" href="<?php echo base_url(); ?>Sacramentos/confirmacion"><img src="<?php echo base_url(); ?>assets/inicio/images/confir.jpg" class="img-responsive" alt="team img">
 						<div class="team-des">
 							<h4>Confirmación</h4>
 						</div>
+					</a>	
 				</div>
 			</div>
 
@@ -201,10 +204,11 @@
 
 						<div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="1.6s">
 				<div class="team-wrapper">
-					<img src="<?php echo base_url(); ?>assets/inicio/images/matrimonio.jpeg" class="img-responsive" alt="team img">
+					<a class="btn btn-lg" href="<?php echo base_url(); ?>Sacramentos/matrimonio"><img src="<?php echo base_url(); ?>assets/inicio/images/matrimonio.jpeg" class="img-responsive" alt="team img">
 						<div class="team-des">
 							<h4>Matrimonio</h4>
 						</div>
+					</a>	
 				</div>
 			</div>
 

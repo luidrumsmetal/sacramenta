@@ -37,7 +37,7 @@ class Confirmacion extends CI_Controller{
     }
     else
     {
-      $ci = $this->input->post('ci_id');
+      $ci = $this->input->post('persona_id');
       $personWithCi = $this->Users_model->getId($ci);
       $persona_id = $personWithCi->id;
       $sacramento = '3';
@@ -47,7 +47,7 @@ class Confirmacion extends CI_Controller{
         'persona_id' => $persona_id,
         'parroquia_id' => $parroquia_id,
         'sacramento_id' => $sacramento,
-        'ciudad_id' => $this->input->post('lugarNacimiento')
+        'juridiccion_id' => $this->input->post('juridiccion_id'),
       );
         if ($this->Sacrament_model->Register('certificado', $data) ==TRUE) {
           $fecha = $this->input->post('fechacom');
@@ -58,7 +58,7 @@ class Confirmacion extends CI_Controller{
             'pagina' => $this->input->post('paginaOne'),
             'numero' => $this->input->post('numeroOne'),
             'parroquia_id' => $parroquia_id,
-            'certificado_id' => $certificado_id
+
           );
             if ($this->Sacrament_model->Register('libroparroquia',$data) == TRUE) {
                $data = array(

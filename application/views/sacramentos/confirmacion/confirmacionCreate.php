@@ -40,53 +40,58 @@
               <div class="card-panel">
                 <div class="row">
                   <form class="col s12" id="formConfirmacion" method="post" action="<?php echo base_url(); ?>confirmacion/confirmacionRegister">
-                    <div class="row">
+                  <font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
 
-                      <div class="input-field col s4">
-                          <i class="mdi-action-credit-card prefix"></i>
-                          <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text"><div id="msgUsuario"></div>
-                          <label for="ci" class="active"><b>Carnet de Identidad</b></label>
-                        <span id="comprobar_mensaje"></span>
-                    </div>                    
+                      <div class="row">
+                        <div class="input-field col s12">
+                            <i class="mdi-action-account-circle prefix"></i>
+                            <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text">
+                            <input id="persona_id" name="persona_id" type="hidden">                            
+                            <label for="feligres" class="active"><b>Nombre</b></label>
+                        </div>
+                      </div>  
 
-                      <div class="input-field col s4">
+
+                    <div class="row">               
+                      <div class="input-field col s6">
                         <i class="mdi-action-home prefix"></i>
                         <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text">
                         <input id="parroquia_id" name="parroquia_id" type="hidden">
                         <label for="parroquia" class="active"><b>Parroquia</b></label>
                       </div>
 
-
-                      	<div class="input-field col s4">
+                      	<div class="input-field col s6">
                             <i class="mdi-action-event prefix"></i>
                             <input placeholder="" id="fecha" name="fecha" type="date">
                             <label for="fecha" class="active"><b>Fecha Confirmación</b></label>
                         </div>
-
-                      <!--<div class="input-field col s6">
-                        <input placeholder="Ingrese su nombre completo" id="presbitero" name="presbitero" type="text">
-                        <label for="presbitero" class="active"><b>Presbitero</b></label>
-                      </div>-->
                     </div>
 
-                    <br>
-
                     <div class="row">
-                    <div class="input-field col s6">
-                        <i class="mdi-action-credit-card prefix"></i>
-                        <input placeholder="Ingrese el carnet de identidad" id="carnetPadrino" name="carnetPadrino" type="text">
-                        <input placeholder="Ingrese el carnet de identidad" id="carnetPadrino_id" name="carnetPadrino_id" type="hidden">
-                        <label for="carnetPadrino" class="active"><b>CI del Padrino</b></label>
+                        <div class="input-field col s12">
+                            <i class="mdi-action-room prefix"></i>
+                            <input placeholder="Ingres lugar de Comunión" id="jurisdiccion" name="jurisdiccion" type="text">
+                            <input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden">                            
+                            <label for="jurisdiccion" class="active"><b>Lugar</b></label>
+                        </div>
+                    </div>  
+
+                    <div class="row">               
+                      <div class="input-field col s6">
+                        <i class="mdi-social-person-outline prefix"></i>
+                        <input placeholder="Ingrese nombre del Celebrante" id="Celebrante" name="parroquia" type="text">
+                        <input id="parroquia_id" name="parroquia_id" type="hidden">
+                        <label for="parroquia" class="active"><b>Sacerdote Celebrante</b></label>
                       </div>
 
                       <div class="input-field col s6">
-                        <i class="mdi-social-person prefix"></i>
-                        <input placeholder="" id="nombrePadrino" name="nombrePadrino" type="text">
-                        <label for="nombrePadrino" class="active"><b>Nombre del Padrino</b></label>
-                      </div>                       
-                    </div>
-
-                  <!--  <h4 class="header2">Informacion de Registro</h4>--><Br>
+                        <i class="mdi-social-person-outline prefix"></i>
+                        <input placeholder="Ingrese nombre del Certificador" id="parroquia" name="parroquia" type="text">
+                        <input id="parroquia_id" name="parroquia_id" type="hidden">
+                        <label for="parroquia" class="active"><b>Sacerdote Certificador</b></label>
+                      </div>
+                    </div>                    
+                    <font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
                       <div class="input-field col s4">
                         <i class="mdi-action-book prefix"></i>
@@ -104,6 +109,24 @@
                         <label for="numero" class="active"><b>Número</b></label>
                       </div>
                     </div>
+                    <font color="black" size="5" face="Lucida Calligraphy">Padrinos</font><br><Br>
+                    <div class="row">
+
+
+                      <div class="input-field col s6">
+                        <i class="mdi-social-person prefix"></i>
+                        <input placeholder="" id="nombrePadrino" name="nombrePadrino" type="text">
+                        <label for="nombrePadrino" class="active"><b>Nombre Padrino</b></label>
+                      </div>    
+
+                       <div class="input-field col s6">
+                        <i class="mdi-social-person prefix"></i>
+                        <input placeholder="" id="nombreMadrina" name="nombreMadrina" type="text">
+                        <label for="nombrePadrino" class="active"><b>Nombre Madrina</b></label>
+                      </div>                                          
+
+                    </div>
+
 
                     <br><br>
                
@@ -132,7 +155,20 @@ $(document).ready(function(){
            $("#parroquia_id").val(ui.item.id);
         }
       });
-
+    $("#feligres").autocomplete({
+        source: "<?php echo base_url(); ?>firstCommunion/autoCompleteFeligres",
+        minLength: 1,
+        select: function( event, ui ) {
+           $("#persona_id").val(ui.item.id);
+        }
+      });  
+    $("#jurisdiccion").autocomplete({
+        source: "<?php echo base_url(); ?>Jurisdiccion/autoCompleteJurisdiccion",
+        minLength: 1,
+        select: function( event, ui ) {
+           $("#jurisdiccion_id").val(ui.item.id);
+        }
+      });     
 		$("#carnetPadre").autocomplete({
 				source: "<?php echo base_url(); ?>users/autoCompleteCarnetPadre",
 				minLength: 1,

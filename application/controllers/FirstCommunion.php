@@ -26,28 +26,30 @@ class FirstCommunion extends CI_Controller{
     #$this->form_validation->set_rules('fechanac', 'Fecha nacimiento', 'trim|required|xss_clean');
     $this->form_validation->set_rules('fechacom', 'Fecha Primera Confirmacion', 'trim|required|xss_clean');
     $this->form_validation->set_rules('parroquia_id', 'Parroquia', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('lugarNacimiento', 'Lugar de Nacimiento', 'trim|required|xss_clean');
     $this->form_validation->set_rules('libroOne', 'Libro', 'trim|required|xss_clean');
     $this->form_validation->set_rules('paginaOne', 'Pagina', 'trim|required|xss_clean');
     $this->form_validation->set_rules('numeroOne', 'Numero', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('carnetPadrino_id', 'Carnet de identidad Padrino', 'trim|required|xss_clean');
     if ($this->form_validation->run() == FALSE) {
         $this->session->set_flashdata('error', 'Ingrese correctamente los datos');
         redirect(base_url().'firstCommunion');
     }
     else
     {
-      $ci = $this->input->post('ci_id');
+      $ci = $this->input->post('persona_id');
       $personWithCi = $this->Users_model->getId($ci);
       $persona_id = $personWithCi->id;
       $sacramento = '2';
+      $celebrante = '1';
+      $certificador='1';
       $parroquia_id = $this->input->post('parroquia_id');
       $data = array(
         'fecha' => $this->input->post('fechacom'),
         'persona_id' => $persona_id,
         'parroquia_id' => $parroquia_id,
         'sacramento_id' => $sacramento,
-        'ciudad_id' => $this->input->post('lugarNacimiento')
+        'sacerdoteCelebrante_id'=>$celebrante,
+        'sacerdoteCertificador_id'=>$certificador,
+        'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
       );
         if ($this->Sacrament_model->Register('certificado', $data) ==TRUE) {
           $fecha = $this->input->post('fechacom');
@@ -61,18 +63,8 @@ class FirstCommunion extends CI_Controller{
             'certificado_id' => $certificado_id
           );
             if ($this->Sacrament_model->Register('libroparroquia',$data) == TRUE) {
-               $data = array(
-                  'persona_id' => $this->input->post('carnetPadrino_id'),
-                  'certificado_id' => $certificado_id
-                );
-                if ($this->Sacrament_model->Register('certificadopadrino',$data)==TRUE) {
-                  $this->session->set_flashdata('success','Primera Comunion registrado correctamente!');
-                  redirect(base_url() . 'firstCommunion');
-                }
-                else {
-                  $this->session->set_flashdata('error', 'Ingrese correctamente los datos (padrino)');
-                  redirect(base_url().'firstCommunion');
-                }
+                $this->session->set_flashdata('success','Primera Comunion registrado correctamente!');
+                redirect(base_url() . 'firstCommunion');
             }
             else
             {
@@ -87,5 +79,13 @@ class FirstCommunion extends CI_Controller{
         }
     }
   }
+
+  public function autoCompleteFeligres(){
+        if (isset($_GET['term'])){
+            $q = strtolower($_GET['term']);
+            $this->Sacrament_model->autoCompleteFeligres($q);
+        }
+    }  
+    
 
 }
