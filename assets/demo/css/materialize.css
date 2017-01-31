@@ -830,7 +830,7 @@ input:-webkit-autofill:active {
 }
 
 .light-blue.darken-4 {
-  background-color: rgba(1, 87, 155, 0.62) !important;
+  background-color: rgba(1, 87, 155, 0.96) !important;
 }
 
 .light-blue-text.text-darken-4 {
@@ -2253,7 +2253,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1.64rem;
+  font-size: 1.50rem;
   line-height: 110%;
   margin: 0.82rem 0 0.656rem 0;
 }
@@ -7809,7 +7809,7 @@ nav .input-field label.active {
   padding: 30px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0); /*background login transparente*/
+  background-color: #f5f5f5; /*background login transparente*/
 }
 
 .card {
@@ -8158,7 +8158,7 @@ nav .input-field label.active {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: rgba(253, 134, 0, 0.59);
+  background-color: rgba(253, 137, 7, 1);
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: 0.2s ease-out;

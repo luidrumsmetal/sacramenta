@@ -10,13 +10,13 @@
             </button>
           </div>
       <?php } ?>
-    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>users/faithfulRegister">
+    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>users/faithfulAccountRegister">
           <div class="row margin">
             <div class="input-field col s12 center">
               <h4>Registro de Fieles</h4>
             <p class="left">Informacion General</p>
             </div>
-          </div><hr>
+          </div><hr><br>
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-social-person-outline prefix"></i>
@@ -27,15 +27,22 @@
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-social-person-outline prefix"></i>
-              <input id="nombre" name="nombre" type="text">
-              <label for="nombre" class="center-align">Nombre</label>
+              <input id="apellidoPaterno" name="apellidoPaterno" type="text">
+              <label for="apelliodPaterno" class="center-align">Apellido Paterno</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-social-person-outline prefix"></i>
-              <input id="apellido" name="apellido" type="text">
-              <label for="apellido" class="center-align">Apellido</label>
+              <input id="apellidoMaterno" name="apellidoMaterno" type="text">
+              <label for="apelliodMaterno" class="center-align">Apellido Materno</label>
+            </div>
+          </div>
+          <div class="row margin">
+            <div class="input-field col s12">
+              <i class="mdi-social-person-outline prefix"></i>
+              <input id="nombre" name="nombre" type="text">
+              <label for="nombre" class="center-align">Nombres</label>
             </div>
           </div>
           <div class="row margin">
@@ -71,7 +78,7 @@
             <div class="input-field col s12">
               <i class="mdi-social-person-outline prefix"></i>
               <input id="facebook" name="facebook" type="text">
-              <label for="facebook" class="center-align">Link de Facebook</label>
+              <label for="facebook" class="center-align">Nombre de Facebook</label>
             </div>
           </div>
           <div class="row margin">

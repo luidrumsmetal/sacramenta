@@ -115,6 +115,8 @@
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>email" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
          </li>
+         <li class="bold"><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Registro de Fiel</a>
+         </li>
          <li class="no-padding">
               <ul class="collapsible collapsible-accordion">
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Sacerdotes</a>
