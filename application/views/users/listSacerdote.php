@@ -69,18 +69,18 @@
                             echo '<tr>';
                             echo '<td>'.$r->idSacerdote.'</td>';
                             echo '<td>'.$r->ci.'</td>';
-                            echo '<td>'.$r->nombre.'</td>';
-                            echo '<td>'.$r->apellido.'</td>';
+                            echo '<td>'.$r->nombres.'</td>';
+                            echo '<td>'.$r->apellidoPaterno.' '.$r->apellidoMaterno.'</td>';
                             echo '<td>'.$r->tipoSacerdote.'</td>';
                             echo '<td>';
             #if($this->permission->checkPermission($this->session->userdata('permissao'),'vCliente')){
             #echo '<a href="'.base_url().'index.php/clientes/visualizar/'.$r->idClientes.'" style="margin-right: 1%" class="btn tip-top" title="Ver mais detalhes"><i class="icon-eye-open"></i></a>';
             #}
             #if($this->permission->checkPermission($this->session->userdata('permissao'),'eCliente')){
-                echo '<a href="'.base_url().'users/SacerdoteEdit/'.$r->id.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
+                echo '<a href="'.base_url().'users/SacerdoteEdit/'.$r->id.'" style="margin-right: 2%" class="btn disabled waves-effect waves-light amber darken-4" title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
           #  }
           #  if($this->permission->checkPermission($this->session->userdata('permissao'),'dCliente')){
-                echo '<a href="#modal1" cliente="'.$r->id.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
+                echo '<a href="#modal1" cliente="'.$r->id.'" style="margin-right: 1%" class="btn disabled waves-effect waves-light btn modal-trigger red darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
           #  }
 
 

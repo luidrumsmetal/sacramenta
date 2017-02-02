@@ -1,15 +1,25 @@
 <div id="login-page" class="row">
   <div class="col s12 z-depth-4">
-      <?php if($this->session->flashdata('success')) {?>
-          <div id="card-alert" class="card green">
-            <div class="card-content white-text">
-              <p><?php echo $this->session->flashdata('success') ?></p>
-            </div>
-            <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
+    <?php if($this->session->flashdata('error')) {?>
+        <div id="card-alert" class="card red">
+          <div class="card-content white-text">
+            <p><?php echo $this->session->flashdata('error') ?></p>
           </div>
-      <?php } ?>
+          <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+    <?php } ?>
+    <?php if($this->session->flashdata('success')) {?>
+        <div id="card-alert" class="card green">
+          <div class="card-content white-text">
+            <p><?php echo $this->session->flashdata('success') ?></p>
+          </div>
+          <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+    <?php } ?>
   <div class="col s12 z-depth-5 card-panel">
     <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>login/checkLogin">
 
@@ -20,16 +30,7 @@
           <p class="center login-form-text"><b>Ingreso de Fieles</b></p>
         </div>
       </div>
-      <?php if($this->session->flashdata('error')!=null) {?>
-        <div id="card-alert" class="card red">
-          <div class="card-content white-text">
-            <p><?php echo $this->session->flashdata('error') ?></p>
-          </div>
-          <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-      <?php } ?>
+
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
@@ -122,7 +123,7 @@
     <h4 align="center">Datos Incorrectos</h4>
     <h6 style="text-align: center">Intente nuevamente</h6>
 </div>
-                  
+
 <div class="modal-footer orange">
     <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">ACEPTAR</a>
 </div>

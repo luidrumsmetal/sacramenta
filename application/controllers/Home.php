@@ -7,6 +7,10 @@ class Home extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
+    if (!$this->session->userdata('tipo')){
+			$this->session->set_flashdata('error','Debe Iniciar Sesion');
+			redirect(base_url().'login');
+      }
   }
 
   function index()

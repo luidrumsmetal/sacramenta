@@ -15,8 +15,10 @@ class Users_model extends CI_Model{
     $consult = $this->db->get('users');
       if ($consult->num_rows()>0) {
           $this->db->select('*');
+          $this->db->from('users');
           $this->db->join('cuenta', 'cuenta.idCuenta = users.cuenta_id');
-          $query = $this->db->get('users')->row();
+          $this->db->where('users.email', $email);
+          $query = $this->db->get()->row();
           if (count($query) > 0) {
                 $usuario = array('nombres' => $query->nombres, 'id' => $query->idCuenta,'apellidos' => $query->apellidoPaterno.' '.$query->apellidoMaterno, 'tipo' => $query->tipoUsuario);
                 $this->session->set_userdata($usuario);
