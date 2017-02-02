@@ -22,7 +22,7 @@ class Users extends CI_Controller{
     $data['msj_error'] = '';
     $this->load->view('login/header');
     $this->load->view('users/faithfulAccount',$data);
-    $this->load->view('login/footer');
+    $this->load->view('login/footer2');
   }
   function faithfulRegister()
   {

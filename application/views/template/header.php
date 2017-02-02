@@ -62,21 +62,15 @@
         <div class="navbar-fixed">
             <nav class="navbar-color">
                 <div class="nav-wrapper">
-                    <ul class="left">
-                      <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1"><img src="<?php echo base_url(); ?>assets/demo/images/materialize-logo.png" alt="materialize logo"></a> <span class="logo-text">Materialize</span></h1></li>
+                    
+                    <ul>                 
+                      <li>                                      
+                        <div class="col s12">             
+                          <font color="white" size="6" face="Lucida Calligraphy">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPastoral Digital</font><br><Br>         
+                        </div>
+                      </li> 
                     </ul>
-
-                    <ul class="right hide-on-med-and-down">
-
-                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown"><i class="mdi-social-notifications"><small class="notification-badge">5</small></i>
-
-                        </a>
-                        </li>
-                        <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
-                        </li>
-                    </ul>
-                    <!-- translation-button -->
-                    <!-- notifications-dropdown --> 
+                    
                 </div>
             </nav>
         </div>
@@ -94,19 +88,7 @@
                  <img src="<?php echo base_url(); ?>assets/demo/images/admin.png" alt="" class="circle responsive-img valign profile-image">
              </div>
              <div class="col col s8 m8 l8">
-                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">Joel Rojas<i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
-                     <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
-                     </li>
-                     <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
-                     </li>
-                     <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
-                     </li>
-                     <li class="divider"></li>
-                     <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
-                     </li>
-                     <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
-                     </li>
-                 </ul>
+                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">Joel Rojas<i class="mdi-navigation-arrow-drop-down right"></i></a>
                  <p class="user-roal">Administrator</p>
              </div>
          </div>
