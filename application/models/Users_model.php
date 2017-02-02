@@ -56,15 +56,7 @@ class Users_model extends CI_Model{
             return $query->row();
         }
   }
-  function getIDuser($ci)
-  {
-        $query = $this->db->get_where('persona',array('ci' => $ci));
-        if($query->num_rows() > 0 )
-        {
-            //veamos que sólo retornamos una fila con row(), no result()
-            return $query->row();
-        }
-  }
+  
   function usersRegister($table, $data)
   {
     $this->db->insert($table, $data);
