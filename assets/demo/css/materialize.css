@@ -1022,7 +1022,7 @@ input:-webkit-autofill:active {
 }
 
 .teal {
-  background-color: #112c3e !important;
+  background-color: rgba(245, 245, 245, 0.6) !important; /*Registro bg*/
 }
 
 .teal-text {
@@ -2504,7 +2504,7 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-  background-color: transparent;
+  background-color: #fce3d9;
 }
 
 /**
@@ -7809,7 +7809,7 @@ nav .input-field label.active {
   padding: 30px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 2px;
-  background-color: #f5f5f5; /*background login transparente*/
+  background-color: rgba(245, 245, 245, 0.46); /*background login transparente*/
 }
 
 .card {
@@ -8637,7 +8637,7 @@ a.waves-effect .waves-ripple {
 
 .side-nav .collapsible-body {
   border: 0;
-  background-color: #fff;
+  background-color: #fce3d9; /*header*/
 }
 
 .side-nav .collapsible-body li a {

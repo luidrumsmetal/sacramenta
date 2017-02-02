@@ -62,7 +62,7 @@
                             <i class="mdi-action-account-circle prefix"></i>
                             <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text">
                             <input id="feligres_id" name="feligres_id" type="hidden">                            
-                            <label for="feligres" class="active"><b>Nombre</b></label>
+                            <label for="feligres" class="active"><b>Feligrés (*)</b></label>
                         </div>
                        <!-- <div class="input-field col s6">
                           <i class="mdi-action-account-circle prefix"></i>
@@ -75,23 +75,23 @@
                         <div class="input-field col s6">
                               <i class="mdi-action-event prefix"></i>
                               <input placeholder="" id="fechacom" name="fechacom" type="date">
-                              <label for="first_name" class="active"><b>Fecha Primera Comunión</b></label>
+                              <label for="first_name" class="active"><b>Fecha Primera Comunión (*)</b></label>
                         </div>
 
                         <div class="input-field col s6">
                           <i class="mdi-action-home prefix"></i>
                           <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text">
                           <input id="parroquia_id" name="parroquia_id" type="hidden">
-                          <label for="parroquia" class="active"><b>Parroquia</b></label>
+                          <label for="parroquia" class="active"><b>Parroquia que inscribe el sacramento (*)</b></label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="mdi-action-room prefix"></i>
-                            <input placeholder="Ingres lugar de Comunión" id="jurisdiccion" name="jurisdiccion" type="text">
+                            <input placeholder="Ingrese lugar de Comunión" id="jurisdiccion" name="jurisdiccion" type="text">
                             <input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden">                            
-                            <label for="jurisdiccion" class="active"><b>Lugar</b></label>
+                            <label for="jurisdiccion" class="active"><b>Jurisdicción Eclesiástica (*)</b></label>
                         </div>
 
                     </div>
@@ -100,18 +100,18 @@
                     <div class="row">
                       <div class="input-field col s4">
                         <i class="mdi-action-book prefix"></i>
-                        <input placeholder="Ingrese el libro" id="libroOne" name="libroOne" type="text">
-                        <label for="libro" class="active"><b>Libro</b></label>
+                        <input placeholder="Ingrese libro de registro" id="libroOne" name="libroOne" type="text">
+                        <label for="libro" class="active"><b>Libro (*)</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-action-find-in-page prefix"></i>
-                        <input placeholder="Ingrese el pagina" id="paginaOne" name="paginaOne" type="text">
-                        <label for="pagina" class="active"><b>Página</b></label>
+                        <input placeholder="Ingrese número de página" id="paginaOne" name="paginaOne" type="text">
+                        <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
-                        <input placeholder="Ingrese el numero" id="numeroOne" name="numeroOne" type="text">
-                        <label for="numero" class="active"><b>Número</b></label>
+                        <input placeholder="Ingrese número registro" id="numeroOne" name="numeroOne" type="text">
+                        <label for="numero" class="active"><b>Número (*)</b></label>
                       </div>
                     </div>
                     <Br><BR>

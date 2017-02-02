@@ -30,4 +30,40 @@ class Home extends CI_Controller{
 
   }
 
+  function fiel()
+  {
+    $data['title'] = 'Inicio';
+    $this->load->view('template/header',$data);
+    $this->load->view('fiel');
+    $this->load->view('template/footer');
+  }  
+
+  function bautizo()
+  {
+    $this->load->view('template/header');
+    $this->load->view('fiel/bautizo');
+    $this->load->view('template/footer');
+  }
+
+  function primera()
+  {
+    $this->load->view('template/header');
+    $this->load->view('inicio/sacramentos/primerac');
+    $this->load->view('template/footer');
+  }  
+
+  function confirmacion()
+  {
+    $this->load->view('template/header');
+    $this->load->view('inicio/sacramentos/confirmacion');
+    $this->load->view('template/footer');
+  }    
+
+  function matrimonio()
+  {
+    $this->load->view('template/header');
+    $this->load->view('inicio/sacramentos/matrimonio');
+    $this->load->view('template/footer');
+  }    
+
 }
