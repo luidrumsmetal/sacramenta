@@ -58,6 +58,7 @@ class Users_model extends CI_Model{
             return $query->row();
         }
   }
+  
   function usersRegister($table, $data)
   {
     $this->db->insert($table, $data);

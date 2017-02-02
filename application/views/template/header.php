@@ -123,7 +123,7 @@
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Sacerdotes</a>
                      <div class="collapsible-body" style="">
                          <ul>
-                             <li class="bold"><a href="<?php echo base_url(); ?>home/priestCreate" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Sacerdote</a>
+                             <li class="bold"><a href="<?php echo base_url(); ?>users/usuarioRegister" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Cuenta Usuario</a>
                              </li>
                              <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista</a>
                              </li>
