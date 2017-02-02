@@ -160,35 +160,43 @@ class Users extends CI_Controller{
     #$this->form_validation->set_rules('celular', 'Celular', 'trim|required|min_length[5]|max_length[12]|xss_clean');
     #$this->form_validation->set_rules('facebook', 'Facebook', 'trim|required|min_length[5]|max_length[12]|xss_clean');
     $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[5]|max_length[50]|valid_email|is_unique[users.email]|xss_clean');
-    $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[5]|max_length[18]|xss_clean');
+    $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[2]|max_length[18]|xss_clean');
     $this->form_validation->set_message('required', 'El %s es importante');
     if ($this->form_validation->run()==false)
     {
         $this->session->set_flashdata('error','Ingrese correctamente los datos');
+        redirect(base_url() . 'users/faithfulAccount');
     }
     else {
+      if ($this->input->post('genero') == '1') {
+          $genero = 'masculino';
+      }
+      else {
+          $genero = 'femenino';
+      }
         $data = array(
           'ci'=> $this->input->post('ci'),
           'apellidoPaterno' => $this->input->post('apellidoPaterno'),
           'apellidoMaterno' => $this->input->post('apellidoMaterno'),
           'nombres' => $this->input->post('nombres'),
-          'correo' => $this->input->post('email'),
-          'password' => $this->input->post('password'),
           'celular' => $this->input->post('celular'),
           'facebook' => $this->input->post('facebook'),
           'fechanacimiento' => $this->input->post('fechanac'),
-          'genero' => $this->input->post('genero')
+          'genero' => $genero
         );
         if ($this->Users_model->personRegister('cuenta',$data) == TRUE)
         {
           $ci = $this->input->post('ci');
           $personWithCi = $this->Users_model->getId($ci);
-          $persona_id = $personWithCi->id;
+          $persona_id = $personWithCi->idCuenta;
+        /*  print_r($personWithCi).'<br>';
+          echo $personWithCi.'<br>';
+          echo $persona_id;*/
             $data = array(
               'email' => $this->input->post('email'),
               'password' => $this->input->post('password'),
               'tipoUsuario' => $tipoUsuario,
-              'persona_id' => $persona_id
+              'cuenta_id' => $persona_id
             );
             if ($this->Users_model->usersRegister('users', $data) == TRUE) {
               $this->session->set_flashdata('success ','Fiel Registrado correctamente!');
@@ -197,18 +205,18 @@ class Users extends CI_Controller{
             else
             {
               $this->session->set_flashdata('error ','Error al registrar su informacion de la cuenta');
-              redirect(base_url() . 'login/faithfulCreate');
+              redirect(base_url() . 'login/faithfulAccount');
             }
         }
         else
         {
           $this->session->set_flashdata('error ','Error al registrar su informacion personal');
-          redirect(base_url() . 'login/faithfulCreate');
+          redirect(base_url() . 'login/faithfulAccount');
         }
     }
-    $this->load->view('login/header');
-    $this->load->view('users/faithfulCreate');
-    $this->load->view('login/footer');
+  /*  $this->load->view('login/header');
+    $this->load->view('users/faithfulAccount');
+    $this->load->view('login/footer');*/
   }
 
   function priestRegister()
@@ -311,7 +319,7 @@ class Users extends CI_Controller{
     } else{
       redirect('users/sacerdoteEdit/'.$idSacerdote);
     }
-    
+
   }
 
   function autoCompleteCarnetPadre(){
