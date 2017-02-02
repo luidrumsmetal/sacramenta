@@ -29,7 +29,7 @@
             <div class="input-field col s12">
               <i class="mdi-action-account-circle prefix"></i>
               <input id="apellidoPaterno" name="apellidoPaterno" type="text">
-              <label for="apelliodPaterno" class="center-align">Apellido Paterno</label>
+              <label for="apellidoPaterno" class="center-align">Apellido Paterno</label>
             </div>
           </div>
           <div class="row margin">
@@ -42,8 +42,8 @@
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-social-person-outline prefix"></i>
-              <input id="nombre" name="nombre" type="text">
-              <label for="nombre" class="center-align">Nombres</label>
+              <input id="nombres" name="nombres" type="text">
+              <label for="nombres" class="center-align">Nombres</label>
             </div>
           </div><br>
           <div class="row margin">
@@ -99,20 +99,14 @@
               <label for="password">Password</label>
             </div>
           </div>
-          <!--<div class="row margin">
-            <div class="input-field col s12">
-              <i class="mdi-action-lock-outline prefix"></i>
-              <input id="password-again" type="password">
-              <label for="password-again">Password again</label>
-            </div>
-          </div>-->
           <div class="row">
             <div class="input-field col s12">
               <!--<a href="index.html" class="btn waves-effect waves-light col s12">Register Now</a>-->
-                <button type="submit" class="btn waves-effect waves-light col s12"><i class="icon-ok icon-white"></i> Registrese Ahora</button>
+
+                <button type="submit" class="btn waves-effect waves-light col s12"><i class="icon-ok icon-white"></i> Registrarse</button>
             </div>
             <div class="input-field col s12">
-              <p class="margin center medium-small sign-up">¿Ya estas registrado? <br><a href="<?php echo base_url(); ?>login"><font color="black">Atrás</font></a>
+              <p class="margin center medium-small sign-up">Ya tiene una cuenta? <a href="<?php echo base_url(); ?>login">ATRAS</a></p>
             </div>
           </div>
     </form>

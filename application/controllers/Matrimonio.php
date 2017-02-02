@@ -36,9 +36,7 @@ class Matrimonio extends CI_Controller{
     }
     else
     {
-      $ci = $this->input->post('esposo_id');
-      $personWithCi = $this->Users_model->getId($ci);
-      $persona_id = $personWithCi->id;
+      $persona_id = $this->input->post('esposo_id');
       $sacramento = '4';
       $parroquia_id = $this->input->post('parroquia_id');
       $jurisdiccion_id = $this->input->post('jurisdiccion_id');
@@ -54,9 +52,7 @@ class Matrimonio extends CI_Controller{
         'sacerdoteCertificador_id' => $sacerdoteCertificador_id
       );
         if ($this->Sacrament_model->Register('certificado', $data) ==TRUE) {
-          $ci = $this->input->post('esposa_id');
-          $personWithCi = $this->Users_model->getId($ci);
-          $persona_id = $personWithCi->id;
+          $persona_id = $this->input->post('esposa_id');
           $sacramento = '4';
           $parroquia_id = $this->input->post('parroquia_id');
           $jurisdiccion_id = $this->input->post('jurisdiccion_id');
@@ -94,26 +90,41 @@ class Matrimonio extends CI_Controller{
                     if ($this->Sacrament_model->Register('registrocivil',$data) == TRUE) {
                     $certificateWithCi = $this->Sacrament_model->getCertificate($persona_id,$fecha);
                     $certificado_id = $certificateWithCi->idCertificado;
-                    $data = array(
-                    'apellidosNombres' => $this->input->post('nombrePadrino'),
-                    'certificado_id' => $certificado_id
-                    );
-                    $data1 = array(
-                    'apellidosNombres' => $this->input->post('nombreMadrina'),
-                    'certificado_id' => $certificado_id
-                    );
-                    $data2 = array(
-                    'apellidosNombres' => $this->input->post('nombreTestigo'),
-                    'certificado_id' => $certificado_id
-                    );
-                    $data3 = array(
-                    'apellidosNombres' => $this->input->post('nombreTestigoseg'),
-                    'certificado_id' => $certificado_id
-                    );
-                        if ( $this->Sacrament_model->Register('padrinofiel',$data)==TRUE && $this->Sacrament_model->Register('padrinofiel',$data1)==TRUE && $this->Sacrament_model->Register('padrinofiel',$data2)==TRUE && $this->Sacrament_model->Register('padrinofiel',$data3)==TRUE) {
-                            $this->session->set_flashdata('success','Matrimonio registrado correctamente!');
-                            redirect(base_url() . 'matrimonio');
-                          }
+                    $padrino = $this->input->post('nombrePadrino');
+                    $madrina = $this->input->post('nombreMadrina');
+                    $testigo = $this->input->post('nombreTestigo');
+                    $testigoseg = $this->input->post('nombreTestigoseg');
+                    if ($padrino != null ) {
+                        $data = array(
+                            'apellidosNombres' => $padrino,
+                            'certificado_id' => $certificado_id
+                        );
+                        $this->Users_model->personRegister('padrinofiel',$data);
+                    }
+                    if ($madrina != null ) {
+                        $data = array(
+                            'apellidosNombres' => $madrina,
+                            'certificado_id' => $certificado_id
+                        );
+                        $this->Users_model->personRegister('padrinofiel',$data);
+                    }
+                    if ($testigo != null ) {
+                        $data = array(
+                            'apellidosNombres' => $testigo,
+                            'certificado_id' => $certificado_id
+                        );
+                        $this->Users_model->personRegister('padrinofiel',$data);
+                    }
+                    if ($testigoseg != null ) {
+                        $data = array(
+                            'apellidosNombres' => $testigoseg,
+                            'certificado_id' => $certificado_id
+                        );
+                        $this->Users_model->personRegister('padrinofiel',$data);
+                    }
+
+                    $this->session->set_flashdata('success','Bautizo Registrado correctamente!');
+                    redirect(base_url() . 'baptism/baptismCreate');
                   }
                   else{
                   $this->session->set_flashdata('error', 'Ingrese correctamente los datos (Registro Civil)');

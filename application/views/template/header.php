@@ -70,7 +70,18 @@
                         </div>
                       </li> 
                     </ul>
-                    
+                    <ul class="right hide-on-med-and-down">
+
+                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown"><i class="mdi-social-notifications"><small class="notification-badge">5</small></i>
+
+                        </a>
+                        </li>
+                        <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
+                        </li>
+                    </ul>
+                    <!-- translation-button -->
+                    <!-- notifications-dropdown -->
+
                 </div>
             </nav>
         </div>
@@ -88,28 +99,41 @@
                  <img src="<?php echo base_url(); ?>assets/demo/images/admin.png" alt="" class="circle responsive-img valign profile-image">
              </div>
              <div class="col col s8 m8 l8">
-                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">Joel Rojas<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                 <p class="user-roal">Administrator</p>
+                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nombres') ?><i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
+                     <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
+                     </li>
+                     <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
+                     </li>
+                     <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+                     </li>
+                     <li class="divider"></li>
+                     <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
+                     </li>
+                     <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                     </li>
+                 </ul>
+                 <p class="user-roal left"><?php echo strtoupper($this->session->userdata('tipo')); ?></p>
              </div>
          </div>
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Inicio</a>
          </li>
+         <?php if($this->session->userdata('tipo') == 'administrador'){?>
          <li class="bold"><a href="<?php echo base_url(); ?>email" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
          </li>
-         <li class="bold"><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Registro de Fiel</a>
+         <li class="bold"><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-action-accessibility"></i>Registro de Fiel</a>
          </li>
          <li class="no-padding">
               <ul class="collapsible collapsible-accordion">
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Sacerdotes</a>
                      <div class="collapsible-body" style="">
                          <ul>
-                             <li class="bold"><a href="<?php echo base_url(); ?>home/priestCreate" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Sacerdote</a>
+                             <li class="bold"><a href="<?php echo base_url(); ?>users/usuarioRegister" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Cuenta Usuario</a>
                              </li>
                              <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista</a>
                              </li>
-                             <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
-                             </li>
+                             <!--<li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
+                             </li>-->
                          </ul>
                      </div>
                  </li>
@@ -125,8 +149,8 @@
                              </li>
                              <li class="bold"><a href="<?php echo base_url(); ?>Jurisdiccion/listParroquia" class="waves-effect waves-cyan"><i class="mdi-content-content-paste "></i> Lista Parroquia</a>
                              </li>
-                             <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroquia</a>
-                             </li>
+                            <!-- <li class="bold"><a href="#" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroquia</a>
+                             </li>-->
                          </ul>
                      </div>
                  </li>
@@ -151,8 +175,14 @@
                  </li>
              </ul>
          </li>
-         <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-social-people"></i> Buscar Casados</a>
-         </li>
+      <!--   <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-social-people"></i> Buscar Casados</a>
+         </li>-->
+         <?php }else{?>
+           <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-communication-quick-contacts-mail"></i>Solicitar Certificado</a>
+           </li>
+           <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-action-pageview"></i>Realizar Busqueda</a>
+           </li>
+        <?php } ?>
          <li class="li-hover"><div class="divider"></div></li><br>
          <li><a href="<?php echo base_url(); ?>login/logout"><i class="mdi-action-settings-power"></i>CERRAR SESIÓN</a>
          </li><br>

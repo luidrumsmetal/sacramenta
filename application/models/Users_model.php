@@ -6,33 +6,7 @@ class Users_model extends CI_Model{
   public function __construct()
   {
     parent::__construct();
-    $this->tableName = 'faithfuluser';
-		$this->primaryKey = 'id';
   }
-
-  # Verificamos si un usuario esta registrado en el sistema
-  public function checkUser($data = array()){
-		$this->db->select($this->primaryKey);
-		$this->db->from($this->tableName);
-		$this->db->where(array('oauth_provider'=>$data['oauth_provider'],'oauth_uid'=>$data['oauth_uid']));
-		$prevQuery = $this->db->get();
-		$prevCheck = $prevQuery->num_rows();
-
-  		if($prevCheck > 0){
-  			$prevResult = $prevQuery->row_array();
-  			$data['modified'] = date("Y-m-d H:i:s");
-  			$update = $this->db->update($this->tableName,$data,array('id'=>$prevResult['id']));
-  			$userID = $prevResult['id'];
-  		}
-      else{
-  			$data['created'] = date("Y-m-d H:i:s");
-  			$data['modified'] = date("Y-m-d H:i:s");
-  			$insert = $this->db->insert($this->tableName,$data);
-  			$userID = $this->db->insert_id();
-  		}
-
-		return $userID?$userID:FALSE;
-    }
   function checkLogin($email, $password)
   {
 
@@ -40,8 +14,15 @@ class Users_model extends CI_Model{
     $this->db->where('password', $password);
     $consult = $this->db->get('users');
       if ($consult->num_rows()>0) {
-        #$dato = array('tipo' => $usuario->tipoUsuario, 'id' => $usuario->idUsuarios,'permissao' => $usuario->permissoes_id , 'logado' => TRUE);
-        #$this->session->set_userdata($datos);
+          $this->db->select('*');
+          $this->db->from('users');
+          $this->db->join('cuenta', 'cuenta.idCuenta = users.cuenta_id');
+          $this->db->where('users.email', $email);
+          $query = $this->db->get()->row();
+          if (count($query) > 0) {
+                $usuario = array('nombres' => $query->nombres, 'id' => $query->idCuenta,'apellidos' => $query->apellidoPaterno.' '.$query->apellidoMaterno, 'tipo' => $query->tipoUsuario);
+                $this->session->set_userdata($usuario);
+          }
         return true;
       }
       else
@@ -70,13 +51,14 @@ class Users_model extends CI_Model{
   }
   function getID($ci)
   {
-        $query = $this->db->get_where('persona',array('ci' => $ci));
+        $query = $this->db->get_where('cuenta',array('ci' => $ci));
         if($query->num_rows() > 0 )
         {
             //veamos que sólo retornamos una fila con row(), no result()
             return $query->row();
         }
   }
+  
   function usersRegister($table, $data)
   {
     $this->db->insert($table, $data);
@@ -88,15 +70,15 @@ class Users_model extends CI_Model{
 
   function edit($a) {
     $d = $this->db->query("SELECT a.*, b.*, c.*, d.* FROM persona a, sacerdote b, tipoSacerdote c, users d
-                            WHERE a.id = $a 
-                            AND b.tipoSacerdote_id = c.idTipoSacerdote 
+                            WHERE a.id = $a
+                            AND b.tipoSacerdote_id = c.idTipoSacerdote
                             AND a.id = d.persona_id");
     if ($d->num_rows() > 0) {
         return $d->row();
     }
     else{
       return false;
-    }   
+    }
   }
 
   function update($id) {
@@ -121,8 +103,7 @@ class Users_model extends CI_Model{
     $this->db->where('id', $id);
     $this->db->update('persona',$data1);
     $data2 = array(
-      
-      'email' => null,
+      'email' => $email,
       'password' => $password
 
     );
@@ -173,7 +154,7 @@ class Users_model extends CI_Model{
     }
   }
 
-  
+
 
 
   function autoCompleteCarnetCommunion($data)
@@ -228,10 +209,10 @@ class Users_model extends CI_Model{
 
   function autoCompleteEsposo($data)
   {
-    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c 
+    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c
                             WHERE c.idSacramento = '3'
-                            AND a.genero = 'masculino' 
-                            AND a.id = b.persona_id 
+                            AND a.genero = 'masculino'
+                            AND a.id = b.persona_id
                             AND b.sacramento_id = c.idSacramento
                             AND (a.nombres LIKE '%$data%' OR a.apellidoPaterno LIKE '%$data%' OR a.apellidoMaterno LIKE '%$data%')
                             GROUP BY a.nombres  LIMIT 5");
@@ -249,9 +230,9 @@ class Users_model extends CI_Model{
 
   function autoCompleteFeligresConfirmacion($q)
   {
-    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c 
-                            WHERE c.idSacramento = '2' 
-                            AND a.id = b.persona_id 
+    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c
+                            WHERE c.idSacramento = '2'
+                            AND a.id = b.persona_id
                             AND b.sacramento_id = c.idSacramento
                             AND (a.nombres LIKE '%$q%' OR a.apellidoPaterno LIKE '%$q%' OR a.apellidoMaterno LIKE '%$q%')
                             GROUP BY a.nombres  LIMIT 5");
@@ -269,11 +250,11 @@ class Users_model extends CI_Model{
 
   function autoCompleteEsposa($data)
   {
-    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c 
-                               WHERE c.idSacramento = '3' 
+    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c
+                               WHERE c.idSacramento = '3'
                                AND a.genero = 'femenino'
-                               AND a.id = b.persona_id 
-                               AND b.sacramento_id = c.idSacramento 
+                               AND a.id = b.persona_id
+                               AND b.sacramento_id = c.idSacramento
                                AND (a.nombres LIKE '%$data%' OR a.apellidoPaterno LIKE '%$data%' OR a.apellidoMaterno LIKE '%$data%')
                                GROUP BY a.nombres  LIMIT 5");
     if ($query->num_rows() > 0 ) {
