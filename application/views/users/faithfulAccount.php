@@ -14,26 +14,27 @@
           <div class="row margin">
             <div class="input-field col s12 center">
               <h4>Registro de Fieles</h4>
-            <p class="left">Informacion General</p>
             </div>
           </div><hr><br>
+          <p class="left">Información General</p><br><br>
+          <hr>
           <div class="row margin">
             <div class="input-field col s12">
-              <i class="mdi-social-person-outline prefix"></i>
+              <i class="mdi-action-credit-card prefix"></i>
               <input id="ci" name="ci" type="text">
               <label for="ci" class="center-align">Carnet de Identidad</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
-              <i class="mdi-social-person-outline prefix"></i>
+              <i class="mdi-action-account-circle prefix"></i>
               <input id="apellidoPaterno" name="apellidoPaterno" type="text">
               <label for="apellidoPaterno" class="center-align">Apellido Paterno</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
-              <i class="mdi-social-person-outline prefix"></i>
+              <i class="mdi-action-account-circle prefix"></i>
               <input id="apellidoMaterno" name="apellidoMaterno" type="text">
               <label for="apelliodMaterno" class="center-align">Apellido Materno</label>
             </div>
@@ -44,15 +45,13 @@
               <input id="nombres" name="nombres" type="text">
               <label for="nombres" class="center-align">Nombres</label>
             </div>
-          </div>
+          </div><br>
           <div class="row margin">
-    				<div class="input-field col s1">
-    					  <i class="mdi-action-account-circle prefix"></i>
-    				</div>
-    				<div class="input-field col s11">
-    			    <input placeholder="dia-mes-año" id="fechanac" name="fechanac" type="text" class="">
-    			    <label for="fechanac">Fecha Nacimiento: </label>
-    			  </div>
+            <div class="input-field col s12">
+              <i class="mdi-action-event prefix"></i>
+              <input placeholder="" id="fechanac" name="fechanac" type="date">
+              <label for="fechanac" class="active">Fecha de nacimiento</label>
+            </div>          
     			</div>
           <div class="row margin">
 						<div class="input-field col s1">
@@ -64,26 +63,26 @@
 				        <option value="1">Masculino</option>
 				        <option value="2">Femenino</option>
 				      </select>
-				      <label>Genero: </label>
+				      <label>&nbsp&nbspGénero: </label>
 				  	</div>
 					</div>
           <div class="row margin">
             <div class="input-field col s12">
-              <i class="mdi-social-person-outline prefix"></i>
+              <i class="mdi-communication-phone prefix"></i>
               <input id="celular" name="celular" type="text">
               <label for="celular" class="center-align">celular</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
-              <i class="mdi-social-person-outline prefix"></i>
+              <i class="mdi-action-face-unlock prefix"></i>
               <input id="facebook" name="facebook" type="text">
               <label for="facebook" class="center-align">Nombre de Facebook</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12 center">
-            <p class="left">Informacion de la Cuenta</p>
+            <p class="left">Información de la Cuenta</p>
             </div>
           </div><hr>
           <div class="row margin">
@@ -103,6 +102,7 @@
           <div class="row">
             <div class="input-field col s12">
               <!--<a href="index.html" class="btn waves-effect waves-light col s12">Register Now</a>-->
+
                 <button type="submit" class="btn waves-effect waves-light col s12"><i class="icon-ok icon-white"></i> Registrarse</button>
             </div>
             <div class="input-field col s12">
