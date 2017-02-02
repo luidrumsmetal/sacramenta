@@ -57,27 +57,26 @@
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
   <!-- START HEADER -->
-  <header id="header" class="page-topbar">
+  
+  <header id="header" class="page-topbar" align="center">
         <!-- start header nav-->
         <div class="navbar-fixed">
             <nav class="navbar-color">
+           <font color="white" size="6" face="Lucida Calligraphy" align="center">Pastoral Digital</font><br><Br>
                 <div class="nav-wrapper">
                     
                     <ul>                 
-                      <li>                                      
-                        <div class="col s12">             
-                          <font color="white" size="6" face="Lucida Calligraphy">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPastoral Digital</font><br><Br>         
-                        </div>
+                      <li>   
                       </li> 
                     </ul>
                     <ul class="right hide-on-med-and-down">
 
-                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown"><i class="mdi-social-notifications"><small class="notification-badge">5</small></i>
+                        <!--<li><a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown"><i class="mdi-social-notifications"><small class="notification-badge">5</small></i>
 
                         </a>
                         </li>
                         <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
-                        </li>
+                        </li>-->
                     </ul>
                     <!-- translation-button -->
                     <!-- notifications-dropdown -->
@@ -87,6 +86,7 @@
         </div>
         <!-- end header nav-->
   </header>
+
   <div id="main">
       <!-- START WRAPPER -->
       <div class="wrapper">
@@ -123,14 +123,33 @@
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-action-accessibility"></i>Registro de Fiel</a>
          </li>
+         
+         <li class="no-padding">
+             <ul class="collapsible collapsible-accordion">
+                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canónico</a>
+                     <div class="collapsible-body" style="">
+                         <ul>
+                             <li><a href="<?php echo base_url(); ?>baptism/baptismCreate"><i class=" mdi-editor-format-color-fill"></i>Bautizo</a>
+                             </li>
+                             <li><a href="<?php echo base_url(); ?>firstCommunion"><i class="mdi-action-accessibility"></i>P. Comunión</a>
+                             </li>
+                             <li><a href="<?php echo base_url(); ?>confirmacion"><i class="mdi-social-whatshot"></i>Confirmación</a>
+                             </li>
+                             <li><a href="<?php echo base_url(); ?>Matrimonio"><i class="mdi-action-favorite"></i>Matrimonio</a>
+                             </li>
+                         </ul>
+                     </div>
+                 </li>
+             </ul>
+         </li>
          <li class="no-padding">
               <ul class="collapsible collapsible-accordion">
-                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Sacerdotes</a>
+                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Usuarios</a>
                      <div class="collapsible-body" style="">
                          <ul>
                              <li class="bold"><a href="<?php echo base_url(); ?>users/usuarioRegister" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Cuenta Usuario</a>
                              </li>
-                             <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista</a>
+                             <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista Sacerdotes</a>
                              </li>
                              <!--<li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
                              </li>-->
@@ -157,24 +176,6 @@
               </ul>
          </li>
 
-         <li class="no-padding">
-             <ul class="collapsible collapsible-accordion">
-                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canónico</a>
-                     <div class="collapsible-body" style="">
-                         <ul>
-                             <li><a href="<?php echo base_url(); ?>baptism/baptismCreate"><i class=" mdi-editor-format-color-fill"></i>Bautizo</a>
-                             </li>
-                             <li><a href="<?php echo base_url(); ?>firstCommunion"><i class="mdi-action-accessibility"></i>P. Comunión</a>
-                             </li>
-                             <li><a href="<?php echo base_url(); ?>confirmacion"><i class="mdi-social-whatshot"></i>Confirmación</a>
-                             </li>
-                             <li><a href="<?php echo base_url(); ?>Matrimonio"><i class="mdi-action-favorite"></i>Matrimonio</a>
-                             </li>
-                         </ul>
-                     </div>
-                 </li>
-             </ul>
-         </li>
       <!--   <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-social-people"></i> Buscar Casados</a>
          </li>-->
          <?php }else{?>
