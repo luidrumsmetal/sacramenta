@@ -61,7 +61,7 @@ class Users extends CI_Controller{
         $config['last_tag_close'] = '</li>';
 
     $this->pagination->initialize($config);
-    $data['results']= $this->Users_model->listGetSacerdote('persona, sacerdote, tiposacerdote',' id, idSacerdote, ci, nombre, apellido, tipoSacerdote','id = persona_id AND idTipoSacerdote = tipoSacerdote_id',$config['per_page'],$this->uri->segment(3));
+    $data['results']= $this->Users_model->listGetSacerdote('persona, sacerdote, tiposacerdote',' id, idSacerdote, ci, nombres, apellidoPaterno,apellidoMaterno, tipoSacerdote','id = persona_id AND idTipoSacerdote = tipoSacerdote_id',$config['per_page'],$this->uri->segment(3));
     $this->load->view('template/header',$data);
     $this->load->view('users/listSacerdote',$data);
     $this->load->view('template/footer');
@@ -199,7 +199,7 @@ class Users extends CI_Controller{
               'cuenta_id' => $persona_id
             );
             if ($this->Users_model->usersRegister('users', $data) == TRUE) {
-              $this->session->set_flashdata('success ','Fiel Registrado correctamente!');
+              $this->session->set_flashdata('success','Fiel Registrado correctamente!');
               redirect(base_url() . 'login');
             }
             else
@@ -294,8 +294,8 @@ class Users extends CI_Controller{
      $dt = $this->Users_model->edit($kd);
      $data1['ci'] = $dt->ci;
      $data1['fechanacimiento'] = $dt->fechanacimiento;
-     $data1['nombre'] = $dt->nombre;
-     $data1['apellido'] = $dt->apellido;
+     $data1['nombres'] = $dt->nombres;
+     $data1['apellidoPaterno'] = $dt->apellidoPaterno;
      //$data1['parroquia'] = $dt->parroquia_id;
      $data1['tipoSacerdote'] = $dt->tipoSacerdote;
      $data1['email'] = $dt->email;

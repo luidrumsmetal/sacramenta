@@ -103,10 +103,10 @@
           <div class="row">
             <div class="input-field col s12">
               <!--<a href="index.html" class="btn waves-effect waves-light col s12">Register Now</a>-->
-                <button type="submit" class="btn waves-effect waves-light col s12"><i class="icon-ok icon-white"></i> Registrese Agora</button>
+                <button type="submit" class="btn waves-effect waves-light col s12"><i class="icon-ok icon-white"></i> Registrarse</button>
             </div>
             <div class="input-field col s12">
-              <p class="margin center medium-small sign-up">Already have an account? <a href="<?php echo base_url(); ?>login">ATRAS</a></p>
+              <p class="margin center medium-small sign-up">Ya tiene una cuenta? <a href="<?php echo base_url(); ?>login">ATRAS</a></p>
             </div>
           </div>
     </form>
