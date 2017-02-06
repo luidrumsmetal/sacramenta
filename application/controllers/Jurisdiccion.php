@@ -8,6 +8,17 @@ class Jurisdiccion extends CI_Controller{
     parent::__construct();
     //Codeigniter : Write Less Do More
     $this->load->model('Jurisdiccion_model');
+    if (!$this->session->userdata('nombres')) {
+      redirect(base_url().'login');
+    }
+    if ($this->session->userdata('tipo') != 'administrador') {
+        if (!$this->session->userdata('nombres')) {
+            redirect(base_url().'login');
+        }
+        else{
+          redirect(base_url().'home');
+        }
+    }
   }
 
   function index()
