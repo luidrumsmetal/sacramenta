@@ -28,7 +28,7 @@ class Users extends CI_Controller{
         }
         else
         {
-          redirect(base_url().'home'); 
+          redirect(base_url().'home');
         }
     }
     $data['title'] = 'Registro Fieles';
@@ -263,7 +263,7 @@ class Users extends CI_Controller{
     $this->load->view('login/footer');*/
   }
 
-  
+
 
   function usuarioCreate()
   {

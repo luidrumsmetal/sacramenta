@@ -64,7 +64,6 @@
             <nav class="navbar-color">
            <font color="white" size="6" face="Lucida Calligraphy" align="center">Pastoral Digital</font><br><Br>
                 <div class="nav-wrapper">
-
                     <ul>
                       <li>
                       </li>
@@ -125,7 +124,6 @@
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-action-accessibility"></i>Registro de Fiel</a>
          </li>
-
          <li class="no-padding">
              <ul class="collapsible collapsible-accordion">
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canónico</a>
