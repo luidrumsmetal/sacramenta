@@ -57,17 +57,16 @@
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
   <!-- START HEADER -->
-  
+
   <header id="header" class="page-topbar" align="center">
         <!-- start header nav-->
         <div class="navbar-fixed">
             <nav class="navbar-color">
            <font color="white" size="6" face="Lucida Calligraphy" align="center">Pastoral Digital</font><br><Br>
                 <div class="nav-wrapper">
-                    
-                    <ul>                 
-                      <li>   
-                      </li> 
+                    <ul>
+                      <li>
+                      </li>
                     </ul>
                     <ul class="right hide-on-med-and-down">
 
@@ -121,9 +120,10 @@
          <?php if($this->session->userdata('tipo') == 'administrador'){?>
          <li class="bold"><a href="<?php echo base_url(); ?>email" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
          </li>
+         <li class="bold"><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Lista de Fiel</a>
+         </li>
          <li class="bold"><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-action-accessibility"></i>Registro de Fiel</a>
          </li>
-         
          <li class="no-padding">
              <ul class="collapsible collapsible-accordion">
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canónico</a>
@@ -181,8 +181,9 @@
          <?php }else{?>
            <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-communication-quick-contacts-mail"></i>Solicitar Certificado</a>
            </li>
-           <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-action-pageview"></i>Realizar Busqueda</a>
+           <li class="bold"><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-action-pageview"></i>Realizar Busqueda</a>
            </li>
+         </li>
         <?php } ?>
          <li class="li-hover"><div class="divider"></div></li><br>
          <li><a href="<?php echo base_url(); ?>login/logout"><i class="mdi-action-settings-power"></i>CERRAR SESIÓN</a>

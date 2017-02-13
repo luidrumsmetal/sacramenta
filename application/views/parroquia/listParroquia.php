@@ -32,7 +32,7 @@
                   </div>
                 </nav>
 
-                       
+
           <div id="borderless-table">
               <div class="row">
                 <div class="col s12 m12 12">
@@ -74,6 +74,8 @@
                           <th data-field="id">ID</th>
                           <th data-field="nombre">Nombre de la parroquia</th>
                           <th data-field="direccion">Dirección</th>
+                          <th data-field="direccion">Telefono</th>
+                          <th data-field="direccion">Correo</th>
                           <th data-field="opciones">Opciones</th>
                         </tr>
                       </thead>
@@ -84,6 +86,8 @@
                             echo '<td>'.$r->idParroquia.'</td>';
                             echo '<td>'.$r->nombre.'</td>';
                             echo '<td>'.$r->direccion.'</td>';
+                            echo '<td>'.$r->telefono.'</td>';
+                            echo '<td>'.$r->email.'</td>';
                             echo '<td>';
 
                 echo '<a href="'.base_url().'jurisdiccion/edit/'.$r->idParroquia.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
