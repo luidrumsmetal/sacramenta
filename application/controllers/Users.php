@@ -14,11 +14,23 @@ class Users extends CI_Controller{
 
   function index()
   {
-
+    $this->usuarioRegister();
   }
 
   function usuarioRegister()
   {
+    if (!$this->session->userdata('nombres')) {
+      redirect(base_url().'login');
+    }
+    if ($this->session->userdata('tipo') != 'administrador') {
+        if (!$this->session->userdata('nombres')) {
+            redirect(base_url().'login');
+        }
+        else
+        {
+          redirect(base_url().'home'); 
+        }
+    }
     $data['title'] = 'Registro Fieles';
     $this->load->view('template/header',$data);
     $this->load->view('users/usuarioCreate');
@@ -34,6 +46,18 @@ class Users extends CI_Controller{
   }
   function faithfulRegister()
   {
+    if (!$this->session->userdata('nombres')) {
+      redirect(base_url().'login');
+    }
+    if ($this->session->userdata('tipo') != 'administrador') {
+        if (!$this->session->userdata('nombres')) {
+            redirect(base_url().'login');
+        }
+        else
+        {
+          redirect(base_url().'home');
+        }
+    }
     $data['title'] = 'Registro Fiel';
     $this->load->view('template/header',$data);
     $this->load->view('users/faithfulRegister');
@@ -42,6 +66,18 @@ class Users extends CI_Controller{
 
   function listSacerdote($offset = NULL)
   {
+    if (!$this->session->userdata('nombres')) {
+      redirect(base_url().'login');
+    }
+    if ($this->session->userdata('tipo') != 'administrador') {
+        if (!$this->session->userdata('nombres')) {
+            redirect(base_url().'login');
+        }
+        else
+        {
+          redirect(base_url().'home');
+        }
+    }
     $data['title'] = 'Lista de Sacerdotes';
     $this->load->library('table');
         $this->load->library('pagination');
@@ -123,7 +159,7 @@ class Users extends CI_Controller{
                   'procedenciaPadre' => $procedenciaPadre,
                   'persona_id' => $persona_id
               );
-              $this->Users_model->personRegister('padresFiel',$data);
+              $this->Users_model->personRegister('padresfiel',$data);
           }
           if ($madre != null) {
               $data = array(
@@ -131,7 +167,7 @@ class Users extends CI_Controller{
                   'procedenciaPadre' => $procedenciaMadre,
                   'persona_id' => $persona_id
               );
-              $this->Users_model->personRegister('padresFiel',$data);
+              $this->Users_model->personRegister('padresfiel',$data);
           }
 
           $data = array(
@@ -282,77 +318,18 @@ class Users extends CI_Controller{
   }
 
 
-  function priestRegister()
-  {
-    $tipoUsuario = 'sacerdote';
-    #$this->load->library('form_validation');
-    $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|required|min_length[5]|numeric|is_unique[persona.ci]|xss_clean');
-    $this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('apellido', 'Apellido', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('fechanac', 'Fecha nacimineto', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[5]|max_length[50]|valid_email|is_unique[users.email]|xss_clean');
-    $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[5]|max_length[18]|xss_clean');
-    $this->form_validation->set_rules('parroquia_id', 'Parroquia', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('tipoSacerdote_id', 'Contraseña', 'trim|required|xss_clean');
-    $this->form_validation->set_message('required', 'El %s es importante');
-    if ($this->form_validation->run() == FALSE)
-    {
-        $this->session->set_flashdata('error','Ingrese correctamente los datos');
-        redirect(base_url() . 'home/priestCreate');
-    }
-    else {
-        $genero = '1'; #masculino
-        $data = array(
-          'ci'=> $this->input->post('ci'),
-          'nombre' => $this->input->post('nombre'),
-          'apellido' => $this->input->post('apellido'),
-          'fechanacimiento' => $this->input->post('fechanac'),
-          'genero_id' => $genero
-        );
-        if ($this->Users_model->personRegister('persona',$data) ==  TRUE)
-        {
-            $ci = $this->input->post('ci');
-            $personWithCi = $this->Users_model->getId($ci);
-            $persona_id = $personWithCi->id;
-            $data = array(
-              'email' => $this->input->post('email'),
-              'password' => $this->input->post('password'),
-              'tipoUsuario' => $tipoUsuario,
-              'persona_id' => $persona_id
-            );
-            if ($this->Users_model->usersRegister('users',$data) == TRUE) {
-                $tipoSacerdote_id = $this->input->post('tipoSacerdote_id');
-                $data = array(
-                  'persona_id' => $persona_id,
-                  'tipoSacerdote_id' => $tipoSacerdote_id
-                );
-                if ($this->Users_model->priestRegister('sacerdote', $data) == TRUE) {
-                    $this->session->set_flashdata('success','Sacerdote Registrado correctamente!');
-                    redirect(base_url() . 'home/priestCreate');
-                }
-                else {
-                    $this->session->set_flashdata('error','Error al registrar su informacion de la cuenta (tipo sacerdote)');
-                    redirect(base_url() . 'home/priestCreate');
-                }
-
-            }
-            else {
-                $this->session->set_flashdata('error','Error al registrar su informacion de la cuenta (users)');
-                redirect(base_url() . 'home/priestCreate');
-            }
-        }
-        else {
-            $this->session->set_flashdata('error','Error al registrar su informacion de la cuenta (persona)');
-            redirect(base_url() . 'home/priestCreate');
-        }
-    }
-
-  }
-
   function sacerdoteEdit() {
+    if (!$this->session->userdata('nombres')) {
+      redirect(base_url().'login');
+    }
+    if ($this->session->userdata('tipo') != 'administrador') {
+        if (!$this->session->userdata('nombres')) {
+            redirect(base_url().'login');
+        }
+    }
     $kd = $this->uri->segment(3);
     if ($kd == NULL) {
-      redirect('users');
+      redirect(base_url().'home');
     }
      $dt = $this->Users_model->edit($kd);
      $data1['ci'] = $dt->ci;
@@ -464,12 +441,4 @@ class Users extends CI_Controller{
         $this->Users_model->autoCompleteFeligresConfirmacion($data);
     }
   }
-
-  function testare()
-  {
-    $this->load->helper('Testare_helper');
-    $ci = $this->input->post('ci');
-    testare($ci);
-  }
-
 }

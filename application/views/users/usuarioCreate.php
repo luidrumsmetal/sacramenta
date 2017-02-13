@@ -33,7 +33,7 @@
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
                     <div class="col s12">
-                    <h1 class="brand-logo center">Registrar Fiel</h1>
+                    <h1 class="brand-logo center">Registrar Usuario</h1>
                     </div>
                   </div>
                 </nav>
@@ -127,7 +127,6 @@
                             <option value="" disabled selected>  Seleccione un Tipo de Usuario</option>
                             <option value="administrador">Administrador</option>
                             <option value="sacerdote">Sacerdote</option>
-                            <option value="fiel">Fiel</option>
                           </select>
                         <label>Tipo Usuario: </label>
                       </div>

@@ -314,6 +314,16 @@ class Users_model extends CI_Model{
         echo json_encode($row_set);
       }
     }
+    function getFaithful($texto){
+        $query = $this->db->query("SELECT a.*, b.* FROM persona a, certificado b WHERE a.id = b.persona_id AND (a.nombres LIKE '%$texto%' OR a.apellidoPaterno LIKE '%$texto%' OR a.apellidoMaterno LIKE '%$texto%') GROUP BY a.id LIMIT 5");
+
+        if ($query->num_rows() > 0) {
+        foreach ($query->result_array() as $row){
+            $row_set[] = array('label'=>'Fiel: '.$row['nombres'].' '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'],'id'=>$row['idCertificado'], 'nombres'=>$row['nombres'],'apellidoPaterno'=> $row['apellidoPaterno'], 'apellidoMaterno'=>$row['apellidoMaterno'], 'fechanacimiento'=>$row['fechanacimiento'], 'sacramento' => $row['sacramento_id']);
+        }
+        return $row_set;
+      }
+    }
 
 
 }
