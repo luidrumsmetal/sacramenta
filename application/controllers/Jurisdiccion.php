@@ -11,12 +11,9 @@ class Jurisdiccion extends CI_Controller{
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
-    if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombre')) {
-            redirect(base_url().'login');
-        }
-        else{
-          redirect(base_url().'home');
+    if ($this->session->userdata('tipo') != 'administrador' || $this->session->userdata('tipo') != 'parroquia') {
+        if ($this->session->userdata('tipo') == 'fiel') {
+            redirect(base_url().'home');
         }
     }
   }
@@ -33,6 +30,44 @@ class Jurisdiccion extends CI_Controller{
     $this->load->view('template/header',$data);
     $this->load->view('parroquia/alta_parroquia');
     $this->load->view('template/footer');
+  }
+  function parroquiaAccount()
+  {
+    $data['title'] = 'Registro Cuenta Parroquia';
+    $this->load->view('template/header', $data);
+    $this->load->view('parroquia/create');
+    $this->load->view('template/footer');
+  }
+  function createAccount(){
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('email', 'Correo Electronico', 'trim|required|min_length[2]|is_unique[users.email]|xss_clean');
+    $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('parroquia_id', 'Parroquia', 'trim|required|xss_clean');
+    if ($this->form_validation->run()==false)
+    {
+        $this->session->set_flashdata('error','Ingrese correctamente los datos');
+        redirect(base_url().'jurisdiccion/parroquiaAccount');
+    }
+    else {
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
+        $tipoUsuario = 'parroquia';
+        $parroquia_id = $this->input->post('parroquia_id');
+        $data = array(
+            'email' => $email,
+            'password' => $password,
+            'tipoUsuario' => $tipoUsuario,
+            'parroquia_id' => $parroquia_id
+        );
+        if ($this->Jurisdiccion_model->addParroquia('users',$data)) {
+          $this->session->set_flashdata('success','La cuenta se registro correctamente');
+          redirect(base_url().'jurisdiccion/parroquiaAccount');
+        }
+        else {
+          $this->session->set_flashdata('error','Ingrese correctamente los datos (datos)');
+          redirect(base_url().'jurisdiccion/parroquiaAccount');
+        }
+    }
   }
   function listParroquia()
   {
@@ -72,17 +107,19 @@ class Jurisdiccion extends CI_Controller{
 
   function parroquiaRegistro()
   {
-    $this->load->library('form_validation');
-    $this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('jurisdiccion_id', 'jurisdiccion_id', 'trim|required|xss_clean');
-    if ($this->form_validation->run()==false)
-    {
-        $this->session->set_flashdata('error','Ingrese correctamente los datos');
-    }
+      $this->load->library('form_validation');
+      $this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[2]|xss_clean');
+      $this->form_validation->set_rules('jurisdiccion_id', 'jurisdiccion_id', 'trim|required|xss_clean');
+      if ($this->form_validation->run()==false)
+      {
+          $this->session->set_flashdata('error','Ingrese correctamente los datos');
+      }
     else {
         $data = array(
           'nombre' => $this->input->post('nombre'),
           'direccion' => $this->input->post('direccion'),
+          'telefono' => $this->input->post('telefono'),
+          'email'=> $this->input->post('email'),
           'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
         );
           $this->Jurisdiccion_model->addParroquia("parroquia",$data);
@@ -130,6 +167,8 @@ class Jurisdiccion extends CI_Controller{
     $data['idParroquia'] = $dt->idParroquia;
     $data['nombre'] = $dt->nombre;
     $data['direccion'] = $dt->direccion;
+    $data['telefono'] = $dt->telefono;
+    $data['email'] = $dt->email;
     $data['jurisdiccion_id']=$dt->jurisdiccion_id;
     $data['jurisdiccion']=$dt->jurisdiccion;
     $this->load->view('template/header');
@@ -138,15 +177,30 @@ class Jurisdiccion extends CI_Controller{
   }
 
     function update() {
-    if ($this->input->post('mit')) {
 
       $idParroquia = $this->input->post('idParroquia');
-      $this->Jurisdiccion_model->update_parroquia($idParroquia);
+      $nombre = $this->input->post('nombre');
+      $direccion = $this->input->post('direccion');
+      $telefono = $this->input->post('telefono');
+      $email = $this->input->post('email');
+      $jurisdiccion_id = $this->input->post('jurisdiccion_id');
+      $data = array(
+        'idParroquia' => $idParroquia,
+      'nombre' => $nombre,
+      'direccion' => $direccion,
+      'telefono' => $telefono,
+      'email' => $email,
+      'jurisdiccion_id'=>$jurisdiccion_id
+        );
 
-      redirect('Jurisdiccion/listParroquia');
-    } else{
-      redirect('Jurisdiccion/edit/'.$idParroquia);
-    }
+      if ($this->Jurisdiccion_model->update_parroquia($idParroquia,$data) == TRUE) {
+        redirect(base_url().'jurisdiccion/listParroquia');
+      }
+      else
+      {
+       redirect(base_url().'jurisdiccion/listParroquia#error');
+      }
+
   /// FIN -->
   }
 

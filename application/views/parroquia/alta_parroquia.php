@@ -55,15 +55,23 @@
           </div>            
         </div>
 
-          
+        <div class="row">
+          <div class="input-field col s6">
+              <i class="mdi-maps-directions-walk prefix"></i>
+              <input placeholder="Ingrese teléfono" id="telefono" name="telefono" type="text">
+              <label for="parroquia" class="active"><b>Teléfono</b></label>
+          </div>  
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+              <i class="mdi-maps-directions-walk prefix"></i>
+              <input placeholder="Ingrese e-mail" id="email" name="email" type="text">
+              <label for="parroquia" class="active"><b>E-mail</b></label>
+          </div>  
+        </div>          
       
-          <!--<div class="row margin">
-            <div class="input-field col s12">
-              <i class="mdi-action-lock-outline prefix"></i>
-              <input id="password-again" type="password">
-              <label for="password-again">Password again</label>
-            </div>
-          </div>-->
+
           <div class="row">
             <div class="input-field col s7">
               <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Registrar

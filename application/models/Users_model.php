@@ -174,10 +174,6 @@ class Users_model extends CI_Model{
       echo json_encode($row_set);
     }
   }
-
-
-
-
   function autoCompleteCarnetCommunion($data)
   {
     $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c WHERE a.ci = '$data' AND c.sacramento = 'bautizo' AND a.id = b.persona_id AND b.sacramento_id = c.idSacramento");
@@ -209,24 +205,6 @@ class Users_model extends CI_Model{
     }
 
   }
-
-
-
-
-/*$query = $this->db->query(  'SELECT subject
-                    FROM items
-                    WHERE subject LIKE 'Ma%'
-                  UNION ALL
-                    SELECT first_name
-                    FROM accounts
-                    WHERE first_name LIKE 'Ma%'
-                  UNION ALL
-                    SELECT description
-                    FROM items
-                    WHERE description LIKE 'Ma%'');*/
-
-
-
 
   function autoCompleteEsposo($data)
   {
@@ -291,11 +269,15 @@ class Users_model extends CI_Model{
 
   }
 
-  function count($table)
+    function count($table)
     {
         return $this->db->count_all($table);
     }
-
+    function count_parroquia($table, $idParroquia)
+    {
+      $query = $this->db->query("SELECT count(idCertificado) FROM $table WHERE parroquia_id = $idParroquia");
+      return $query = $this->db->get();
+  }
   function listGetSacerdote($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array')
     {
         $this->db->select($fields);
@@ -337,7 +319,7 @@ class Users_model extends CI_Model{
       }
     }
     function getFaithful($texto){
-        $query = $this->db->query("SELECT a.*, b.* FROM persona a, certificado b WHERE a.id = b.persona_id AND (a.nombres LIKE '%$texto%' OR a.apellidoPaterno LIKE '%$texto%' OR a.apellidoMaterno LIKE '%$texto%') GROUP BY a.id LIMIT 5");
+        $query = $this->db->query("SELECT a.*, b.* FROM persona a, certificado b WHERE a.id = b.persona_id AND (a.nombres LIKE '%$texto%' OR a.apellidoPaterno LIKE '%$texto%' OR a.apellidoMaterno LIKE '%$texto%') GROUP BY a.id LIMIT 10");
         if ($query->num_rows() > 0) {
         foreach ($query->result_array() as $row){
             #BUSCA EL REGISTRO DE BAUTIZO
