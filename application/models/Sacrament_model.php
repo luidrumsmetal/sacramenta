@@ -33,6 +33,25 @@ class Sacrament_model extends CI_Model{
     else{
       return false;
     }
+    
+  }
+
+  function update_bautizo($idCertificado) {
+    $idCertificado = $this->input->post('idCertificado');
+    $nombres = $this->input->post('nombres');
+    $direccion = $this->input->post('direccion');
+    $jurisdiccion_id = $this->input->post('jurisdiccion_id');    
+    $jurisdiccion = $this->input->post('jurisdiccion');
+    $data = array(
+
+      'nombres' => $nombres,
+      'direccion' => $direccion,
+      'jurisdiccion_id'=>$jurisdiccion
+      //'jurisdiccion'=>$jurisdiccion
+    );
+    $this->db->where('idCertificado', $idCertificado);
+    $this->db->update('certificado', $data);
+
   }
 
   public function getCertificate($persona_id,$fecha)

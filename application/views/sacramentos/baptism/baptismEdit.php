@@ -39,7 +39,8 @@
                </nav>
               <div class="card-panel">
                 <div class="row">
-                  <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>baptism/update" method="POST" enctype="multipart/form-data">
+                <?php echo form_open('Baptism/update', 'role="form"'); ?>
+                
                   	<font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
                       <div class="row">
 						<div class="input-field col s12">
@@ -48,7 +49,6 @@
 							<input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $persona_id ?>">
 							<label for="apellidoPaterno" class="active"><b>Feligrés (*)</b></label>
 						</div>
-
                     </div>
 
                     <div class="row">
@@ -92,17 +92,17 @@
                     <div class="row">
                       <div class="input-field col s4">
                         <i class="mdi-action-book prefix"></i>
-                        <input id="libroOne" name="libroOne" type="text" value="<?php echo $libro ?>">
+                        <input id="libroOne" name="libroOne" type="text" value="<?php echo $libroOne ?>">
                         <label for="libro" class="active"><b>Libro (*)</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-action-find-in-page prefix"></i>
-                        <input id="paginaOne" name="paginaOne" type="text" value="<?php echo $pagina ?>">
+                        <input id="paginaOne" name="paginaOne" type="text" value="<?php echo $paginaOne ?>">
                         <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
-                        <input id="numeroOne" name="numeroOne" type="text" value="<?php echo $numero ?>">
+                        <input id="numeroOne" name="numeroOne" type="text" value="<?php echo $numeroOne ?>">
                         <label for="numero" class="active"><b>Número (*)</b></label>
                       </div>
                     </div>
@@ -112,26 +112,26 @@
 					<div class="row">
 						<div class="input-field col s6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $padrino ?>">
+							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $apellidoNombrePadrino ?>">
 							<label for="apellidoNombrePadrino" class="active"><b>Apellidos y Nombres del Padrino</b></label>
 						</div>
 						<div class="input-field col s6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value="<?php echo $madrina ?>">
+							<input id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value="<?php echo $apellidoNombreMadrina ?>">
 							<label for="apellidoNombreMadrina" class="active"><b>Apellidos y Nombres de la Madrina</b></label>
 						</div>
 					</div>
 
                     <div class="row">
                         <div class="input-field col s7">
-                          <input type="hidden" name="cod_obrasdatos" value="<?php echo $cod_obrasdatos ?>" />
-                          <input type="hidden" name="cod_tipoobras" value="<?php echo $cod_tipoobras ?>" />
+                          <input type="hidden" name="idCertificado" value="<?php echo $idCertificado ?>" />
                           <input type="submit" name="mit" class="btn btn-primary" value="Guardar">
                           <button type="button" onclick="location.href='<?php echo site_url('editar') ?>'" class="btn btn-danger">Volver Atras</button>
                             <i class="mdi-content-send right"></i>
                           </button>
                         </div>
                     </div>
+
                   </form>
                 </div>
               </div>
@@ -139,7 +139,7 @@
           </div>
 		</div>
 </section>
-
+<?php echo form_close(); ?>
 <script type="text/javascript">
 $(document).ready(function(){
 		$("#feligres").autocomplete({
