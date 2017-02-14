@@ -101,7 +101,7 @@ class FirstCommunion extends CI_Controller{
     $this->load->library('table');
         $this->load->library('pagination');
 
-        $config['base_url'] = base_url().'baptism/listBaptism';
+        $config['base_url'] = base_url().'firstCommunion/listComunion';
         $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
@@ -127,7 +127,7 @@ class FirstCommunion extends CI_Controller{
 
     $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres',"id = persona_id AND sacramento_id = 2 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
     $this->load->view('template/header',$data);
-    $this->load->view('sacramentos/baptism/baptismList',$data);
+    $this->load->view('sacramentos/firstCommunion/firstCommunionList',$data);
     $this->load->view('template/footer');
   }
 
