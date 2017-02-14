@@ -1,4 +1,4 @@
-<?php
+<?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Baptism extends CI_Controller{
@@ -169,7 +169,7 @@ class Baptism extends CI_Controller{
      $dt = $this->Sacrament_model->editBaptism($kd);
      $data1['feligres'] = $dt->nombres;
      $data1['feligres_id'] = $dt->persona_id;
-     $data1['parroquia'] = $dt->parroquia;
+     $data1['parroquia'] = $dt->nombre;
      $data1['parroquia_id'] = $dt->parroquia_id;
      $data1['jurisdiccion'] = $dt->jurisdiccion_id;
      $data1['jurisdiccion_id'] = $dt->jurisdiccion_id;
