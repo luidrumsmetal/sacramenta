@@ -9,20 +9,41 @@ class Users_model extends CI_Model{
   }
   function checkLogin($email, $password)
   {
-
+    $this->db->select('tipoUsuario');
     $this->db->where('email', $email);
     $this->db->where('password', $password);
     $consult = $this->db->get('users');
-      if ($consult->num_rows()>0) {
-          $this->db->select('*');
-          $this->db->from('users');
-          $this->db->join('cuenta', 'cuenta.idCuenta = users.cuenta_id');
-          $this->db->where('users.email', $email);
-          $query = $this->db->get()->row();
-          if (count($query) > 0) {
-                $usuario = array('nombres' => $query->nombres, 'id' => $query->idCuenta,'apellidos' => $query->apellidoPaterno.' '.$query->apellidoMaterno, 'tipo' => $query->tipoUsuario);
-                $this->session->set_userdata($usuario);
-          }
+      if ($consult->num_rows() > 0) {
+        foreach ($consult->result() as $row)
+        {
+            $row->tipoUsuario;
+        }
+          if ($row->tipoUsuario == 'administrador' || $row->tipoUsuario == 'fiel') {
+              $this->db->select('*');
+              $this->db->from('users');
+              $this->db->join('cuenta', 'cuenta.idCuenta = users.cuenta_id');
+              $this->db->where('users.email', $email);
+              $query = $this->db->get()->row();
+              if (count($query) > 0) {
+                #  if ($query->nombres != null) {
+                    $usuario = array('nombre' => $query->nombres, 'id' => $query->idCuenta,'apellidos' => $query->apellidoPaterno.' '.$query->apellidoMaterno, 'tipo' => $query->tipoUsuario);
+                    $this->session->set_userdata($usuario);
+                #  }
+              }
+              #print_r($usuario);
+        }
+        else {
+            $this->db->select('*');
+            $this->db->from('users');
+            $this->db->join('parroquia', 'parroquia.idParroquia = users.parroquia_id');
+            $this->db->where('users.email', $email);
+            $query = $this->db->get()->row();
+                if (count($query) > 0) {
+                    $usuario = array('nombre' => $query->nombre, 'id'=>$query->idParroquia, 'direccion'=> $query->direccion, 'tipo' => $query->tipoUsuario);
+                    $this->session->set_userdata($usuario);
+                }
+          #    print_r($usuario);
+        }
         return true;
       }
       else
@@ -58,7 +79,7 @@ class Users_model extends CI_Model{
             return $query->row();
         }
   }
-  
+
   function usersRegister($table, $data)
   {
     $this->db->insert($table, $data);
@@ -299,6 +320,7 @@ class Users_model extends CI_Model{
       $query = $this->db->get('persona');
       if ($query->num_rows() > 0) {
         foreach ($query->result_array() as $row){
+
             $row_set[] = array('label'=>'Feligres: '.$row['nombres'].' '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'],'id'=>$row['id'], 'nombres'=>$row['nombres'].' '.$row['apellidoPaterno']);
         }
         echo json_encode($row_set);
@@ -316,10 +338,65 @@ class Users_model extends CI_Model{
     }
     function getFaithful($texto){
         $query = $this->db->query("SELECT a.*, b.* FROM persona a, certificado b WHERE a.id = b.persona_id AND (a.nombres LIKE '%$texto%' OR a.apellidoPaterno LIKE '%$texto%' OR a.apellidoMaterno LIKE '%$texto%') GROUP BY a.id LIMIT 5");
-
         if ($query->num_rows() > 0) {
         foreach ($query->result_array() as $row){
-            $row_set[] = array('label'=>'Fiel: '.$row['nombres'].' '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'],'id'=>$row['idCertificado'], 'nombres'=>$row['nombres'],'apellidoPaterno'=> $row['apellidoPaterno'], 'apellidoMaterno'=>$row['apellidoMaterno'], 'fechanacimiento'=>$row['fechanacimiento'], 'sacramento' => $row['sacramento_id']);
+            #BUSCA EL REGISTRO DE BAUTIZO
+            #$idPersona = $row['persona_id'];
+            $this->db->select('*');
+            $this->db->from('certificado');
+            $this->db->join('persona', 'persona.id = certificado.persona_id');
+            $this->db->where('persona.id', $row['persona_id']);
+            $this->db->where('sacramento_id', '1');
+            $query = $this->db->get()->row();
+            if (count($query) > 0) {
+                  #$idBaptism = $query->idCertificado;
+              $idBaptism = '<i class="mdi-action-done"></i>';
+            }
+            else
+            {
+              $idBaptism = '<i class="mdi-navigation-close"></i>';
+            }
+            $this->db->select('*');
+            $this->db->from('certificado');
+            $this->db->join('persona', 'persona.id = certificado.persona_id');
+            $this->db->where('persona.id', $row['persona_id']);
+            $this->db->where('sacramento_id', '2');
+            $query = $this->db->get()->row();
+            if (count($query) > 0) {
+                 # $idCommunion = $query->idCertificado;
+              $idCommunion = '<i class="mdi-action-done"></i>';
+            }
+            else
+            {
+              $idCommunion = '<i class="mdi-navigation-close"></i>';
+            }
+            $this->db->select('*');
+            $this->db->from('certificado');
+            $this->db->join('persona', 'persona.id = certificado.persona_id');
+            $this->db->where('persona.id', $row['persona_id']);
+            $this->db->where('sacramento_id', '3');
+            $query = $this->db->get()->row();
+            if (count($query) > 0) {
+                 # $idConfirm = $query->idCertificado;
+              $idConfirm = '<i class="mdi-action-done"></i>';
+            }
+            else
+            {
+              $idConfirm ='<i class="mdi-navigation-close"></i>';
+            }
+            $this->db->select('*');
+            $this->db->from('certificado');
+            $this->db->join('persona', 'persona.id = certificado.persona_id');
+            $this->db->where('persona.id', $row['persona_id']);
+            $this->db->where('sacramento_id', '4');
+            $query = $this->db->get()->row();
+            if (count($query) > 0) {
+                 #$idMarriage = $query->idCertificado;
+              $idMarriage = '<i class="mdi-action-done"></i>';
+            }else{
+              $idMarriage = '<i class="mdi-navigation-close"></i>';
+            }
+            $row_set[] = array('label'=>'Fiel: '.$row['nombres'].' '.$row['apellidoPaterno'].' '.$row['apellidoMaterno'],'idPersona'=>$row['persona_id'],'idCertificado'=>$row['idCertificado'], 'nombres'=>$row['nombres'],'apellidoPaterno'=> $row['apellidoPaterno'], 'apellidoMaterno'=>$row['apellidoMaterno'], 'fechanacimiento'=>$row['fechanacimiento'], 'baptism' => $idBaptism,'communion'=>$idCommunion, 'confirm'=>$idConfirm,'marriage'=>$idMarriage);
         }
         return $row_set;
       }

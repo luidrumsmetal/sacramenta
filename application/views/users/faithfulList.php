@@ -26,10 +26,10 @@
         <?php } ?><br>
         <div class="input-field col s12">
               <i class="mdi-action-account-circle prefix"></i>
-              <input placeholder="Ingrese nombre completo" id="txtBuscarFiel" name="txtBuscarFiel" type="text">                       
+              <input placeholder="Ingrese nombre completo" id="txtBuscarFiel" name="txtBuscarFiel" type="text">
               <label for="feligres" class="active"><b>Ingrese el Nombre del Feligrés (*)</b></label>
         </div>
-          
+
           <div id="borderless-table">
               <div class="row">
                 <div class="col s12 m8 l9">
@@ -57,7 +57,7 @@
                 </div>
               </div>
           </div>
-      
+
 
 
               <div id="modal1" class="modal">
@@ -81,7 +81,7 @@
 <script type="text/javascript">
   $('#txtBuscarFiel').keyup(function(){
     //alert($('#txtBuscarFiel').val());
- 
+
     var text = $('#txtBuscarFiel').val();
     var length = $('#txtBuscarFiel').val().length;
     if (length >= 2) {
@@ -91,16 +91,16 @@
               var obj = JSON.parse(data);
               var output = '';
               $.each(obj, function(i, item){
-                  output += 
+                  output +=
                   '<tr>' +
                   '   <td>'+item.apellidoPaterno+'</td>'+
                   '   <td>'+item.apellidoMaterno+'</td>'+
                   '   <td>'+item.nombres+'</td>'+
                   '   <td>'+item.fechanacimiento+'</td>'+
-                  '   <td><a class="btn btn-default"><i class="fa fa-eye">'+item.sacramento+'</td>'+
-                  '   <td><a class="btn btn-default"><i class="fa fa-eye">'+item.sacramento+'</td>'+
-                  '   <td><a class="btn btn-default"><i class="fa fa-eye">'+item.sacramento+'</td>'+
-                  '   <td><a class="btn btn-default"><i class="fa fa-eye">'+item.sacramento+'</td>'+
+                  '   <td><a class="btn btn-default"><i class="fa fa-eye">'+item.baptism+'</td>'+
+                  '   <td><a class="btn btn-default"><i class="fa fa-eye">'+item.communion+'</td>'+
+                  '   <td><a class="btn btn-default"><i class="fa fa-eye">'+item.confirm+'</td>'+
+                  '   <td><a class="btn btn-default"><i class="fa fa-eye">'+item.marriage+'</td>'+
                   '</tr>';
               });
               $('#striped-table tbody').append(output);
@@ -108,6 +108,6 @@
     }else if(length==0){
        $('#striped-table tbody').html('');
     }
-        
+
   });
 </script>
