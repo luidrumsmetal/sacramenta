@@ -83,6 +83,8 @@ class Jurisdiccion extends CI_Controller{
         $data = array(
           'nombre' => $this->input->post('nombre'),
           'direccion' => $this->input->post('direccion'),
+          'telefono' => $this->input->post('telefono'),
+          'email'=> $this->input->post('email'),
           'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
         );
           $this->Jurisdiccion_model->addParroquia("parroquia",$data);
@@ -130,6 +132,8 @@ class Jurisdiccion extends CI_Controller{
     $data['idParroquia'] = $dt->idParroquia;
     $data['nombre'] = $dt->nombre;
     $data['direccion'] = $dt->direccion;
+    $data['telefono'] = $dt->telefono;
+    $data['email'] = $dt->email;
     $data['jurisdiccion_id']=$dt->jurisdiccion_id;
     $data['jurisdiccion']=$dt->jurisdiccion;
     $this->load->view('template/header');
@@ -138,15 +142,30 @@ class Jurisdiccion extends CI_Controller{
   }
 
     function update() {
-    if ($this->input->post('mit')) {
-
+    
       $idParroquia = $this->input->post('idParroquia');
-      $this->Jurisdiccion_model->update_parroquia($idParroquia);
+      $nombre = $this->input->post('nombre');
+      $direccion = $this->input->post('direccion');
+      $telefono = $this->input->post('telefono');
+      $email = $this->input->post('email');
+      $jurisdiccion_id = $this->input->post('jurisdiccion_id');
+      $data = array(
+        'idParroquia' => $idParroquia,
+      'nombre' => $nombre,
+      'direccion' => $direccion,
+      'telefono' => $telefono,
+      'email' => $email,
+      'jurisdiccion_id'=>$jurisdiccion_id
+        );
+      
+      if ($this->Jurisdiccion_model->update_parroquia($idParroquia,$data) == TRUE) {
+        redirect(base_url().'jurisdiccion/listParroquia');
+      }
+      else
+      {
+       redirect(base_url().'jurisdiccion/listParroquia#error'); 
+      }
 
-      redirect('Jurisdiccion/listParroquia');
-    } else{
-      redirect('Jurisdiccion/edit/'.$idParroquia);
-    }
   /// FIN -->
   }
 
