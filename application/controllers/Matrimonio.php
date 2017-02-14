@@ -11,14 +11,19 @@ class Matrimonio extends CI_Controller{
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
-    if ($this->session->userdata('tipo') != 'administrador') {
+    if ($this->session->userdata('tipo') != 'administrador' || $this->session->userdata('tipo') != 'parroquia') {
+        if ($this->session->userdata('tipo') == 'fiel') {
+            redirect(base_url().'home');
+        }
+    }
+    /*if ($this->session->userdata('tipo') != 'administrador') {
         if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else{
           redirect(base_url().'home');
         }
-    }
+    }*/
   }
 
   function index()

@@ -85,7 +85,7 @@ class Jurisdiccion_model extends CI_Model{
     }
 
   function edit_parroquia($a) {
-    
+
     $d = $this->db->query("SELECT a.*, b.* FROM jurisdiccion a, parroquia b  WHERE b.idParroquia=$a AND a.idJurisdiccion = b.jurisdiccion_id")->row();
     return $d;
   }
@@ -100,6 +100,6 @@ class Jurisdiccion_model extends CI_Model{
   function delete($a) {
     $this->db->delete('parroquia', array('idParroquia' => $a));
     return;
-  } 
+  }
 
 }

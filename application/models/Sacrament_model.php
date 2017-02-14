@@ -19,7 +19,7 @@ class Sacrament_model extends CI_Model{
   }
 
   function editBaptism($a) {
-    $d = $this->db->query("SELECT a.*, b.*, c.*, d.*, e.*,f.*,g.*,h.*,i.* 
+    $d = $this->db->query("SELECT a.*, b.*, c.*, d.*, e.*,f.*,g.*,h.*,i.*
                            FROM certificado a, persona b, parroquia c, sacramento d, sacerdote e, jurisdiccion f, registrocivil g, libroparroquia h, padrinofiel i
                            WHERE a.idCertificado = $a
                            AND b.id = a.persona_id AND c.idParroquia = a.parroquia_id
@@ -66,9 +66,9 @@ class Sacrament_model extends CI_Model{
 
   function autoCompleteFeligres($q)
   {
-    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c 
-                            WHERE c.idSacramento = '1' 
-                            AND a.id = b.persona_id 
+    $query = $this->db->query("SELECT * FROM persona a, certificado b, sacramento c
+                            WHERE c.idSacramento = '1'
+                            AND a.id = b.persona_id
                             AND b.sacramento_id = c.idSacramento
                             AND (a.nombres LIKE '%$q%' OR a.apellidoPaterno LIKE '%$q%' OR a.apellidoMaterno LIKE '%$q%')
                             GROUP BY a.nombres  LIMIT 5");
@@ -84,7 +84,7 @@ class Sacrament_model extends CI_Model{
     }
   }
 
- 
+
 
 
 

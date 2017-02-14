@@ -98,8 +98,10 @@
                  <img src="<?php echo base_url(); ?>assets/demo/images/admin.png" alt="" class="circle responsive-img valign profile-image">
              </div>
              <div class="col col s8 m8 l8">
+
                  <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nombre') ?><i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
                      <li><a href="#"><i class="mdi-action-face-unlock"></i> Perfil</a>
+
                      </li>
                      <li class="divider"></li>
                      <li><a href="<?php echo base_url(); ?>login/logout"><i class="mdi-action-settings-power"></i>Salir</a>
@@ -111,7 +113,7 @@
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Inicio</a>
          </li>
-         <?php if($this->session->userdata('tipo') == 'administrador'){?>
+         <?php if($this->session->userdata('tipo') == 'administrador' || $this->session->userdata('tipo') == 'parroquia' ){?>
          <li class="bold"><a href="<?php echo base_url(); ?>email" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Busqueda de Fiel</a>
@@ -136,22 +138,25 @@
                  </li>
              </ul>
          </li>
-         <li class="no-padding">
-              <ul class="collapsible collapsible-accordion">
-                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Usuarios</a>
-                     <div class="collapsible-body" style="">
-                         <ul>
-                             <li class="bold"><a href="<?php echo base_url(); ?>users/usuarioRegister" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i> Registrar Cuenta Usuario</a>
-                             </li>
-                             <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista Sacerdotes</a>
-                             </li>
-                             <!--<li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
-                             </li>-->
-                         </ul>
-                     </div>
-                 </li>
-              </ul>
-         </li>
+          <?php if($this->session->userdata('tipo') == 'administrador'){?>
+           <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                   <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Usuarios</a>
+                       <div class="collapsible-body" style="">
+                           <ul>
+                               <li class="bold"><a href="<?php echo base_url(); ?>users/usuarioRegister" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Usuario</a>
+                               </li>
+                               <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/parroquiaAccount" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Parroquia</a>
+                               </li>
+                               <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista Sacerdotes</a>
+                               </li>
+                               <!--<li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
+                               </li>-->
+                           </ul>
+                       </div>
+                   </li>
+                </ul>
+           </li>
 
          <li class="no-padding">
               <ul class="collapsible collapsible-accordion">
@@ -169,12 +174,10 @@
                  </li>
               </ul>
          </li>
-
-      <!--   <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-social-people"></i> Buscar Casados</a>
-         </li>-->
+         <?php } ?>
          <?php }else{?>
-           <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-communication-quick-contacts-mail"></i>Solicitar Certificado</a>
-           </li>
+          <!-- <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-communication-quick-contacts-mail"></i>Solicitar Certificado</a>
+          </li>-->
            <li class="bold"><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-action-pageview"></i>Realizar Busqueda</a>
            </li>
          </li>

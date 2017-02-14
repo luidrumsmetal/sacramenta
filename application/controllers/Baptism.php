@@ -8,15 +8,15 @@ class Baptism extends CI_Controller{
     parent::__construct();
     //Codeigniter : Write Less Do More
     $this->load->model(array('Users_model','Sacrament_model'));
+    #Verifica si se inicio la session
+    #si no es asi lo redirecciona a login
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
-    if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombre')) {
-            redirect(base_url().'login');
-        }
-        else{
-          redirect(base_url().'home');
+
+    if ($this->session->userdata('tipo') != 'administrador' || $this->session->userdata('tipo') != 'parroquia') {
+        if ($this->session->userdata('tipo') == 'fiel') {
+            redirect(base_url().'home');
         }
     }
   }
@@ -38,21 +38,18 @@ class Baptism extends CI_Controller{
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
-    if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombre')) {
-            redirect(base_url().'login');
-        }
-        else
-        {
-          redirect(base_url().'home');
+    if ($this->session->userdata('tipo') != 'administrador' || $this->session->userdata('tipo') != 'parroquia') {
+        if ($this->session->userdata('tipo') == 'fiel') {
+            redirect(base_url().'home');
         }
     }
     $data['title'] = 'Lista de Bautizados';
+        $idParroquia = $this->session->userdata('id');
     $this->load->library('table');
         $this->load->library('pagination');
 
         $config['base_url'] = base_url().'baptism/listBaptism';
-        $config['total_rows'] = $this->Users_model->count('certificado','persona');
+        $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
@@ -74,7 +71,8 @@ class Baptism extends CI_Controller{
         $config['last_tag_close'] = '</li>';
 
     $this->pagination->initialize($config);
-    $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero','id = persona_id AND sacramento_id = 1',$config['per_page'],$this->uri->segment(3));
+
+    $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 1 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
     $this->load->view('template/header',$data);
     $this->load->view('sacramentos/baptism/baptismList',$data);
     $this->load->view('template/footer');
