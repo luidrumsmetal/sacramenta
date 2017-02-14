@@ -26,7 +26,7 @@
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
                     <div class="col s12">
-                    <h1 class="brand-logo center">Lista de Bautizados</h1>
+                    <h1 class="brand-logo center">Lista de Confirmados</h1>
                     </div>
                   </div>
                 </nav>
@@ -46,7 +46,7 @@
 
                     <tbody>
                       <tr>
-                        <td>No existe bautizos registrados</td>
+                        <td>No existe confirmados registrados</td>
                       </tr>
                     </tbody>
                   </table>
@@ -62,7 +62,7 @@
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
                     <div class="col s12">
-                    <h1 class="brand-logo center">Lista de Bautizados</h1>
+                    <h1 class="brand-logo center">Lista de Confirmados</h1>
                     </div>
                   </div>
                 </nav>
