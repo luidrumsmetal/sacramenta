@@ -70,7 +70,6 @@
                     <table class="bordered striped">
                       <thead>
                         <tr>
-                          <th data-field="id">ID</th>
                           <th data-field="nombre">Apellido Paterno</th>
                           <th data-field="direccion">Apellido Materno</th>
                           <th data-field="direccion">Nombres</th>
@@ -83,7 +82,7 @@
                       <tbody>
                         <?php foreach ($results as $r) {
                             echo '<tr>';
-                            echo '<td>'.$r->idCertificado.'</td>';
+                            #echo '<td>'.$r->idCertificado.'</td>';
                             echo '<td>'.$r->apellidoPaterno.'</td>';
                             echo '<td>'.$r->apellidoMaterno.'</td>';
                             echo '<td>'.$r->nombres.'</td>';

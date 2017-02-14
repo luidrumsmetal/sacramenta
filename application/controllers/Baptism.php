@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Baptism extends CI_Controller{
@@ -159,13 +159,10 @@ class Baptism extends CI_Controller{
 
   function edit() {
     $kd = $this->uri->segment(3);
-    if ($kd == NULL) {
-      redirect('Jurisdiccion/listParroquia');
-    }
-    
-
      $dt = $this->Sacrament_model->editBaptism($kd);
-     $data1['feligres'] = $dt->nombres;
+     print_r($dt);
+     echo $dt;
+    /* $data1['feligres'] = $dt->nombres;
      $data1['feligres_id'] = $dt->persona_id;
      $data1['parroquia'] = $dt->nombre;
      $data1['parroquia_id'] = $dt->parroquia_id;
@@ -179,12 +176,12 @@ class Baptism extends CI_Controller{
      $data1['numeroOne'] = $dt->numero;
      $data1['apellidoNombrePadrino'] = $dt->apellidosNombres;
      $data1['apellidoNombreMadrina'] = $dt->apellidosNombres;
-     $data1['idCertificado'] = $kd;
-    
+     $data1['idCertificado'] = $kd;*/
 
+/*
         $this->load->view('template/header');
-        $this->load->view('sacramentos/baptism/baptismEdit', $data1);
-        $this->load->view('template/footer');
+        $this->load->view('sacramentos/baptism/baptismEdit', $dt);
+        $this->load->view('template/footer');*/
 
   }
 

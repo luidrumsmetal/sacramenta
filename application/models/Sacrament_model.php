@@ -18,24 +18,18 @@ class Sacrament_model extends CI_Model{
     return FALSE;
   }
 
-  function editBaptism($a) {
-    $d = $this->db->query("SELECT a.*,b.*,c.*,d.*,e.*,f.*, g.*, h.*, i.*
-                           FROM certificado a, persona b, parroquia c, sacramento d, sacerdote e, jurisdiccion f, registrocivil g, libroparroquia h, padrinofiel i
-                           WHERE a.idCertificado = '1'
-                           AND b.id = a.persona_id AND c.idParroquia = a.parroquia_id
-                           AND d.idSacramento = a.sacramento_id AND b.id = e.persona_id
-                           AND a.sacerdoteCertificador_id = e.idSacerdote  
-                           AND f.idJurisdiccion = a.jurisdiccion_id AND a.sacerdoteCelebrante_id = e.idSacerdote 
-                           AND  a.idCertificado = g.certificado_id AND b.id = e.persona_id GROUP BY a.idCertificado ASC");
-    $d = $this->db->get();
-    if ($d->num_rows() > 0) {
-      print_r($d);
-        return $d;
-    }
-    else{
-      return false;
-    }
-
+  function editBaptism($a,$one=false) {
+      $query = $this->db->query("SELECT *
+                             FROM persona a, certificado b, parroquia c, jurisdiccion d, sacerdote e, libroparroquia f
+                             WHERE a.id = b.idCertificado
+                             AND c.idParroquia = b.parroquia_id
+                             AND d.idJurisdiccion = b.jurisdiccion_id
+                             AND e.idSacerdote = b.sacerdoteCelebrante_id
+                             AND e.idSacerdote = b.sacerdoteCertificador_id
+                             AND f.idLibroParroquia = b.certificado_id");
+                             $query = $this->db->get();
+                             $result =  !$one  ? $query->result() : $query->row();
+                               return $result;
   }
 
   function update_bautizo($idCertificado) {
@@ -50,7 +44,7 @@ class Sacrament_model extends CI_Model{
     $fecha = $this->input->post('fecha');
     $sacerdoteCelebrante_id = $this->input->post('sacerdoteCelebrante');
     $sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador');
-    $libro = $this->input->post('libroOne');    
+    $libro = $this->input->post('libroOne');
     $pagina = $this->input->post('paginaOne');
     $numero = $this->input->post('numeroOne');
     $apellidosNombres = $this->input->post('apellidoNombrePadrino');
