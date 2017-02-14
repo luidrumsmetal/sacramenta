@@ -8,11 +8,11 @@ class Confirmacion extends CI_Controller{
     parent::__construct();
 
     $this->load->model(array('Sacrament_model','Users_model'));
-    if (!$this->session->userdata('nombres')) {
+    if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
     if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombres')) {
+        if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else{
@@ -51,7 +51,7 @@ class Confirmacion extends CI_Controller{
       $parroquia_id = $this->input->post('parroquia_id');
       $jurisdiccion_id = $this->input->post('jurisdiccion_id');
       $sacerdoteCelebrante_id = $this->input->post('sacerdoteCelebrante_id');
-      $sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador_id');      
+      $sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador_id');
       $data = array(
         'fecha' => $this->input->post('fechacom'),
         'persona_id' => $persona_id,
@@ -59,7 +59,7 @@ class Confirmacion extends CI_Controller{
         'sacramento_id' => $sacramento,
         'jurisdiccion_id' => $jurisdiccion_id,
         'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
-        'sacerdoteCertificador_id' => $sacerdoteCertificador_id        
+        'sacerdoteCertificador_id' => $sacerdoteCertificador_id
       );
 
           //registramos el certificado

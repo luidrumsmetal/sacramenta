@@ -8,11 +8,11 @@ class Matrimonio extends CI_Controller{
     parent::__construct();
     //Codeigniter : Write Less Do More
     $this->load->model(array('Users_model','Sacrament_model'));
-    if (!$this->session->userdata('nombres')) {
+    if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
     if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombres')) {
+        if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else{
@@ -87,7 +87,7 @@ class Matrimonio extends CI_Controller{
                   'pagina' => $this->input->post('paginaOne'),
                   'numero' => $this->input->post('numeroOne'),
                   'parroquia_id' => $parroquia_id,
-                  'certificado_id' => $certificado_id 
+                  'certificado_id' => $certificado_id
                 );
                if ($this->Sacrament_model->Register('libroparroquia',$data) == TRUE) {
                $certificateWithCi = $this->Sacrament_model->getCertificate($persona_id,$fecha);
@@ -96,7 +96,7 @@ class Matrimonio extends CI_Controller{
                   'oficialia' => $this->input->post('oficialia'),
                   'partida' => $this->input->post('partida'),
                   'numero' => $this->input->post('numeroOf'),
-                  'certificado_id' => $certificado_id 
+                  'certificado_id' => $certificado_id
                 );
                     if ($this->Sacrament_model->Register('registrocivil',$data) == TRUE) {
                     $certificateWithCi = $this->Sacrament_model->getCertificate($persona_id,$fecha);
@@ -141,7 +141,7 @@ class Matrimonio extends CI_Controller{
                   $this->session->set_flashdata('error', 'Ingrese correctamente los datos (Registro Civil)');
                   redirect(base_url().'matrimonio');
                   }
-                      
+
               }
               else{
               $this->session->set_flashdata('error', 'Ingrese correctamente los datos (Libro)');
