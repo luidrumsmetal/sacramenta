@@ -2504,7 +2504,7 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-  background-color: #fce3d9;
+  background-color: #FFFFFF;
 }
 
 /**
@@ -8624,7 +8624,7 @@ a.waves-effect .waves-ripple {
 }
 
 .side-nav .collapsible-header {
-  background-color: #FCE3D9;
+  background-color: #FFFFFF;
   border: none;
   line-height: inherit;
   height: inherit;
@@ -8637,7 +8637,7 @@ a.waves-effect .waves-ripple {
 
 .side-nav .collapsible-body {
   border: 0;
-  background-color: #fce3d9; /*header*/
+  background-color: #FFFFFF; /*header*/
 }
 
 .side-nav .collapsible-body li a {
@@ -8743,7 +8743,7 @@ select:focus {
 
 button:focus {
   outline: none;
-  background-color: #ff548e;
+  background-color: rgba(253, 137, 7, 1);
 }
 
 label {
@@ -9912,7 +9912,7 @@ select {
   height: calc(100% + 60px);
   height: -moz-calc(100%);
   padding-bottom: 60px;
-  background-color: #FCE3D9;
+  background-color: #FFFFFF;
   z-index: 999;
   overflow-y: auto;
   will-change: left;

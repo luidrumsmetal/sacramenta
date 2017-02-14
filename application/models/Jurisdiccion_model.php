@@ -91,19 +91,7 @@ class Jurisdiccion_model extends CI_Model{
   }
 
 
-  function update_parroquia($idParroquia) {
-    $idParroquia = $this->input->post('idParroquia');
-    $nombre = $this->input->post('nombre');
-    $direccion = $this->input->post('direccion');
-    $jurisdiccion_id = $this->input->post('jurisdiccion_id');    
-    $jurisdiccion = $this->input->post('jurisdiccion');
-    $data = array(
-
-      'nombre' => $nombre,
-      'direccion' => $direccion,
-      'jurisdiccion_id'=>$jurisdiccion
-      //'jurisdiccion'=>$jurisdiccion
-    );
+  function update_parroquia($idParroquia, $data) {
     $this->db->where('idParroquia', $idParroquia);
     $this->db->update('parroquia', $data);
 

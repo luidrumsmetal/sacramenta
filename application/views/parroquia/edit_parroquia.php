@@ -1,4 +1,3 @@
-<?php echo form_open('Jurisdiccion/update', 'role="form"'); ?>
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui-1.9.2.custom.css" />
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-ui-1.9.2.custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
@@ -30,7 +29,7 @@
                 </nav>
               <h4 class="header2"><b>Información General<b></h4><br>
             <div class="row">
-          <form class="col s12" id="formParroquia" method="post" action="<?php echo base_url(); ?>jurisdiccion/parroquiaRegistro">
+            <?php echo form_open('Jurisdiccion/update', 'role="form"','method=post'); ?>
         <div class="row">
           <div class="input-field col s6">
               <i class="mdi-action-home prefix"></i>
@@ -52,28 +51,35 @@
               <i class="mdi-maps-place prefix"></i>
               <input id="jurisdiccion" name="jurisdiccion" type="text" value="<?php echo $jurisdiccion ?>">
               <input type="hidden" name="jurisdiccion_id" id="jurisdiccion_id" value="<?php echo $jurisdiccion_id ?>">
+              <input type="hidden" name="idParroquia" id="idParroquia" value="<?php echo $idParroquia ?>">
               <label for="parroquia" class="active"><b>Jurisdicción</b></label>
           </div>            
         </div>
 
+        <div class="row">
+          <div class="input-field col s6">
+              <i class="mdi-maps-directions-walk prefix"></i>
+              <input id="telefono" name="telefono" type="text" value="<?php echo $telefono ?>">
+              <label for="parroquia" class="active"><b>Teléfono</b></label>
+          </div>  
+        </div>
           
-      
-          <!--<div class="row margin">
-            <div class="input-field col s12">
-              <i class="mdi-action-lock-outline prefix"></i>
-              <input id="password-again" type="password">
-              <label for="password-again">Password again</label>
-            </div>
-          </div>-->
+        <div class="row">
+          <div class="input-field col s6">
+              <i class="mdi-maps-directions-walk prefix"></i>
+              <input id="email" name="email" type="text" value="<?php echo $email ?>">
+              <label for="parroquia" class="active"><b>E-mail</b></label>
+          </div>  
+        </div>      
+
           <div class="row">
             <div class="input-field col s7">
               <center>
-              <input type="submit" name="mit" class="btn waves-effect waves-light teal" value="Guardar">&nbsp &nbsp &nbsp
+              <button type="submit" name="mit" class="btn waves-effect waves-light teal" value="Guardar">&nbsp &nbsp &nbsp</button>
               <button type="button" onclick="location.href='<?php echo site_url('Jurisdiccion/listParroquia') ?>'" class="btn waves-effect waves-light  deep-purple">Salir</button>
               </center>
             </div>
           </div>
-    </form>
     </div>
               </div>
             </div>
