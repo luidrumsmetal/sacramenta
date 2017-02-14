@@ -22,18 +22,18 @@ class Sacrament_model extends CI_Model{
     $d = $this->db->query("SELECT a.*, b.*, c.*, d.*, e.*,f.*,g.*,h.*,i.* 
                            FROM certificado a, persona b, parroquia c, sacramento d, sacerdote e, jurisdiccion f, registrocivil g, libroparroquia h, padrinofiel i
                            WHERE a.idCertificado = $a
-                           AND b.id = a.persona_id AND c.idParroquia = a.parroquia_id
+                           AND (b.id = a.persona_id) AND (c.idParroquia = a.parroquia_id)
                            AND d.idSacramento = a.sacramento_id AND a.sacerdoteCertificador_id = e.idSacerdote
                            AND f.idJurisdiccion = a.jurisdiccion_id AND a.sacerdoteCelebrante_id = e.idSacerdote
                            AND a.idCertificado = g.certificado_id AND a.idCertificado = h.certificado_id
-                           AND a.idCertificado = i.certificado_id");
+                           AND a.idCertificado = i.certificado_id GROUP BY a.idCertificado ASC");
     if ($d->num_rows() > 0) {
         return $d->row();
     }
     else{
       return false;
     }
-    
+
   }
 
   function update_bautizo($idCertificado) {

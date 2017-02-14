@@ -167,9 +167,8 @@ class Baptism extends CI_Controller{
     
 
      $dt = $this->Sacrament_model->editBaptism($kd);
-     $data1['idCertificado'] = $dt->idCertificado;
      $data1['feligres'] = $dt->nombres;
-     $data1['persona_id'] = $dt->persona_id;
+     $data1['feligres_id'] = $dt->persona_id;
      $data1['parroquia'] = $dt->parroquia;
      $data1['parroquia_id'] = $dt->parroquia_id;
      $data1['jurisdiccion'] = $dt->jurisdiccion_id;
@@ -182,6 +181,7 @@ class Baptism extends CI_Controller{
      $data1['numeroOne'] = $dt->numero;
      $data1['apellidoNombrePadrino'] = $dt->apellidosNombres;
      $data1['apellidoNombreMadrina'] = $dt->apellidosNombres;
+     $data1['idCertificado'] = $kd;
     
 
         $this->load->view('template/header');

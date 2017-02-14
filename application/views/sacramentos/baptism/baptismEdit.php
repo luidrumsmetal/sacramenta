@@ -40,13 +40,13 @@
               <div class="card-panel">
                 <div class="row">
                 <?php echo form_open('Baptism/update', 'role="form"'); ?>
-                
+
                   	<font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
                       <div class="row">
 						<div class="input-field col s12">
 							<i class="mdi-action-account-circle prefix"></i>
 							<input id="feligres" name="feligres" type="text" value="<?php echo $feligres ?>">
-							<input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $persona_id ?>">
+							<input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $feligres_id ?>">
 							<label for="apellidoPaterno" class="active"><b>Feligrés (*)</b></label>
 						</div>
                     </div>
