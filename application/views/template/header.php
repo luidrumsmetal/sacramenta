@@ -98,18 +98,13 @@
                  <img src="<?php echo base_url(); ?>assets/demo/images/admin.png" alt="" class="circle responsive-img valign profile-image">
              </div>
              <div class="col col s8 m8 l8">
-                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nombre') ?><i class="mdi-navigation-arrow-drop-down right"></i></a>
-                 <ul id="profile-dropdown" class="dropdown-content">
-                     <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
-                     </li>
-                     <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
-                     </li>
-                     <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
+
+                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nombre') ?><i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
+                     <li><a href="#"><i class="mdi-action-face-unlock"></i> Perfil</a>
+
                      </li>
                      <li class="divider"></li>
-                     <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
-                     </li>
-                     <li><a href="#"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                     <li><a href="<?php echo base_url(); ?>login/logout"><i class="mdi-action-settings-power"></i>Salir</a>
                      </li>
                  </ul>
                  <p class="user-roal left"><?php echo strtoupper($this->session->userdata('tipo')); ?></p>
@@ -144,6 +139,7 @@
              </ul>
          </li>
           <?php if($this->session->userdata('tipo') == 'administrador'){?>
+
            <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
                    <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Usuarios</a>
@@ -178,6 +174,8 @@
                      </div>
                  </li>
               </ul>
+         </li>
+         <li class="bold"><a href="<?php echo base_url(); ?>peticiones" class="waves-effect waves-cyan"><i class="mdi-action-perm-contact-cal"></i>Peticiones</a>
          </li>
          <?php } ?>
          <?php }else{?>
