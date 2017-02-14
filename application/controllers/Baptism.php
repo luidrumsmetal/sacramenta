@@ -11,14 +11,14 @@ class Baptism extends CI_Controller{
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
-    if ($this->session->userdata('tipo') != 'administrador') {
+    /*if ($this->session->userdata('tipo') != 'administrador' || $this->session->userdata('tipo') != 'parroquia') {
         if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else{
           redirect(base_url().'home');
         }
-    }
+    }*/
   }
 
   function index()
@@ -38,7 +38,7 @@ class Baptism extends CI_Controller{
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
-    if ($this->session->userdata('tipo') != 'administrador') {
+    /*if ($this->session->userdata('tipo') != 'administrador' || $this->session->userdata('tipo') != 'parroquia') {
         if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
@@ -46,7 +46,7 @@ class Baptism extends CI_Controller{
         {
           redirect(base_url().'home');
         }
-    }
+    }*/
     $data['title'] = 'Lista de Bautizados';
     $this->load->library('table');
         $this->load->library('pagination');
@@ -74,7 +74,8 @@ class Baptism extends CI_Controller{
         $config['last_tag_close'] = '</li>';
 
     $this->pagination->initialize($config);
-    $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero','id = persona_id AND sacramento_id = 1',$config['per_page'],$this->uri->segment(3));
+    $idParroquia = $this->session->userdata('id');
+    $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero','id = persona_id AND sacramento_id = 1 AND parroquia_id = $idParroquia ',$config['per_page'],$this->uri->segment(3));
     $this->load->view('template/header',$data);
     $this->load->view('sacramentos/baptism/baptismList',$data);
     $this->load->view('template/footer');
