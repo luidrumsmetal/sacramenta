@@ -33,6 +33,53 @@ class Baptism extends CI_Controller{
     $this->load->view('template/footer');
   }
 
+  function listBaptism($offset = NULL)
+  {
+    if (!$this->session->userdata('nombres')) {
+      redirect(base_url().'login');
+    }
+    if ($this->session->userdata('tipo') != 'administrador') {
+        if (!$this->session->userdata('nombres')) {
+            redirect(base_url().'login');
+        }
+        else
+        {
+          redirect(base_url().'home');
+        }
+    }
+    $data['title'] = 'Lista de Bautizados';
+    $this->load->library('table');
+        $this->load->library('pagination');
+
+        $config['base_url'] = base_url().'baptism/listBaptism';
+        $config['total_rows'] = $this->Users_model->count('certificado','persona');
+        $config['per_page'] = 10;
+        $config['next_link'] = 'Próxima';
+        $config['prev_link'] = 'Anterior';
+        $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
+        $config['full_tag_close'] = '</ul></div>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><a style="color: #2D335B"><b>';
+        $config['cur_tag_close'] = '</b></a></li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['first_link'] = 'Primeira';
+        $config['last_link'] = 'Última';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+    $this->pagination->initialize($config);
+    $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero','id = persona_id AND sacramento_id = 1',$config['per_page'],$this->uri->segment(3));
+    $this->load->view('template/header',$data);
+    $this->load->view('sacramentos/baptism/baptismList',$data);
+    $this->load->view('template/footer');
+  }
+
   public function baptismRegister()
   {
     #$this->load->library('form_validation');
@@ -109,6 +156,30 @@ class Baptism extends CI_Controller{
             }
 
     }
+
+  }
+
+  function edit() {
+    $kd = $this->uri->segment(3);
+    if ($kd == NULL) {
+      redirect('administrativa');
+    }
+     $dt = $this->Sacrament_model->editBaptism($kd);
+     
+     $data1['feligres'] = $dt->nombres;
+     $data1['persona_id'] = $dt->persona_id;
+     $data1['parroquia'] = $dt->parroquia;
+     $data1['parroquia_id'] = $dt->parroquia_id;
+     $data1['jurisdiccion'] = $dt->jurisdiccion_id;
+     $data1['jurisdiccion_id'] = $dt->jurisdiccion_id;
+     $data1['fecha'] = $dt->fecha;
+     $data1['idCertificado'] = $kd;
+
+        $data['custom_error'] = (validation_errors() ? true : false);
+
+        $this->load->view('template/header');
+        $this->load->view('sacramentos/baptism/baptismedit', $data1);
+        $this->load->view('template/footer');
 
   }
 

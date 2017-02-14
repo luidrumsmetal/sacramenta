@@ -17,6 +17,24 @@ class Sacrament_model extends CI_Model{
     }
     return FALSE;
   }
+
+  function editBaptism($a) {
+    $d = $this->db->query("SELECT a.*, b.*, c.*, d.*, e.*,f.*,g.*,h.*,i.* 
+                           FROM certificado a, persona b, parroquia c, sacramento d, sacerdote e, jurisdiccion f, registrocivil g, libroparroquia h, padrinofiel i
+                           WHERE a.idCertificado = $a
+                           AND b.id = a.persona_id AND c.idParroquia = a.parroquia_id
+                           AND d.idSacramento = a.sacramento_id AND a.sacerdoteCertificador_id = e.idSacerdote
+                           AND f.idJurisdiccion = a.jurisdiccion_id AND a.sacerdoteCelebrante_id = e.idSacerdote
+                           AND a.idCertificado = g.certificado_id AND a.idCertificado = h.certificado_id
+                           AND a.idCertificado = i.certificado_id");
+    if ($d->num_rows() > 0) {
+        return $d->row();
+    }
+    else{
+      return false;
+    }
+  }
+
   public function getCertificate($persona_id,$fecha)
   {
     $this->db->select('*');
@@ -32,6 +50,19 @@ class Sacrament_model extends CI_Model{
       }
   }
 
+  function listGetSacramento($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array')
+    {
+        $this->db->select($fields);
+        $this->db->from($table);
+        $this->db->order_by('idCertificado','asc');
+        $this->db->limit($perpage,$start);
+        if($where){
+            $this->db->where($where);
+        }
+        $query = $this->db->get();
+        $result =  !$one  ? $query->result() : $query->row();
+        return $result;
+    }
 
   function autoCompleteFeligres($q)
   {
