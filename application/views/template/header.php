@@ -144,6 +144,7 @@
              </ul>
          </li>
           <?php if($this->session->userdata('tipo') == 'administrador'){?>
+
            <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
                    <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Usuarios</a>
@@ -178,6 +179,8 @@
                      </div>
                  </li>
               </ul>
+         </li>
+         <li class="bold"><a href="<?php echo base_url(); ?>peticiones" class="waves-effect waves-cyan"><i class="mdi-action-perm-contact-cal"></i>Peticiones</a>
          </li>
          <?php } ?>
          <?php }else{?>
