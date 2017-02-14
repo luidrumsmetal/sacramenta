@@ -35,11 +35,11 @@ class Baptism extends CI_Controller{
 
   function listBaptism($offset = NULL)
   {
-    if (!$this->session->userdata('nombres')) {
+    if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
     if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombres')) {
+        if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else
@@ -165,7 +165,7 @@ class Baptism extends CI_Controller{
       redirect('administrativa');
     }
      $dt = $this->Sacrament_model->editBaptism($kd);
-     
+
      $data1['feligres'] = $dt->nombres;
      $data1['persona_id'] = $dt->persona_id;
      $data1['parroquia'] = $dt->parroquia;

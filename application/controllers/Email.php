@@ -8,11 +8,11 @@ class Email extends CI_Controller{
     parent::__construct();
     //Codeigniter : Write Less Do More
     $this->load->model(array('Email_model'));
-    if (!$this->session->userdata('nombres')) {
+    if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
     if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombres')) {
+        if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else{
@@ -131,7 +131,7 @@ class Email extends CI_Controller{
         $this->email->set_newline("\r\n");
         $this->email->from('joel.a.rojas.v@gmail.com', 'Joel Andy Rojas Valencia');
         #$this->email->to($to);
-        $this->email->to('joel.a.rojas.v@gmail.com'); // NO CAMBIAR POR EL MOTIVO DEL SPAM  
+        $this->email->to('joel.a.rojas.v@gmail.com'); // NO CAMBIAR POR EL MOTIVO DEL SPAM
         $this->email->cc('jhoel.rojas.valencia@gmail.com');
         #$this->email->bcc('them@their-example.com');
         $this->email->subject($this->input->post('asunto'));

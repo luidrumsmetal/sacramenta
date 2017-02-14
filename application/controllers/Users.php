@@ -19,11 +19,11 @@ class Users extends CI_Controller{
 
   function usuarioRegister()
   {
-    if (!$this->session->userdata('nombres')) {
+    if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
     if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombres')) {
+        if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else
@@ -46,11 +46,11 @@ class Users extends CI_Controller{
   }
   function faithfulRegister()
   {
-    if (!$this->session->userdata('nombres')) {
+    if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
     if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombres')) {
+        if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else
@@ -66,11 +66,11 @@ class Users extends CI_Controller{
 
   function listSacerdote($offset = NULL)
   {
-    if (!$this->session->userdata('nombres')) {
+    if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
     if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombres')) {
+        if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else
@@ -319,11 +319,11 @@ class Users extends CI_Controller{
 
 
   function sacerdoteEdit() {
-    if (!$this->session->userdata('nombres')) {
+    if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
     if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombres')) {
+        if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
     }
