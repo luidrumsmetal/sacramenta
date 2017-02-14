@@ -27,7 +27,9 @@
                     </div>
                   </div>
                 </nav>
-              <h4 class="header2"><b>Información General<b></h4><br>
+                <br>
+              <font color="black" size="5" face="sans-serif">Información General</font><br><Br>
+
             <div class="row">
             <?php echo form_open('Jurisdiccion/update', 'role="form"','method=post'); ?>
         <div class="row">
@@ -58,7 +60,7 @@
 
         <div class="row">
           <div class="input-field col s6">
-              <i class="mdi-maps-directions-walk prefix"></i>
+              <i class="mdi-communication-phone prefix"></i>
               <input id="telefono" name="telefono" type="text" value="<?php echo $telefono ?>">
               <label for="parroquia" class="active"><b>Teléfono</b></label>
           </div>  
@@ -66,7 +68,7 @@
           
         <div class="row">
           <div class="input-field col s6">
-              <i class="mdi-maps-directions-walk prefix"></i>
+              <i class="mdi-communication-email prefix"></i>
               <input id="email" name="email" type="text" value="<?php echo $email ?>">
               <label for="parroquia" class="active"><b>E-mail</b></label>
           </div>  
@@ -75,7 +77,8 @@
           <div class="row">
             <div class="input-field col s7">
               <center>
-              <button type="submit" name="mit" class="btn waves-effect waves-light teal" value="Guardar">&nbsp &nbsp &nbsp</button>
+              <button type="submit" name="mit" class="btn waves-effect waves-light light-blue darken-4" value="Guardar">Guardar</button>
+
               <button type="button" onclick="location.href='<?php echo site_url('Jurisdiccion/listParroquia') ?>'" class="btn waves-effect waves-light  deep-purple">Salir</button>
               </center>
             </div>

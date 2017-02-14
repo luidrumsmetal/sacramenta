@@ -25,9 +25,11 @@
                     <div class="col s12">
                     <h1 class="brand-logo center">Registro de Parroquias</h1>
                     </div>
+
                   </div>
                 </nav>
-              <h4 class="header2"><b>Información General<b></h4><br>
+                <br>
+                <font color="black" size="5" face="sans-serif">Información General</font><br><Br>
             <div class="row">
           <form class="col s12" id="formParroquia" method="post" action="<?php echo base_url(); ?>jurisdiccion/parroquiaRegistro">
         <div class="row">
@@ -57,7 +59,7 @@
 
         <div class="row">
           <div class="input-field col s6">
-              <i class="mdi-maps-directions-walk prefix"></i>
+              <i class="mdi-communication-phone prefix"></i>
               <input placeholder="Ingrese teléfono" id="telefono" name="telefono" type="text">
               <label for="parroquia" class="active"><b>Teléfono</b></label>
           </div>  
@@ -65,7 +67,7 @@
 
         <div class="row">
           <div class="input-field col s6">
-              <i class="mdi-maps-directions-walk prefix"></i>
+              <i class="mdi-communication-email prefix"></i>
               <input placeholder="Ingrese e-mail" id="email" name="email" type="text">
               <label for="parroquia" class="active"><b>E-mail</b></label>
           </div>  
