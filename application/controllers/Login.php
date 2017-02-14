@@ -29,7 +29,7 @@ class Login extends CI_Controller{
                 echo json_encode($json);
             }
             else{
-                $this->session->set_flashdata('error','Os dados de acesso estão incorretos.');
+                $this->session->set_flashdata('error','los datos de acceso son incorretos.');
                 redirect($this->login);
             }
         }
@@ -55,7 +55,7 @@ class Login extends CI_Controller{
                     echo json_encode($json);
                 }
                 else{
-                    $this->session->set_flashdata('error','Os dados de acesso estão incorretos.');
+                    $this->session->set_flashdata('error','Los datos son incorrectos.');
                     redirect($this->index);
                 }
             }

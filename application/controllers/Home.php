@@ -10,7 +10,7 @@ class Home extends CI_Controller{
     if (!$this->session->userdata('tipo')){
 			$this->session->set_flashdata('error','Debe Iniciar Sesion');
 			redirect(base_url().'login');
-      }
+    }
   }
 
   function index()
@@ -36,7 +36,7 @@ class Home extends CI_Controller{
     $this->load->view('template/header',$data);
     $this->load->view('fiel');
     $this->load->view('template/footer');
-  }  
+  }
 
   function bautizo()
   {
@@ -50,20 +50,20 @@ class Home extends CI_Controller{
     $this->load->view('template/header');
     $this->load->view('inicio/sacramentos/primerac');
     $this->load->view('template/footer');
-  }  
+  }
 
   function confirmacion()
   {
     $this->load->view('template/header');
     $this->load->view('inicio/sacramentos/confirmacion');
     $this->load->view('template/footer');
-  }    
+  }
 
   function matrimonio()
   {
     $this->load->view('template/header');
     $this->load->view('inicio/sacramentos/matrimonio');
     $this->load->view('template/footer');
-  }    
+  }
 
 }

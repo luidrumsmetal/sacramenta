@@ -98,7 +98,7 @@
                  <img src="<?php echo base_url(); ?>assets/demo/images/admin.png" alt="" class="circle responsive-img valign profile-image">
              </div>
              <div class="col col s8 m8 l8">
-                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nombres') ?><i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
+                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nombre') ?><i class="mdi-navigation-arrow-drop-down right"></i></a><ul id="profile-dropdown" class="dropdown-content">
                      <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
                      </li>
                      <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
@@ -120,7 +120,7 @@
          <?php if($this->session->userdata('tipo') == 'administrador'){?>
          <li class="bold"><a href="<?php echo base_url(); ?>email" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
          </li>
-         <li class="bold"><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Lista de Fiel</a>
+         <li class="bold"><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Busqueda de Fiel</a>
          </li>
          <li class="bold"><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-action-accessibility"></i>Registro de Fiel</a>
          </li>

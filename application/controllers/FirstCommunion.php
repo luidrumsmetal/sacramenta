@@ -8,11 +8,11 @@ class FirstCommunion extends CI_Controller{
     parent::__construct();
     //Codeigniter : Write Less Do More
     $this->load->model(array('Sacrament_model','Users_model'));
-    if (!$this->session->userdata('nombres')) {
+    if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
     if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombres')) {
+        if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
         else{
@@ -94,7 +94,7 @@ class FirstCommunion extends CI_Controller{
             $q = strtolower($_GET['term']);
             $this->Sacrament_model->autoCompleteFeligres($q);
         }
-    }  
-    
+    }
+
 
 }
