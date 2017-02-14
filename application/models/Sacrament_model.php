@@ -21,21 +21,19 @@ class Sacrament_model extends CI_Model{
   function editBaptism($a) {
     $d = $this->db->query("SELECT a.*,b.*,c.*,d.*,e.*,f.*, g.*, h.*, i.*
                            FROM certificado a, persona b, parroquia c, sacramento d, sacerdote e, jurisdiccion f, registrocivil g, libroparroquia h, padrinofiel i
-                           WHERE a.idCertificado = '1'
-                           AND b.id = a.persona_id AND c.idParroquia = a.parroquia_id
-                           AND d.idSacramento = a.sacramento_id AND b.id = e.persona_id
+                           WHERE a.idCertificado = '8'
+                           AND b.id = a.persona_id AND b.id = e.persona_id 
+                           AND c.idParroquia = a.parroquia_id
+                           AND d.idSacramento = a.sacramento_id
                            AND a.sacerdoteCertificador_id = e.idSacerdote  
                            AND f.idJurisdiccion = a.jurisdiccion_id AND a.sacerdoteCelebrante_id = e.idSacerdote 
                            AND  a.idCertificado = g.certificado_id AND b.id = e.persona_id GROUP BY a.idCertificado ASC");
-    $d = $this->db->get();
-    if ($d->num_rows() > 0) {
-      print_r($d);
-        return $d;
+    if ($this->db->affected_rows() == '1')
+    {
+      return $d;
     }
-    else{
-      return false;
-    }
-
+    return FALSE;
+       
   }
 
   function update_bautizo($idCertificado) {

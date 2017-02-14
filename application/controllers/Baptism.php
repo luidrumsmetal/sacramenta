@@ -165,25 +165,26 @@ class Baptism extends CI_Controller{
     
 
      $dt = $this->Sacrament_model->editBaptism($kd);
-     $data1['feligres'] = $dt->nombres;
-     $data1['feligres_id'] = $dt->persona_id;
-     $data1['parroquia'] = $dt->nombre;
-     $data1['parroquia_id'] = $dt->parroquia_id;
-     $data1['jurisdiccion'] = $dt->jurisdiccion_id;
-     $data1['jurisdiccion_id'] = $dt->jurisdiccion_id;
-     $data1['fecha'] = $dt->fecha;
-     $data1['sacerdoteCelebrante'] = $dt->sacerdoteCelebrante_id;
-     $data1['sacerdoteCertificador'] = $dt->sacerdoteCertificador_id;
-     $data1['libroOne'] = $dt->libro;
-     $data1['paginaOne'] = $dt->pagina;
-     $data1['numeroOne'] = $dt->numero;
-     $data1['apellidoNombrePadrino'] = $dt->apellidosNombres;
-     $data1['apellidoNombreMadrina'] = $dt->apellidosNombres;
-     $data1['idCertificado'] = $kd;
+     $data['feligres'] = $dt->nombres;
+     $data['feligres_id'] = $dt->persona_id;
+     $data['id'] = $dt->id;
+     $data['parroquia'] = $dt->nombre;
+     $data['parroquia_id'] = $dt->parroquia_id;
+     $data['jurisdiccion'] = $dt->jurisdiccion;
+     $data['jurisdiccion_id'] = $dt->jurisdiccion_id;
+     $data['fecha'] = $dt->fecha;
+     $data['sacerdoteCelebrante'] = $dt->sacerdoteCelebrante_id;
+     $data['sacerdoteCertificador'] = $dt->sacerdoteCertificador_id;
+     $data['libroOne'] = $dt->libro;
+     $data['paginaOne'] = $dt->pagina;
+     $data['numeroOne'] = $dt->numero;
+     $data['apellidoNombrePadrino'] = $dt->apellidosNombres;
+     $data['apellidoNombreMadrina'] = $dt->apellidosNombres;
+     $data['idCertificado'] = $kd;
     
 
         $this->load->view('template/header');
-        $this->load->view('sacramentos/baptism/baptismEdit', $data1);
+        $this->load->view('sacramentos/baptism/baptismEdit', $data);
         $this->load->view('template/footer');
 
   }
