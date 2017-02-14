@@ -106,7 +106,7 @@
                 <button type="submit" class="btn waves-effect waves-light col s12"><i class="icon-ok icon-white"></i> Registrarse</button>
             </div>
             <div class="input-field col s12">
-              <p class="margin center medium-small sign-up">Ya tiene una cuenta? <a href="<?php echo base_url(); ?>login">ATRAS</a></p>
+              <p class="margin center medium-small sign-up">¿Ya tiene una cuenta? <a href="<?php echo base_url(); ?>login"><font color="black"><u>ATRAS</u></a></p>
             </div>
           </div>
     </form>

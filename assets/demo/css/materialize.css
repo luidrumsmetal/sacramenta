@@ -2504,7 +2504,7 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0);;
 }
 
 /**
