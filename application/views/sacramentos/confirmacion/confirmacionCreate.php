@@ -45,7 +45,7 @@
                       <div class="row">
                         <div class="input-field col s12">
                             <i class="mdi-action-account-circle prefix"></i>
-                            <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text">
+                            <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text" value='<?php echo set_value('feligres') ?>'>
                             <input id="persona_id" name="persona_id" type="hidden">                            
                             <label for="feligres" class="active"><b>Feligrés (*)</b></label>
                         </div>
@@ -55,7 +55,7 @@
                     <div class="row">               
                       <div class="input-field col s6">
                         <i class="mdi-action-home prefix"></i>
-                        <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text">
+                        <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" value='<?php echo set_value('parroquia') ?>'>
                         <input id="parroquia_id" name="parroquia_id" type="hidden">
                         <label for="parroquia" class="active"><b>Parroquia que inscribe el sacramento (*)</b></label>
                       </div>
@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="mdi-action-room prefix"></i>
-                            <input placeholder="Ingrese lugar de Confirmación" id="jurisdiccion" name="jurisdiccion" type="text">
+                            <input placeholder="Ingrese lugar de Confirmación" id="jurisdiccion" name="jurisdiccion" type="text" value='<?php echo set_value('jurisdiccion') ?>'>
                             <input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden">                            
                             <label for="jurisdiccion" class="active"><b>Jurisdicción Eclesiástica (*)</b></label>
                         </div>
@@ -79,13 +79,13 @@
                   <div class="row">
                       <div class="input-field col s6">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese apellido o nombre del sacerdote Celebrante" id="sacerdote" name="sacerdote" type="text">
+                        <input placeholder="Ingrese apellido o nombre del sacerdote Celebrante" id="sacerdote" name="sacerdote" type="text" value='<?php echo set_value('sacerdote') ?>'>
                         <input id="sacerdoteCelebrante_id" name="sacerdoteCelebrante_id" type="hidden">
                         <label for="sacerdote" class="active"><b>Sacerdote Celebrante (*)</b></label>
                       </div>
                       <div class="input-field col s6">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese apellido o nombre del sacerdote Certificador" id="sacerdote1" name="sacerdote1" type="text">
+                        <input placeholder="Ingrese apellido o nombre del sacerdote Certificador" id="sacerdote1" name="sacerdote1" type="text" value='<?php echo set_value('sacerdote1') ?>'>
                         <input id="sacerdoteCertificador_id" name="sacerdoteCertificador_id" type="hidden">
                         <label for="sacerdote1" class="active"><b>Sacerdote Certificador (*)</b></label>
                       </div>
@@ -95,17 +95,17 @@
                     <div class="row">
                       <div class="input-field col s4">
                         <i class="mdi-action-book prefix"></i>
-                        <input placeholder="Ingrese libro de registro" id="libroOne" name="libroOne" type="text">
+                        <input placeholder="Ingrese libro de registro" id="libroOne" name="libroOne" type="text" value='<?php echo set_value('libroOne') ?>'>
                         <label for="libro" class="active"><b>Libro (*)</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-action-find-in-page prefix"></i>
-                        <input placeholder="Ingrese número de página" id="paginaOne" name="paginaOne" type="text">
+                        <input placeholder="Ingrese número de página" id="paginaOne" name="paginaOne" type="text" value='<?php echo set_value('paginaOne') ?>'>
                         <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
-                        <input placeholder="Ingrese número registro" id="numeroOne" name="numeroOne" type="text">
+                        <input placeholder="Ingrese número registro" id="numeroOne" name="numeroOne" type="text" value='<?php echo set_value('numeroOne') ?>'>
                         <label for="numero" class="active"><b>Número (*)</b></label>
                       </div>
                     </div>
@@ -115,13 +115,13 @@
 
                       <div class="input-field col s6">
                         <i class="mdi-social-person prefix"></i>
-                        <input placeholder="Ingrese el apellido y nombre del Padrino " id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text">
+                        <input placeholder="Ingrese el apellido y nombre del Padrino " id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value='<?php echo set_value('apellidoNombrePadrino') ?>'>
                         <label for="nombrePadrino" class="active"><b>Nombre Padrino</b></label>
                       </div>    
 
                        <div class="input-field col s6">
                         <i class="mdi-social-person prefix"></i>
-                        <input placeholder="Ingrese el apellido y nombre de la Madrina " id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text">
+                        <input placeholder="Ingrese el apellido y nombre de la Madrina " id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value='<?php echo set_value('apellidoNombreMadrina') ?>'>
                         <label for="nombrePadrino" class="active"><b>Nombre Madrina</b></label>
                       </div>                                          
 

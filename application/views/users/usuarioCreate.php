@@ -45,17 +45,17 @@
                     <div class="row">
                       <div class="input-field col s4">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese la parroquia" id="apellidoPaterno" name="apellidoPaterno" type="text">
+                        <input placeholder="Ingrese la parroquia" id="apellidoPaterno" name="apellidoPaterno" type="text" value='<?php echo set_value('apellidoPaterno') ?>'>
                         <label for="apelliodPaterno" class="active"><b>Apellido Paterno</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese la parroquia" id="apellidoMaterno" name="apellidoMaterno" type="text">
+                        <input placeholder="Ingrese la parroquia" id="apellidoMaterno" name="apellidoMaterno" type="text" value='<?php echo set_value('apellidoMaterno') ?>'>
                         <label for="apelliodMaterno" class="active"><b>Apellido Materno</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input  placeholder="Ingrese la parroquia" id="nombres" name="nombres" type="text">
+                        <input  placeholder="Ingrese la parroquia" id="nombres" name="nombres" type="text" value='<?php echo set_value('nombres') ?>'>
                         <label for="nombres" class="active"><b>Nombres</b></label>
                        </div>
                     </div>
@@ -63,26 +63,26 @@
                     <div class="row">
                       <div class="input-field col s6">
                         <i class="mdi-action-credit-card prefix"></i>
-                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text">
+                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>'>
                         <label for="ci" class="active"><b>Carnet de Identidad</b></label>
                       </div>
 
                       <div class="input-field col s6">
                             <i class="mdi-action-event prefix"></i>
-                            <input placeholder="" id="fechanac" name="fechanac" type="date">
+                            <input placeholder="" id="fechanac" name="fechanac" type="date" value='<?php echo set_value('fechanac') ?>'>
                             <label for="fechanac" class="active"><b>Fecha Nacimiento</b></label>
                       </div>
                     </div>
                     <div class="row">
                       <div class="input-field col s6">
                         <i class="mdi-action-home prefix"></i>
-                        <input placeholder="Ingrese la parroquia" id="celular" name="celular" type="text">
+                        <input placeholder="Ingrese la parroquia" id="celular" name="celular" type="text" value='<?php echo set_value('celular') ?>'>
                         <label for="celular" class="active"><b>Celular</b></label>
                       </div>                    
 
                       <div class="input-field col s6">
                         <i class="mdi-file-folder-shared prefix"></i>
-                        <input placeholder="facebook" id="facebook" name="facebook" type="text">
+                        <input placeholder="facebook" id="facebook" name="facebook" type="text" value='<?php echo set_value('facebook') ?>'>
                         <label for="facebook" class="active"><b>Facebook</b></label>
                       </div>
 
@@ -107,13 +107,13 @@
 
                       <div class="input-field col s6">
                         <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                        <input placeholder="Ingrese su correo electrónico" id="email" name="email" type="text">
+                        <input placeholder="Ingrese su correo electrónico" id="email" name="email" type="text" value='<?php echo set_value('email') ?>'>
                         <label for="email" class="active"><b>Correo Electrónico</b></label>
                       </div>                    
 
                       <div class="input-field col s6">
                         <i class="mdi-communication-vpn-key prefix"></i>
-                        <input placeholder="Ingrese su Contraseña" id="password" name="password" type="password">
+                        <input placeholder="Ingrese su Contraseña" id="password" name="password" type="password" value='<?php echo set_value('password') ?>'>
                         <label for="password" class="active"><b>Contraseña</b></label>
                       </div>  
                     </div>
@@ -123,7 +123,7 @@
                           <i class="mdi-action-account-circle prefix"></i>
                       </div>
                         <div class="input-field col s5">
-                          <select id="tipoUsuario" name="tipoUsuario">
+                          <select id="tipoUsuario" name="tipoUsuario" value='<?php echo set_value('tipoUsuario') ?>'>
                             <option value="" disabled selected>  Seleccione un Tipo de Usuario</option>
                             <option value="administrador">Administrador</option>
                             <option value="sacerdote">Sacerdote</option>
