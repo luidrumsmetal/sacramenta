@@ -63,7 +63,7 @@ class Baptism extends CI_Controller{
         $config['prev_tag_close'] = '</li>';
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
-        $config['first_link'] = 'Primeira';
+        $config['first_link'] = 'Primera';
         $config['last_link'] = 'Última';
         $config['first_tag_open'] = '<li>';
         $config['first_tag_close'] = '</li>';
