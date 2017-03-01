@@ -2,9 +2,6 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-ui-1.9.2.custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
 <!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/prototype-1.6.0.2.js"></script>-->
-<?php echo validation_errors(); ?>
-
-<?php $this->form_data = new stdClass;?>
   
 <!--<?php //echo form_open('baptism/baptismRegister','role="form"','method=post'); ?>-->
 <section id = "content">
