@@ -45,7 +45,7 @@
                     <div class="row">
                       <div class="input-field col s12">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text">
+                        <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" value='<?php echo set_value('parroquia') ?>'>
 												<input  id="parroquia_id" name="parroquia_id" type="hidden">
                         <label for="parroquia" class="active"><b>Parroquia </b></label>
                       </div>
@@ -56,7 +56,7 @@
 
                       <div class="input-field col s6">
                         <i class="mdi-communication-quick-contacts-mail prefix"></i>
-                        <input placeholder="Ingrese su correo electrónico" id="email" name="email" type="text">
+                        <input placeholder="Ingrese su correo electrónico" id="email" name="email" type="text" value='<?php echo set_value('email') ?>'>
                         <label for="email" class="active"><b>Correo Electrónico</b></label>
                       </div>
 

@@ -21,35 +21,35 @@
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-action-credit-card prefix"></i>
-              <input id="ci" name="ci" type="text">
+              <input id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>'>
               <label for="ci" class="center-align">Carnet de Identidad</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-action-account-circle prefix"></i>
-              <input id="apellidoPaterno" name="apellidoPaterno" type="text">
+              <input id="apellidoPaterno" name="apellidoPaterno" type="text" value='<?php echo set_value('apellidoPaterno') ?>'>
               <label for="apellidoPaterno" class="center-align">Apellido Paterno</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-action-account-circle prefix"></i>
-              <input id="apellidoMaterno" name="apellidoMaterno" type="text">
+              <input id="apellidoMaterno" name="apellidoMaterno" type="text" value='<?php echo set_value('apellidoMaterno') ?>'>
               <label for="apelliodMaterno" class="center-align">Apellido Materno</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-social-person-outline prefix"></i>
-              <input id="nombres" name="nombres" type="text">
+              <input id="nombres" name="nombres" type="text" value='<?php echo set_value('nombres') ?>'>
               <label for="nombres" class="center-align">Nombres</label>
             </div>
           </div><br>
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-action-event prefix"></i>
-              <input placeholder="" id="fechanac" name="fechanac" type="date">
+              <input placeholder="" id="fechanac" name="fechanac" type="date" value='<?php echo set_value('fechanac') ?>'>
               <label for="fechanac" class="active">Fecha de nacimiento</label>
             </div>          
     			</div>
@@ -58,7 +58,7 @@
 							  <i class="mdi-action-account-circle prefix"></i>
 						</div>
 				    <div class="input-field col s11">
-				      <select id="genero" name="genero">
+				      <select id="genero" name="genero" value='<?php echo set_value('genero') ?>'>
 				        <option value="" disabled selected>  Seleccione un genero</option>
 				        <option value="1">Masculino</option>
 				        <option value="2">Femenino</option>
@@ -69,14 +69,14 @@
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-communication-phone prefix"></i>
-              <input id="celular" name="celular" type="text">
+              <input id="celular" name="celular" type="text" value='<?php echo set_value('celular') ?>'>
               <label for="celular" class="center-align">celular</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-action-face-unlock prefix"></i>
-              <input id="facebook" name="facebook" type="text">
+              <input id="facebook" name="facebook" type="text" value='<?php echo set_value('facebook') ?>'>
               <label for="facebook" class="center-align">Nombre de Facebook</label>
             </div>
           </div>
@@ -88,14 +88,14 @@
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-communication-email prefix"></i>
-              <input id="email" name="email" type="email">
+              <input id="email" name="email" type="email" value='<?php echo set_value('email') ?>'>
               <label for="email" class="center-align">Email</label>
             </div>
           </div>
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-action-lock-outline prefix"></i>
-              <input id="password" name="password" type="password">
+              <input id="password" name="password" type="password" value='<?php echo set_value('password') ?>'>
               <label for="password">Password</label>
             </div>
           </div>
