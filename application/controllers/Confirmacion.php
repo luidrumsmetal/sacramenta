@@ -41,7 +41,7 @@ class Confirmacion extends CI_Controller{
     $this->load->library('table');
         $this->load->library('pagination');
 
-        $config['base_url'] = base_url().'baptism/listBaptism';
+        $config['base_url'] = base_url().'confirmacion/listConfirmacion';
         $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';

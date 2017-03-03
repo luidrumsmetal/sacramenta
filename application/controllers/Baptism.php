@@ -63,7 +63,7 @@ class Baptism extends CI_Controller{
         $config['prev_tag_close'] = '</li>';
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
-        $config['first_link'] = 'Primeira';
+        $config['first_link'] = 'Primera';
         $config['last_link'] = 'Última';
         $config['first_tag_open'] = '<li>';
         $config['first_tag_close'] = '</li>';
@@ -117,6 +117,7 @@ class Baptism extends CI_Controller{
               $certificado_id = $certificateWithCi->idCertificado;
                 $data = array(
                   'libro' => $this->input->post('libroOne'),
+                  //'libro' => set_value($libro),
                   'pagina' => $this->input->post('paginaOne'),
                   'numero' => $this->input->post('numeroOne'),
                   'parroquia_id' => $parroquia_id,
