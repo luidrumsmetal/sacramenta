@@ -158,31 +158,12 @@ class Baptism extends CI_Controller{
   }
 
   function edit() {
-    $kd = $this->uri->segment(3);
-     $dt = $this->Sacrament_model->editBaptism($kd);
-     print_r($dt);
-     echo $dt;
-    /* $data1['feligres'] = $dt->nombres;
-     $data1['feligres_id'] = $dt->persona_id;
-     $data1['parroquia'] = $dt->nombre;
-     $data1['parroquia_id'] = $dt->parroquia_id;
-     $data1['jurisdiccion'] = $dt->jurisdiccion_id;
-     $data1['jurisdiccion_id'] = $dt->jurisdiccion_id;
-     $data1['fecha'] = $dt->fecha;
-     $data1['sacerdoteCelebrante'] = $dt->sacerdoteCelebrante_id;
-     $data1['sacerdoteCertificador'] = $dt->sacerdoteCertificador_id;
-     $data1['libroOne'] = $dt->libro;
-     $data1['paginaOne'] = $dt->pagina;
-     $data1['numeroOne'] = $dt->numero;
-     $data1['apellidoNombrePadrino'] = $dt->apellidosNombres;
-     $data1['apellidoNombreMadrina'] = $dt->apellidosNombres;
-     $data1['idCertificado'] = $kd;*/
-
-/*
-        $this->load->view('template/header');
-        $this->load->view('sacramentos/baptism/baptismEdit', $dt);
+    $uri = $this->uri->segment(3);
+     $data['get'] = $this->Sacrament_model->editBaptism($uri);
+     print_r($data['get']);
+        /*$this->load->view('template/header');
+        $this->load->view('sacramentos/baptism/baptismEdit', $data);
         $this->load->view('template/footer');*/
-
   }
 
   function update() {

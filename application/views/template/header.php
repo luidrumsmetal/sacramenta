@@ -145,9 +145,9 @@
                          <ul>
                              <li><a href="<?php echo base_url(); ?>baptism/listBaptism"><i class=" mdi-editor-format-color-fill"></i>Bautizados</a>
                              </li>
-                             <li><a href="<?php echo base_url(); ?>firstCommunion"><i class="mdi-action-accessibility"></i>P. Comunión</a>
+                             <li><a href="<?php echo base_url(); ?>baptism/listBaptism"><i class="mdi-action-accessibility"></i>P. Comunión</a>
                              </li>
-                             <li><a href="<?php echo base_url(); ?>confirmacion"><i class="mdi-social-whatshot"></i>Confirmados</a>
+                             <li><a href="<?php echo base_url(); ?>confirmacion/listConfirmacion"><i class="mdi-social-whatshot"></i>Confirmados</a>
                              </li>
                              <li><a href="<?php echo base_url(); ?>Matrimonio"><i class="mdi-action-favorite"></i>Casados</a>
                              </li>

@@ -18,18 +18,19 @@ class Sacrament_model extends CI_Model{
     return FALSE;
   }
 
-  function editBaptism($a,$one=false) {
-      $query = $this->db->query("SELECT *
-                             FROM persona a, certificado b, parroquia c, jurisdiccion d, sacerdote e, libroparroquia f
-                             WHERE a.id = b.idCertificado
-                             AND c.idParroquia = b.parroquia_id
-                             AND d.idJurisdiccion = b.jurisdiccion_id
-                             AND e.idSacerdote = b.sacerdoteCelebrante_id
-                             AND e.idSacerdote = b.sacerdoteCertificador_id
-                             AND f.idLibroParroquia = b.certificado_id");
-                             $query = $this->db->get();
-                             $result =  !$one  ? $query->result() : $query->row();
-                               return $result;
+    function editBaptism($uri) {
+      $this->db->select('*, CONCAT(C.apellidoPaterno, " ",C.apellidoMaterno," ",C.nombres) as Sacerdote_certificador, A.idSacerdote as sacerdoteCertificador, C.id as personaCertificador  , CONCAT(D.apellidoPaterno, " ",D.apellidoMaterno," ",D.nombres) as Sacerdote_certificante, B.idSacerdote as sacerdoteCertificante, D.id as personaCertificante');
+      $this->db->from('certificado');
+      $this->db->join('persona', 'persona.id = certificado.persona_id');
+      $this->db->join('sacramento', 'sacramento.idSacramento = certificado.sacramento_id');
+      $this->db->join('parroquia', 'parroquia.idParroquia = certificado.parroquia_id');
+      $this->db->join('jurisdiccion', 'jurisdiccion.idJurisdiccion = certificado.jurisdiccion_id');
+      $this->db->join('sacerdote A', 'A.idSacerdote = certificado.sacerdoteCertificador_id');
+      $this->db->join('sacerdote B', 'B.idSacerdote = certificado.sacerdoteCelebrante_id');
+      $this->db->join('persona C', 'C.id = A.persona_id');
+      $this->db->join('persona D', 'D.id = B.persona_id');
+      $this->db->where('certificado.idCertificado', $uri);
+      return $this->db->get()->row();
   }
 
   function update_bautizo($idCertificado) {

@@ -3,8 +3,8 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
 <!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/prototype-1.6.0.2.js"></script>-->
 
-<?php print_r($dt);  ?>
 
+<?php echo $get->idCertificado  ?>
 <section id = "content">
 		<div class="section">
       <div class="row">
@@ -41,7 +41,7 @@
                </nav>
               <div class="card-panel">
                 <div class="row">
-                <?php echo form_open('Baptism/update', 'role="form"'); ?>
+                <?php echo form_open('Baptism/update', 'role="form"', 'method=post'); ?>
 
                   	<font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
                       <div class="row">
@@ -50,6 +50,7 @@
 							<input id="feligres" name="feligres" type="text" value="<?php echo $feligres ?>">
 							<input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $feligres_id ?>">
 							<label for="apellidoPaterno" class="active"><b>Feligrés (*)</b></label>
+                          <input type="hidden" name="id" value="<?php echo $id ?>" />
 						</div>
                     </div>
 
@@ -126,15 +127,12 @@
 
                     <div class="row">
                         <div class="input-field col s7">
-                          <input type="hidden" name="idCertificado" value="<?php echo $idCertificado ?>" />
                           <input type="submit" name="mit" class="btn btn-primary" value="Guardar">
                           <button type="button" onclick="location.href='<?php echo site_url('editar') ?>'" class="btn btn-danger">Volver Atras</button>
                             <i class="mdi-content-send right"></i>
                           </button>
                         </div>
                     </div>
-
-                  </form>
                 </div>
               </div>
             </div>
