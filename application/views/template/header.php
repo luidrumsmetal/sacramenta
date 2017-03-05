@@ -138,6 +138,24 @@
                  </li>
              </ul>
          </li>
+         <li class="no-padding">
+             <ul class="collapsible collapsible-accordion">
+                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista de Sacramentos</a>
+                     <div class="collapsible-body" style="">
+                         <ul>
+                             <li><a href="<?php echo base_url(); ?>baptism/listBaptism"><i class=" mdi-editor-format-color-fill"></i>Bautizados</a>
+                             </li>
+                             <li><a href="<?php echo base_url(); ?>baptism/listBaptism"><i class="mdi-action-accessibility"></i>P. Comunión</a>
+                             </li>
+                             <li><a href="<?php echo base_url(); ?>confirmacion/listConfirmacion"><i class="mdi-social-whatshot"></i>Confirmados</a>
+                             </li>
+                             <li><a href="<?php echo base_url(); ?>Matrimonio"><i class="mdi-action-favorite"></i>Casados</a>
+                             </li>
+                         </ul>
+                     </div>
+                 </li>
+             </ul>
+         </li>
           <?php if($this->session->userdata('tipo') == 'administrador'){?>
 
            <li class="no-padding">

@@ -26,7 +26,7 @@
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
                     <div class="col s12">
-                    <h1 class="brand-logo center">Lista de Bautizados</h1>
+                    <h1 class="brand-logo center">Lista de Primera Comunión</h1>
                     </div>
                   </div>
                 </nav>
@@ -38,15 +38,15 @@
                   <table id="striped-table">
                     <thead>
                       <tr>
-                        <th data-field="id">ID</th>
-                        <th data-field="name">Nombre</th>
-                        <th data-field="price">Dirección</th>
+                          <th data-field="id">ID</th>
+                          <th data-field="direccion">Nombres</th>
+                          <th data-field="direccion">Fecha de Comunión</th>
                       </tr>
                     </thead>
 
                     <tbody>
                       <tr>
-                        <td>No existe bautizos registrados</td>
+                        <td>No existe lista de primera Comunión</td>
                       </tr>
                     </tbody>
                   </table>
@@ -62,7 +62,7 @@
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
                     <div class="col s12">
-                    <h1 class="brand-logo center">Lista de Bautizados</h1>
+                    <h1 class="brand-logo center">Lista de Primera Comunión</h1>
                     </div>
                   </div>
                 </nav>
@@ -70,11 +70,9 @@
                     <table class="bordered striped">
                       <thead>
                         <tr>
-                          <th data-field="nombre">Apellido Paterno</th>
-                          <th data-field="direccion">Apellido Materno</th>
+                          <th data-field="id">ID</th>
                           <th data-field="direccion">Nombres</th>
-                          <th data-field="direccion">Fecha de Nacimiento</th>
-                          <th data-field="direccion">Genero</th>
+                          <th data-field="direccion">Fecha de Comunión</th>
                           <th data-field="opciones">Opciones</th>
                         </tr>
                       </thead>
@@ -82,7 +80,7 @@
                       <tbody>
                         <?php foreach ($results as $r) {
                             echo '<tr>';
-                            #echo '<td>'.$r->idCertificado.'</td>';
+                            echo '<td>'.$r->idCertificado.'</td>';
                             echo '<td>'.$r->apellidoPaterno.'</td>';
                             echo '<td>'.$r->apellidoMaterno.'</td>';
                             echo '<td>'.$r->nombres.'</td>';

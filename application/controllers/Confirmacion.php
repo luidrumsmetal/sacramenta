@@ -64,7 +64,6 @@ class Confirmacion extends CI_Controller{
         $config['last_tag_close'] = '</li>';
 
     $this->pagination->initialize($config);
-
     $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 3 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
     $this->load->view('template/header',$data);
     $this->load->view('sacramentos/confirmacion/confirmacionList',$data);

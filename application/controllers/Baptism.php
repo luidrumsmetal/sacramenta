@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Baptism extends CI_Controller{
@@ -63,7 +63,7 @@ class Baptism extends CI_Controller{
         $config['prev_tag_close'] = '</li>';
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
-        $config['first_link'] = 'Primeira';
+        $config['first_link'] = 'Primera';
         $config['last_link'] = 'Última';
         $config['first_tag_open'] = '<li>';
         $config['first_tag_close'] = '</li>';
@@ -159,35 +159,12 @@ class Baptism extends CI_Controller{
   }
 
   function edit() {
-    $kd = $this->uri->segment(3);
-    if ($kd == NULL) {
-      redirect('Jurisdiccion/listParroquia');
-    }
-    
-
-     $dt = $this->Sacrament_model->editBaptism($kd);
-     $data['feligres'] = $dt->nombres;
-     $data['feligres_id'] = $dt->persona_id;
-     $data['id'] = $dt->id;
-     $data['parroquia'] = $dt->nombre;
-     $data['parroquia_id'] = $dt->parroquia_id;
-     $data['jurisdiccion'] = $dt->jurisdiccion;
-     $data['jurisdiccion_id'] = $dt->jurisdiccion_id;
-     $data['fecha'] = $dt->fecha;
-     $data['sacerdoteCelebrante'] = $dt->sacerdoteCelebrante_id;
-     $data['sacerdoteCertificador'] = $dt->sacerdoteCertificador_id;
-     $data['libroOne'] = $dt->libro;
-     $data['paginaOne'] = $dt->pagina;
-     $data['numeroOne'] = $dt->numero;
-     $data['apellidoNombrePadrino'] = $dt->apellidosNombres;
-     $data['apellidoNombreMadrina'] = $dt->apellidosNombres;
-     $data['idCertificado'] = $kd;
-    
-
-        $this->load->view('template/header');
+    $uri = $this->uri->segment(3);
+     $data['get'] = $this->Sacrament_model->editBaptism($uri);
+     print_r($data['get']);
+        /*$this->load->view('template/header');
         $this->load->view('sacramentos/baptism/baptismEdit', $data);
-        $this->load->view('template/footer');
-
+        $this->load->view('template/footer');*/
   }
 
   function update() {

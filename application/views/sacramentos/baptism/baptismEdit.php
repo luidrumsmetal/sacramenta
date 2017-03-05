@@ -3,6 +3,8 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
 <!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/prototype-1.6.0.2.js"></script>-->
 
+
+<?php echo $get->idCertificado  ?>
 <section id = "content">
 		<div class="section">
       <div class="row">
@@ -63,7 +65,7 @@
 							<i class="mdi-action-event prefix"></i>
 							<input id="fecha" name="fecha" type="date" value="<?php echo $fecha ?>">
 							<label for="fechabautismo" class="active"><b>Fecha de Celebración (*)</b></label>
-						</div>                      
+						</div>
                     </div>
 
                     <div class="row">
@@ -73,7 +75,7 @@
 							<input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden" value="<?php echo $jurisdiccion_id ?>">
 							<label for="jurisdiccion" class="active"><b>Jurisdicción Eclesiástica (*)</b></label>
 						</div>
-                    </div>                    
+                    </div>
 
 					<div class="row">
 							<div class="input-field col s6">
@@ -89,7 +91,7 @@
 								<label for="sacerdoteCertificador" class="active"><b>Sacerdote Certificador (*)</b></label>
 							</div>
 					</div>
-				<font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>							
+				<font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
                       <div class="input-field col s4">
                         <i class="mdi-action-book prefix"></i>
