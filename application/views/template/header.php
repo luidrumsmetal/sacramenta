@@ -138,7 +138,26 @@
                  </li>
              </ul>
          </li>
+         <li class="no-padding">
+             <ul class="collapsible collapsible-accordion">
+                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista de Sacramentos</a>
+                     <div class="collapsible-body" style="">
+                         <ul>
+                             <li><a href="<?php echo base_url(); ?>baptism/listBaptism"><i class=" mdi-editor-format-color-fill"></i>Bautizados</a>
+                             </li>
+                             <li><a href="<?php echo base_url(); ?>firstCommunion/listComunion"><i class="mdi-action-accessibility"></i>P. Comunión</a>
+                             </li>
+                             <li><a href="<?php echo base_url(); ?>confirmacion/listConfirmacion"><i class="mdi-social-whatshot"></i>Confirmados</a>
+                             </li>
+                             <li><a href="<?php echo base_url(); ?>matrimonio/listMarried"><i class="mdi-action-favorite"></i>Casados</a>
+                             </li>
+                         </ul>
+                     </div>
+                 </li>
+             </ul>
+         </li>
           <?php if($this->session->userdata('tipo') == 'administrador'){?>
+
            <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
                    <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Usuarios</a>
@@ -148,7 +167,7 @@
                                </li>
                                <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/parroquiaAccount" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Parroquia</a>
                                </li>
-                               <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i> Lista Sacerdotes</a>
+                               <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Lista Usuarios</a>
                                </li>
                                <!--<li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
                                </li>-->
@@ -174,6 +193,8 @@
                  </li>
               </ul>
          </li>
+        <!-- <li class="bold"><a href="<?php echo base_url(); ?>peticiones" class="waves-effect waves-cyan"><i class="mdi-action-perm-contact-cal"></i>Peticiones</a>
+         </li>-->
          <?php } ?>
          <?php }else{?>
           <!-- <li class="bold"><a href="<?php echo base_url(); ?>home" class="waves-effect waves-cyan"><i class="mdi-communication-quick-contacts-mail"></i>Solicitar Certificado</a>

@@ -3,6 +3,8 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
 <!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/prototype-1.6.0.2.js"></script>-->
 
+
+<?php # echo# $get->idCertificado  ?>
 <section id = "content">
 		<div class="section">
       <div class="row">
@@ -39,70 +41,72 @@
                </nav>
               <div class="card-panel">
                 <div class="row">
-                  <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>baptism/update" method="POST" enctype="multipart/form-data">
+                <?php echo form_open('Baptism/update', 'role="form"', 'method=post'); ?>
+
                   	<font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
                       <div class="row">
 						<div class="input-field col s12">
 							<i class="mdi-action-account-circle prefix"></i>
-							<input id="feligres" name="feligres" type="text" value="<?php echo $feligres ?>">
-							<input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $persona_id ?>">
+							<input id="feligres" name="feligres" type="text" value="<?php echo $get->Fiel?>">
+							<input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $get->idFiel ?>">
 							<label for="apellidoPaterno" class="active"><b>Feligrés (*)</b></label>
-						</div>
 
+						</div>
                     </div>
 
                     <div class="row">
                       <div class="input-field col s6">
                         <i class="mdi-action-home prefix"></i>
-                        <input id="parroquia" name="parroquia" type="text" value="<?php echo $parroquia ?>">
-                        <input id="parroquia_id" name="parroquia_id" type="hidden" value="<?php echo $parroquia_id ?>">
+                        <input id="parroquia" name="parroquia" type="text" value="<?php echo $get->nombre ?>">
+                        <input id="parroquia_id" name="parroquia_id" type="hidden" value="<?php echo $get->idParroquia ?>">
                         <label for="parroquia" class="active"><b>Parroquia que inscribe el sacramento (*)</b></label>
                       </div>
 						<div class="input-field col s6">
 							<i class="mdi-action-event prefix"></i>
-							<input id="fecha" name="fecha" type="date" value="<?php echo $fecha ?>">
+							<input id="fecha" name="fecha" type="date" value="<?php echo $get->fecha ?>">
 							<label for="fechabautismo" class="active"><b>Fecha de Celebración (*)</b></label>
-						</div>                      
+						</div>
                     </div>
 
                     <div class="row">
 						<div class="input-field col s12">
 							<i class="mdi-action-room prefix"></i>
-							<input id="jurisdiccion" name="jurisdiccion" type="text" value="<?php echo $jurisdiccion ?>">
-							<input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden" value="<?php echo $jurisdiccion_id ?>">
+							<input id="jurisdiccion" name="jurisdiccion" type="text" value="<?php echo $get->jurisdiccion ?>">
+							<input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden" value="<?php $get->idJurisdiccion ?>">
 							<label for="jurisdiccion" class="active"><b>Jurisdicción Eclesiástica (*)</b></label>
 						</div>
-                    </div>                    
+                    </div>
 
 					<div class="row">
 							<div class="input-field col s6">
 								<i class="mdi-social-person-outline prefix"></i>
-								<input id="sacerdoteCelebrante" name="sacerdoteCelebrante" type="text" value="<?php echo $sacerdoteCelebrante ?>">
-								<input id="sacerdoteCelebrante_id" name="sacerdoteCelebrante_id" type="hidden">
+								<input id="sacerdoteCelebrante" name="sacerdoteCelebrante" type="text" value="<?php echo $get->Sacerdote_certificador ?>">
+								<input id="sacerdoteCelebrante_id" name="sacerdoteCelebrante_id" type="hidden" value="<?php $get->personaCertificador?>">
 								<label for="sacerdoteCelebrante" class="active"><b>Sacerdote Celebrante (*)</b></label>
 							</div>
 							<div class="input-field col s6">
 								<i class="mdi-social-person-outline prefix"></i>
-								<input  id="sacerdoteCertificador" name="sacerdoteCertificador" type="text" value="<?php echo $sacerdoteCertificador ?>">
-								<input id="sacerdoteCertificador_id" name="sacerdoteCertificador_id" type="hidden">
+								<input  id="sacerdoteCertificador" name="sacerdoteCertificador" type="text" value="<?php echo $get->Sacerdote_certificante ?>">
+								<input id="sacerdoteCertificador_id" name="sacerdoteCertificador_id" type="hidden" value="<?php $get->personaCertificante?>">
 								<label for="sacerdoteCertificador" class="active"><b>Sacerdote Certificador (*)</b></label>
 							</div>
 					</div>
-				<font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>							
+				<font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
+                        <input type="hidden" name="idLibro" value="<?php $get->idLibroParroquia?>">
                       <div class="input-field col s4">
                         <i class="mdi-action-book prefix"></i>
-                        <input id="libroOne" name="libroOne" type="text" value="<?php echo $libro ?>">
+                        <input id="libroOne" name="libroOne" type="text" value="<?php echo $get->libro ?>">
                         <label for="libro" class="active"><b>Libro (*)</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-action-find-in-page prefix"></i>
-                        <input id="paginaOne" name="paginaOne" type="text" value="<?php echo $pagina ?>">
+                        <input id="paginaOne" name="paginaOne" type="text" value="<?php echo $get->pagina ?>">
                         <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
                       <div class="input-field col s4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
-                        <input id="numeroOne" name="numeroOne" type="text" value="<?php echo $numero ?>">
+                        <input id="numeroOne" name="numeroOne" type="text" value="<?php echo $get->numero ?>">
                         <label for="numero" class="active"><b>Número (*)</b></label>
                       </div>
                     </div>
@@ -112,34 +116,29 @@
 					<div class="row">
 						<div class="input-field col s6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $padrino ?>">
+							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $get->padrino ?>">
 							<label for="apellidoNombrePadrino" class="active"><b>Apellidos y Nombres del Padrino</b></label>
 						</div>
 						<div class="input-field col s6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value="<?php echo $madrina ?>">
+							<input id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value="">
 							<label for="apellidoNombreMadrina" class="active"><b>Apellidos y Nombres de la Madrina</b></label>
 						</div>
 					</div>
 
                     <div class="row">
                         <div class="input-field col s7">
-                          <input type="hidden" name="cod_obrasdatos" value="<?php echo $cod_obrasdatos ?>" />
-                          <input type="hidden" name="cod_tipoobras" value="<?php echo $cod_tipoobras ?>" />
                           <input type="submit" name="mit" class="btn btn-primary" value="Guardar">
-                          <button type="button" onclick="location.href='<?php echo site_url('editar') ?>'" class="btn btn-danger">Volver Atras</button>
-                            <i class="mdi-content-send right"></i>
-                          </button>
+                          <button type="button" onclick="location.href='<?php echo site_url('editar') ?>'" class="btn btn-danger">Volver Atras<i class="mdi-content-send right"></i></button>
                         </div>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
           </div>
 		</div>
 </section>
-
+<?php echo form_close(); ?>
 <script type="text/javascript">
 $(document).ready(function(){
 		$("#feligres").autocomplete({

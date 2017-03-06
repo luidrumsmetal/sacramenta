@@ -54,7 +54,6 @@
               </div>
           </div>
           <?php } else{ ?>
-
             <div id="centered-table" class="col s12 m12 l12">
                 <div class="row">
 
@@ -70,11 +69,10 @@
                     <table class="bordered striped">
                       <thead>
                         <tr>
-                          <th data-field="id">ID</th>
                           <th data-field="nombre">Apellido Paterno</th>
                           <th data-field="direccion">Apellido Materno</th>
                           <th data-field="direccion">Nombres</th>
-                          <th data-field="direccion">Fecha de Nacimiento</th>
+                          <th data-field="direccion">Fecha de Bautizo</th>
                           <th data-field="direccion">Genero</th>
                           <th data-field="opciones">Opciones</th>
                         </tr>
@@ -83,7 +81,7 @@
                       <tbody>
                         <?php foreach ($results as $r) {
                             echo '<tr>';
-                            echo '<td>'.$r->idCertificado.'</td>';
+                            #echo '<td>'.$r->idCertificado.'</td>';
                             echo '<td>'.$r->apellidoPaterno.'</td>';
                             echo '<td>'.$r->apellidoMaterno.'</td>';
                             echo '<td>'.$r->nombres.'</td>';

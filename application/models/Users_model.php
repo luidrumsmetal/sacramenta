@@ -271,7 +271,13 @@ class Users_model extends CI_Model{
 
     function count($table)
     {
-        return $this->db->count_all($table);
+        $query = $this->db->query("SELECT count(id), a.nombres, a.apellidoPaterno, a.apellidoMaterno FROM $table, persona a ");
+        return $query = $this->db->get();
+    }
+    function count_administrador($table, $sacramento)
+    {
+        $query = $this->db->query("SELECT count(idCertificado) FROM $table WHERE sacramento_id = $sacramento");
+        return $query = $this->db->get();
     }
     function count_parroquia($table, $idParroquia)
     {

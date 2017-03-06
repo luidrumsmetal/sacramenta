@@ -44,12 +44,19 @@ class Baptism extends CI_Controller{
         }
     }
     $data['title'] = 'Lista de Bautizados';
-        $idParroquia = $this->session->userdata('id');
+    $idParroquia = $this->session->userdata('id');
+    $sacramento = 1;
     $this->load->library('table');
         $this->load->library('pagination');
-
         $config['base_url'] = base_url().'baptism/listBaptism';
-        $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
+        if($this->session->userdata('tipo') == 'administrador')
+        {
+            $config['total_rows'] = $this->Users_model->count_administrador('certificado',$sacramento);
+        }
+        else
+        {
+            $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
+        }
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
@@ -71,8 +78,15 @@ class Baptism extends CI_Controller{
         $config['last_tag_close'] = '</li>';
 
     $this->pagination->initialize($config);
+    if($this->session->userdata('tipo') == 'administrador')
+    {
+        $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 1",$config['per_page'],$this->uri->segment(3));
 
-    $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 1 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
+    }
+    else
+    {
+        $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 1 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
+    }
     $this->load->view('template/header',$data);
     $this->load->view('sacramentos/baptism/baptismList',$data);
     $this->load->view('template/footer');
@@ -117,6 +131,7 @@ class Baptism extends CI_Controller{
               $certificado_id = $certificateWithCi->idCertificado;
                 $data = array(
                   'libro' => $this->input->post('libroOne'),
+                  //'libro' => set_value($libro),
                   'pagina' => $this->input->post('paginaOne'),
                   'numero' => $this->input->post('numeroOne'),
                   'parroquia_id' => $parroquia_id,
@@ -157,28 +172,28 @@ class Baptism extends CI_Controller{
 
   }
 
-  function edit() {
-    $kd = $this->uri->segment(3);
-    if ($kd == NULL) {
-      redirect('administrativa');
-    }
-     $dt = $this->Sacrament_model->editBaptism($kd);
-
-     $data1['feligres'] = $dt->nombres;
-     $data1['persona_id'] = $dt->persona_id;
-     $data1['parroquia'] = $dt->parroquia;
-     $data1['parroquia_id'] = $dt->parroquia_id;
-     $data1['jurisdiccion'] = $dt->jurisdiccion_id;
-     $data1['jurisdiccion_id'] = $dt->jurisdiccion_id;
-     $data1['fecha'] = $dt->fecha;
-     $data1['idCertificado'] = $kd;
-
-        $data['custom_error'] = (validation_errors() ? true : false);
-
-        $this->load->view('template/header');
-        $this->load->view('sacramentos/baptism/baptismedit', $data1);
+  public function edit() {
+    $uri = $this->uri->segment(3);
+      $data['title'] = 'Lista de Bautizados';
+     $data['get'] = $this->Sacrament_model->editBaptism($uri);
+         #echo $data['get'].'<br>';
+    # print_r($data['get']);
+        $this->load->view('template/header',$data);
+        $this->load->view('sacramentos/baptism/baptismEdit', $data);
         $this->load->view('template/footer');
+  }
 
+  function update() {
+    if ($this->input->post('mit')) {
+
+      $idCertificado = $this->input->post('idCertificado');
+      $this->Sacrament_model->update_bautizo($idCertificado);
+
+      redirect('Jurisdiccion/listParroquia');
+    } else{
+      redirect('Jurisdiccion/edit/'.$idCertificado);
+    }
+  /// FIN -->
   }
 
 }

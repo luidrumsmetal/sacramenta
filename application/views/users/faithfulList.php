@@ -1,4 +1,3 @@
-
 <section id = "content">
     <div class="section">
       <div class="row">
@@ -29,7 +28,6 @@
               <input placeholder="Ingrese nombre completo" id="txtBuscarFiel" name="txtBuscarFiel" type="text">
               <label for="feligres" class="active"><b>Ingrese el Nombre del Feligrés (*)</b></label>
         </div>
-
           <div id="borderless-table">
               <div class="row">
                 <div class="col s12 m8 l9">
@@ -57,16 +55,12 @@
                 </div>
               </div>
           </div>
-
-
-
               <div id="modal1" class="modal">
                 <form action="<?php echo base_url(); ?>jurisdiccion/parroquiaDelete" method="post">
                   <div class="modal-content">
                     <h4 align="center">Eliminar Parroquia</h4>
                       <input type="hidden" id="idParroquia" name="idParroquia" value="" />
                       <h6 style="text-align: center">¿Realmente desea eliminar esta parroquia?</h6>
-
                   </div>
                   <div class="modal-footer orange">
                     <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
@@ -81,7 +75,6 @@
 <script type="text/javascript">
   $('#txtBuscarFiel').keyup(function(){
     //alert($('#txtBuscarFiel').val());
-
     var text = $('#txtBuscarFiel').val();
     var length = $('#txtBuscarFiel').val().length;
     if (length >= 2) {
@@ -108,6 +101,5 @@
     }else if(length==0){
        $('#striped-table tbody').html('');
     }
-
   });
 </script>
