@@ -28,11 +28,11 @@
             </div>
         <?php } ?>
 			</div>
-            <div class="col s12 m12 l12">
+            <div class="col s12">
                 
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
-                    <div class="col s12">
+                    <div class="col s12 m6 l3">
                     <h1 class="brand-logo center">Registrar Usuario</h1>
                     </div>
                   </div>
@@ -43,75 +43,74 @@
                   <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>users/usuarioCreate">
 
                     <div class="row">
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese la parroquia" id="apellidoPaterno" name="apellidoPaterno" type="text" value='<?php echo set_value('apellidoPaterno') ?>'>
+                        <input placeholder="Ingrese el apellido paterno" id="apellidoPaterno" name="apellidoPaterno" type="text" value='<?php echo set_value('apellidoPaterno') ?>'>
                         <label for="apelliodPaterno" class="active"><b>Apellido Paterno</b></label>
                       </div>
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese la parroquia" id="apellidoMaterno" name="apellidoMaterno" type="text" value='<?php echo set_value('apellidoMaterno') ?>'>
+                        <input placeholder="Ingrese el apellido materno" id="apellidoMaterno" name="apellidoMaterno" type="text" value='<?php echo set_value('apellidoMaterno') ?>'>
                         <label for="apelliodMaterno" class="active"><b>Apellido Materno</b></label>
                       </div>
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input  placeholder="Ingrese la parroquia" id="nombres" name="nombres" type="text" value='<?php echo set_value('nombres') ?>'>
+                        <input  placeholder="Ingrese el nombre completo" id="nombres" name="nombres" type="text" value='<?php echo set_value('nombres') ?>'>
                         <label for="nombres" class="active"><b>Nombres</b></label>
                        </div>
                     </div>
 
                     <div class="row">
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-credit-card prefix"></i>
                         <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>'>
                         <label for="ci" class="active"><b>Carnet de Identidad</b></label>
                       </div>
 
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                             <i class="mdi-action-event prefix"></i>
                             <input placeholder="" id="fechanac" name="fechanac" type="date" value='<?php echo set_value('fechanac') ?>'>
                             <label for="fechanac" class="active"><b>Fecha Nacimiento</b></label>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-home prefix"></i>
-                        <input placeholder="Ingrese la parroquia" id="celular" name="celular" type="text" value='<?php echo set_value('celular') ?>'>
+                        <input placeholder="Ingrese su número celular" id="celular" name="celular" type="text" value='<?php echo set_value('celular') ?>'>
                         <label for="celular" class="active"><b>Celular</b></label>
                       </div>                    
 
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-file-folder-shared prefix"></i>
-                        <input placeholder="facebook" id="facebook" name="facebook" type="text" value='<?php echo set_value('facebook') ?>'>
+                        <input placeholder="Ingrese su nombre de Facebook" id="facebook" name="facebook" type="text" value='<?php echo set_value('facebook') ?>'>
                         <label for="facebook" class="active"><b>Facebook</b></label>
                       </div>
-
-                      <div class="input-field col s1">
-                          <i class="mdi-action-account-circle prefix"></i>
-                      </div>
-                      <div class="input-field col s5">
-                        <select id="genero" name="genero">
-                          <option value="" disabled selected>  Seleccione un genero</option>
-                        <option value="1">Masculino</option>
-                          <option value="2">Femenino</option>
-                        </select>
-                        <label>Genero: </label>
-                      </div>
                     </div>
+                      <div class="row">
+                         <!-- <div class="input-field col s1 m1 ">
+                              <i class="mdi-action-account-circle prefix"></i>
+                          </div>-->
+                          <div class="input-field col s11 m5 l6">
 
-                    
-
-                    <BR>
+                          <select id="genero" name="genero">
+                              <option value="" disabled selected>  Seleccione un genero</option>
+                              <option value="1">Masculino</option>
+                              <option value="2">Femenino</option>
+                          </select>
+                          <label>Genero: </label>
+                          </div>
+                       </div>
+                    <br>
                     <h4 class="header2"><b>Información de la Cuenta</b></h4><Br>
                     <div class="row">
 
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-communication-quick-contacts-mail prefix"></i>
                         <input placeholder="Ingrese su correo electrónico" id="email" name="email" type="text" value='<?php echo set_value('email') ?>'>
                         <label for="email" class="active"><b>Correo Electrónico</b></label>
                       </div>                    
 
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-communication-vpn-key prefix"></i>
                         <input placeholder="Ingrese su Contraseña" id="password" name="password" type="password" value='<?php echo set_value('password') ?>'>
                         <label for="password" class="active"><b>Contraseña</b></label>
@@ -119,12 +118,10 @@
                     </div>
                     
                     <div class="row">
-                    <div class="input-field col s1">
-                          <i class="mdi-action-account-circle prefix"></i>
-                      </div>
-                        <div class="input-field col s5">
+
+                        <div class="input-field col s11 m5 l6">
                           <select id="tipoUsuario" name="tipoUsuario" value='<?php echo set_value('tipoUsuario') ?>'>
-                            <option value="" disabled selected>  Seleccione un Tipo de Usuario</option>
+                              <option value="" disabled selected> <b>Seleccione un Tipo de Usuario</b></option>
                             <option value="administrador">Administrador</option>
                             <option value="sacerdote">Sacerdote</option>
                           </select>
@@ -155,7 +152,7 @@ $(document).ready(function(){
         select: function( event, ui ) {
            $("#parroquia_id").val(ui.item.id);
         }
-      });
+        });
 		$("#tipoSacerdote").autocomplete({
 				source: "<?php echo base_url(); ?>users/autoCompleteTipoSacerdote",
 				minLength: 1,

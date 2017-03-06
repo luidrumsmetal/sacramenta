@@ -38,11 +38,19 @@ class Confirmacion extends CI_Controller{
     }
     $data['title'] = 'Lista de Confirmados';
         $idParroquia = $this->session->userdata('id');
-    $this->load->library('table');
+        $sacramento = 3;
+        $this->load->library('table');
         $this->load->library('pagination');
 
         $config['base_url'] = base_url().'confirmacion/listConfirmacion';
-        $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
+          if($this->session->userdata('tipo') == 'administrador')
+          {
+              $config['total_rows'] = $this->Users_model->count_administrador('certificado',$sacramento);
+          }
+          else
+          {
+              $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
+          }
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
@@ -64,7 +72,15 @@ class Confirmacion extends CI_Controller{
         $config['last_tag_close'] = '</li>';
 
     $this->pagination->initialize($config);
-    $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 3 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
+     if($this->session->userdata('tipo') == 'administrador')
+      {
+          $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 3",$config['per_page'],$this->uri->segment(3));
+
+      }
+      else
+      {
+          $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 3 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
+      }
     $this->load->view('template/header',$data);
     $this->load->view('sacramentos/confirmacion/confirmacionList',$data);
     $this->load->view('template/footer');

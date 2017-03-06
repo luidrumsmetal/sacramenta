@@ -54,7 +54,6 @@
               </div>
           </div>
           <?php } else{ ?>
-
             <div id="centered-table" class="col s12 m12 l12">
                 <div class="row">
 
@@ -73,7 +72,7 @@
                           <th data-field="nombre">Apellido Paterno</th>
                           <th data-field="direccion">Apellido Materno</th>
                           <th data-field="direccion">Nombres</th>
-                          <th data-field="direccion">Fecha de Nacimiento</th>
+                          <th data-field="direccion">Fecha de Bautizo</th>
                           <th data-field="direccion">Genero</th>
                           <th data-field="opciones">Opciones</th>
                         </tr>

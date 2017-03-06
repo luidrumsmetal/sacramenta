@@ -33,7 +33,7 @@
               <nav class="amber darken-4">
 
                   <div class="nav-wrapper">
-                    <div class="col s12">
+                    <div class="col s12 m12 l12 ">
                     <h1 class="brand-logo center">Registro de Fiel</h1>
                     </div>
                   </div>
@@ -41,9 +41,9 @@
               <div class="card-panel">
                 <h5><span class="card-title"><b>DATOS PERSONALES</b></span></h5><hr><br><br>
                 <div class="row">
-                  <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>users/faithfullCreate">
+                  <form class="col s12 m10 l12" id="formPriest" method="post" action="<?php echo base_url(); ?>users/faithfullCreate">
                     <div class="row">
-										  <div class="input-field col s6">
+										  <div class="input-field col s12 m6 l6">
 										    <i class="mdi-action-account-circle prefix"></i>
 										    <input placeholder="INGRESE SU APELLIDO PATERNO" id="apellidoPaterno" name="apellidoPaterno" type="text" value='<?php echo set_value('apellidoPaterno') ?>'>
 										    <label for="apellidoPaterno" class="active"><b>Apellido Paterno (*)</b></label>

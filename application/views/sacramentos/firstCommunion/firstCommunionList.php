@@ -70,17 +70,20 @@
                     <table class="bordered striped">
                       <thead>
                         <tr>
-                          <th data-field="id">ID</th>
-                          <th data-field="direccion">Nombres</th>
-                          <th data-field="direccion">Fecha de Comunión</th>
-                          <th data-field="opciones">Opciones</th>
+                          <!--<th data-field="id">ID</th>-->
+                            <th data-field="nombre">Apellido Paterno</th>
+                            <th data-field="direccion">Apellido Materno</th>
+                            <th data-field="direccion">Nombres</th>
+                            <th data-field="direccion">Fecha de Comunión</th>
+                            <th data-field="direccion">Genero</th>
+                            <th data-field="opciones">Opciones</th>
                         </tr>
                       </thead>
 
                       <tbody>
                         <?php foreach ($results as $r) {
                             echo '<tr>';
-                            echo '<td>'.$r->idCertificado.'</td>';
+                           # echo '<td>'.$r->idCertificado.'</td>';
                             echo '<td>'.$r->apellidoPaterno.'</td>';
                             echo '<td>'.$r->apellidoMaterno.'</td>';
                             echo '<td>'.$r->nombres.'</td>';
@@ -88,7 +91,7 @@
                             echo '<td>'.$r->genero.'</td>';
                             echo '<td>';
 
-                echo '<a href="'.base_url().'baptism/edit/'.$r->idCertificado.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
+                echo '<a href="'.base_url().'firstCommunion/edit/'.$r->idCertificado.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
 
                 echo '<a href="#modal1" cliente="'.$r->idCertificado.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
 

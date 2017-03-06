@@ -74,12 +74,12 @@ class Users extends CI_Controller{
           redirect(base_url().'home');
         }
     }
-    $data['title'] = 'Lista de Sacerdotes';
+    $data['title'] = 'Lista de Usuarios';
     $this->load->library('table');
-        $this->load->library('pagination');
+    $this->load->library('pagination');
 
         $config['base_url'] = base_url().'users/listSacerdote';
-        $config['total_rows'] = $this->Users_model->count('sacerdote','persona');
+        $config['total_rows'] = $this->Users_model->count('users');
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';

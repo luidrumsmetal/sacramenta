@@ -34,14 +34,14 @@
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-social-person-outline prefix"></i>
-          <input id="email" name="email" type="text">
+          <input id="email" name="email" type="text" >
           <label for="email" class="center-align">Correo</label>
         </div>
       </div><br>
       <div class="row margin">
         <div class="input-field col s12">
           <i class="mdi-action-lock-outline prefix"></i>
-          <input id="password" name="password" type="password">
+          <input id="password" name="password" type="password" autofocus>
           <label for="password">Contraseña</label>
         </div>
       </div>
