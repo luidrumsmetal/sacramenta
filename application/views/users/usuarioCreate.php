@@ -95,9 +95,9 @@
                           <i class="mdi-action-account-circle prefix"></i>
                       </div>
 
-                      <div class="input-field col s6">
+                      <div class="input-field col s11 m5 l6">
                         <select id="genero" name="genero">
-                          <option value="" disabled selected>  Seleccione un género</option>
+                          <option value="" disabled selected>&nbsp&nbspSeleccione un género</option>
                         <option value="1">Masculino</option>
                           <option value="2">Femenino</option>
                         </select>
@@ -105,20 +105,7 @@
                       </div>
 
                     </div>
-                      <div class="row">
-                         <!-- <div class="input-field col s1 m1 ">
-                              <i class="mdi-action-account-circle prefix"></i>
-                          </div>-->
-                          <div class="input-field col s11 m5 l6">
 
-                          <select id="genero" name="genero">
-                              <option value="" disabled selected>  Seleccione un genero</option>
-                              <option value="1">Masculino</option>
-                              <option value="2">Femenino</option>
-                          </select>
-                          <label>Genero: </label>
-                          </div>
-                       </div>
                     <br>
                     <h4 class="header2"><b>Información de la Cuenta</b></h4><Br>
                     <div class="row">
@@ -137,12 +124,13 @@
                     </div>
                     
                     <div class="row">
-
+                      <div class="input-field col s0">
+                          <i class="mdi-action-account-circle prefix"></i>
+                      </div>
 
                         <div class="input-field col s11 m5 l6">
-                          <i class="mdi-action-account-circle prefix"></i>
                           <select id="tipoUsuario" name="tipoUsuario" value='<?php echo set_value('tipoUsuario') ?>'>
-                              <option value="" disabled selected> <b>Seleccione un Tipo de Usuario</b></option>
+                              <option value="" disabled selected> <b>&nbsp&nbspSeleccione un Tipo de Usuario</b></option>
 
                             <option value="administrador">Administrador</option>
                             <option value="sacerdote">Sacerdote</option>
