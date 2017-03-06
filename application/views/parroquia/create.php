@@ -45,8 +45,8 @@
                     <div class="row">
                       <div class="input-field col s12">
                         <i class="mdi-social-person-outline prefix"></i>
-                        <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" value='<?php echo set_value('parroquia') ?>'>
-												<input  id="parroquia_id" name="parroquia_id" type="hidden">
+                        <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" >
+                          <input  id="parroquia_id" name="parroquia_id" type="hidden">
                         <label for="parroquia" class="active"><b>Parroquia </b></label>
                       </div>
                     </div>

@@ -96,13 +96,20 @@ class FirstCommunion extends CI_Controller{
             redirect(base_url().'home');
         }
     }
-    $data['title'] = 'Lista de Primera Comunión';
+        $data['title'] = 'Lista de Primera Comunión';
         $idParroquia = $this->session->userdata('id');
-    $this->load->library('table');
+        $sacramento = 2;
+        $this->load->library('table');
         $this->load->library('pagination');
-
         $config['base_url'] = base_url().'firstCommunion/listComunion';
-        $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
+        if($this->session->userdata('tipo') == 'administrador')
+        {
+           $config['total_rows'] = $this->Users_model->count_administrador('certificado',$sacramento);
+        }
+        else
+        {
+           $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
+        }
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
@@ -124,12 +131,30 @@ class FirstCommunion extends CI_Controller{
         $config['last_tag_close'] = '</li>';
 
     $this->pagination->initialize($config);
+      if($this->session->userdata('tipo') == 'administrador')
+      {
+          $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 2",$config['per_page'],$this->uri->segment(3));
 
-    $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres',"id = persona_id AND sacramento_id = 2 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
+      }
+      else
+      {
+          $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 2 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
+      }
     $this->load->view('template/header',$data);
     $this->load->view('sacramentos/firstCommunion/firstCommunionList',$data);
     $this->load->view('template/footer');
   }
+
+    public function edit() {
+        $uri = $this->uri->segment(3);
+        $data['title'] = 'Lista de Bautizados';
+        $data['get'] = $this->Sacrament_model->editBaptism($uri); //CAMBIAR
+        #echo $data['get'].'<br>';
+        # print_r($data['get']);
+        $this->load->view('template/header',$data);
+        $this->load->view('sacramentos/firstCommunion/firstCommunionEdit', $data);
+        $this->load->view('template/footer');
+    }
 
   public function autoCompleteFeligres(){
         if (isset($_GET['term'])){
