@@ -32,8 +32,10 @@
                 
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
+
                     <div class="col s12 m6 l3">
-                    <h1 class="brand-logo center">Registrar Usuario</h1>
+                    <h1 class="brand-logo center">Registro de Usuario</h1>
+
                     </div>
                   </div>
                 </nav>
@@ -74,9 +76,11 @@
                       </div>
                     </div>
                     <div class="row">
+
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-home prefix"></i>
                         <input placeholder="Ingrese su número celular" id="celular" name="celular" type="text" value='<?php echo set_value('celular') ?>'>
+
                         <label for="celular" class="active"><b>Celular</b></label>
                       </div>                    
 
@@ -85,6 +89,21 @@
                         <input placeholder="Ingrese su nombre de Facebook" id="facebook" name="facebook" type="text" value='<?php echo set_value('facebook') ?>'>
                         <label for="facebook" class="active"><b>Facebook</b></label>
                       </div>
+
+
+                      <div class="input-field col s0">
+                          <i class="mdi-action-account-circle prefix"></i>
+                      </div>
+
+                      <div class="input-field col s6">
+                        <select id="genero" name="genero">
+                          <option value="" disabled selected>  Seleccione un género</option>
+                        <option value="1">Masculino</option>
+                          <option value="2">Femenino</option>
+                        </select>
+                        <label><b>&nbsp&nbsp&nbsp&nbsp&nbspGénero: </b></label>
+                      </div>
+
                     </div>
                       <div class="row">
                          <!-- <div class="input-field col s1 m1 ">
@@ -119,13 +138,16 @@
                     
                     <div class="row">
 
+
                         <div class="input-field col s11 m5 l6">
+                          <i class="mdi-action-account-circle prefix"></i>
                           <select id="tipoUsuario" name="tipoUsuario" value='<?php echo set_value('tipoUsuario') ?>'>
                               <option value="" disabled selected> <b>Seleccione un Tipo de Usuario</b></option>
+
                             <option value="administrador">Administrador</option>
                             <option value="sacerdote">Sacerdote</option>
                           </select>
-                        <label>Tipo Usuario: </label>
+                        <label><b>Tipo Usuario: </b></label>
                       </div>
                     </div><br>
 
