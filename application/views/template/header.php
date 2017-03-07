@@ -167,7 +167,7 @@
                                </li>
                                <li class="bold"><a href="<?php echo base_url(); ?>jurisdiccion/parroquiaAccount" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Parroquia</a>
                                </li>
-                               <li class="bold"><a href="<?php echo base_url(); ?>users/listSacerdote" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Lista Usuarios</a>
+                               <li class="bold"><a href="<?php echo base_url(); ?>users/listUser" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Lista Usuarios</a>
                                </li>
                                <!--<li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-action-find-in-page"></i> Buscar Parroco</a>
                                </li>-->
