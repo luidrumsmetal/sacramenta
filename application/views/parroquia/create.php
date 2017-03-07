@@ -43,8 +43,8 @@
                   <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>jurisdiccion/createAccount">
 
                     <div class="row">
-                      <div class="input-field col s12">
-                        <i class="mdi-social-person-outline prefix"></i>
+                      <div class="input-field col s12 m6 l12">
+                        <i class="mdi-action-home prefix"></i>
                         <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" >
                           <input  id="parroquia_id" name="parroquia_id" type="hidden">
                         <label for="parroquia" class="active"><b>Parroquia </b></label>
@@ -54,20 +54,20 @@
                     <h4 class="header2"><b>Información de la Cuenta</b></h4><Br>
                     <div class="row">
 
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-communication-quick-contacts-mail prefix"></i>
                         <input placeholder="Ingrese su correo electrónico" id="email" name="email" type="text" value='<?php echo set_value('email') ?>'>
                         <label for="email" class="active"><b>Correo Electrónico</b></label>
                       </div>
 
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-communication-vpn-key prefix"></i>
                         <input placeholder="Ingrese su Contraseña" id="password" name="password" type="password">
                         <label for="password" class="active"><b>Contraseña</b></label>
                       </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s7">
+                        <div class="input-field col s12 m6 l6">
                           <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Registrar
                             <i class="mdi-content-send right"></i>
                           </button>

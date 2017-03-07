@@ -42,23 +42,9 @@
                 <div class="row">
                   <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>firstCommunion/FirstCommunionRegister">
                   <font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
-                    <!--<div class="row">
-                      <div class="input-field col s6">
-                        <i class="mdi-action-credit-card prefix"></i>
-                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text"><div id="msgUsuario"></div>
-                        <input id="ci_id" name="ci_id" type="hidden">
-                        <label for="ci" class="active"><b>Carnet de Identidad</b></label>
-												<span id="comprobar_mensaje"></span>
-                      </div>
-                      <div class="input-field col s6">
-                        <i class="mdi-action-event prefix"></i>
-                        <input placeholder="" id="fechanac" disabled  name="fechanac" type="date">
-                        <label for="first_name" class="active"><b>Fecha Nacimiento</b></label>
-                      </div>
-                    </div>-->
 
                       <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 m6 l12">
                             <i class="mdi-action-account-circle prefix"></i>
                             <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text">
                             <input id="feligres_id" name="feligres_id" type="hidden">                            
@@ -72,22 +58,22 @@
                       </div>
 
                       <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6 l6">
                               <i class="mdi-action-event prefix"></i>
                               <input placeholder="" id="fechacom" name="fechacom" type="date">
-                              <label for="first_name" class="active"><b>Fecha Primera Comunión (*)</b></label>
+                              <label for="first_name" class="active"><b>Fecha Comunión (*)</b></label>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6 l6">
                           <i class="mdi-action-home prefix"></i>
                           <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text">
                           <input id="parroquia_id" name="parroquia_id" type="hidden">
-                          <label for="parroquia" class="active"><b>Parroquia que inscribe el sacramento (*)</b></label>
+                          <label for="parroquia" class="active"><b>Parroquia de registro (*)</b></label>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 m6 l12">
                             <i class="mdi-action-room prefix"></i>
                             <input placeholder="Ingrese lugar de Comunión" id="jurisdiccion" name="jurisdiccion" type="text">
                             <input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden">                            
@@ -98,17 +84,17 @@
 
                   <font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-book prefix"></i>
                         <input placeholder="Ingrese libro de registro" id="libroOne" name="libroOne" type="text">
                         <label for="libro" class="active"><b>Libro (*)</b></label>
                       </div>
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-find-in-page prefix"></i>
                         <input placeholder="Ingrese número de página" id="paginaOne" name="paginaOne" type="text">
                         <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
                         <input placeholder="Ingrese número registro" id="numeroOne" name="numeroOne" type="text">
                         <label for="numero" class="active"><b>Número (*)</b></label>
@@ -116,12 +102,12 @@
                     </div>
                     <Br><BR>
                     <div class="row">
-                        <div class="input-field col s7">
-                          <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Registrar
-                            <i class="mdi-content-send right"></i>
-                          </button>
+                        <div class="input-field col s12 m6 l6">
+                          <input type="submit" name="mit" class="btn waves-effect waves-light light-blue darken-4" value="Guardar">
+                          <button type="button" onclick="location.href='<?php echo site_url('baptism/listBaptism') ?>'" class="btn waves-effect waves-light  deep-purple">Cancelar</button>
                         </div>
                     </div>
+                    
                   </form>
                 </div>
               </div>

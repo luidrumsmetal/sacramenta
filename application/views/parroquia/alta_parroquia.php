@@ -18,7 +18,7 @@
           </div>
       <?php } ?>
 
-          <div class="col s12 m12 l12">
+          <div class="col s12 m6 l12">
             <div class="card-panel">
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
@@ -33,7 +33,7 @@
             <div class="row">
           <form class="col s12" id="formParroquia" method="post" action="<?php echo base_url(); ?>jurisdiccion/parroquiaRegistro" >
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-action-home prefix"></i>
               <input placeholder="Ingrese nombre de la parroquia" id="nombre" name="nombre" type="text" value='<?php echo set_value('nombre') ?>'>
               <label for="parroquia" class="active"><b>Parroquia</b></label>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-maps-directions-walk prefix"></i>
               <input placeholder="Ingrese dirección" id="direccion" name="direccion" type="text" value='<?php echo set_value('direccion') ?>'>
               <label for="parroquia" class="active"><b>Dirección</b></label>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-maps-place prefix"></i>
               <input placeholder="Ingrese jurisdicción" id="jurisdiccion" name="jurisdiccion" type="text" value='<?php echo set_value('jurisdiccion') ?>'>
               <input type="hidden" name="jurisdiccion_id" id="jurisdiccion_id">
@@ -58,7 +58,7 @@
         </div>
 
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-communication-phone prefix"></i>
               <input placeholder="Ingrese teléfono" id="telefono" name="telefono" type="text" value='<?php echo set_value('telefono') ?>'>
               <label for="parroquia" class="active"><b>Teléfono</b></label>
@@ -66,7 +66,7 @@
         </div>
 
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-communication-email prefix"></i>
               <input placeholder="Ingrese e-mail" id="email" name="email" type="text" value='<?php echo set_value('email') ?>'>
               <label for="parroquia" class="active"><b>E-mail</b></label>
@@ -75,7 +75,7 @@
       
 
           <div class="row">
-            <div class="input-field col s7">
+            <div class="input-field col s12 m6 l6">
               <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Registrar
               <i class="mdi-content-send right"></i>
               </button>

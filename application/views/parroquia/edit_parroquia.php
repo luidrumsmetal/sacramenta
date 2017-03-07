@@ -18,7 +18,7 @@
           </div>
       <?php } ?>
 
-          <div class="col s12 m12 l12">
+          <div class="col s12 m6 l12">
             <div class="card-panel">
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
@@ -33,7 +33,7 @@
             <div class="row">
             <?php echo form_open('Jurisdiccion/update', 'role="form"','method=post'); ?>
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-action-home prefix"></i>
               <input id="nombre" name="nombre" type="text" value="<?php echo $nombre ?>">
               <label for="parroquia" class="active"><b>Parroquia</b></label>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-maps-directions-walk prefix"></i>
               <input id="direccion" name="direccion" type="text" value="<?php echo $direccion ?>">
               <label for="parroquia" class="active"><b>Dirección</b></label>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-maps-place prefix"></i>
               <input id="jurisdiccion" name="jurisdiccion" type="text" value="<?php echo $jurisdiccion ?>">
               <input type="hidden" name="jurisdiccion_id" id="jurisdiccion_id" value="<?php echo $jurisdiccion_id ?>">
@@ -59,7 +59,7 @@
         </div>
 
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-communication-phone prefix"></i>
               <input id="telefono" name="telefono" type="text" value="<?php echo $telefono ?>">
               <label for="parroquia" class="active"><b>Teléfono</b></label>
@@ -67,7 +67,7 @@
         </div>
           
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12 m6 l6">
               <i class="mdi-communication-email prefix"></i>
               <input id="email" name="email" type="text" value="<?php echo $email ?>">
               <label for="parroquia" class="active"><b>E-mail</b></label>
@@ -75,7 +75,7 @@
         </div>      
 
           <div class="row">
-            <div class="input-field col s7">
+            <div class="input-field col s12 m6 l6">
               <center>
               <button type="submit" name="mit" class="btn waves-effect waves-light light-blue darken-4" value="Guardar">Guardar</button>
 

@@ -188,10 +188,11 @@ class Baptism extends CI_Controller{
 
       $idCertificado = $this->input->post('idCertificado');
       $this->Sacrament_model->update_bautizo($idCertificado);
+      $this->session->set_flashdata('success', 'Cambios guardados');
+      redirect('baptism/listBaptism');
 
-      redirect('Jurisdiccion/listParroquia');
     } else{
-      redirect('Jurisdiccion/edit/'.$idCertificado);
+      redirect('baptism/edit/'.$idCertificado);
     }
   /// FIN -->
   }

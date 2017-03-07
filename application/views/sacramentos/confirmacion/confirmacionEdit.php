@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui-1.9.2.custom.css" />
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-ui-1.9.2.custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
-
+<?php
+print_r($get);
+?>
 <section id = "content">
 		<div class="section">
       <div class="row">
@@ -43,9 +45,9 @@
                   <font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
 
                       <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 m6 l12">
                             <i class="mdi-action-account-circle prefix"></i>
-                            <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text">
+                            <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text" value="">
                             <input id="persona_id" name="persona_id" type="hidden">                            
                             <label for="feligres" class="active"><b>Feligrés (*)</b></label>
                         </div>
@@ -53,14 +55,14 @@
 
 
                     <div class="row">               
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-home prefix"></i>
                         <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text">
                         <input id="parroquia_id" name="parroquia_id" type="hidden">
-                        <label for="parroquia" class="active"><b>Parroquia que inscribe el sacramento (*)</b></label>
+                        <label for="parroquia" class="active"><b>Parroquia de registro (*)</b></label>
                       </div>
 
-                      	<div class="input-field col s6">
+                      	<div class="input-field col s12 m6 l6">
                             <i class="mdi-action-event prefix"></i>
                             <input placeholder="" id="fechacom" name="fechacom" type="date">
                             <label for="fechacom" class="active"><b>Fecha Confirmación (*)</b></label>
@@ -68,7 +70,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 m6 l12">
                             <i class="mdi-action-room prefix"></i>
                             <input placeholder="Ingrese lugar de Confirmación" id="jurisdiccion" name="jurisdiccion" type="text">
                             <input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden">                            
@@ -77,13 +79,13 @@
                     </div>  
 
                   <div class="row">
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-social-person-outline prefix"></i>
                         <input placeholder="Ingrese apellido o nombre del sacerdote Celebrante" id="sacerdote" name="sacerdote" type="text">
                         <input id="sacerdoteCelebrante_id" name="sacerdoteCelebrante_id" type="hidden">
                         <label for="sacerdote" class="active"><b>Sacerdote Celebrante (*)</b></label>
                       </div>
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-social-person-outline prefix"></i>
                         <input placeholder="Ingrese apellido o nombre del sacerdote Certificador" id="sacerdote1" name="sacerdote1" type="text">
                         <input id="sacerdoteCertificador_id" name="sacerdoteCertificador_id" type="hidden">
@@ -93,17 +95,17 @@
                  
                     <font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-book prefix"></i>
                         <input placeholder="Ingrese libro de registro" id="libroOne" name="libroOne" type="text">
                         <label for="libro" class="active"><b>Libro (*)</b></label>
                       </div>
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-find-in-page prefix"></i>
                         <input placeholder="Ingrese número de página" id="paginaOne" name="paginaOne" type="text">
                         <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
                         <input placeholder="Ingrese número registro" id="numeroOne" name="numeroOne" type="text">
                         <label for="numero" class="active"><b>Número (*)</b></label>
@@ -113,16 +115,16 @@
                     <div class="row">
 
 
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-social-person prefix"></i>
                         <input placeholder="Ingrese el apellido y nombre del Padrino " id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text">
-                        <label for="nombrePadrino" class="active"><b>Nombre Padrino</b></label>
+                        <label for="nombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
                       </div>    
 
-                       <div class="input-field col s6">
+                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-social-person prefix"></i>
                         <input placeholder="Ingrese el apellido y nombre de la Madrina " id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text">
-                        <label for="nombrePadrino" class="active"><b>Nombre Madrina</b></label>
+                        <label for="nombrePadrino" class="active"><b>Nombre completo Madrina</b></label>
                       </div>                                          
 
                     </div>
@@ -130,14 +132,13 @@
 
                     <br><br>
                
-					
                     <div class="row">
-                        <div class="input-field col s7">
-                          <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Registrar
-                            <i class="mdi-content-send right"></i>
-                          </button>
+                        <div class="input-field col s12 m6 l6">
+                          <input type="submit" name="mit" class="btn waves-effect waves-light light-blue darken-4" value="Guardar">
+                          <button type="button" onclick="location.href='<?php echo site_url('baptism/listBaptism') ?>'" class="btn waves-effect waves-light  deep-purple">Cancelar</button>
                         </div>
                     </div>
+                    
                   </form>
                 </div>
               </div>

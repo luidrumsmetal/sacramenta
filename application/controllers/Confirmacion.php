@@ -170,4 +170,9 @@ class Confirmacion extends CI_Controller{
     }
   }
 
+  function edit()
+  {
+
+
+  }
 }
