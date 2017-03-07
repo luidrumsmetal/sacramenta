@@ -102,6 +102,17 @@ class Users_model extends CI_Model{
     }
   }
 
+  function editFiel($uri) {
+
+      $this->db->select('*');
+      $this->db->from('persona'); 
+      $this->db->join('certificado', 'certificado.persona_id = persona.id');
+      $this->db->join('padresfiel c', 'c.persona_id=persona.id');
+      $this->db->where('persona.id',$uri);       
+      return $this->db->get()->row(); 
+      
+  }
+
   function editUser($uri) {
       $this->db->select('*');
       $this->db->from('users');
@@ -340,6 +351,11 @@ class Users_model extends CI_Model{
     function count_parroquia($table, $idParroquia)
     {
       $query = $this->db->query("SELECT count(idCertificado) FROM $table WHERE parroquia_id = $idParroquia");
+      return $query = $this->db->get();
+  }
+  function count_persona($table)
+    {
+      $query = $this->db->query("SELECT count(id) FROM $table");
       return $query = $this->db->get();
   }
   function listGetSacerdote($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array')
