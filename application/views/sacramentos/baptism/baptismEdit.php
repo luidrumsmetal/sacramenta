@@ -45,7 +45,7 @@
 
                   	<font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
                       <div class="row">
-						<div class="input-field col s12">
+						<div class="input-field col s12 m6 l12">
 							<i class="mdi-action-account-circle prefix"></i>
 							<input id="feligres" name="feligres" type="text" value="<?php echo $get->Fiel?>">
 							<input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $get->idFiel ?>">
@@ -55,13 +55,13 @@
                     </div>
 
                     <div class="row">
-                      <div class="input-field col s6">
+                      <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-home prefix"></i>
                         <input id="parroquia" name="parroquia" type="text" value="<?php echo $get->nombre ?>">
                         <input id="parroquia_id" name="parroquia_id" type="hidden" value="<?php echo $get->idParroquia ?>">
-                        <label for="parroquia" class="active"><b>Parroquia que inscribe el sacramento (*)</b></label>
+                        <label for="parroquia" class="active"><b>Parroquia de registro (*)</b></label>
                       </div>
-						<div class="input-field col s6">
+						<div class="input-field col s12 m6 l6">
 							<i class="mdi-action-event prefix"></i>
 							<input id="fecha" name="fecha" type="date" value="<?php echo $get->fecha ?>">
 							<label for="fechabautismo" class="active"><b>Fecha de Celebración (*)</b></label>
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="row">
-						<div class="input-field col s12">
+						<div class="input-field col s12 m6 l12">
 							<i class="mdi-action-room prefix"></i>
 							<input id="jurisdiccion" name="jurisdiccion" type="text" value="<?php echo $get->jurisdiccion ?>">
 							<input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden" value="<?php $get->idJurisdiccion ?>">
@@ -78,13 +78,13 @@
                     </div>
 
 					<div class="row">
-							<div class="input-field col s6">
+							<div class="input-field col s12 m6 l6">
 								<i class="mdi-social-person-outline prefix"></i>
 								<input id="sacerdoteCelebrante" name="sacerdoteCelebrante" type="text" value="<?php echo $get->Sacerdote_certificador ?>">
 								<input id="sacerdoteCelebrante_id" name="sacerdoteCelebrante_id" type="hidden" value="<?php $get->personaCertificador?>">
 								<label for="sacerdoteCelebrante" class="active"><b>Sacerdote Celebrante (*)</b></label>
 							</div>
-							<div class="input-field col s6">
+							<div class="input-field col s12 m6 l6">
 								<i class="mdi-social-person-outline prefix"></i>
 								<input  id="sacerdoteCertificador" name="sacerdoteCertificador" type="text" value="<?php echo $get->Sacerdote_certificante ?>">
 								<input id="sacerdoteCertificador_id" name="sacerdoteCertificador_id" type="hidden" value="<?php $get->personaCertificante?>">
@@ -94,17 +94,17 @@
 				<font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
                         <input type="hidden" name="idLibro" value="<?php $get->idLibroParroquia?>">
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-book prefix"></i>
                         <input id="libroOne" name="libroOne" type="text" value="<?php echo $get->libro ?>">
                         <label for="libro" class="active"><b>Libro (*)</b></label>
                       </div>
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-find-in-page prefix"></i>
                         <input id="paginaOne" name="paginaOne" type="text" value="<?php echo $get->pagina ?>">
                         <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
-                      <div class="input-field col s4">
+                      <div class="input-field col s12 m6 l4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
                         <input id="numeroOne" name="numeroOne" type="text" value="<?php echo $get->numero ?>">
                         <label for="numero" class="active"><b>Número (*)</b></label>
@@ -114,22 +114,22 @@
 					<font color="black" size="5" face="Lucida Calligraphy">Padrinos</font><br><Br>
 
 					<div class="row">
-						<div class="input-field col s6">
+						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
 							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $get->padrino ?>">
-							<label for="apellidoNombrePadrino" class="active"><b>Apellidos y Nombres del Padrino</b></label>
+							<label for="apellidoNombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
 						</div>
-						<div class="input-field col s6">
+						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
 							<input id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value="">
-							<label for="apellidoNombreMadrina" class="active"><b>Apellidos y Nombres de la Madrina</b></label>
+							<label for="apellidoNombreMadrina" class="active"><b>Nombre completo Madrina</b></label>
 						</div>
 					</div>
 
                     <div class="row">
-                        <div class="input-field col s7">
-                          <input type="submit" name="mit" class="btn btn-primary" value="Guardar">
-                          <button type="button" onclick="location.href='<?php echo site_url('editar') ?>'" class="btn btn-danger">Volver Atras<i class="mdi-content-send right"></i></button>
+                        <div class="input-field col s12 m6 l6">
+                          <input type="submit" name="mit" class="btn waves-effect waves-light light-blue darken-4" value="Guardar">
+                          <button type="button" onclick="location.href='<?php echo site_url('baptism/listBaptism') ?>'" class="btn waves-effect waves-light  deep-purple">Cancelar</button>
                         </div>
                     </div>
                 </div>
