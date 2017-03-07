@@ -3,8 +3,7 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
 <!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/prototype-1.6.0.2.js"></script>-->
 
-
-<?php # echo# $get->idCertificado  ?>
+<?php print_r($get)?>
 <section id = "content">
 		<div class="section">
       <div class="row">
@@ -47,9 +46,10 @@
                       <div class="row">
 						<div class="input-field col s12 m6 l12">
 							<i class="mdi-action-account-circle prefix"></i>
-							<input id="feligres" name="feligres" type="text" value="<?php echo $get->Fiel?>">
+							<input id="feligres" name="feligres" type="text" value="<?php echo $get->Fiel?>" onclick="this.value=' '">
 							<input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $get->idFiel ?>">
-							<label for="apellidoPaterno" class="active"><b>Feligrés (*)</b></label>
+                            <input type="hidden" name="idCertificado" id="idCertificado" value="<?php echo $get->idCertificado  ?>">
+                            <label for="apellidoPaterno" class="active"><b>Feligrés (*)</b></label>
 
 						</div>
                     </div>
@@ -57,13 +57,13 @@
                     <div class="row">
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-home prefix"></i>
-                        <input id="parroquia" name="parroquia" type="text" value="<?php echo $get->nombre ?>">
+                        <input id="parroquia" name="parroquia" type="text" value="<?php echo $get->nombre ?>" onclick="this.value=' '">
                         <input id="parroquia_id" name="parroquia_id" type="hidden" value="<?php echo $get->idParroquia ?>">
                         <label for="parroquia" class="active"><b>Parroquia de registro (*)</b></label>
                       </div>
 						<div class="input-field col s12 m6 l6">
 							<i class="mdi-action-event prefix"></i>
-							<input id="fecha" name="fecha" type="date" value="<?php echo $get->fecha ?>">
+							<input id="fecha" name="fecha" type="date" value="<?php echo $get->fecha ?>" onclick="this.value=' '">
 							<label for="fechabautismo" class="active"><b>Fecha de Celebración (*)</b></label>
 						</div>
                     </div>
@@ -71,8 +71,8 @@
                     <div class="row">
 						<div class="input-field col s12 m6 l12">
 							<i class="mdi-action-room prefix"></i>
-							<input id="jurisdiccion" name="jurisdiccion" type="text" value="<?php echo $get->jurisdiccion ?>">
-							<input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden" value="<?php $get->idJurisdiccion ?>">
+							<input id="jurisdiccion" name="jurisdiccion" type="text" value="<?php echo $get->jurisdiccion ?>" onclick="this.value=' '">
+							<input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden" value="<?php echo $get->jurisdiccion_id ?>">
 							<label for="jurisdiccion" class="active"><b>Jurisdicción Eclesiástica (*)</b></label>
 						</div>
                     </div>
@@ -80,33 +80,33 @@
 					<div class="row">
 							<div class="input-field col s12 m6 l6">
 								<i class="mdi-social-person-outline prefix"></i>
-								<input id="sacerdoteCelebrante" name="sacerdoteCelebrante" type="text" value="<?php echo $get->Sacerdote_certificador ?>">
-								<input id="sacerdoteCelebrante_id" name="sacerdoteCelebrante_id" type="hidden" value="<?php $get->personaCertificador?>">
+								<input id="sacerdoteCelebrante" name="sacerdoteCelebrante" type="text" value="<?php echo $get->Sacerdote_certificador ?>" onclick="this.value=' '">
+								<input id="sacerdoteCelebrante_id" name="sacerdoteCelebrante_id" type="hidden" value="<?php echo $get->personaCertificador?>" >
 								<label for="sacerdoteCelebrante" class="active"><b>Sacerdote Celebrante (*)</b></label>
 							</div>
 							<div class="input-field col s12 m6 l6">
 								<i class="mdi-social-person-outline prefix"></i>
-								<input  id="sacerdoteCertificador" name="sacerdoteCertificador" type="text" value="<?php echo $get->Sacerdote_certificante ?>">
-								<input id="sacerdoteCertificador_id" name="sacerdoteCertificador_id" type="hidden" value="<?php $get->personaCertificante?>">
+								<input  id="sacerdoteCertificador" name="sacerdoteCertificador" type="text" value="<?php echo $get->Sacerdote_certificante ?>" onclick="this.value=' '">
+								<input id="sacerdoteCertificador_id" name="sacerdoteCertificador_id" type="hidden" value="<?php echo $get->personaCertificante?>">
 								<label for="sacerdoteCertificador" class="active"><b>Sacerdote Certificador (*)</b></label>
 							</div>
 					</div>
 				<font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
-                        <input type="hidden" name="idLibro" value="<?php $get->idLibroParroquia?>">
+                        <input type="hidden" name="idLibro" value="<?php echo $get->idLibroParroquia?>">
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-book prefix"></i>
-                        <input id="libroOne" name="libroOne" type="text" value="<?php echo $get->libro ?>">
+                        <input id="libroOne" name="libro" type="text" value="<?php echo $get->libro ?>" onclick="this.value=' '">
                         <label for="libro" class="active"><b>Libro (*)</b></label>
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-find-in-page prefix"></i>
-                        <input id="paginaOne" name="paginaOne" type="text" value="<?php echo $get->pagina ?>">
+                        <input id="paginaOne" name="pagina" type="text" value="<?php echo $get->pagina ?>" onclick="this.value=' '">
                         <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
-                        <input id="numeroOne" name="numeroOne" type="text" value="<?php echo $get->numero ?>">
+                        <input id="numeroOne" name="numero" type="text" value="<?php echo $get->numero ?>" onclick="this.value=' '">
                         <label for="numero" class="active"><b>Número (*)</b></label>
                       </div>
                     </div>
@@ -116,7 +116,7 @@
 					<div class="row">
 						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $get->padrino ?>">
+							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $get->padrino ?>" onclick="this.value=' '">
 							<label for="apellidoNombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
 						</div>
 						<div class="input-field col s12 m6 l6">
