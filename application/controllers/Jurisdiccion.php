@@ -190,6 +190,7 @@ class Jurisdiccion extends CI_Controller{
         );
 
       if ($this->Jurisdiccion_model->update_parroquia($idParroquia,$data) == TRUE) {
+         $this->session->set_flashdata('success', 'Cambios guardados');
         redirect(base_url().'jurisdiccion/listParroquia');
       }
       else
