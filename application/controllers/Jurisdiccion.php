@@ -99,10 +99,6 @@ class Jurisdiccion extends CI_Controller{
         $config['last_tag_close'] = '</li>';
 
         $this->pagination->initialize($config);
-    $data['results']= $this->Jurisdiccion_model->listGet('parroquia','idParroquia,nombre,direccion,telefono, email','',$config['per_page'],$this->uri->segment(3));
-    $this->load->view('template/header',$data);
-    $this->load->view('parroquia/listParroquia',$data);
-    $this->load->view('template/footer');
   }
 
   function parroquiaRegistro()
