@@ -23,9 +23,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
          <h4 class="w3-center">CEB</h4>
          <p class="w3-center"><img src="<?php echo base_url(); ?>assets/inicio/images/logo1.jpg"  alt="Avatar"></p>
          <hr>
-         <font color="black"><p><i class="fa fa-phone fa-fw w3-margin-right w3-text-theme"></i> 273627282</font></p>
-         <font color="black"><p><i class="fa fa-envelope-o fa-fw w3-margin-right w3-text-theme"></i>  ceb@gmail.com</font></p>
-         <font color="black"><p><i class="fa fa-map-o fa-fw w3-margin-right w3-text-theme"></i>  Calle Potosí 884</font></p>
+         <font color="black"><p><i class="fa fa-phone fa-fw w3-margin-right w3-text-theme"></i> 2906385 | 77716050</font></p>
+         <font color="black"><p><i class="fa fa-envelope-o fa-fw w3-margin-right w3-text-theme"></i> riialbol@gmail.com</font></p>
+         <font color="black"><p><i class="fa fa-map-o fa-fw w3-margin-right w3-text-theme"></i>  Calle Potosí 814</font></p>
         </div>
       </div>
       <br>   
@@ -67,10 +67,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           <p></p>
           <img src="<?php echo base_url(); ?>assets/inicio/images/iglesia.jpg" style="width:100%;">
           <br><br>
-          <p><button class="w3-btn w3-btn-block w3-theme-l4"><a href="http://www.iglesiaviva.net/" target="_blank" class="smoothScroll">Más sobre la CEB</button></p>
+          <p><button class="w3-btn w3-btn-block w3-theme-l4"><a href="http://www.iglesia.org.bo/" target="_blank" class="smoothScroll">Más sobre la CEB</button></p>
         </div>
       </div>
-      <br>   
+      <br> 
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p></p>
+          <img src="<?php echo base_url(); ?>assets/inicio/images/flores.jpg" style="width:100%;">
+          <br><br>
+          <p><button class="w3-btn w3-btn-block w3-theme-l4"><a href="http://www.iglesiaviva.net/" target="_blank" class="smoothScroll">Iglesia viva</button></p>
+        </div>
+      </div>   
     </div> <!-- End Right Column -->
     
   

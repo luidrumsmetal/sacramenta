@@ -252,10 +252,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
           <p></p>
           <img src="<?php echo base_url(); ?>assets/inicio/images/iglesia.jpg" style="width:100%;">
           <br><br>
-          <p><button class="w3-btn w3-btn-block w3-theme-l4"><a href="http://www.iglesiaviva.net/" target="_blank" class="smoothScroll">Más sobre la CEB</button></p>
+          <p><button class="w3-btn w3-btn-block w3-theme-l4"><a href="http://www.iglesia.org.bo/" target="_blank" class="smoothScroll">Más sobre la CEB</button></p>
         </div>
       </div>
-      <br>   
+      <br> 
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p></p>
+          <img src="<?php echo base_url(); ?>assets/inicio/images/flores.jpg" style="width:100%;">
+          <br><br>
+          <p><button class="w3-btn w3-btn-block w3-theme-l4"><a href="http://www.iglesiaviva.net/" target="_blank" class="smoothScroll">Iglesia viva</button></p>
+        </div>
+      </div>    
     </div>
     <!-- End Right Column -->
 

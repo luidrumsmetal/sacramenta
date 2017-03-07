@@ -54,7 +54,7 @@
               </div>
           </div>
           <?php } else{ ?>
-            <div id="centered-table" class="col s12 m12 l12">
+            <div id="centered-table" class="col s12 m6 l12">
                 <div class="row">
 
                   <div class="col s12 m12 l12">
@@ -109,13 +109,13 @@
               <div id="modal1" class="modal">
                 <form action="<?php echo base_url(); ?>jurisdiccion/delete" method="post">
                   <div class="modal-content">
-                    <h4 align="center">Eliminar Parroquia</h4>
+                    <h4 align="center">Eliminar Bautizo</h4>
                       <input type="hidden" id="idParroquia" name="idParroquia" value="" />
-                      <h6 style="text-align: center">¿Desea eliminar esta parroquia?</h6>
+                      <h6 style="text-align: center">¿Desea eliminar este registro de bautizo?</h6>
                   </div>
                   <div class="modal-footer orange">
                     <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                    <a href="<?php echo site_url('jurisdiccion/delete/' .$r->idParroquia); ?>" class="waves-effect waves-red btn-flat modal-action modal-close">Elminar</a>
+                    <a href="<?php echo site_url('jurisdiccion/delete/' .$r->idCertificado); ?>" class="waves-effect waves-red btn-flat modal-action modal-close">Elminar</a>
                   </div>
                 </form>
               </div>

@@ -37,35 +37,9 @@ class Sacrament_model extends CI_Model{
       return $this->db->get()->row();
   }
 
-  function update_bautizo($idCertificado) {
-
-    $idCertificado = $this->input->post('idCertificado');
-    $nombres = $this->input->post('feligres');
-    $persona_id = $this->input->post('feligres_id');
-    $parroquia = $this->input->post('parroquia');
-    $parroquia_id = $this->input->post('parroquia_id');
-    $jurisdiccion = $this->input->post('jurisdiccion');
-    $jurisdiccion_id = $this->input->post('jurisdiccion_id');
-    $fecha = $this->input->post('fecha');
-    $sacerdoteCelebrante_id = $this->input->post('sacerdoteCelebrante');
-    $sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador');
-    $libro = $this->input->post('libroOne');
-    $pagina = $this->input->post('paginaOne');
-    $numero = $this->input->post('numeroOne');
-    $apellidosNombres = $this->input->post('apellidoNombrePadrino');
-    $apellidosNombres = $this->input->post('apellidoNombreMadrina');
-
-    $data = array(
-      'fecha' => $fecha,
-      'persona_id' => $persona_id,
-      'parroquia_id' => $parroquia_id,
-      'jurisdiccion_id' => $jurisdiccion_id,
-      'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
-      'sacerdoteCertificador_id' => $sacerdoteCertificador_id
-    );
-    $this->db->where('idCertificado', $idCertificado);
-    $this->db->update('certificado', $data);
-
+  function update($table,$condicion, $idCertificado, $data) {
+    $this->db->where($condicion, $idCertificado);
+    $this->db->update($table, $data);
   }
 
   public function getCertificate($persona_id,$fecha)
