@@ -90,10 +90,11 @@
 										<div class="row">
 											<div class="input-field col s12">
 												<i class="mdi-action-credit-card prefix"></i>
+
 												<input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value="<?php echo $ci ?>">
                         <div id="msgUsuario"></div>
 												<label for="ci" class="active"><b>Carnet de Identidad</b></label>
-												<span id="comprobar_mensaje"></span>
+
 											</div>
 										</div>
                     <!--<h5><span class="card-title"><b>DATOS DE LOS PADRES</b></span></h5><hr><br><br>

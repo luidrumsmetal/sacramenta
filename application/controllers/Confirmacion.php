@@ -172,7 +172,107 @@ class Confirmacion extends CI_Controller{
 
   function edit()
   {
-
-
+      $uri = $this->uri->segment(3);
+      $data['title'] = 'Confirmación';
+      $data['get'] = $this->Sacrament_model->editConfirmacion($uri);
+      #echo $data['get'].'<br>';
+       #print_r($data['get']);
+      $this->load->view('template/header',$data);
+      $this->load->view('sacramentos/confirmacion/confirmacionEdit', $data);
+      $this->load->view('template/footer');
   }
+    function update() {
+
+        /*echo 'Certificado '.$idCertificado = $this->input->post('idCertificado').'<br>';
+        echo  'persona '.$persona_id = $this->input->post('feligres_id').'<br>';
+        echo  'parroquia '.$parroquia_id = $this->input->post('parroquia_id').'<br>';
+        echo 'jurisdiccion '.$jurisdiccion_id = $this->input->post('jurisdiccion_id').'<br>';
+        echo 'fecha '.$fecha = $this->input->post('fecha').'<br>';
+        echo 'cerlebrante '.$sacerdoteCelebrante_id = $this->input->post('sacerdoteCelebrante_id').'<br>';
+        echo 'certificador '.$sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador_id').'<br>';
+        echo 'IDLIBRO '.$idLibroParroquia = $this->input->post('idLibro').'<br>';
+        echo 'libro '.$libro = $this->input->post('libro').'<br>';
+        echo 'pagina '.$pagina = $this->input->post('pagina').'<br>';
+        echo 'numero '.$numero = $this->input->post('numero').'<br>';
+        echo $apellidosNombresPadrino = $this->input->post('apellidoNombrePadrino').'<br>';
+        echo $apellidosNombresMadrina = $this->input->post('apellidoNombreMadrina').'<br>';*/
+
+        $this->form_validation->set_rules('feligres_id', 'Nombre o Apellido', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('parroquia_id', 'Parroquia', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('fecha', 'Fecha Bautizo', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('jurisdiccion_id', 'jurisdiccion', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('sacerdoteCelebrante_id', 'Sacerdote Celebrante', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('sacerdoteCertificador_id', 'Sacerdote Certificante', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('libro', 'Libro', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('pagina', 'Pagina', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('numero', 'Numero', 'trim|required|xss_clean');
+
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('error', 'Ingrese correctamente los datos #Error');
+            redirect(base_url().'confirmacion/listConfirmacion');
+        }
+        else
+        {
+            $sacramento = 3;
+            $idCertificado = $this->input->post('idCertificado');
+            $persona_id = $this->input->post('feligres_id');
+            $parroquia_id = $this->input->post('parroquia_id');
+            $jurisdiccion_id = $this->input->post('jurisdiccion_id');
+            $fecha = $this->input->post('fecha');
+            $sacerdoteCelebrante_id = $this->input->post('sacerdoteCelebrante_id');
+            $sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador_id');
+            $idLibroParroquia = $this->input->post('idLibro');
+            $libro = $this->input->post('libro');
+            $pagina = $this->input->post('pagina');
+            $numero = $this->input->post('numero');
+            $apellidosNombresPadrino = $this->input->post('apellidoNombrePadrino');
+            $apellidosNombresMadrina = $this->input->post('apellidoNombreMadrina');
+
+            $data = array(
+                'fecha' => $fecha,
+                'persona_id' => $persona_id,
+                'parroquia_id' => $parroquia_id,
+                'sacramento_id' => $sacramento,
+                'sacerdoteCertificador_id' => $sacerdoteCertificador_id,
+                'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
+                'jurisdiccion_id' => $jurisdiccion_id
+            );
+            if($this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data) == TRUE)
+            {
+                $data = array(
+                    'libro' => $libro,
+                    'pagina' => $pagina,
+                    'numero' => $numero,
+                    'parroquia_id' => $parroquia_id,
+                    'certificado_id' => $idCertificado
+                );
+                if($this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data) == TRUE )
+                {
+                    $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
+                    redirect(base_url() . 'confirmacion/listConfirmacion');
+                }
+                else
+                {
+                    $this->session->set_flashdata('success','no se actualizo datos del libro');
+                    redirect(base_url() . 'confirmacion/listConfirmacion');
+                }
+            }
+            else
+            {
+                $this->session->set_flashdata('error','Error al actualizar datos del certificado');
+                redirect(base_url() . 'confirmacion/listConfirmacion');
+            }
+        }
+        /// FIN -->
+    }
+    function delete() {
+        $u = $this->input->post('id');
+        $this->Sacrament_model->delete($u);
+
+        $this->session->set_flashdata('success','Eliminacion completada');
+        redirect(base_url() .'confirmacion/listConfirmacion');
+
+
+    }
 }

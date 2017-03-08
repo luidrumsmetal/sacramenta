@@ -408,16 +408,6 @@ class Users extends CI_Controller{
     }
   }
 
-  /*public function edit_fiel() {
-    $uri = $this->uri->segment(3);
-      $data1['title'] = 'Editar Fiel';
-     $data['get'] = $this->Users_model->editFiel($uri);
-         #echo $data['get'].'<br>';
-    print_r($data['get']);
-        $this->load->view('template/header',$data1);
-        $this->load->view('users/fielEdit', $data);
-        $this->load->view('template/footer');
-  }*/
 
   function edit_fiel() {
     $kd = $this->uri->segment(3);
