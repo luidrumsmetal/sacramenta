@@ -57,14 +57,14 @@
           </div>
           <?php } else{ ?>
 
-            <div id="centered-table" class="col s12 m12 l2">
+            <div id="centered-table" class="col s12 m12 l12">
                 <div class="row">
 
                   <div class="col s12 m12 l12">
                   <nav class="amber darken-4">
                     <div class="nav-wrapper">
                       <div class="col s12">
-                        <h1 class="brand-logo center">Lista de Usuarios</h1>
+                        <h1 class="brand-logo center">Lista de Usuarios </h1>
                       </div>
                     </div>
                   </nav>
