@@ -22,10 +22,18 @@
             </div>
         <?php } ?>
           <?php if (!$results){ ?>
-                        <h4 align="center">Lista de Usuarios</h4>
+                <nav class="amber darken-4">
+                  <div class="nav-wrapper">
+                    <div class="col s12">
+                    <h1 class="brand-logo center">Lista de Usuarios</h1>
+                    </div>
+                  </div>
+                </nav>
+
+
           <div id="borderless-table">
               <div class="row">
-                <div class="col s12 m8 l9">
+                <div class="col s12 m12 l12">
                   <table id="striped-table">
                     <thead>
                       <tr>
@@ -49,11 +57,18 @@
           </div>
           <?php } else{ ?>
 
-            <div id="centered-table" class="col s10 m8 l9">
+            <div id="centered-table" class="col s12 m12 l2">
                 <div class="row">
 
                   <div class="col s12 m12 l12">
-                    <h4 align="left">Lista de Usuarios</h4><hr><br>
+                  <nav class="amber darken-4">
+                    <div class="nav-wrapper">
+                      <div class="col s12">
+                        <h1 class="brand-logo center">Lista de Usuarios</h1>
+                      </div>
+                    </div>
+                  </nav>
+                <h4 align="left"></h4><hr><br>
                     <table class="bordered striped">
                       <thead>
                         <tr>
@@ -106,8 +121,8 @@
                   </div>
                   <div class="modal-footer orange">
                     <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                    <button G type="submit" name="action">Eliminar
-                          <i class="mdi-content-send right"></i>
+                    <button type="submit" name="action" class="btn cyan waves-effect waves-light right">Eliminar
+                          <i class="waves-effect waves-orange btn-flat modal-action modal-close"></i>
                       </button>
                   </div>
                 </form>
