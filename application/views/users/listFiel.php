@@ -22,7 +22,8 @@
             </div>
         <?php } ?>
           <?php if (!$results){ ?>
-                <nav class="amber darken-4">
+                 <nav class="amber darken-4">
+
                   <div class="nav-wrapper">
                     <div class="col s12">
                     <h1 class="brand-logo center">Lista de Fieles</h1>
@@ -59,6 +60,7 @@
 
             <div id="centered-table" class="col s12 m12 l12">
                 <div class="row">
+
                 <div class="col s12 m12 l12">
                   <nav class="amber darken-4">
                     <div class="nav-wrapper">
@@ -109,8 +111,7 @@
                   </div>
                 </div>
             </div>
-            <?php } ?>
-            <?php echo $this->pagination->create_links();?>
+            
 
               <div id="modal1" class="modal">
                 <form action="<?php echo base_url(); ?>Users/delete_fiel" method="post">
@@ -129,6 +130,9 @@
                   </div>
                 </form>
               </div>
+
+              <?php } ?>
+            <?php echo $this->pagination->create_links();?>
       </div>
     </div>
 </section>
