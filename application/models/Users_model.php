@@ -414,8 +414,7 @@ class Users_model extends CI_Model{
   }
   function count_persona($table)
     {
-      $query = $this->db->query("SELECT count(id) FROM $table");
-      return $query = $this->db->get();
+      return $this->db->count_all($table);
   }
   function listGetSacerdote($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array')
     {

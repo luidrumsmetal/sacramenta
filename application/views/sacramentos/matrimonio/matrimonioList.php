@@ -92,7 +92,7 @@
                                     echo '<td>'.$r->genero.'</td>';
                                     echo '<td>';
 
-                                    echo '<a href="'.base_url().'matrimonio/edit/'.$r->idCertificado.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
+                                    //echo '<a href="'.base_url().'matrimonio/edit/'.$r->idCertificado.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
 
                                     echo '<a href="#modal1" cliente="'.$r->idCertificado.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
 
