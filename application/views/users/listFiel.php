@@ -23,6 +23,7 @@
         <?php } ?>
           <?php if (!$results){ ?>
                  <nav class="amber darken-4">
+
                   <div class="nav-wrapper">
                     <div class="col s12">
                     <h1 class="brand-logo center">Lista de Fieles</h1>
@@ -33,13 +34,16 @@
 
           <div id="borderless-table">
               <div class="row">
-                <div class="col s12 m8 l9">
+                <div class="col s12 m12 l12">
                   <table id="striped-table">
                     <thead>
                       <tr>
-                        <th data-field="id">ID</th>
-                        <th data-field="name">Nombre</th>
-                        <th data-field="price">Direccion</th>
+                          <th data-field="id">#</th>
+                          <th data-field="ci">CI</th>
+                          <th data-field="nombre">Nombre</th>
+                          <th data-field="apellido">Apellido</th>
+                          <th data-field="email">fecha de Nacimiento</th>
+                          <th data-field="opciones">Opciones</th>
                       </tr>
                     </thead>
 
@@ -54,17 +58,18 @@
           </div>
           <?php } else{ ?>
 
-            <div id="centered-table" class="col s10 m8 l9">
+            <div id="centered-table" class="col s12 m12 l12">
                 <div class="row">
-                  <div class="col s12 m12 l12">
+
+                <div class="col s12 m12 l12">
                   <nav class="amber darken-4">
                     <div class="nav-wrapper">
-                    <div class="col s12">
-                    <h1 class="brand-logo center">Lista de Fieles</h1>
-                    </div>
+                      <div class="col s12">
+                      <h1 class="brand-logo center">Lista de Fieles</h1>
+                      </div>
                     </div>
                   </nav>
-                    <h4 align="left"></h4><hr><br>
+                  <h4 align="left"></h4><hr><br>
                     <table class="bordered striped">
                       <thead>
                         <tr>
@@ -72,9 +77,8 @@
                           <th data-field="ci">CI</th>
                           <th data-field="nombre">Nombre</th>
                           <th data-field="apellido">Apellido</th>
-                          <th data-field="tipoUsuario">Tipo de Usuario</th>
                           <th data-field="email">fecha de Nacimiento</th>
-                          <th data-field="opciones">Genero</th>
+                          <th data-field="opciones">Opciones</th>
                         </tr>
                       </thead>
 
@@ -112,15 +116,17 @@
               <div id="modal1" class="modal">
                 <form action="<?php echo base_url(); ?>Users/delete_fiel" method="post">
                   <div class="modal-content">x
-                    <h4 align="center">Eliminar Usuario</h4>
+                    <h4 align="center">Eliminar Fiel</h4>
                       <input type="hidden" id="id" name="id" value="" />
-                      <h6 style="text-align: center">¿Realmente desea eliminar este usuario?</h6>
+                      <h6 style="text-align: center">¿Desea eliminar al Fiel?</h6>
                   </div>
                   <div class="modal-footer orange">
                     <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                    <button G type="submit" name="action">Eliminar
-                          <i class="mdi-content-send right"></i>
+
+                    <button type="submit" name="action" class="btn cyan waves-effect waves-light right">Eliminar
+                          <i class="waves-effect waves-orange btn-flat modal-action modal-close"></i>
                       </button>
+                    
                   </div>
                 </form>
               </div>

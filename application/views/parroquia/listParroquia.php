@@ -1,4 +1,3 @@
-
 <section id = "content">
     <div class="section">
       <div class="row">
@@ -39,9 +38,11 @@
                   <table id="striped-table">
                     <thead>
                       <tr>
-                        <th data-field="id">ID</th>
-                        <th data-field="name">Nombre</th>
-                        <th data-field="price">Dirección</th>
+                          <th data-field="id">ID</th>
+                          <th data-field="nombre">Nombre de la parroquia</th>
+                          <th data-field="direccion">Dirección</th>
+                          <th data-field="direccion">Telefono</th>
+                          <th data-field="opciones">Opciones</th>
                       </tr>
                     </thead>
 
