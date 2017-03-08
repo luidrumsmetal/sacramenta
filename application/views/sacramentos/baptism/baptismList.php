@@ -34,7 +34,7 @@
 
           <div id="borderless-table">
               <div class="row">
-                <div class="col s12 m12 12">
+                <div class="col s12 m12 l12">
                   <table id="striped-table">
                     <thead>
                         <tr>

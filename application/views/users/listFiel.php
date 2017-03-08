@@ -23,7 +23,6 @@
         <?php } ?>
           <?php if (!$results){ ?>
                  <nav class="amber darken-4">
-
                   <div class="nav-wrapper">
                     <div class="col s12">
                     <h1 class="brand-logo center">Lista de Fieles</h1>
