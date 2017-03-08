@@ -481,6 +481,7 @@ class Users_model extends CI_Model{
             $this->db->join('persona', 'persona.id = certificado.persona_id');
             $this->db->where('persona.id', $row['persona_id']);
             $this->db->where('sacramento_id', '1');
+            $this->db->group_by('certificado.persona_id');
             $query = $this->db->get()->row();
             if (count($query) > 0) {
                   #$idBaptism = $query->idCertificado;
@@ -495,6 +496,7 @@ class Users_model extends CI_Model{
             $this->db->join('persona', 'persona.id = certificado.persona_id');
             $this->db->where('persona.id', $row['persona_id']);
             $this->db->where('sacramento_id', '2');
+            $this->db->group_by('certificado.persona_id');
             $query = $this->db->get()->row();
             if (count($query) > 0) {
                  # $idCommunion = $query->idCertificado;
@@ -509,6 +511,7 @@ class Users_model extends CI_Model{
             $this->db->join('persona', 'persona.id = certificado.persona_id');
             $this->db->where('persona.id', $row['persona_id']);
             $this->db->where('sacramento_id', '3');
+            $this->db->group_by('certificado.persona_id');
             $query = $this->db->get()->row();
             if (count($query) > 0) {
                  # $idConfirm = $query->idCertificado;
@@ -523,6 +526,7 @@ class Users_model extends CI_Model{
             $this->db->join('persona', 'persona.id = certificado.persona_id');
             $this->db->where('persona.id', $row['persona_id']);
             $this->db->where('sacramento_id', '4');
+            $this->db->group_by('certificado.persona_id');
             $query = $this->db->get()->row();
             if (count($query) > 0) {
                  #$idMarriage = $query->idCertificado;
