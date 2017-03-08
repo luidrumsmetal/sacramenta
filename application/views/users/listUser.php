@@ -29,9 +29,12 @@
                   <table id="striped-table">
                     <thead>
                       <tr>
-                        <th data-field="id">ID</th>
-                        <th data-field="name">Nombre</th>
-                        <th data-field="price">Direccion</th>
+                          <th data-field="ci">CI</th>
+                          <th data-field="nombre">Nombre</th>
+                          <th data-field="apellido">Apellido</th>
+                          <th data-field="tipoUsuario">Tipo de Usuario</th>
+                          <th data-field="email">Correo</th>
+                          <th data-field="opciones">Opciones</th>
                       </tr>
                     </thead>
 
