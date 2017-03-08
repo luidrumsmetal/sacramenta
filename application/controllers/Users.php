@@ -79,7 +79,7 @@ class Users extends CI_Controller{
     $this->load->library('pagination');
 
         $config['base_url'] = base_url().'users/listFiel';
-        $config['total_rows'] = $this->Users_model->count('persona');
+        $config['total_rows'] = $this->Users_model->count_persona('persona');
         $config['per_page'] = 10;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
@@ -408,26 +408,47 @@ class Users extends CI_Controller{
     }
   }
 
-  public function edit_fiel() {
+  /*public function edit_fiel() {
     $uri = $this->uri->segment(3);
       $data1['title'] = 'Editar Fiel';
      $data['get'] = $this->Users_model->editFiel($uri);
          #echo $data['get'].'<br>';
-    # print_r($data['get']);
+    print_r($data['get']);
         $this->load->view('template/header',$data1);
         $this->load->view('users/fielEdit', $data);
         $this->load->view('template/footer');
+  }*/
+
+  function edit_fiel() {
+    $kd = $this->uri->segment(3);
+    if ($kd == NULL) {
+      redirect('ccrud');
+    }
+    $dt = $this->Users_model->editFiel($kd);
+    $data['apellidoPaterno'] = $dt->apellidoPaterno;
+    $data['apellidoMaterno'] = $dt->apellidoMaterno;
+    $data['nombres'] = $dt->nombres;
+    $data['ci'] = $dt->ci;
+    $data['fechanacimiento'] = $dt->fechanacimiento;
+    $data['procedencia'] = $dt->procedencia;
+    $data['genero'] = $dt->genero;
+    $data['id'] = $kd;
+    
+
+    $this->load->view('template/header');
+    $this->load->view('users/fielEdit', $data);
+    $this->load->view('template/footer');
   }
 
   function update_fiel() {
     if ($this->input->post('mit')) {
 
       $id = $this->input->post('id');
-      $this->Users_model->update_user($id);
+      $this->Users_model->update_fiel($id);
 
-      redirect('Users/listUser');
+      redirect('Users/listFiel');
     } else{
-      redirect('Users/edit_user/'.$id);
+      redirect('Users/edit_fiel/'.$id);
     }
   /// FIN -->
   }
@@ -461,6 +482,12 @@ class Users extends CI_Controller{
     $u = $this->uri->segment(3);
     $this->Users_model->delete_user($u);
     redirect('Users/listUser');
+  }
+
+  function delete_fiel() {
+    $u = $this->uri->segment(3);
+    $this->Users_model->delete_fiel($u);
+    redirect('Users/listFiel');
   }
 
 

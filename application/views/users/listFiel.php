@@ -99,7 +99,7 @@
             <?php echo $this->pagination->create_links();?>
 
               <div id="modal1" class="modal">
-                <form action="<?php echo base_url(); ?>Users/delete_user" method="post">
+                <form action="<?php echo base_url(); ?>Users/delete_fiel" method="post">
                   <div class="modal-content">
                     <h4 align="center">Eliminar Usuario</h4>
                       <input type="hidden" id="id" name="id" value="" />
@@ -107,7 +107,7 @@
                   </div>
                   <div class="modal-footer orange">
                     <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                    <a href="<?php echo site_url('Users/delete_user/' .$r->id); ?>" class="waves-effect waves-red btn-flat modal-action modal-close">Elminar</a>
+                    <a href="<?php echo site_url('Users/delete_fiel/' .$r->id); ?>" class="waves-effect waves-red btn-flat modal-action modal-close">Elminar</a>
                   </div>
                 </form>
               </div>
