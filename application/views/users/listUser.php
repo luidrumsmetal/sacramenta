@@ -54,7 +54,7 @@
                     <table class="bordered striped">
                       <thead>
                         <tr>
-                          <th data-field="id">#</th>
+                          <!--<th data-field="id">#</th>-->
                           <th data-field="ci">CI</th>
                           <th data-field="nombre">Nombre</th>
                           <th data-field="apellido">Apellido</th>
@@ -67,21 +67,19 @@
                       <tbody>
                         <?php foreach ($results as $r) {
                             echo '<tr>';
-                            echo '<td>'.$r->id.'</td>';
+                            #echo '<td>'.$r->id.'</td>';
                             echo '<td>'.$r->ci.'</td>';
                             echo '<td>'.$r->nombres.'</td>';
                             echo '<td>'.$r->apellidoPaterno.' '.$r->apellidoMaterno.'</td>';
                             echo '<td>'.$r->tipoUsuario.'</td>';
                             echo '<td>'.$r->email.'</td>';
                             echo '<td>';
-            #if($this->permission->checkPermission($this->session->userdata('permissao'),'vCliente')){
-            #echo '<a href="'.base_url().'index.php/clientes/visualizar/'.$r->idClientes.'" style="margin-right: 1%" class="btn tip-top" title="Ver mais detalhes"><i class="icon-eye-open"></i></a>';
-            #}
-            #if($this->permission->checkPermission($this->session->userdata('permissao'),'eCliente')){
-                echo '<a href="'.base_url().'users/edit_user/'.$r->id.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
-          #  }
-          #  if($this->permission->checkPermission($this->session->userdata('permissao'),'dCliente')){
-                echo '<a href="#modal1" cliente="'.$r->id.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
+
+                echo '<a href="'.base_url().'users/edit_user/'.$r->id.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" 
+                  title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
+          
+                echo '<a href="#modal1" cliente="'.$r->id.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red 
+                  darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
           #  }
 
 
@@ -98,17 +96,34 @@
 
               <div id="modal1" class="modal">
                 <form action="<?php echo base_url(); ?>Users/delete_user" method="post">
-                  <div class="modal-content">
+                  <div class="modal-content">x
                     <h4 align="center">Eliminar Usuario</h4>
                       <input type="hidden" id="id" name="id" value="" />
                       <h6 style="text-align: center">¿Realmente desea eliminar este usuario?</h6>
                   </div>
                   <div class="modal-footer orange">
                     <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                    <a href="<?php echo site_url('Users/delete_user/' .$r->id); ?>" class="waves-effect waves-red btn-flat modal-action modal-close">Elminar</a>
+                    <button G type="submit" name="action">Eliminar
+                          <i class="mdi-content-send right"></i>
+                      </button>
                   </div>
                 </form>
               </div>
+
+
+
       </div>
     </div>
 </section>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(document).on('click', 'a', function(event) {
+            var cliente = $(this).attr('cliente');
+            $('#id').val(cliente);
+
+        });
+
+    });
+
+</script>

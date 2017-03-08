@@ -41,120 +41,122 @@
               <div class="card-panel">
                 <h5><span class="card-title"><b>DATOS PERSONALES</b></span></h5><hr><br><br>
                 <div class="row">
-                  <form class="col s12 m10 l12" id="formPriest" method="post" action="<?php echo base_url(); ?>users/faithfullCreate">
+                <?php echo form_open('Users/update_fiel', 'role="form"','method=post'); ?>
                     <div class="row">
 										  <div class="input-field col s12 m6 l6">
 										    <i class="mdi-action-account-circle prefix"></i>
-										    <input placeholder="INGRESE SU APELLIDO PATERNO" id="apellidoPaterno" name="apellidoPaterno" type="text" value='<?php echo set_value('apellidoPaterno') ?>'>
+										    <input placeholder="INGRESE SU APELLIDO PATERNO" id="apellidoPaterno" name="apellidoPaterno" type="text" value="<?php echo $apellidoPaterno ?>">
 										    <label for="apellidoPaterno" class="active"><b>Apellido Paterno (*)</b></label>
 										  </div>
-											<div class="input-field col col s12 m6 l6">
+											<div class="input-field col s6">
 										    <i class="mdi-action-account-circle prefix"></i>
-										    <input placeholder="INGRESE SU APELLIDO MATERNO" id="apellidoMaterno" name="apellidoMaterno" type="text" value='<?php echo set_value('apellidoMaterno') ?>'>
+										    <input placeholder="INGRESE SU APELLIDO MATERNO" id="apellidoMaterno" name="apellidoMaterno" type="text" value="<?php echo $apellidoMaterno ?>">
 										    <label for="apellidoMaterno" class="active"><b>Apellido Materno (*)</b></label>
 										  </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col col s12 m6 l6">
+                        <div class="input-field col s6">
                             <i class="mdi-action-account-circle prefix"></i>
-                            <input placeholder="INGRESE SUS NOMBRES" id="nombres" name="nombres" type="text" value='<?php echo set_value('nombres') ?>'>
+                            <input placeholder="INGRESE SUS NOMBRES" id="nombres" name="nombres" type="text" value="<?php echo $nombres ?>">
                             <label for="nombres" class="active"><b>Nombres (*)</b></label>
                           </div>
-												  <div class="input-field col col s12 m6 l6">
+												  <div class="input-field col s6">
 												          <i class="mdi-action-event prefix"></i>
-												          <input placeholder="" id="fechanac" name="fechanac" type="date" value='<?php echo set_value('fechanac') ?>'>
+												          <input placeholder="" id="fechanacimiento" name="fechanacimiento" type="date" value="<?php echo $fechanacimiento ?>">
 												          <label for="first_name" class="active"><b>Fecha de Nacimiento (*)</b></label>
 												  </div>
                     </div>
                     <div class="row">
-                      <div class="input-field col s12 m6 l6">
-                        <i class="mdi-action-credit-card prefix"></i>
-                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>'>
-
-                        <label for="ci" class="active"><b>Carnet de Identidad</b></label>
-
+                      <div class="input-field col s0">
+                        <i class="mdi-social-group prefix"></i>&nbsp &nbsp
                       </div>
-
-                      <div class="input-field col col s12 m6 l6">
+                      <div class="input-field col s5">
+                        <select id="genero" name="genero">
+                          <option value="<?php echo $genero ?>"> <?php echo $genero ?></option>
+                          <option value="1">Masculino</option>
+                          <option value="2">Femenino</option>
+                        </select>
+                        <label><b>Género (*) </b></label>
+                      </div>
+                      <div class="input-field col s0">
+                        &nbsp &nbsp  &nbsp &nbsp  &nbsp &nbsp
+                      </div>
+                      <div class="input-field col s6">
 										    <i class="mdi-action-home prefix"></i>
-										    <input placeholder="INGRESE SU DIRECCIÓN" id="procedencia" name="procedencia" type="text" value='<?php echo set_value('procedencia') ?>'>
+										    <input placeholder="INGRESE SU DIRECCIÓN" id="procedencia" name="procedencia" type="text" value="<?php echo $procedencia ?>">
 										    <label for="procedencia" class="active"><b>Procedencia (*)</b></label>
 										  </div>
                     </div>
-
 										<div class="row">
-                      <div class="input-field col s0">
-                          <i class="mdi-action-account-circle prefix"></i>
-                      </div>
+											<div class="input-field col s12">
+												<i class="mdi-action-credit-card prefix"></i>
 
-                      <div class="input-field col s12 m5 l6">
-                        <select id="genero" name="genero" value='<?php echo set_value('genero') ?>'>
-                          <option value="" disabled selected>&nbsp&nbspSeleccione un género</option>
-                        <option value="1">Masculino</option>
-                          <option value="2">Femenino</option>
-                        </select>
-                        <label><b>&nbsp&nbsp&nbsp&nbsp&nbspGénero: </b></label>
-                      </div>
+												<input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value="<?php echo $ci ?>">
+                        <div id="msgUsuario"></div>
+												<label for="ci" class="active"><b>Carnet de Identidad</b></label>
+
+											</div>
 										</div>
-
-                    <h5><span class="card-title"><b>DATOS DE LOS PADRES</b></span></h5><hr><br><br>
+                    <!--<h5><span class="card-title"><b>DATOS DE LOS PADRES</b></span></h5><hr><br><br>
+                    <div class="row">
                       <div class="row">
-  										  <div class="input-field col s12 m6 l6">
+  										  <div class="input-field col s6">
   										    <i class="mdi-action-account-circle prefix"></i>
-  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoPaterno" name="apellidoNombrePadre" type="text" value='<?php echo set_value('apellidoNombrePadre') ?>'>
-  										    <label for="apellidoPaterno" class="active"><b>Nombre completo Padre</b></label>
+  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoPaterno" name="apellidoNombrePadre" type="text" value="<?php echo $get->apellidoNombrePadre ?>">
+  										    <label for="apellidoPaterno" class="active"><b>Apellidos y Nombres del Padre</b></label>
   										  </div>
-  											<div class="input-field col s12 m6 l6">
+  											<div class="input-field col s6">
   										    <i class="mdi-action-account-circle prefix"></i>
-  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoMaterno" name="apellidoNombreMadre" type="text" value='<?php echo set_value('apellidoNombreMadre') ?>'>
-  										    <label for="apellidoMaterno" class="active"><b>Nombre completo Madre</b></label>
+  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoMaterno" name="apellidoNombreMadre" type="text" value="<?php echo $get->apellidoNombrePadre ?>">
+  										    <label for="apellidoMaterno" class="active"><b>Apellidos y Nombres de la Madre</b></label>
   										  </div>
                       </div>
+                    </div>
                     <div class="row">
-                      <div class="input-field col s12 m6 l6">
-                        <i class="mdi-maps-place prefix"></i>
-                        <input placeholder="INGRESE LA PROCEDENCIA DEL PADRE" id="procedenciaPadre" name="procedenciaPadre" type="text" value='<?php echo set_value('procedenciaPadre') ?>'>
+                      <div class="input-field col s6">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input placeholder="INGRESE LA PROCEDENCIA DEL PADRE" id="procedenciaPadre" name="procedenciaPadre" type="text" value="<?php echo $get->procedencia ?>">
                         <label for="procedenciaPadre" class="active"><b>Procedencia de Padre</b></label>
                       </div>
-                      <div class="input-field col s12 m6 l6">
-                        <i class="mdi-maps-place prefix"></i>
+                      <div class="input-field col s6">
+                        <i class="mdi-action-account-circle prefix"></i>
                         <input placeholder="INGRESE LA PROCEDENCIA DE LA MADRE " id="procedenciaMadre" name="procedenciaMadre" type="text"
-                        value='<?php echo set_value('procedenciaMadre') ?>'>
+                        value="<?php echo $get->procedencia ?>">
                         <label for="procedenciaMadre" class="active"><b>Procedencia de la Madre</b></label>
                       </div>
                     </div>
                   <h5><span class="card-title"><b>OFICIALÍA DE REGISTRO CIVIL (CERTIFICADO DE NACIMIENTO)</b></span></h5><hr><br><br>
                   <div class="row">
-                    <div class="input-field col s12 m6 l4">
+                    <div class="input-field col s4">
                       <i class="mdi-action-book prefix"></i>
-                      <input placeholder="Ingrese el numero de oficialía" id="orc" name="orc" type="text" value='<?php echo set_value('orc') ?>'>
+                      <input placeholder="Ingrese el numero de oficialia" id="orc" name="orc" type="text" value="<?php echo $get->orc ?>">
                       <label for="orc" class="active"><b>ORC (*)</b></label>
                     </div>
-                    <div class="input-field col s12 m6 l4">
+                    <div class="input-field col s4">
                       <i class="mdi-action-find-in-page prefix"></i>
-                      <input placeholder="Ingrese el numero libro" id="libro" name="libro" type="text" value='<?php echo set_value('libro') ?>'>
+                      <input placeholder="Ingrese el numero libro" id="libro" name="libro" type="text" value="<?php echo $get->libro ?>">
                       <label for="libro" class="active"><b>Libro (*)</b></label>
                     </div>
-                    <div class="input-field col s12 m6 l4">
+                    <div class="input-field col s4">
                       <i class="mdi-editor-format-list-numbered prefix"></i>
-                      <input placeholder="Ingrese el numero partida" id="partida" name="partida" type="text" value='<?php echo set_value('partida') ?>'>
+                      <input placeholder="Ingrese el numero partida" id="partida" name="partida" type="text" value="<?php echo $get->partida ?>">
                       <label for="partida" class="active"><b>Partida (*)</b></label>
                     </div>
-                  </div>
+                  </div>-->
                     <div class="row">
                         <div class="input-field col s7">
-                          <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Registrar
-                            <i class="mdi-content-send right"></i>
-                          </button>
+                        <input type="hidden" name="id" value="<?php echo $id ?>" />
+                          <input type="submit" name="mit" class="btn btn-primary" value="Guardar">
+                          <button type="button" onclick="location.href='<?php echo site_url('users/listFiel') ?>'" class="btn btn-danger">Volver Atras<i class="mdi-content-send right"></i></button>
                         </div>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
           </div>
 		</div>
 </section>
+<?php echo form_close(); ?>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -190,30 +192,5 @@ $(document).ready(function(){
              $("#nombrePadrino").val(ui.item.nombre);
 				}
 		});
-
-    $('#ci').focusout( function(){
-    if($('#ci').val()!= ""){
-        $.ajax({
-            type: "POST",
-            url: "<?php echo base_url(); ?>users/testare",
-            data: "ci="+$('#ci').val(),
-            beforeSend: function(){
-
-              $('#msgUsuario').html('<img src="<?php echo base_url(); ?>assets/loader.gif"/> verificando');
-            },
-            success: function( respuesta ){
-              if(respuesta == '1')
-                $('#msgUsuario').html("<div id='card-alert' class='card green'><div class='card-content white-text'><b>Carnet de identidad disponible</b></div></div>");
-              else if (respuesta == '0') {
-                $('#msgUsuario').html("<div id='card-alert' class='card red'><div class='card-content white-text'><b>Carnet de identidad No Disponible</b></div></div>");
-              }
-              else {
-                $('#msgUsuario').html("<div id='card-alert' class='card red'><div class='card-content white-text'><b>Ingrese un numero de carnet correcto</b></div></div>");
-              }
-
-            }
-        });
-    }
-});
 });
 </script>

@@ -60,6 +60,53 @@ class Users extends CI_Controller{
     $this->load->view('template/footer');
   }
 
+  function listFiel($offset = NULL)
+  {
+    if (!$this->session->userdata('nombre')) {
+      redirect(base_url().'login');
+    }
+    if ($this->session->userdata('tipo') != 'administrador') {
+        if (!$this->session->userdata('nombre')) {
+            redirect(base_url().'login');
+        }
+        else
+        {
+          redirect(base_url().'home');
+        }
+    }
+    $data['title'] = 'Lista de Fieles';
+    $this->load->library('table');
+    $this->load->library('pagination');
+
+        $config['base_url'] = base_url().'users/listFiel';
+        $config['total_rows'] = $this->Users_model->count_persona('persona');
+        $config['per_page'] = 10;
+        $config['next_link'] = 'Próxima';
+        $config['prev_link'] = 'Anterior';
+        $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
+        $config['full_tag_close'] = '</ul></div>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><a style="color: #2D335B"><b>';
+        $config['cur_tag_close'] = '</b></a></li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['first_link'] = 'Primeira';
+        $config['last_link'] = 'Última';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+    $this->pagination->initialize($config);
+    $data['results']= $this->Users_model->listGetUser('persona',' id, ci, nombres, apellidoPaterno,apellidoMaterno, fechanacimiento, genero','',$config['per_page'],$this->uri->segment(3));
+    $this->load->view('template/header',$data);
+    $this->load->view('users/listFiel',$data);
+    $this->load->view('template/footer');
+  }
+
   function listSacerdote($offset = NULL)
   {
     if (!$this->session->userdata('nombre')) {
@@ -362,6 +409,41 @@ class Users extends CI_Controller{
   }
 
 
+  function edit_fiel() {
+    $kd = $this->uri->segment(3);
+    if ($kd == NULL) {
+      redirect('ccrud');
+    }
+    $dt = $this->Users_model->editFiel($kd);
+    $data['apellidoPaterno'] = $dt->apellidoPaterno;
+    $data['apellidoMaterno'] = $dt->apellidoMaterno;
+    $data['nombres'] = $dt->nombres;
+    $data['ci'] = $dt->ci;
+    $data['fechanacimiento'] = $dt->fechanacimiento;
+    $data['procedencia'] = $dt->procedencia;
+    $data['genero'] = $dt->genero;
+    $data['id'] = $kd;
+    
+
+    $this->load->view('template/header');
+    $this->load->view('users/fielEdit', $data);
+    $this->load->view('template/footer');
+  }
+
+  function update_fiel() {
+    if ($this->input->post('mit')) {
+
+      $id = $this->input->post('id');
+      $this->Users_model->update_fiel($id);
+
+      redirect('Users/listFiel');
+    } else{
+      redirect('Users/edit_fiel/'.$id);
+    }
+  /// FIN -->
+  }
+
+
   public function edit_user() {
     $uri = $this->uri->segment(3);
       $data1['title'] = 'Editar Usuario';
@@ -386,12 +468,28 @@ class Users extends CI_Controller{
   /// FIN -->
   }
 
+
+  function delete() {
+        $u = $this->input->post('id');
+        $this->Sacrament_model->delete($u);
+
+            $this->session->set_flashdata('success','Eliminacion completada');
+            redirect(base_url() .'baptism/listBaptism');
+    }
+
   function delete_user() {
-    $u = $this->uri->segment(3);
+    $u = $this->input->post('id');
     $this->Users_model->delete_user($u);
-    redirect('Users/listUser');
+    $this->session->set_flashdata('success','Eliminacion completada');
+            redirect(base_url() .'users/listUser');;
   }
 
+  function delete_fiel() {
+    $u = $this->input->post('id');
+    $this->Users_model->delete_fiel($u);
+    $this->session->set_flashdata('success','Eliminacion completada');
+            redirect(base_url() .'users/listFiel');;
+  }
 
   function sacerdoteEdit() {
     if (!$this->session->userdata('nombre')) {

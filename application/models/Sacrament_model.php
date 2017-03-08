@@ -37,10 +37,45 @@ class Sacrament_model extends CI_Model{
       return $this->db->get()->row();
   }
 
-  function update($table,$condicion, $idCertificado, $data) {
-    $this->db->where($condicion, $idCertificado);
-    $this->db->update($table, $data);
+  function editMatrimonio($uri) {
+      $this->db->select('*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Esposo, persona.id as esposo_id ,CONCAT(C.apellidoPaterno, " ",C.apellidoMaterno," ",C.nombres) as Sacerdote_certificador, A.idSacerdote as sacerdoteCertificador, 
+                        C.id as personaCertificador  , CONCAT(D.apellidoPaterno, " ",D.apellidoMaterno," ",D.nombres) as Sacerdote_certificante, B.idSacerdote as sacerdoteCertificante,
+                        D.id as personaCertificante, padrinofiel.apellidosNombres as padrino, padrinofiel.idPadrinoFiel as idPadrino');
+      $this->db->from('certificado');
+      $this->db->join('persona', 'persona.id = certificado.persona_id');
+      $this->db->join('sacramento', 'sacramento.idSacramento = certificado.sacramento_id');
+      $this->db->join('parroquia', 'parroquia.idParroquia = certificado.parroquia_id');
+      $this->db->join('jurisdiccion', 'jurisdiccion.idJurisdiccion = certificado.jurisdiccion_id');
+      $this->db->join('sacerdote A', 'A.idSacerdote = certificado.sacerdoteCertificador_id');
+      $this->db->join('sacerdote B', 'B.idSacerdote = certificado.sacerdoteCelebrante_id');
+      $this->db->join('persona C', 'C.id = A.persona_id');
+      $this->db->join('persona D', 'D.id = B.persona_id');
+      $this->db->join('libroparroquia','certificado_id=idCertificado');
+      $this->db->join('padrinofiel','padrinofiel.certificado_id=idCertificado');
+      $this->db->where('certificado.idCertificado', $uri);
+      return $this->db->get()->row();
   }
+
+  function update($table,$condicion, $data) {
+    $this->db->where($condicion);
+    $this->db->update($table, $data);
+      if ($this->db->affected_rows() > 0)
+      {
+          return TRUE;
+      }
+      else
+      {
+          return FALSE;
+      }
+  }
+    function delete($a) {
+        $sql = "SET foreign_key_checks = 0";
+        $this->db->query($sql);
+        $this->db->delete('certificado', array('idCertificado' => $a));
+        $sql = "SET foreign_key_checks = 1";
+        $this->db->query($sql);
+
+    }
 
   public function getCertificate($persona_id,$fecha)
   {

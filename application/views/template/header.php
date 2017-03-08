@@ -116,10 +116,23 @@
          <?php if($this->session->userdata('tipo') == 'administrador' || $this->session->userdata('tipo') == 'parroquia' ){?>
          <li class="bold"><a href="<?php echo base_url(); ?>email" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Enviar Email's</a>
          </li>
-         <li class="bold"><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Busqueda de Fiel</a>
-         </li>
-         <li class="bold"><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-action-accessibility"></i>Registro de Fiel</a>
-         </li>
+
+             <li class="no-padding">
+                 <ul class="collapsible collapsible-accordion">
+                     <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-image-timer-auto"></i>Fieles</a>
+                         <div class="collapsible-body" style="">
+                             <ul>
+                                 <li><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Busqueda Fiel</a>
+                                 </li>
+                                 <li><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-action-accessibility"></i>Registro de Fiel</a>
+                                 </li>
+                                 <li><a href="<?php echo base_url(); ?>users/listFiel" class="waves-effect waves-cyan"><i class="mdi-social-people"></i>Lista de Fiel</a>
+                                 </li>
+                             </ul>
+                         </div>
+                     </li>
+                 </ul>
+             </li>
          <li class="no-padding">
              <ul class="collapsible collapsible-accordion">
                  <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canónico</a>
