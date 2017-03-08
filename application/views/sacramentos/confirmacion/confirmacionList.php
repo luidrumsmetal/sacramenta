@@ -118,9 +118,10 @@
                   </div>
                   <div class="modal-footer orange">
                       <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                      <button type="submit" name="action">Eliminar
-                          <i class="mdi-content-send right"></i>
+                    <button type="submit" name="action" class="btn cyan waves-effect waves-light right">Eliminar
+                          <i class="waves-effect waves-orange btn-flat modal-action modal-close"></i>
                       </button>
+
                   </div>
               </form>
           </div>

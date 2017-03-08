@@ -41,7 +41,7 @@
                                     <th data-field="nombre">Apellido Paterno</th>
                                     <th data-field="direccion">Apellido Materno</th>
                                     <th data-field="direccion">Nombres</th>
-                                    <th data-field="direccion">Fecha de Bautizo</th>
+                                    <th data-field="direccion">Fecha de Matrimonio</th>
                                     <th data-field="direccion">Genero</th>
                                     <th data-field="opciones">Opciones</th>
                                 </tr>
@@ -75,7 +75,7 @@
                                     <th data-field="nombre">Apellido Paterno</th>
                                     <th data-field="direccion">Apellido Materno</th>
                                     <th data-field="direccion">Nombres</th>
-                                    <th data-field="direccion">Fecha de Bautizo</th>
+                                    <th data-field="direccion">Fecha de Matrimonio</th>
                                     <th data-field="direccion">Genero</th>
                                     <th data-field="opciones">Opciones</th>
                                 </tr>
@@ -118,9 +118,10 @@
                     </div>
                     <div class="modal-footer orange">
                         <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                        <button G type="submit" name="action">Eliminar
-                          <i class="mdi-content-send right"></i>
+                    <button type="submit" name="action" class="btn cyan waves-effect waves-light right">Eliminar
+                          <i class="waves-effect waves-orange btn-flat modal-action modal-close"></i>
                       </button>
+
                     </div>
                 </form>
             </div>
