@@ -115,7 +115,7 @@
                   </div>
                   <div class="modal-footer orange">
                     <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                      <button G type="submit" name="action">Eliminar
+                      <button type="submit" name="action">Eliminar
                           <i class="mdi-content-send right"></i>
                       </button>
                   </div>

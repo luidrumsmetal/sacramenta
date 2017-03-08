@@ -256,7 +256,7 @@ class Baptism extends CI_Controller{
               }
               else
               {
-                  $this->session->set_flashdata('error','Error al actualizar datos del libro');
+                  $this->session->set_flashdata('success','no se actualizo datos del libro');
                   redirect(base_url() . 'baptism/listBaptism');
               }
           }

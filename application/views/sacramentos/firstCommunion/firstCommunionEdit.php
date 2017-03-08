@@ -2,7 +2,6 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-ui-1.9.2.custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
 <!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/prototype-1.6.0.2.js"></script>-->
-
 <section id = "content">
 		<div class="section">
       <div class="row">
@@ -40,14 +39,16 @@
                 </nav>
               <div class="card-panel">
                 <div class="row">
-                  <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>firstCommunion/FirstCommunionRegister">
+                  <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>firstCommunion/update">
                   <font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
 
                       <div class="row">
                         <div class="input-field col s12 m6 l12">
                             <i class="mdi-action-account-circle prefix"></i>
-                            <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text">
-                            <input id="feligres_id" name="feligres_id" type="hidden">                            
+                            <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text" value="<?php echo $get->Fiel?>" onclick="this.value=' '">
+                            <input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $get->idFiel?>">
+                            <input type="hidden" name="idCertificado" id="idCertificado" value="<?php echo $get->idCertificado  ?>">
+                            <input type="hidden" name="idSacramento" id="idSacramento" value="<?php echo $get->idSacramento  ?>">
                             <label for="feligres" class="active"><b>Feligrés (*)</b></label>
                         </div>
                        <!-- <div class="input-field col s6">
@@ -60,14 +61,14 @@
                       <div class="row">
                         <div class="input-field col s12 m6 l6">
                               <i class="mdi-action-event prefix"></i>
-                              <input placeholder="" id="fechacom" name="fechacom" type="date">
+                              <input placeholder="" id="fecha" name="fecha" type="date" value="<?php echo $get->fecha?>" onclick="this.value=' '">
                               <label for="first_name" class="active"><b>Fecha Comunión (*)</b></label>
                         </div>
 
                         <div class="input-field col s12 m6 l6">
                           <i class="mdi-action-home prefix"></i>
-                          <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text">
-                          <input id="parroquia_id" name="parroquia_id" type="hidden">
+                          <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" value="<?php echo $get->nombre ?>" onclick="this.value=' '">
+                          <input id="parroquia_id" name="parroquia_id" type="hidden"value="<?php echo $get->idParroquia?>">
                           <label for="parroquia" class="active"><b>Parroquia de registro (*)</b></label>
                         </div>
                     </div>
@@ -75,8 +76,8 @@
                     <div class="row">
                         <div class="input-field col s12 m6 l12">
                             <i class="mdi-action-room prefix"></i>
-                            <input placeholder="Ingrese lugar de Comunión" id="jurisdiccion" name="jurisdiccion" type="text">
-                            <input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden">                            
+                            <input placeholder="Ingrese lugar de Comunión" id="jurisdiccion" name="jurisdiccion" type="text" value="<?php echo $get->jurisdiccion?>" onclick="this.value=' '">
+                            <input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden" value="<?php echo $get->idJurisdiccion?>">
                             <label for="jurisdiccion" class="active"><b>Jurisdicción Eclesiástica (*)</b></label>
                         </div>
 
@@ -84,27 +85,28 @@
 
                   <font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
-                      <div class="input-field col s12 m6 l4">
+                        <input type="hidden" name="idLibro" value="<?php echo $get->idLibroParroquia?>">
+                        <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-book prefix"></i>
-                        <input placeholder="Ingrese libro de registro" id="libroOne" name="libroOne" type="text">
+                        <input placeholder="Ingrese libro de registro" id="libro" name="libro" type="text" value="<?php echo $get->libro ?>" onclick="this.value=' '">
                         <label for="libro" class="active"><b>Libro (*)</b></label>
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-find-in-page prefix"></i>
-                        <input placeholder="Ingrese número de página" id="paginaOne" name="paginaOne" type="text">
+                        <input placeholder="Ingrese número de página" id="pagina" name="pagina" type="text" value="<?php echo $get->pagina?>" onclick="this.value=' '">
                         <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
-                        <input placeholder="Ingrese número registro" id="numeroOne" name="numeroOne" type="text">
+                        <input placeholder="Ingrese número registro" id="numero" name="numero" type="text" value="<?php echo $get->numero?>" onclick="this.value=' '">
                         <label for="numero" class="active"><b>Número (*)</b></label>
                       </div>
                     </div>
                     <Br><BR>
                     <div class="row">
                         <div class="input-field col s12 m6 l6">
-                          <input type="submit" name="mit" class="btn waves-effect waves-light light-blue darken-4" value="Guardar">
-                          <button type="button" onclick="location.href='<?php echo site_url('baptism/listBaptism') ?>'" class="btn waves-effect waves-light  deep-purple">Cancelar</button>
+                            <input type="submit" name="mit" class="btn waves-effect waves-light light-blue darken-4" value="Guardar">
+                          <button type="button" onclick="location.href='<?php echo site_url('firstCommunion/listComunion') ?>'" class="btn waves-effect waves-light  deep-purple">Cancelar</button>
                         </div>
                     </div>
                     
