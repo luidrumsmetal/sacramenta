@@ -478,18 +478,28 @@ class Users extends CI_Controller{
   /// FIN -->
   }
 
+
+  function delete() {
+        $u = $this->input->post('id');
+        $this->Sacrament_model->delete($u);
+
+            $this->session->set_flashdata('success','Eliminacion completada');
+            redirect(base_url() .'baptism/listBaptism');
+    }
+
   function delete_user() {
-    $u = $this->uri->segment(3);
+    $u = $this->input->post('id');
     $this->Users_model->delete_user($u);
-    redirect('Users/listUser');
+    $this->session->set_flashdata('success','Eliminacion completada');
+            redirect(base_url() .'users/listUser');;
   }
 
   function delete_fiel() {
-    $u = $this->uri->segment(3);
+    $u = $this->input->post('id');
     $this->Users_model->delete_fiel($u);
-    redirect('Users/listFiel');
+    $this->session->set_flashdata('success','Eliminacion completada');
+            redirect(base_url() .'users/listFiel');;
   }
-
 
   function sacerdoteEdit() {
     if (!$this->session->userdata('nombre')) {

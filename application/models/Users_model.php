@@ -196,7 +196,7 @@ class Users_model extends CI_Model{
     $this->db->update('persona', $data);
   }
 
-  function delete_user($a) {
+  /*function delete_user($a) {
     $this->db->delete('users', array('id' => $a));
     return;
   }
@@ -204,7 +204,26 @@ class Users_model extends CI_Model{
   function delete_fiel($a) {
     $this->db->delete('persona', array('id' => $a));
     return;
-  }
+  }*/
+
+
+  function delete_user($a) {
+        $sql = "SET foreign_key_checks = 0";
+        $this->db->query($sql);
+        $this->db->delete('users', array('id' => $a));
+        $sql = "SET foreign_key_checks = 1";
+        $this->db->query($sql);
+
+    }
+
+    function delete_fiel($a) {
+        $sql = "SET foreign_key_checks = 0";
+        $this->db->query($sql);
+        $this->db->delete('persona', array('id' => $a));
+        $sql = "SET foreign_key_checks = 1";
+        $this->db->query($sql);
+
+    }
 
   function update($id) {
     $id = $this->input->post('id');
