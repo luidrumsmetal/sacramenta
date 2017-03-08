@@ -22,7 +22,13 @@
             </div>
         <?php } ?>
           <?php if (!$results){ ?>
-                        <h4 align="center">Lista de Fiel</h4>
+                 <nav class="amber darken-4">
+                  <div class="nav-wrapper">
+                    <div class="col s12">
+                    <h1 class="brand-logo center">Lista de Fieles</h1>
+                    </div>
+                  </div>
+                </nav>
 
 
           <div id="borderless-table">
@@ -50,10 +56,16 @@
 
             <div id="centered-table" class="col s10 m8 l9">
                 <div class="row">
-
                   <div class="col s12 m12 l12">
-                    <h4 align="left">Lista de Fieles</h4><hr><br>
-                    <table class="striped-table">
+                  <nav class="amber darken-4">
+                    <div class="nav-wrapper">
+                    <div class="col s12">
+                    <h1 class="brand-logo center">Lista de Fieles</h1>
+                    </div>
+                    </div>
+                  </nav>
+                    <h4 align="left"></h4><hr><br>
+                    <table class="bordered striped">
                       <thead>
                         <tr>
                           <th data-field="id">#</th>
@@ -95,8 +107,7 @@
                   </div>
                 </div>
             </div>
-            <?php } ?>
-            <?php echo $this->pagination->create_links();?>
+            
 
               <div id="modal1" class="modal">
                 <form action="<?php echo base_url(); ?>Users/delete_fiel" method="post">
@@ -113,6 +124,9 @@
                   </div>
                 </form>
               </div>
+
+              <?php } ?>
+            <?php echo $this->pagination->create_links();?>
       </div>
     </div>
 </section>
