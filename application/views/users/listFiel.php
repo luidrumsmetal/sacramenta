@@ -99,18 +99,32 @@
             <?php echo $this->pagination->create_links();?>
 
               <div id="modal1" class="modal">
-                <form action="<?php echo base_url(); ?>Users/delete_user" method="post">
-                  <div class="modal-content">
+                <form action="<?php echo base_url(); ?>Users/delete_fiel" method="post">
+                  <div class="modal-content">x
                     <h4 align="center">Eliminar Usuario</h4>
                       <input type="hidden" id="id" name="id" value="" />
                       <h6 style="text-align: center">¿Realmente desea eliminar este usuario?</h6>
                   </div>
                   <div class="modal-footer orange">
                     <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                    <a href="<?php echo site_url('Users/delete_user/' .$r->id); ?>" class="waves-effect waves-red btn-flat modal-action modal-close">Elminar</a>
+                    <button G type="submit" name="action">Eliminar
+                          <i class="mdi-content-send right"></i>
+                      </button>
                   </div>
                 </form>
               </div>
       </div>
     </div>
 </section>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(document).on('click', 'a', function(event) {
+            var cliente = $(this).attr('cliente');
+            $('#id').val(cliente);
+
+        });
+
+    });
+
+</script>

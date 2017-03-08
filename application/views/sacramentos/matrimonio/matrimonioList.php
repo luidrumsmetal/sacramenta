@@ -110,18 +110,32 @@
             <?php echo $this->pagination->create_links();?>
 
             <div id="modal1" class="modal">
-                <form action="<?php echo base_url(); ?>jurisdiccion/delete" method="post">
+                <form action="<?php echo base_url(); ?>matrimonio/delete" method="post">
                     <div class="modal-content">
                         <h4 align="center">Eliminar Parroquia</h4>
-                        <input type="hidden" id="idParroquia" name="idParroquia" value="" />
+                        <input type="hidden" id="idCertificado" name="id" value="" />
                         <h6 style="text-align: center">¿Desea eliminar esta parroquia?</h6>
                     </div>
                     <div class="modal-footer orange">
                         <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                        <a href="<?php echo site_url('jurisdiccion/delete/' .$r->idParroquia); ?>" class="waves-effect waves-red btn-flat modal-action modal-close">Elminar</a>
+                        <button G type="submit" name="action">Eliminar
+                          <i class="mdi-content-send right"></i>
+                      </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(document).on('click', 'a', function(event) {
+            var cliente = $(this).attr('cliente');
+            $('#idCertificado').val(cliente);
+
+        });
+
+    });
+
+</script>
