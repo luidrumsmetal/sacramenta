@@ -100,7 +100,7 @@ class Baptism extends CI_Controller{
     $this->form_validation->set_rules('parroquia_id', 'Parroquia', 'trim|required|xss_clean');
     $this->form_validation->set_rules('jurisdiccion_id', 'jurisdiccion', 'trim|required|xss_clean');
     $this->form_validation->set_rules('sacerdoteCelebrante_id', 'Sacerdote Celebrante', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('sacerdoteCert ificador_id', 'Sacerdote Certificante', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('sacerdoteCertificador_id', 'Sacerdote Certificante', 'trim|required|xss_clean');
     $this->form_validation->set_rules('libroOne', 'Libro', 'trim|required|xss_clean');
     $this->form_validation->set_rules('paginaOne', 'Pagina', 'trim|required|xss_clean');
     $this->form_validation->set_rules('numeroOne', 'Numero', 'trim|required|xss_clean');
