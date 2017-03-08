@@ -119,14 +119,14 @@
 
              <li class="no-padding">
                  <ul class="collapsible collapsible-accordion">
-                     <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-image-timer-auto"></i>Fieles</a>
+                     <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-social-group"></i>Fieles</a>
                          <div class="collapsible-body" style="">
                              <ul>
-                                 <li><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Busqueda Fiel</a>
+                                 <li><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-social-person-add"></i>Registro de Fiel</a>
+                                 </li>                            
+                                 <li><a href="<?php echo base_url(); ?>faithful/faithfulList" class="waves-effect waves-cyan"><i class="mdi-action-search"></i>Busqueda Fiel</a>
                                  </li>
-                                 <li><a href="<?php echo base_url(); ?>users/faithfulRegister" class="waves-effect waves-cyan"><i class="mdi-action-accessibility"></i>Registro de Fiel</a>
-                                 </li>
-                                 <li><a href="<?php echo base_url(); ?>users/listFiel" class="waves-effect waves-cyan"><i class="mdi-social-people"></i>Lista de Fiel</a>
+                                 <li><a href="<?php echo base_url(); ?>users/listFiel" class="waves-effect waves-cyan"><i class="mdi-content-content-paste"></i>Lista de Fiel</a>
                                  </li>
                              </ul>
                          </div>
@@ -135,7 +135,7 @@
              </li>
          <li class="no-padding">
              <ul class="collapsible collapsible-accordion">
-                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Registro Canónico</a>
+                 <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-file-folder-shared"></i> Registro Canónico</a>
                      <div class="collapsible-body" style="">
                          <ul>
                              <li><a href="<?php echo base_url(); ?>baptism/baptismCreate"><i class=" mdi-editor-format-color-fill"></i>Bautizo</a>
