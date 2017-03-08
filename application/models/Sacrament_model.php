@@ -37,10 +37,26 @@ class Sacrament_model extends CI_Model{
       return $this->db->get()->row();
   }
 
-  function update($table,$condicion, $idCertificado, $data) {
-    $this->db->where($condicion, $idCertificado);
+  function update($table,$condicion, $data) {
+    $this->db->where($condicion);
     $this->db->update($table, $data);
+      if ($this->db->affected_rows() > 0)
+      {
+          return TRUE;
+      }
+      else
+      {
+          return FALSE;
+      }
   }
+    function delete($a) {
+        $sql = "SET foreign_key_checks = 0";
+        $this->db->query($sql);
+        $this->db->delete('certificado', array('idCertificado' => $a));
+        $sql = "SET foreign_key_checks = 1";
+        $this->db->query($sql);
+
+    }
 
   public function getCertificate($persona_id,$fecha)
   {
