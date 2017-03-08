@@ -212,9 +212,9 @@ class Users extends CI_Controller{
     $this->form_validation->set_rules('fechanac', 'Fecha nacimineto', 'trim|required|xss_clean');
     $this->form_validation->set_rules('genero', 'Genero', 'trim|required|xss_clean');
     $this->form_validation->set_rules('procedencia', 'Procedencia', 'trim|required|xss_clean');
-  /*  $this->form_validation->set_rules('orc', 'Oficialía de registro civil', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('orc', 'Oficialía de registro civil', 'trim|required|xss_clean');
     $this->form_validation->set_rules('libro', 'Libro', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('partida', 'Partida', 'trim|required|xss_clean');*/
+    $this->form_validation->set_rules('partida', 'Partida', 'trim|required|xss_clean');
     $this->form_validation->set_message('required', 'El %s es importante');
     if ($this->form_validation->run()==false) {
         $this->session->set_flashdata('error','Ingrese correctamente los datos');
