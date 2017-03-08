@@ -48,14 +48,14 @@
                         <i class="mdi-action-account-circle prefix"></i>
                         <input placeholder="Apellidos y nombres del Esposo" id="esposo" name="esposo" type="text" value="<?php echo $get->Esposo?>" onclick="this.value=' '"><div id="msgUsuario"></div>
                         <input type="hidden" name="idCertificado" id="idCertificado" value="<?php echo $get->idCertificado  ?>">
-                        <input id="esposo_id" name="esposo_id" type="hidden" value="<?php echo $get->idFiel  ?>">
+                        <input id="esposo_id" name="esposo_id" type="hidden" value="<?php echo $get->esposo_id  ?>">
                         <label for="esposo" class="active"><b>Nombre completo Esposo(*)</b></label>
                       </div>
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-account-circle prefix"></i>
                         <input placeholder="Apellidos y nombres de la Esposa" id="esposa" name="esposa" type="text" value="<?php echo $get->Esposa?>" onclick="this.value=' '"><div id="msgUsuario"></div>
                         <input type="hidden" name="idCertificado" id="idCertificado" value="<?php echo $get->idCertificado  ?>">
-                        <input id="esposa_id" name="esposa_id" type="hidden" value="<?php echo $get->esposa_id  ?>">
+                        <input id="esposa_id" name="esposa_id" type="hidden" value="<?php echo $get->idFiel  ?>">
                         <label for="esposa" class="active"><b>Nombre completo Esposa(*)</b></label>
                       </div>                      
                     </div>

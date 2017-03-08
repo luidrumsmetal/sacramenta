@@ -334,7 +334,7 @@ class Matrimonio extends CI_Controller{
     $uri = $this->uri->segment(3);
       $data['title'] = 'Lista de Matrimonios';
      $data['get'] = $this->Sacrament_model->editMatrimonio($uri);
-         #echo $data['get'].'<br>';
+     echo $data['get'].'<br>';
     # print_r($data['get']);
         $this->load->view('template/header',$data);
         $this->load->view('sacramentos/matrimonio/matrimonioEdit', $data);
