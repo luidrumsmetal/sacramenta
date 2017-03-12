@@ -27,7 +27,7 @@
               </button>
             </div>
         <?php } ?>
-			</div>
+	</div>
             <div class="col s12">
                 
                 <nav class="amber darken-4">
@@ -40,8 +40,7 @@
               <div class="card-panel">
                 <h4 class="header2"><b>Información General</b></h4><br>
                 <div class="row">
-                  <?php echo form_open('Users/update_user', 'role="form"', 'method=post'); ?>
-
+                  <?php echo form_open('users/update_user', 'role="form"', 'method=post'); ?>
                     <div class="row">
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-social-person-outline prefix"></i>
@@ -129,14 +128,13 @@
                       </div>
                     </div><br>
 
-
-
                     <div class="row">
                         <div class="input-field col s7">
                         <input type="hidden" name="id" id="id" value="<?php echo $get->id ?>" />
                         <input type="hidden" name="idCuenta" id="idCuenta" value="<?php echo $get->idCuenta ?>" />
-                          <input type="submit" name="mit" class="btn btn-primary" value="Guardar">
-                          <button type="button" onclick="location.href='<?php echo site_url('editar') ?>'" class="btn btn-danger">Volver Atras<i class="mdi-content-send right"></i></button>
+                          <button type="submit" name="mit" class="btn cyan waves-effect waves-light" >Guardar
+                          </button>
+                          <button type="button" onclick="location.href='<?php echo site_url('users/listUser') ?>'" class="btn btn-danger">Volver Atras<i class="mdi-content-send right"></i></button>
                         </div>
                     </div>
                 </div>

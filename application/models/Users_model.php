@@ -134,43 +134,17 @@ class Users_model extends CI_Model{
       return $this->db->get()->row();
   }
 
-  function update_user($id) {
-
-    $id = $this->input->post('id');
-    $apellidoPaterno = $this->input->post('apellidoPaterno');
-    $apellidoMaterno = $this->input->post('apellidoMaterno');
-    $nombres = $this->input->post('nombres');
-    $ci = $this->input->post('ci');
-    $fechaNacimiento = $this->input->post('fechanac');
-    $celular = $this->input->post('celular');
-    $facebook = $this->input->post('facebook');
-    $genero = $this->input->post('genero');
-    $idCuenta = $this->input->post('idCuenta');
-    $email = $this->input->post('email');
-    $password = $this->input->post('password');
-    $tipoUsuario = $this->input->post('tipoUsuario');
-
-    $data1 = array(
-      'email' => $email,
-      'password' => $password,
-      'tipoUsuario' => $tipoUsuario
-    );
-    $this->db->where('id', $id);
-    $this->db->update('users', $data1);
-
-    $data = array(
-      'apellidoPaterno' => $apellidoPaterno,
-      'apellidoMaterno' => $apellidoMaterno,
-      'nombres' => $nombres,
-      'ci' => $ci,
-      'fechaNacimiento' => $fechaNacimiento,
-      'celular' => $celular,
-      'facebook' => $facebook,
-      'genero' => $genero
-    );
-    $this->db->where('idCuenta', $id);
-    $this->db->update('cuenta', $data);
-    
+  function update_user($table,$condicion,$data) {
+      $this->db->where($condicion);
+      $this->db->update($table, $data);
+      if ($this->db->affected_rows() > 0)
+      {
+          return TRUE;
+      }
+      else
+      {
+          return FALSE;
+      }
 
   }
 
@@ -429,18 +403,15 @@ class Users_model extends CI_Model{
         $result =  !$one  ? $query->result() : $query->row();
         return $result;
     }
-    function listGetUser($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array')
+    function listGetUser($table,$perpage)
     {
-        $this->db->select($fields);
+        $this->db->select('*');
         $this->db->from($table);
         $this->db->order_by('id','asc');
-        $this->db->limit($perpage,$start);
-        if($where){
-            $this->db->where($where);
-        }
-        $query = $this->db->get();
-        $result =  !$one  ? $query->result() : $query->row();
-        return $result;
+        $this->db->limit($perpage);
+        $this->db->join('cuenta', 'cuenta.idCuenta = users.cuenta_id');
+        $query = $this->db->get()->result();
+        return $query;
     }
 
 
