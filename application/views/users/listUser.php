@@ -5,6 +5,7 @@
             <div id="card-alert" class="card red">
               <div class="card-content white-text">
                 <p><?php echo $this->session->flashdata('error') ?></p>
+                  <p>     <?php echo validation_errors();?></p>
               </div>
               <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
@@ -21,7 +22,9 @@
               </button>
             </div>
         <?php } ?>
+
           <?php if (!$results){ ?>
+
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
                     <div class="col s12">
@@ -68,11 +71,11 @@
                       </div>
                     </div>
                   </nav>
-                <h4 align="left"></h4><hr><br>
+                    <h4 align="left"></h4><hr><br>
                     <table class="bordered striped">
                       <thead>
                         <tr>
-                          <!--<th data-field="id">#</th>-->
+                          <th data-field="id">#</th>
                           <th data-field="ci">CI</th>
                           <th data-field="nombre">Nombre</th>
                           <th data-field="apellido">Apellido</th>
@@ -85,35 +88,30 @@
                       <tbody>
                         <?php foreach ($results as $r) {
                             echo '<tr>';
-                            #echo '<td>'.$r->id.'</td>';
+                            echo '<td>'.$r->id.'</td>';
                             echo '<td>'.$r->ci.'</td>';
                             echo '<td>'.$r->nombres.'</td>';
                             echo '<td>'.$r->apellidoPaterno.' '.$r->apellidoMaterno.'</td>';
                             echo '<td>'.$r->tipoUsuario.'</td>';
                             echo '<td>'.$r->email.'</td>';
                             echo '<td>';
-
-                echo '<a href="'.base_url().'users/edit_user/'.$r->id.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" 
-                  title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
-          
-                echo '<a href="#modal1" cliente="'.$r->id.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red 
-                  darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
-          #  }
-
-
-            echo '</td>';
+                            echo '<a href="'.base_url().'users/edit_user/'.$r->id.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" 
+                              title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
+                            echo '<a href="#modal1" cliente="'.$r->id.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red 
+                              darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
+                            echo '</td>';
                             echo '</tr>';
                         }?>
                       </tbody>
                     </table>
-                  </div>
                 </div>
             </div>
             <?php } ?>
+
             <?php echo $this->pagination->create_links();?>
 
               <div id="modal1" class="modal">
-                <form action="<?php echo base_url(); ?>Users/delete_user" method="post">
+                <form action="<?php echo base_url(); ?>users/delete_user" method="post">
                   <div class="modal-content">x
                     <h4 align="center">Eliminar Usuario</h4>
                       <input type="hidden" id="id" name="id" value="" />
@@ -128,20 +126,15 @@
                 </form>
               </div>
 
-
-
       </div>
     </div>
 </section>
 <script type="text/javascript">
     $(document).ready(function(){
-
         $(document).on('click', 'a', function(event) {
             var cliente = $(this).attr('cliente');
             $('#id').val(cliente);
 
         });
-
     });
-
 </script>
