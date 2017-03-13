@@ -5,6 +5,7 @@
             <div id="card-alert" class="card red">
               <div class="card-content white-text">
                 <p><?php echo $this->session->flashdata('error') ?></p>
+                  <p>     <?php echo validation_errors();?></p>
               </div>
               <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
@@ -21,7 +22,9 @@
               </button>
             </div>
         <?php } ?>
+
           <?php if (!$results){ ?>
+
                 <nav class="amber darken-4">
                   <div class="nav-wrapper">
                     <div class="col s12">
@@ -72,7 +75,7 @@
                     <table class="bordered striped">
                       <thead>
                         <tr>
-                          <!--<th data-field="id">#</th>-->
+                          <th data-field="id">#</th>
                           <th data-field="ci">CI</th>
                           <th data-field="nombre">Nombre</th>
                           <th data-field="apellido">Apellido</th>
@@ -85,7 +88,7 @@
                       <tbody>
                         <?php foreach ($results as $r) {
                             echo '<tr>';
-                            #echo '<td>'.$r->id.'</td>';
+                            echo '<td>'.$r->id.'</td>';
                             echo '<td>'.$r->ci.'</td>';
                             echo '<td>'.$r->nombres.'</td>';
                             echo '<td>'.$r->apellidoPaterno.' '.$r->apellidoMaterno.'</td>';

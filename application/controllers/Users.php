@@ -155,7 +155,7 @@ class Users extends CI_Controller{
   }
 
 
-  function listUser($offset = NULL)
+  function listUser()
   {
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
@@ -169,9 +169,7 @@ class Users extends CI_Controller{
           redirect(base_url().'home');
         }
     }
-    $data['title'] = 'Lista de Usuarios';
-    $this->load->library('table');
-    $this->load->library('pagination');
+
 
         $config['base_url'] = base_url().'users/listUser';
         $config['total_rows'] = $this->Users_model->count_user('users');
@@ -188,15 +186,18 @@ class Users extends CI_Controller{
         $config['prev_tag_close'] = '</li>';
         $config['next_tag_open'] = '<li>';
         $config['next_tag_close'] = '</li>';
-        $config['first_link'] = 'Primeira';
+        $config['first_link'] = 'Primera';
         $config['last_link'] = 'Última';
         $config['first_tag_open'] = '<li>';
         $config['first_tag_close'] = '</li>';
         $config['last_tag_open'] = '<li>';
         $config['last_tag_close'] = '</li>';
-
+      $data['title'] = 'Lista de Usuarios';
+      $this->load->library('table');
+      $this->load->library('pagination');
     $this->pagination->initialize($config);
-    $data['results']= $this->Users_model->listGetUser('users, cuenta',' id, ci, nombres, apellidoPaterno,apellidoMaterno, tipoUsuario, cuenta_id, email','cuenta_id = idCuenta',$config['per_page'],$this->uri->segment(3));
+    #$data['results']= $this->Users_model->listGetUser('users, cuenta',' id, ci, nombres, apellidoPaterno,apellidoMaterno, tipoUsuario, cuenta_id, email','cuenta_id = idCuenta',$config['per_page'],$this->uri->segment(3));
+    $data['results']= $this->Users_model->listGetUser('users',$config['per_page']);
     $this->load->view('template/header',$data);
     $this->load->view('users/listUser',$data);
     $this->load->view('template/footer');
@@ -384,25 +385,42 @@ class Users extends CI_Controller{
           $ci = $this->input->post('ci');
           $personWithCi = $this->Users_model->getId($ci);
           $persona_id = $personWithCi->idCuenta;
+            $tipoUsuario = $this->input->post('tipoUsuario');
             $data = array(
               'email' => $this->input->post('email'),
               'password' => $this->input->post('password'),
-              'tipoUsuario' => $this->input->post('tipoUsuario'),
+              'tipoUsuario' => $tipoUsuario,
               'cuenta_id' => $persona_id
             );
             if ($this->Users_model->usersRegister('users', $data) == TRUE) {
-              $this->session->set_flashdata('success ','Fiel Registrado correctamente!');
+                if($tipoUsuario == 'sacerdote'){
+                    $data = array(
+                        'persona_id' => $persona_id,
+                        'tipoSacerdote_id' => 1
+                    );
+                    if($this->Users_model->usersRegister('sacerdote',$data) == TRUE)
+                    {
+                        $this->session->set_flashdata('success','Se registro correctamente la cuenta');
+                        redirect(base_url() . 'users/usuarioRegister');
+                    }
+                    else
+                    {
+                        $this->session->set_flashdata('error','Error al registrar su informacion de la cuenta');
+                        redirect(base_url() . 'users/usuarioRegister');
+                    }
+                }
+              $this->session->set_flashdata('success','Fiel Registrado correctamente!');
               redirect(base_url() . 'users/usuarioRegister');
             }
             else
             {
-              $this->session->set_flashdata('error ','Error al registrar su informacion de la cuenta');
+              $this->session->set_flashdata('error','Error al registrar su informacion de la cuenta');
               redirect(base_url() . 'users/usuarioRegister');
             }
         }
         else
         {
-          $this->session->set_flashdata('error ','Error al registrar su informacion personal');
+          $this->session->set_flashdata('error','Error al registrar su informacion personal');
           redirect(base_url() . 'users/usuarioRegister');
         }
     }
@@ -449,22 +467,84 @@ class Users extends CI_Controller{
       $data1['title'] = 'Editar Usuario';
      $data['get'] = $this->Users_model->editUser($uri);
          #echo $data['get'].'<br>';
-    # print_r($data['get']);
+     # print_r($data['get']);
         $this->load->view('template/header',$data1);
         $this->load->view('users/usuarioEdit', $data);
         $this->load->view('template/footer');
   }
 
   function update_user() {
-    if ($this->input->post('mit')) {
 
+      /*echo $id = $this->input->post('id').'/';
+      echo '<br>'.$idCuenta = $this->input->post('idCuenta').'/';
+      echo '<br>'.$ci = $this->input->post('ci').'/';
+      echo '<br>'.$apellidoPaterno = $this->input->post('apellidoPaterno').'/';
+      echo  '<br>'.$apellidoMaterno = $this->input->post('apellidoMaterno').'/';
+      echo  '<br>'. $nombres = $this->input->post('nombres').'/';
+      echo '<br>'.$celular = $this->input->post('celular').'/';
+      echo  '<br>'.$facebook = $this->input->post('facebook').'/';
+      echo  '<br>'.$fechanacimiento = $this->input->post('fechanac').'/';
+      echo  '<br>'.$genero = $this->input->post('genero').'/';
+      echo  '<br>'.$email = $this->input->post('email').'/';
+      echo  '<br>'.$password = $this->input->post('password').'/';
+      echo  '<br>'.$tipoUsuario = $this->input->post('tipoUsuario').'/';*/
+      $data['title'] = 'Editar Usuario';
+      $this->form_validation->set_rules('apellidoPaterno', 'Apellido Paterno', 'trim|xss_clean');
+      $this->form_validation->set_rules('apellidoMaterno', 'Apellido Materno', 'trim|xss_clean');
+      $this->form_validation->set_rules('nombres', 'Nombres', 'required|trim|xss_clean');
+      $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|xss_clean');
+      $this->form_validation->set_rules('celular', 'Celular', 'trim|xss_clean');
+      $this->form_validation->set_rules('facebook', 'Facebook', 'trim|xss_clean');
+      $this->form_validation->set_rules('fechanac', 'Fecha nacimineto', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('genero', 'Genero', 'trim|required|xss_clean');
+      $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[5]|max_length[50]|valid_email|xss_clean');
+      $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[5]|max_length[18]|xss_clean');
+      $this->form_validation->set_rules('tipoUsuario', 'Tipo Usuario', 'trim|xss_clean');
+      //$this->form_validation->set_message('required', 'El %s es importante');
       $id = $this->input->post('id');
-      $this->Users_model->update_user($id);
+      $idCuenta = $this->input->post('idCuenta');
+      $data['get'] =  $apellidoPaterno = $this->input->post('apellidoPaterno');
+        if ($this->form_validation->run() == false)
+        {
+            $this->session->set_flashdata('error', validation_errors());
+            redirect('users/edit_user/'.$id);
+        }
+        else
+        {
 
-      redirect('Users/listUser');
-    } else{
-      redirect('Users/edit_user/'.$id);
-    }
+          $ci = $this->input->post('ci');
+          $apellidoPaterno = $this->input->post('apellidoPaterno');
+          $apellidoMaterno = $this->input->post('apellidoMaterno');
+          $nombres = $this->input->post('nombres');
+          $celular = $this->input->post('celular');
+          $facebook = $this->input->post('facebook');
+          $fechanacimiento = $this->input->post('fechanac');
+          $genero = $this->input->post('genero');
+          $email = $this->input->post('email');
+          $password = $this->input->post('password');
+          $tipoUsuario = $this->input->post('tipoUsuario');
+
+            $data = array(
+                'email' => $email,
+                'password' => $password,
+                'tipoUsuario' => $tipoUsuario
+            );
+            $this->Users_model->update_user('users',['id' => $id] ,$data);
+
+            $data = array(
+                'apellidoPaterno' => $apellidoPaterno,
+                'apellidoMaterno' => $apellidoMaterno,
+                'nombres' => $nombres,
+                'ci' => $ci,
+                'fechaNacimiento' => $fechanacimiento,
+                'celular' => $celular,
+                'facebook' => $facebook,
+                'genero' => $genero
+            );
+            $this->Users_model->update_user('cuenta',['idCuenta' => $idCuenta] ,$data);
+            redirect('Users/listUser');
+        }
+
   /// FIN -->
   }
 
