@@ -170,34 +170,35 @@ class Users extends CI_Controller{
         }
     }
 
-
-        $config['base_url'] = base_url().'users/listUser';
-        $config['total_rows'] = $this->Users_model->count_user('users');
-        $config['per_page'] = 10;
-        $config['next_link'] = 'Próxima';
-        $config['prev_link'] = 'Anterior';
-        $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
-        $config['full_tag_close'] = '</ul></div>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li><a style="color: #2D335B"><b>';
-        $config['cur_tag_close'] = '</b></a></li>';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['first_link'] = 'Primera';
-        $config['last_link'] = 'Última';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
       $data['title'] = 'Lista de Usuarios';
       $this->load->library('table');
       $this->load->library('pagination');
+
+        $config['base_url'] = base_url().'users/listUser';
+        $config['total_rows'] = $this->Users_model->count_user('users');
+      $config['per_page'] = 15;
+      $config['next_link'] = 'Próxima';
+      $config['prev_link'] = 'Anterior';
+      $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
+      $config['full_tag_close'] = '</ul></div>';
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
+      $config['cur_tag_open'] = '<li><a style="color: #2D335B"><b>';
+      $config['cur_tag_close'] = '</b></a></li>';
+      $config['prev_tag_open'] = '<li>';
+      $config['prev_tag_close'] = '</li>';
+      $config['next_tag_open'] = '<li>';
+      $config['next_tag_close'] = '</li>';
+      $config['first_link'] = 'Primeira';
+      $config['last_link'] = 'Última';
+      $config['first_tag_open'] = '<li>';
+      $config['first_tag_close'] = '</li>';
+      $config['last_tag_open'] = '<li>';
+      $config['last_tag_close'] = '</li>';
+
     $this->pagination->initialize($config);
-    #$data['results']= $this->Users_model->listGetUser('users, cuenta',' id, ci, nombres, apellidoPaterno,apellidoMaterno, tipoUsuario, cuenta_id, email','cuenta_id = idCuenta',$config['per_page'],$this->uri->segment(3));
-    $data['results']= $this->Users_model->listGetUser('users',$config['per_page']);
+    $data['results']= $this->Users_model->listGetUser('users, cuenta',' id, ci, nombres, apellidoPaterno,apellidoMaterno, tipoUsuario, cuenta_id, email','cuenta_id = idCuenta',$config['per_page'],$this->uri->segment(3));
+    #$data['results']= $this->Users_model->listGetUser('users',$config['per_page']);
     $this->load->view('template/header',$data);
     $this->load->view('users/listUser',$data);
     $this->load->view('template/footer');

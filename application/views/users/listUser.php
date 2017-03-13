@@ -71,7 +71,7 @@
                       </div>
                     </div>
                   </nav>
-                <h4 align="left"></h4><hr><br>
+                    <h4 align="left"></h4><hr><br>
                     <table class="bordered striped">
                       <thead>
                         <tr>
@@ -95,28 +95,23 @@
                             echo '<td>'.$r->tipoUsuario.'</td>';
                             echo '<td>'.$r->email.'</td>';
                             echo '<td>';
-
-                echo '<a href="'.base_url().'users/edit_user/'.$r->id.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" 
-                  title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
-          
-                echo '<a href="#modal1" cliente="'.$r->id.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red 
-                  darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
-          #  }
-
-
-            echo '</td>';
+                            echo '<a href="'.base_url().'users/edit_user/'.$r->id.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" 
+                              title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
+                            echo '<a href="#modal1" cliente="'.$r->id.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red 
+                              darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
+                            echo '</td>';
                             echo '</tr>';
                         }?>
                       </tbody>
                     </table>
-                  </div>
                 </div>
             </div>
             <?php } ?>
+
             <?php echo $this->pagination->create_links();?>
 
               <div id="modal1" class="modal">
-                <form action="<?php echo base_url(); ?>Users/delete_user" method="post">
+                <form action="<?php echo base_url(); ?>users/delete_user" method="post">
                   <div class="modal-content">x
                     <h4 align="center">Eliminar Usuario</h4>
                       <input type="hidden" id="id" name="id" value="" />
@@ -131,20 +126,15 @@
                 </form>
               </div>
 
-
-
       </div>
     </div>
 </section>
 <script type="text/javascript">
     $(document).ready(function(){
-
         $(document).on('click', 'a', function(event) {
             var cliente = $(this).attr('cliente');
             $('#id').val(cliente);
 
         });
-
     });
-
 </script>
