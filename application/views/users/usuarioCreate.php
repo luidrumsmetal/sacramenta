@@ -97,9 +97,9 @@
 
                       <div class="input-field col s11 m5 l6">
                         <select id="genero" name="genero">
-                          <option value="" disabled selected>&nbsp&nbspSeleccione un género</option>
-                        <option value="1">Masculino</option>
-                          <option value="2">Femenino</option>
+                          <option value="" disabled selected>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSeleccione un género</option>
+                        <option value="1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMasculino</option>
+                          <option value="2">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFemenino</option>
                         </select>
                         <label><b>&nbsp&nbsp&nbsp&nbsp&nbspGénero: </b></label>
                       </div>
