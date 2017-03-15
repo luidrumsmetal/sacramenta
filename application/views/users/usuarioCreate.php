@@ -130,12 +130,12 @@
 
                         <div class="input-field col s11 m5 l6">
                           <select id="tipoUsuario" name="tipoUsuario" value='<?php echo set_value('tipoUsuario') ?>'>
-                              <option value="" disabled selected> <b>&nbsp&nbspSeleccione un Tipo de Usuario</b></option>
+                              <option value="" disabled selected> <b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSeleccione un Tipo de Usuario</b></option>
 
-                            <option value="administrador">Administrador</option>
-                            <option value="sacerdote">Sacerdote</option>
+                            <option value="administrador">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAdministrador</option>
+                            <option value="sacerdote">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSacerdote</option>
                           </select>
-                        <label><b>Tipo Usuario: </b></label>
+                        <label><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTipo Usuario: </b></label>
                       </div>
                     </div><br>
 
