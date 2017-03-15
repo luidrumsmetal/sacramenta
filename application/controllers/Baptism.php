@@ -208,11 +208,11 @@ class Baptism extends CI_Controller{
       $this->form_validation->set_rules('libro', 'Libro', 'trim|required|xss_clean');
       $this->form_validation->set_rules('pagina', 'Pagina', 'trim|required|xss_clean');
       $this->form_validation->set_rules('numero', 'Numero', 'trim|required|xss_clean');
-
+        $idCertificado = $this->input->post('idCertificado');
       if($this->form_validation->run() == FALSE)
       {
-          $this->session->set_flashdata('error', 'Ingrese correctamente los datos #Error');
-          redirect(base_url().'baptism/listBaptism');
+          $this->session->set_flashdata('error', validation_errors());
+          redirect(base_url().'baptism/edit'.$idCertificado);
       }
       else
       {
