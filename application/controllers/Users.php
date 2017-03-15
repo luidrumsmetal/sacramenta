@@ -127,7 +127,7 @@ class Users extends CI_Controller{
 
         $config['base_url'] = base_url().'users/listSacerdote';
         $config['total_rows'] = $this->Users_model->count('users');
-        $config['per_page'] = 10;
+        $config['per_page'] = 1;
         $config['next_link'] = 'Próxima';
         $config['prev_link'] = 'Anterior';
         $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
