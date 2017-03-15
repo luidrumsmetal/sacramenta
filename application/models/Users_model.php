@@ -403,15 +403,18 @@ class Users_model extends CI_Model{
         $result =  !$one  ? $query->result() : $query->row();
         return $result;
     }
-    function listGetUser($table,$perpage)
+    function listGetUser($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array')
     {
-        $this->db->select('*');
+        $this->db->select($fields);
         $this->db->from($table);
         $this->db->order_by('id','asc');
-        $this->db->limit($perpage);
-        $this->db->join('cuenta', 'cuenta.idCuenta = users.cuenta_id');
-        $query = $this->db->get()->result();
-        return $query;
+        $this->db->limit($perpage,$start);
+        if($where){
+            $this->db->where($where);
+        }
+        $query = $this->db->get();
+        $result =  !$one  ? $query->result() : $query->row();
+        return $result;
     }
 
     function listGetFiel($table,$perpage)

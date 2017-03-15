@@ -139,7 +139,6 @@
 
         });
     });
-
 </script>-->
 <section id = "content">
     <div class="section">
@@ -190,7 +189,7 @@
                                     echo '</td>';
                                     echo '</tr>';
                                 }?>
-                                <?php echo $this->pagination->create_links();?>
+                                <?php echo $this->pagination->create_links();?>*/
                             </tbody>
                         </table>
                     </div>
@@ -199,7 +198,6 @@
         </div>
     </div>
 </section>
-
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/demo/js/plugins/data-tables/data-tables-script.js"></script>
