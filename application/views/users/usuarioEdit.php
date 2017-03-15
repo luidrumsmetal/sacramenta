@@ -86,17 +86,17 @@
                       </div>
                     </div>
                       <div class="row">
-                         <!-- <div class="input-field col s1 m1 ">
-                              <i class="mdi-action-account-circle prefix"></i>
-                          </div>-->
+                      <div class="input-field col s0">
+                        <i class="mdi-social-group prefix"></i>&nbsp &nbsp
+                      </div>
                           <div class="input-field col s11 m5 l6">
 
                           <select id="genero" name="genero">
-                              <option value="<?php echo $get->genero ?>"><?php echo $get->genero ?></option>
-                              <option value="1">Masculino</option>
-                              <option value="2">Femenino</option>
+                              <option value="<?php echo $get->genero ?>">&nbsp&nbsp&nbsp&nbsp <?php echo $get->genero ?></option>
+                              <option value="1">&nbsp&nbsp&nbsp&nbspMasculino</option>
+                              <option value="2">&nbsp&nbsp&nbsp&nbspFemenino</option>
                           </select>
-                          <label>Genero: </label>
+                          <label>&nbsp&nbsp&nbsp<b>Género: </b></label>
                           </div>
                        </div>
                     <br>
@@ -117,24 +117,26 @@
                     </div>
                     
                     <div class="row">
-
+                      <div class="input-field col s0">
+                        <i class="mdi-social-person prefix"></i>&nbsp &nbsp
+                      </div>
                         <div class="input-field col s11 m5 l6">
                           <select id="tipoUsuario" name="tipoUsuario" required="required" >
-                              <option value="<?php echo $get->tipoUsuario ?>"> <b><?php echo $get->tipoUsuario ?></b></option>
-                            <option value="administrador">Administrador</option>
-                            <option value="sacerdote">Sacerdote</option>
+                              <option value="<?php echo $get->tipoUsuario ?>"> <b>&nbsp&nbsp&nbsp&nbsp<?php echo $get->tipoUsuario ?></b></option>
+                            <option value="administrador">&nbsp&nbsp&nbsp&nbspAdministrador</option>
+                            <option value="sacerdote">&nbsp&nbsp&nbsp&nbspSacerdote</option>
                           </select>
-                        <label>Tipo Usuario: </label>
+                        <label>&nbsp&nbsp&nbsp&nbsp<b>Tipo Usuario: </b></label>
                       </div>
                     </div><br>
 
                     <div class="row">
-                        <div class="input-field col s7">
+                        <div class="input-field col s12 m6 l6">
                         <input type="hidden" name="id" id="id" value="<?php echo $get->id ?>" />
                         <input type="hidden" name="idCuenta" id="idCuenta" value="<?php echo $get->idCuenta ?>" />
-                          <button type="submit" name="mit" class="btn cyan waves-effect waves-light" >Guardar
+                          <button type="submit" name="mit" class="btn waves-effect waves-light light-blue darken-4" >Guardar
                           </button>
-                          <button type="button" onclick="location.href='<?php echo site_url('users/listUser') ?>'" class="btn btn-danger">Volver Atras<i class="mdi-content-send right"></i></button>
+                          <button type="button" onclick="location.href='<?php echo site_url('users/listUser') ?>'" class="btn waves-effect waves-light  deep-purple">Salir</button>
                         </div>
                     </div>
                 </div>

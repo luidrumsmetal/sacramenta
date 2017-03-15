@@ -48,54 +48,53 @@
 										    <input placeholder="INGRESE SU APELLIDO PATERNO" id="apellidoPaterno" name="apellidoPaterno" type="text" value="<?php echo $apellidoPaterno ?>">
 										    <label for="apellidoPaterno" class="active"><b>Apellido Paterno (*)</b></label>
 										  </div>
-											<div class="input-field col s6">
+											<div class="input-field col s12 m6 l6">
 										    <i class="mdi-action-account-circle prefix"></i>
 										    <input placeholder="INGRESE SU APELLIDO MATERNO" id="apellidoMaterno" name="apellidoMaterno" type="text" value="<?php echo $apellidoMaterno ?>">
 										    <label for="apellidoMaterno" class="active"><b>Apellido Materno (*)</b></label>
 										  </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6 l6">
                             <i class="mdi-action-account-circle prefix"></i>
                             <input placeholder="INGRESE SUS NOMBRES" id="nombres" name="nombres" type="text" value="<?php echo $nombres ?>">
                             <label for="nombres" class="active"><b>Nombres (*)</b></label>
                           </div>
-												  <div class="input-field col s6">
+												  <div class="input-field col s12 m6 l6">
 												          <i class="mdi-action-event prefix"></i>
 												          <input placeholder="" id="fechanacimiento" name="fechanacimiento" type="date" value="<?php echo $fechanacimiento ?>">
 												          <label for="first_name" class="active"><b>Fecha de Nacimiento (*)</b></label>
 												  </div>
                     </div>
                     <div class="row">
-                      <div class="input-field col s0">
-                        <i class="mdi-social-group prefix"></i>&nbsp &nbsp
+
+                      <div class="input-field col s12 m6 l6">
+                        <i class="mdi-action-credit-card prefix"></i>
+
+                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value="<?php echo $ci ?>">
+                        <div id="msgUsuario"></div>
+                        <label for="ci" class="active"><b>Carnet de Identidad</b></label>
+
                       </div>
-                      <div class="input-field col s5">
-                        <select id="genero" name="genero">
-                          <option value="<?php echo $genero ?>"> <?php echo $genero ?></option>
-                          <option value="1">Masculino</option>
-                          <option value="2">Femenino</option>
-                        </select>
-                        <label><b>Género (*) </b></label>
-                      </div>
-                      <div class="input-field col s0">
-                        &nbsp &nbsp  &nbsp &nbsp  &nbsp &nbsp
-                      </div>
-                      <div class="input-field col s6">
+
+                      <div class="input-field col s12 m6 l6">
 										    <i class="mdi-action-home prefix"></i>
 										    <input placeholder="INGRESE SU DIRECCIÓN" id="procedencia" name="procedencia" type="text" value="<?php echo $procedencia ?>">
 										    <label for="procedencia" class="active"><b>Procedencia (*)</b></label>
 										  </div>
                     </div>
 										<div class="row">
-											<div class="input-field col s12">
-												<i class="mdi-action-credit-card prefix"></i>
-
-												<input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value="<?php echo $ci ?>">
-                        <div id="msgUsuario"></div>
-												<label for="ci" class="active"><b>Carnet de Identidad</b></label>
-
-											</div>
+                      <div class="input-field col s0">
+                        <i class="mdi-social-group prefix"></i>&nbsp &nbsp
+                      </div>
+                      <div class="input-field col s12 m5 l6">
+                        <select id="genero" name="genero">
+                          <option value="<?php echo $genero ?>">&nbsp&nbsp&nbsp&nbsp <?php echo $genero ?></option>
+                          <option value="1">&nbsp&nbsp&nbsp&nbspMasculino</option>
+                          <option value="2">&nbsp&nbsp&nbsp&nbspFemenino</option>
+                        </select>
+                        <label><b>&nbsp&nbsp&nbspGénero (*) </b></label>
+                      </div>
 										</div>
                     <!--<h5><span class="card-title"><b>DATOS DE LOS PADRES</b></span></h5><hr><br><br>
                     <div class="row">
@@ -144,12 +143,13 @@
                     </div>
                   </div>-->
                     <div class="row">
-                        <div class="input-field col s7">
+                        <div class="input-field col s12 m6 l6">
                         <input type="hidden" name="id" value="<?php echo $id ?>" />
-                          <input type="submit" name="mit" class="btn btn-primary" value="Guardar">
-                          <button type="button" onclick="location.href='<?php echo site_url('users/listFiel') ?>'" class="btn btn-danger">Volver Atras<i class="mdi-content-send right"></i></button>
+                          <input type="submit" name="mit" class="btn waves-effect waves-light light-blue darken-4" value="Guardar">
+                          <button type="button" onclick="location.href='<?php echo site_url('users/listFiel') ?>'" class="btn waves-effect waves-light  deep-purple">Salir</button>
                         </div>
                     </div>
+                    
                 </div>
               </div>
             </div>
