@@ -60,52 +60,7 @@ class Users extends CI_Controller{
     $this->load->view('template/footer');
   }
 
-  function listFiel($offset = NULL)
-  {
-    if (!$this->session->userdata('nombre')) {
-      redirect(base_url().'login');
-    }
-    if ($this->session->userdata('tipo') != 'administrador') {
-        if (!$this->session->userdata('nombre')) {
-            redirect(base_url().'login');
-        }
-        else
-        {
-          redirect(base_url().'home');
-        }
-    }
-    $data['title'] = 'Lista de Fieles';
-    $this->load->library('table');
-    $this->load->library('pagination');
-
-        $config['base_url'] = base_url().'users/listFiel';
-        $config['total_rows'] = $this->Users_model->count_persona('persona');
-        $config['per_page'] = 10;
-        $config['next_link'] = 'Próxima';
-        $config['prev_link'] = 'Anterior';
-        $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
-        $config['full_tag_close'] = '</ul></div>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li><a style="color: #2D335B"><b>';
-        $config['cur_tag_close'] = '</b></a></li>';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['first_link'] = 'Primeira';
-        $config['last_link'] = 'Última';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-
-    $this->pagination->initialize($config);
-    $data['results']= $this->Users_model->listGetUser('persona',' id, ci, nombres, apellidoPaterno,apellidoMaterno, fechanacimiento, genero','',$config['per_page'],$this->uri->segment(3));
-    $this->load->view('template/header',$data);
-    $this->load->view('users/listFiel',$data);
-    $this->load->view('template/footer');
-  }
+  
 
   function listSacerdote($offset = NULL)
   {
@@ -151,6 +106,53 @@ class Users extends CI_Controller{
     $data['results']= $this->Users_model->listGetSacerdote('persona, sacerdote, tiposacerdote',' id, idSacerdote, ci, nombres, apellidoPaterno,apellidoMaterno, tipoSacerdote','id = persona_id AND idTipoSacerdote = tipoSacerdote_id',$config['per_page'],$this->uri->segment(3));
     $this->load->view('template/header',$data);
     $this->load->view('users/listSacerdote',$data);
+    $this->load->view('template/footer');
+  }
+
+  function listFiel()
+  {
+    if (!$this->session->userdata('nombre')) {
+      redirect(base_url().'login');
+    }
+    if ($this->session->userdata('tipo') != 'administrador') {
+        if (!$this->session->userdata('nombre')) {
+            redirect(base_url().'login');
+        }
+        else
+        {
+          redirect(base_url().'home');
+        }
+    }
+    
+
+        $config['base_url'] = base_url().'users/listFiel';
+        $config['total_rows'] = $this->Users_model->count_persona('persona');
+        $config['per_page'] = 10;
+        $config['next_link'] = 'Próxima';
+        $config['prev_link'] = 'Anterior';
+        $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
+        $config['full_tag_close'] = '</ul></div>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li><a style="color: #2D335B"><b>';
+        $config['cur_tag_close'] = '</b></a></li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['first_link'] = 'Primeira';
+        $config['last_link'] = 'Última';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+    $data['title'] = 'Lista de Fieles';
+    $this->load->library('table');
+    $this->load->library('pagination');
+    $this->pagination->initialize($config);
+    $data['results']= $this->Users_model->listGetFiel('persona',$config['per_page']);
+    $this->load->view('template/header',$data);
+    $this->load->view('users/listFiel',$data);
     $this->load->view('template/footer');
   }
 
@@ -428,37 +430,85 @@ class Users extends CI_Controller{
 
 
   function edit_fiel() {
-    $kd = $this->uri->segment(3);
-    if ($kd == NULL) {
-      redirect('ccrud');
-    }
-    $dt = $this->Users_model->editFiel($kd);
-    $data['apellidoPaterno'] = $dt->apellidoPaterno;
-    $data['apellidoMaterno'] = $dt->apellidoMaterno;
-    $data['nombres'] = $dt->nombres;
-    $data['ci'] = $dt->ci;
-    $data['fechanacimiento'] = $dt->fechanacimiento;
-    $data['procedencia'] = $dt->procedencia;
-    $data['genero'] = $dt->genero;
-    $data['id'] = $kd;
-    
-
-    $this->load->view('template/header');
+    $uri = $this->uri->segment(3);
+    $data1['title'] = 'Editar Fiel';
+    $data['get'] = $this->Users_model->editFiel($uri);
+    var_dump($data);
+    #echo $data['get'].'<br>';
+    # print_r($data['get']);
+    $this->load->view('template/header',$data1);
     $this->load->view('users/fielEdit', $data);
     $this->load->view('template/footer');
   }
 
   function update_fiel() {
-    if ($this->input->post('mit')) {
-
-      $id = $this->input->post('id');
-      $this->Users_model->update_fiel($id);
-
-      redirect('Users/listFiel');
-    } else{
-      redirect('Users/edit_fiel/'.$id);
+    $data1['title'] = 'Editar Fiel';
+    $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|xss_clean');
+    $this->form_validation->set_rules('apellidoPaterno', 'Apellido Paterno', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('apellidoMaterno', 'Apellido Materno', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('nombres', 'Nombre', 'trim|required|min_length[2]|xss_clean');
+    $this->form_validation->set_rules('fechanac', 'Fecha nacimineto', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('genero', 'Genero', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('procedencia', 'Procedencia', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('orc', 'Oficialía de registro civil', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('libro', 'Libro', 'trim|required|xss_clean');
+    $this->form_validation->set_rules('partida', 'Partida', 'trim|required|xss_clean');
+    $this->form_validation->set_message('required', 'El %s es importante');
+    $id = $this->input->post('id');
+    $idCertificadoNacimiento = $this->input->post('idCertificadoNacimiento');
+    $idPadresFiel = $this->input->post('idPadresFiel');
+    //$data['get'] =  $apellidoPaterno = $this->input->post('apellidoPaterno');
+    if ($this->form_validation->run()==false) {
+        $this->session->set_flashdata('error',validation_errors());
+        redirect('users/edit_fiel/'.$id);
     }
-  /// FIN -->
+
+    else {
+
+      $ci = $this->input->post('ci');
+      $apellidoPaterno = $this->input->post('apellidoPaterno');
+      $apellidoMaterno = $this->input->post('apellidoMaterno');
+      $nombres = $this->input->post('nombres');
+      $fechanacimiento = $this->input->post('fechanac');
+      $procedencia = $this->input->post('procedencia');
+      $orc = $this->input->post('orc');
+      $libro = $this->input->post('libro');
+      $partida = $this->input->post('partida');
+      $genero = $this->input->post('genero');
+      $apellidoNombrePadre = $this->input->post('apellidoNombrePadre');
+      $procedenciaPadre = $this->input->post('procedenciaPadre');
+      /*if ($genero == '1') {
+        $genero = 'masculino';
+      }
+      else {
+        $genero = 'femenino';
+      }*/
+
+      $data = array(
+                'apellidoNombrePadre' => $apellidoNombrePadre,
+                'procedenciaPadre' => $procedenciaPadre
+                
+            );
+      $this->Users_model->update_fiel('padresfiel',['idPadresFiel' => $idPadresFiel] ,$data);
+      $data = array(
+                'orc' => $orc,
+                'libro' => $libro,
+                'partida' => $partida
+            );
+      $this->Users_model->update_fiel('certificadonacimiento',['idCertificadoNacimiento' => $idCertificadoNacimiento] ,$data);
+      $data = array(
+                'apellidoPaterno' => $apellidoPaterno,
+                'apellidoMaterno' => $apellidoMaterno,
+                'nombres' => $nombres,
+                'ci' => $ci,
+                'fechanacimiento' => $fechanacimiento,
+                'procedencia' => $procedencia,
+                'genero' => $genero
+            );
+      $this->Users_model->update_fiel('persona',['id' => $id] ,$data);
+      redirect('Users/listFiel');
+        
+    }
   }
 
 

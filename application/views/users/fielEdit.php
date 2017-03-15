@@ -29,6 +29,7 @@
 	          </div>
 	      <?php } ?>
 			</div>
+
             <div class="col s12 m12 l12">
               <nav class="amber darken-4">
 
@@ -45,25 +46,25 @@
                     <div class="row">
 										  <div class="input-field col s12 m6 l6">
 										    <i class="mdi-action-account-circle prefix"></i>
-										    <input placeholder="INGRESE SU APELLIDO PATERNO" id="apellidoPaterno" name="apellidoPaterno" type="text" value="<?php echo $apellidoPaterno ?>">
+										    <input placeholder="INGRESE SU APELLIDO PATERNO" id="apellidoPaterno" name="apellidoPaterno" type="text" value="<?php echo $get->apellidoPaterno ?>">
 										    <label for="apellidoPaterno" class="active"><b>Apellido Paterno (*)</b></label>
 										  </div>
 											<div class="input-field col s6">
 										    <i class="mdi-action-account-circle prefix"></i>
-										    <input placeholder="INGRESE SU APELLIDO MATERNO" id="apellidoMaterno" name="apellidoMaterno" type="text" value="<?php echo $apellidoMaterno ?>">
+										    <input placeholder="INGRESE SU APELLIDO MATERNO" id="apellidoMaterno" name="apellidoMaterno" type="text" value="<?php echo $get->apellidoMaterno ?>">
 										    <label for="apellidoMaterno" class="active"><b>Apellido Materno (*)</b></label>
 										  </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="mdi-action-account-circle prefix"></i>
-                            <input placeholder="INGRESE SUS NOMBRES" id="nombres" name="nombres" type="text" value="<?php echo $nombres ?>">
+                            <input placeholder="INGRESE SUS NOMBRES" id="nombres" name="nombres" type="text" value="<?php echo $get->nombres ?>">
                             <label for="nombres" class="active"><b>Nombres (*)</b></label>
                           </div>
 												  <div class="input-field col s6">
 												          <i class="mdi-action-event prefix"></i>
-												          <input placeholder="" id="fechanacimiento" name="fechanacimiento" type="date" value="<?php echo $fechanacimiento ?>">
-												          <label for="first_name" class="active"><b>Fecha de Nacimiento (*)</b></label>
+												          <input placeholder="" id="fechanac" name="fechanac" type="date" value="<?php echo $get->fechanacimiento ?>">
+												          <label for="fechanac" class="active"><b>Fecha de Nacimiento (*)</b></label>
 												  </div>
                     </div>
                     <div class="row">
@@ -72,7 +73,7 @@
                       </div>
                       <div class="input-field col s5">
                         <select id="genero" name="genero">
-                          <option value="<?php echo $genero ?>"> <?php echo $genero ?></option>
+                          <option value="<?php echo $get->genero ?>"> <?php echo $get->genero ?></option>
                           <option value="1">Masculino</option>
                           <option value="2">Femenino</option>
                         </select>
@@ -83,7 +84,7 @@
                       </div>
                       <div class="input-field col s6">
 										    <i class="mdi-action-home prefix"></i>
-										    <input placeholder="INGRESE SU DIRECCIÓN" id="procedencia" name="procedencia" type="text" value="<?php echo $procedencia ?>">
+										    <input placeholder="INGRESE SU DIRECCIÓN" id="procedencia" name="procedencia" type="text" value="<?php echo $get->procedencia ?>">
 										    <label for="procedencia" class="active"><b>Procedencia (*)</b></label>
 										  </div>
                     </div>
@@ -91,13 +92,15 @@
 											<div class="input-field col s12">
 												<i class="mdi-action-credit-card prefix"></i>
 
-												<input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value="<?php echo $ci ?>">
+												<input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value="<?php echo $get->ci ?>">
                         <div id="msgUsuario"></div>
 												<label for="ci" class="active"><b>Carnet de Identidad</b></label>
 
 											</div>
 										</div>
-                    <!--<h5><span class="card-title"><b>DATOS DE LOS PADRES</b></span></h5><hr><br><br>
+
+
+                    <h5><span class="card-title"><b>DATOS DE LOS PADRES</b></span></h5><hr><br><br>
                     <div class="row">
                       <div class="row">
   										  <div class="input-field col s6">
@@ -115,16 +118,18 @@
                     <div class="row">
                       <div class="input-field col s6">
                         <i class="mdi-action-account-circle prefix"></i>
-                        <input placeholder="INGRESE LA PROCEDENCIA DEL PADRE" id="procedenciaPadre" name="procedenciaPadre" type="text" value="<?php echo $get->procedencia ?>">
+                        <input placeholder="INGRESE LA PROCEDENCIA DEL PADRE" id="procedenciaPadre" name="procedenciaPadre" type="text" value="<?php echo $get->procedenciaPadre ?>">
                         <label for="procedenciaPadre" class="active"><b>Procedencia de Padre</b></label>
                       </div>
                       <div class="input-field col s6">
                         <i class="mdi-action-account-circle prefix"></i>
                         <input placeholder="INGRESE LA PROCEDENCIA DE LA MADRE " id="procedenciaMadre" name="procedenciaMadre" type="text"
-                        value="<?php echo $get->procedencia ?>">
+                        value="<?php echo $get->procedenciaPadre ?>">
                         <label for="procedenciaMadre" class="active"><b>Procedencia de la Madre</b></label>
                       </div>
                     </div>
+
+
                   <h5><span class="card-title"><b>OFICIALÍA DE REGISTRO CIVIL (CERTIFICADO DE NACIMIENTO)</b></span></h5><hr><br><br>
                   <div class="row">
                     <div class="input-field col s4">
@@ -142,11 +147,14 @@
                       <input placeholder="Ingrese el numero partida" id="partida" name="partida" type="text" value="<?php echo $get->partida ?>">
                       <label for="partida" class="active"><b>Partida (*)</b></label>
                     </div>
-                  </div>-->
+                  </div>
                     <div class="row">
                         <div class="input-field col s7">
-                        <input type="hidden" name="id" value="<?php echo $id ?>" />
-                          <input type="submit" name="mit" class="btn btn-primary" value="Guardar">
+                        <input type="hidden" name="idPadresFiel" value="<?php echo $get->idPadresFiel ?>" />
+                        <input type="hidden" name="id" value="<?php echo $get->id ?>" />
+                        <input type="hidden" name="idCertificadoNacimiento" value="<?php echo $get->idCertificadoNacimiento ?>" />
+                          <button type="submit" name="mit" class="btn cyan waves-effect waves-light" >Guardar
+                          </button>
                           <button type="button" onclick="location.href='<?php echo site_url('users/listFiel') ?>'" class="btn btn-danger">Volver Atras<i class="mdi-content-send right"></i></button>
                         </div>
                     </div>
