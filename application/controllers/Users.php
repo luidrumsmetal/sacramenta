@@ -208,19 +208,64 @@ class Users extends CI_Controller{
   {
     $this->load->library('form_validation');
     $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|min_length[5]|numeric|is_unique[persona.ci]|xss_clean');
-    $this->form_validation->set_rules('apellidoPaterno', 'Apellido Paterno', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('apellidoMaterno', 'Apellido Materno', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('nombres', 'Nombre', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('fechanac', 'Fecha nacimineto', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('genero', 'Genero', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('procedencia', 'Procedencia', 'trim|required|xss_clean');
+
+    $this->form_validation->set_rules(
+          'apellidoPaterno', '<b>"APELLIDO PATERNO"</b>',
+          'required|min_length[2]|max_length[15]|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
+              'min_length'     => '<div align="center"><font color="FF0000">Debe ingresar al menos  %s.</font></div>',
+              'max_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener mas de %s letras.</font></div>'
+          )
+      );
+    $this->form_validation->set_rules(
+          'apellidoMaterno', '<b>"APELLIDO MATERNO"</b>',
+          'required|min_length[2]|max_length[15]|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
+              'min_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener al menos %s letras.</font></div>',
+              'max_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener mas de %s letras.</font></div>'
+          )
+      );
+    $this->form_validation->set_rules(
+        'nombres', '<b>NOMBRES</b>',
+        'trim|required|min_length[2]|max_length[15]|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
+            'min_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener al menos %s letras.</font></div>',
+            'max_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener mas de %s letras.</font></div>'
+        )
+    );
+
+    $this->form_validation->set_rules(
+        'fechanac', '<b>"FECHA DE NACIMIENTO"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+    );
+    $this->form_validation->set_rules('genero', 'Genero',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+     );
+    $this->form_validation->set_rules('procedencia', 'Procedencia',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+    );
     $this->form_validation->set_rules('orc', 'Oficialía de registro civil', 'trim|required|xss_clean');
     $this->form_validation->set_rules('libro', 'Libro', 'trim|required|xss_clean');
     $this->form_validation->set_rules('partida', 'Partida', 'trim|required|xss_clean');
     $this->form_validation->set_message('required', 'El %s es importante');
     if ($this->form_validation->run()==false) {
-        $this->session->set_flashdata('error','Ingrese correctamente los datos');
-        redirect(base_url() . 'users/faithfulRegister');
+        $this->session->set_flashdata('error ', 'Ingrese correctamente los datos');
+        $data['title'] = 'Registro Fiel';
+        $this->load->view('template/header',$data);
+        $this->load->view('users/faithfulRegister');
+        $this->load->view('template/footer');
     }
     else {
       $tipoGenero = $this->input->post('genero');
