@@ -53,10 +53,13 @@ class Jurisdiccion extends CI_Controller{
         $password = $this->input->post('password');
         $tipoUsuario = 'parroquia';
         $parroquia_id = $this->input->post('parroquia_id');
+
+
         $data = array(
             'email' => $email,
             'password' => $password,
             'tipoUsuario' => $tipoUsuario,
+            'cuenta_id' => null,
             'parroquia_id' => $parroquia_id
         );
         if ($this->Jurisdiccion_model->addParroquia('users',$data)) {

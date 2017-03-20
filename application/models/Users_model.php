@@ -30,7 +30,7 @@ class Users_model extends CI_Model{
                     $this->session->set_userdata($usuario);
                 #  }
               }
-              #print_r($usuario);000000000000000000000000
+              #print_r($usuario);
         }
         else {
             $this->db->select('*');
@@ -109,28 +109,36 @@ class Users_model extends CI_Model{
     return $d;  
   }*/
 
-  /*function editFiel($uri) {
-
+  function editFiel($uri) {
+      //$data = array();
       $this->db->select('*');
       $this->db->from('persona'); 
-      $this->db->join('certificadonacimiento', 'persona.id = certificadonacimiento.id_persona');
-      $this->db->join('padresfiel', 'persona.id = padresfiel.id_persona');
+      $this->db->join('certificadonacimiento', 'persona.id = certificadonacimiento.persona_id');
+      $this->db->join('padresfiel', 'persona.id = padresfiel.persona_id');
       $this->db->where('persona.id',$uri);       
       return $this->db->get()->row(); 
-      
-  }*/
+      /*$query = $this->db->get();
+      if ($query->num_rows() > 0) {
+      foreach ($query->result() as $row) {
+        $data[] = $row;
+            }
+        }
+        $query->free_result();
+        //return the array to the controller
+        return $data;*/
+  }
 
-
+/*
   function editFiel($a) {
     $d = $this->db->get_where('persona', array('id' => $a))->row();
     return $d;
-  }
+  }*/
 
   function editUser($uri) {
       $this->db->select('*');
-      $this->db->from('users');
-      $this->db->join('cuenta', 'cuenta.idCuenta = users.cuenta_id');
-      $this->db->where('users.id', $uri);
+      $this->db->from('cuenta');
+      $this->db->join('users', 'users.cuenta_id = cuenta.idCuenta');
+      $this->db->where('cuenta.idCuenta', $uri);
       return $this->db->get()->row();
   }
 
@@ -148,26 +156,17 @@ class Users_model extends CI_Model{
 
   }
 
-  function update_fiel($id) {
-    $apellidoPaterno = $this->input->post('apellidoPaterno');
-    $apellidoMaterno = $this->input->post('apellidoMaterno');
-    $nombres = $this->input->post('nombres');
-    $ci = $this->input->post('ci');
-    $fechanacimiento = $this->input->post('fechanacimiento');
-    $procedencia = $this->input->post('procedencia');
-    $genero = $this->input->post('genero');
-
-    $data = array(
-      'apellidoPaterno' => $apellidoPaterno,
-      'apellidoMaterno' => $apellidoMaterno,
-      'nombres' => $nombres,
-      'ci' => $ci,
-      'fechaNacimiento' => $fechaNacimiento,
-      'procedencia' => $procedencia,
-      'genero' => $genero
-    );
-    $this->db->where('id', $id);
-    $this->db->update('persona', $data);
+  function update_fiel($table,$condicion,$data) {
+    $this->db->where($condicion);
+      $this->db->update($table, $data);
+      if ($this->db->affected_rows() > 0)
+      {
+          return TRUE;
+      }
+      else
+      {
+          return FALSE;
+      }
   }
 
   /*function delete_user($a) {
@@ -388,7 +387,8 @@ class Users_model extends CI_Model{
   }
   function count_persona($table)
     {
-      return $this->db->count_all($table);
+      $query = $this->db->query("SELECT count(id) FROM $table");
+        return $query = $this->db->get();
   }
   function listGetSacerdote($table,$fields,$where='',$perpage=0,$start=0,$one=false,$array='array')
     {
@@ -415,6 +415,16 @@ class Users_model extends CI_Model{
         $query = $this->db->get();
         $result =  !$one  ? $query->result() : $query->row();
         return $result;
+    }
+
+    function listGetFiel($table,$perpage)
+    {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->order_by('id','asc');
+        $this->db->limit($perpage);
+        $query = $this->db->get()->result();
+        return $query;
     }
 
 
@@ -514,5 +524,41 @@ class Users_model extends CI_Model{
       }
     }
 
+    public function getPersonas($start,$length,$search){//server side processing
+
+        $srch = "";
+        if ($search) {
+            $srch = "AND (p.nombres LIKE '%".$search."%' OR 
+							p.apellidoPaterno LIKE '%".$search."%' OR
+							p.apellidomaterno LIKE '%".$search."%' OR
+							p.ci LIKE '%".$search."%') ";
+        }
+
+        $qnr = "
+			SELECT count(1) cant
+			FROM cuenta p, users c
+			WHERE c.cuenta_id = p.idCuenta
+		".$srch;
+
+        $qnr = $this->db->query($qnr);
+        $qnr = $qnr->row();
+        $qnr = $qnr->cant;
+
+
+        $q = "
+			SELECT p.idCuenta as rownum,p.ci, p.apellidoPaterno, p.apellidoMaterno, p.nombres, c.email, c.tipoUsuario
+			FROM cuenta p, users c
+			WHERE c.cuenta_id = p.idCuenta
+			".$srch." LIMIT $start,$length";
+
+        $r = $this->db->query($q);
+
+        $retornar = array(
+            'numDataTotal' => $qnr,
+            'datos' => $r
+        );
+
+        return $retornar;
+    }
 
 }
