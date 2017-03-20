@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui-1.9.2.custom.css" />
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-ui-1.9.2.custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
+<script src="<?php echo base_url()?>assets/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 <!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/prototype-1.6.0.2.js"></script>-->
 
 <section id = "content">
@@ -74,7 +75,10 @@
                     <div class="row">
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-credit-card prefix"></i>
-                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>'>
+
+                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>' data-inputmask="'mask' : '(999) 999-9999'" >
+
+
                         <label for="ci" class="active"><b>Carnet de Identidad</b></label>
                           <?php echo form_error('ci')?>
                       </div>
