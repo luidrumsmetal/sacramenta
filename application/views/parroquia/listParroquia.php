@@ -44,10 +44,10 @@
                                             <tr>
 
                                                 <th style="width: 10%;background-color: #006699; color: white;">Nombre</th>
-                                                <th style="width: 10%;background-color: #006699; color: white;">Direccion</th>
-                                                <th style="width: 10%;background-color: #006699; color: white;">Telefono</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Dirección</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Teléfono</th>
                                                 <th style="width: 10%;background-color: #006699; color: white;">Email</th>
-                                                <th style="width: 10%;background-color: #006699; color: white;">Jurisdiccion</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Jurisdicción</th>
                                                 <th style="width: 10%;background-color: #006699; color: white;">Opciones</th>
                                             </tr>
                                             </thead>
@@ -89,7 +89,7 @@
                 $('#tblPersonas').DataTable().destroy();
                 $('#tblPersonas').DataTable({
                     "language": {
-                        "emptyTable": "No hay entradas en la busqueda."
+                        "emptyTable": "Parroquia inexistente."
                     },
                     "lengthMenu": [[5, 10, 15, 20], [5, 10, 15, 20]],
                     'paging': true,
