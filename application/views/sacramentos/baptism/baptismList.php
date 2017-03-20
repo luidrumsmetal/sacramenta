@@ -96,6 +96,8 @@
 
                 echo '<a href="#modal1" cliente="'.$r->idCertificado.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
 
+                echo '<a href="'.base_url().'Pdf_Controller/printCertificado/'.$r->idCertificado.'" style="margin-right: 2%" class="btn waves-effect waves-light blue darken-4" title="Editar Cliente"><i class="mdi-maps-local-print-shop"></i></a>';
+
 
 
             echo '</td>';
