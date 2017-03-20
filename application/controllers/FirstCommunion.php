@@ -148,12 +148,13 @@ class FirstCommunion extends CI_Controller{
     public function edit() {
         $uri = $this->uri->segment(3);
         $data['title'] = 'Primera Comunión';
-        $data['get'] = $this->Sacrament_model->editFirst($uri);
+        $get= $this->Sacrament_model->editFirst($uri);
         #echo $data['get'].'<br>';
-       # print_r($data['get']);
-        $this->load->view('template/header',$data);
-        $this->load->view('sacramentos/firstCommunion/firstCommunionEdit', $data);
-        $this->load->view('template/footer');
+        print_r($get);
+        echo $get['parroquia'];
+       # $this->load->view('template/header',$data);
+       # $this->load->view('sacramentos/firstCommunion/firstCommunionEdit', $data);
+       # $this->load->view('template/footer');
     }
 
     public function update()

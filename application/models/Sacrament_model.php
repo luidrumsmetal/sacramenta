@@ -55,8 +55,50 @@ class Sacrament_model extends CI_Model{
       $this->db->where('certificado.idCertificado', $uri);
       return $this->db->get()->row();
   }
+    function editFirst($uri)
+    {
+        /*$this->db->select('certificado.*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Fiel, persona.id as idPersona,
+        parroquia.nombre as parroquia, jurisdiccion.*');
+        $this->db->from('certificado');
+        $this->db->join('persona', 'persona.id = certificado.persona_id');
+        $this->db->join('sacramento', 'sacramento.idSacramento = certificado.sacramento_id');
+        $this->db->join('parroquia', 'parroquia.idParroquia = certificado.parroquia_id');
+        $this->db->join('jurisdiccion', 'jurisdiccion.idJurisdiccion = certificado.jurisdiccion_id');
+        $this->db->join('libroparroquia','certificado_id=certificado.idCertificado');
+        $this->db->where('certificado.idCertificado', $uri);*/
 
-  function update($table,$condicion, $data) {
+        $query = $this->db->query("SELECT b.*, CONCAT(persona.apellidoPaterno,\" \",persona.apellidoMaterno,\" \",persona.nombres) as Fiel, persona.id as idPersona, 
+                            parroquia.nombre as parroquia, jurisdiccion.*, libroparroquia.*
+                            FROM persona a, certificado b, jurisdiccion c, parroquia d, libroparroquia e
+                            WHERE a.id = b.persona_id
+                            AND d.idParroquia = b.parroquia_id
+                            AND c.idJurisdiccion = b.jurisdiccion_id
+                            AND a.certificado_id=b.idCertificado
+                            AND b.idCertificado = $uri");
+        $query = $this->db->get();
+      #  return $query->row();
+    }
+    function editConfirmacion($uri)
+    {
+        $this->db->select('*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Fiel, persona.id as idFiel,
+         CONCAT(C.apellidoPaterno, " ",C.apellidoMaterno," ",C.nombres) as Sacerdote_certificador, A.idSacerdote as sacerdoteCertificador,  C.id as personaCertificador  , CONCAT(D.apellidoPaterno, " ",D.apellidoMaterno," ",D.nombres) as Sacerdote_certificante, B.idSacerdote as sacerdoteCertificante' );
+      $this->db->from('certificado');
+      $this->db->join('persona', 'persona.id = certificado.persona_id');
+      $this->db->join('sacramento', 'sacramento.idSacramento = certificado.sacramento_id');
+      $this->db->join('parroquia', 'parroquia.idParroquia = certificado.parroquia_id');
+      $this->db->join('jurisdiccion', 'jurisdiccion.idJurisdiccion = certificado.jurisdiccion_id');
+      $this->db->join('sacerdote A', 'A.idSacerdote = certificado.sacerdoteCertificador_id');
+      $this->db->join('sacerdote B', 'B.idSacerdote = certificado.sacerdoteCelebrante_id');
+      $this->db->join('persona C', 'C.id = A.persona_id');
+      $this->db->join('persona D', 'D.id = B.persona_id');
+      $this->db->join('libroparroquia','certificado_id=idCertificado');
+      $this->db->join('padrinofiel','padrinofiel.certificado_id=idCertificado');
+      $this->db->where('certificado.idCertificado', $uri);
+      return $this->db->get()->row();
+  }
+
+
+    function update($table,$condicion, $data) {
     $this->db->where($condicion);
     $this->db->update($table, $data);
       if ($this->db->affected_rows() > 0)
