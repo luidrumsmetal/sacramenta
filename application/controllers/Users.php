@@ -68,9 +68,9 @@ class Users extends CI_Controller{
     $this->load->view('users/faithfulRegister');
     $this->load->view('template/footer');
 
-  
 
   function listSacerdote($offset = NULL)
+
   {
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
