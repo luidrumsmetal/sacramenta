@@ -89,6 +89,7 @@ $pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
 // create some HTML content
 
 
+
 $pdf->Ln(8);
 $table ='<table style = "border: 1px solid black">';
 $table .=  '<tr>
