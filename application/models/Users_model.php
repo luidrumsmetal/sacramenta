@@ -128,9 +128,9 @@ class Users_model extends CI_Model{
 
   function editUser($uri) {
       $this->db->select('*');
-      $this->db->from('users');
-      $this->db->join('cuenta', 'cuenta.idCuenta = users.cuenta_id');
-      $this->db->where('users.id', $uri);
+      $this->db->from('cuenta');
+      $this->db->join('users', 'users.cuenta_id = cuenta.idCuenta');
+      $this->db->where('cuenta.idCuenta', $uri);
       return $this->db->get()->row();
   }
 
@@ -514,5 +514,41 @@ class Users_model extends CI_Model{
       }
     }
 
+    public function getPersonas($start,$length,$search){//server side processing
+
+        $srch = "";
+        if ($search) {
+            $srch = "AND (p.nombres LIKE '%".$search."%' OR 
+							p.apellidoPaterno LIKE '%".$search."%' OR
+							p.apellidomaterno LIKE '%".$search."%' OR
+							p.ci LIKE '%".$search."%') ";
+        }
+
+        $qnr = "
+			SELECT count(1) cant
+			FROM cuenta p, users c
+			WHERE c.cuenta_id = p.idCuenta
+		".$srch;
+
+        $qnr = $this->db->query($qnr);
+        $qnr = $qnr->row();
+        $qnr = $qnr->cant;
+
+
+        $q = "
+			SELECT p.idCuenta as rownum,p.ci, p.apellidoPaterno, p.apellidoMaterno, p.nombres, c.email, c.tipoUsuario
+			FROM cuenta p, users c
+			WHERE c.cuenta_id = p.idCuenta
+			".$srch." LIMIT $start,$length";
+
+        $r = $this->db->query($q);
+
+        $retornar = array(
+            'numDataTotal' => $qnr,
+            'datos' => $r
+        );
+
+        return $retornar;
+    }
 
 }

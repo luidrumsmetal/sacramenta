@@ -41,8 +41,9 @@
               <div class="card-panel">
                 <h5><span class="card-title"><b>DATOS PERSONALES</b></span></h5><hr><br><br>
                 <div class="row">
-                  <form class="col s12 m10 l12" id="formPriest" method="post" action="<?php echo base_url(); ?>users/faithfullCreate">
-                    <div class="row">
+                  <!--<form class="col s12 m10 l12" id="formPriest" method="post" action="<?php echo base_url(); ?>users/faithfullCreate">-->
+                      <?php echo form_open('users/faithfullCreate', 'role="form"','method=post'); ?>
+                      <div class="row">
 										  <div class="input-field col s12 m6 l6">
 										    <i class="mdi-action-account-circle prefix"></i>
 										    <input placeholder="INGRESE SU APELLIDO PATERNO" id="apellidoPaterno" name="apellidoPaterno" type="text" value='<?php echo set_value('apellidoPaterno') ?>'>
@@ -75,6 +76,7 @@
                         <i class="mdi-action-credit-card prefix"></i>
                         <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>'>
                         <label for="ci" class="active"><b>Carnet de Identidad</b></label>
+                          <?php echo form_error('ci')?>
                       </div>
 
                       <div class="input-field col col s12 m6 l6">
@@ -97,6 +99,7 @@
                           <option value="2">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFemenino</option>
                         </select>
                         <label><b>&nbsp&nbsp&nbsp&nbsp&nbspGénero: </b></label>
+                          <?php echo form_error('genero')?>
                       </div>
 										</div>
 
@@ -106,6 +109,7 @@
   										    <i class="mdi-action-account-circle prefix"></i>
   										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoPaterno" name="apellidoNombrePadre" type="text" value='<?php echo set_value('apellidoNombrePadre') ?>'>
   										    <label for="apellidoPaterno" class="active"><b>Nombre completo Padre</b></label>
+                                              <?php echo form_error('apellidoNombrePadre');?>
   										  </div>
   											<div class="input-field col s12 m6 l6">
   										    <i class="mdi-action-account-circle prefix"></i>
