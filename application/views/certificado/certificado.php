@@ -77,11 +77,19 @@ $pdf->SetFont('dejavusans', '', 10);
 // add a page
 $pdf->AddPage();
 $heading = <<<EOD
-<h3>Bautizo</h3>
+<h3>CERTIFICADO DE  BAUTISMO</h3>
+<p align="left"><h3>SERIE-B</p></p>
 EOD;
+$pdf->writeHTMLCell(0, 0,'','',$heading,0,1,0,true,'C',true);
+$html = '<p align="left">Parroquia'.$get->parroquia;
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+
+$html = '<p align="left">Libro Nro:'.$get->libro.'Pagina:'.$get->partida.'Nro de  Certif:'.$get->orc;
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
 // create some HTML content
 
-$pdf->writeHTMLCell(0, 0,'','',$heading,0,1,0,true,'C',true);
+
+
 $pdf->Ln(8);
 $table ='<table style = "border: 1px solid black">';
 $table .=  '<tr>
