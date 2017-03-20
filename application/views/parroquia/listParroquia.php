@@ -1,125 +1,135 @@
+
 <section id = "content">
     <div class="section">
-      <div class="row">
-        <?php if($this->session->flashdata('error')) {?>
-            <div id="card-alert" class="card red">
-              <div class="card-content white-text">
-                <p><?php echo $this->session->flashdata('error') ?></p>
-              </div>
-              <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-        <?php } ?>
-        <?php if($this->session->flashdata('success')) {?>
-            <div id="card-alert" class="card green">
-              <div class="card-content white-text">
-                <p><?php echo $this->session->flashdata('success') ?></p>
-              </div>
-              <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-        <?php } ?>
-          <?php if (!$results){ ?>
-
-                <nav class="amber darken-4">
-                  <div class="nav-wrapper">
-                    <div class="col s12">
-                    <h1 class="brand-logo center">Lista de Parroquias</h1>
+        <div class="row">
+            <?php if($this->session->flashdata('error')) {?>
+                <div id="card-alert" class="card red">
+                    <div class="card-content white-text">
+                        <p><?php echo $this->session->flashdata('error') ?></p>
+                        <p>     <?php echo validation_errors();?></p>
                     </div>
-                  </div>
-                </nav>
-
-
-          <div id="borderless-table">
-              <div class="row">
-                <div class="col s12 m12 12">
-                  <table id="striped-table">
-                    <thead>
-                      <tr>
-                          <th data-field="id">ID</th>
-                          <th data-field="nombre">Nombre de la parroquia</th>
-                          <th data-field="direccion">Dirección</th>
-                          <th data-field="direccion">Telefono</th>
-                          <th data-field="opciones">Opciones</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      <tr>
-                        <td>No existe parroquia</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                    <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
-              </div>
-          </div>
-          <?php } else{ ?>
-
-            <div id="centered-table" class="col s12 m12 l12">
-                <div class="row">
-
-                  <div class="col s12 m12 l12">
-                <nav class="amber darken-4">
-                  <div class="nav-wrapper">
-                    <div class="col s12">
-                    <h1 class="brand-logo center">Lista de Parroquias</h1>
-                    </div>
-                  </div>
-                </nav>
-                    <h4 align="left"></h4><hr><br>
-                    <table class="bordered striped">
-                      <thead>
-                        <tr>
-                          <th data-field="id">ID</th>
-                          <th data-field="nombre">Nombre de la parroquia</th>
-                          <th data-field="direccion">Dirección</th>
-                          <th data-field="direccion">Telefono</th>
-                          <th data-field="opciones">Opciones</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <?php foreach ($results as $r) {
-                            echo '<tr>';
-                            echo '<td>'.$r->idParroquia.'</td>';
-                            echo '<td>'.$r->nombre.'</td>';
-                            echo '<td>'.$r->direccion.'</td>';
-                            echo '<td>'.$r->telefono.'</td>';
-                          
-                            echo '<td>';
-
-                echo '<a href="'.base_url().'jurisdiccion/edit/'.$r->idParroquia.'" style="margin-right: 2%" class="btn waves-effect waves-light amber darken-4" title="Editar Cliente"><i class="mdi-editor-border-color"></i></a>';
-
-                echo '<a href="#modal1" cliente="'.$r->idParroquia.'" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red darken-4" title="Excluir Cliente"><i class="mdi-action-delete"></i></a>';
-
-
-
-            echo '</td>';
-                            echo '</tr>';
-                        }?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-            </div>
             <?php } ?>
-            <?php echo $this->pagination->create_links();?>
+            <?php if($this->session->flashdata('success')) {?>
+                <div id="card-alert" class="card green">
+                    <div class="card-content white-text">
+                        <p><?php echo $this->session->flashdata('success') ?></p>
+                    </div>
+                    <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            <?php } ?>
+            <section id = "content">
+                <div class="section">
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <nav class="amber darken-4">
+                                <div class="nav-wrapper">
+                                    <div class="col s12">
+                                        <h1 class="brand-logo center">Lista de Parroquias</h1>
+                                    </div>
+                                </div>
+                            </nav>
+                            <br>
+                            <div class="box box-primary">
+                                <div class="box-body">
+                                    <div class="col s12 m12 l12">
+                                        <!-- <div class="box box-primary"> -->
+                                        <table id="tblPersonas" class="table table-bordered table-striped">
+                                            <thead>
+                                            <tr>
 
-              <div id="modal1" class="modal">
-                <form action="<?php echo base_url(); ?>jurisdiccion/delete" method="post">
-                  <div class="modal-content">
-                    <h4 align="center">Eliminar Parroquia</h4>
-                      <input type="hidden" id="idParroquia" name="idParroquia" value="" />
-                      <h6 style="text-align: center">¿Desea eliminar esta parroquia?</h6>
-                  </div>
-                  <div class="modal-footer orange">
-                    <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                    <a href="<?php echo site_url('jurisdiccion/delete/' .$r->idParroquia); ?>" class="waves-effect waves-red btn-flat modal-action modal-close">Elminar</a>
-                  </div>
-                </form>
-              </div>
-      </div>
-    </div>
-</section>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Nombre</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Direccion</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Telefono</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Email</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Jurisdiccion</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Opciones</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+
+                                        <!-- </div> -->
+                                    </div>
+
+                                </div>
+                                <div id="modal1" class="modal">
+                                    <form action="<?php echo base_url(); ?>jurisdiccion/delete" method="post">
+                                        <div class="modal-content">x
+                                            <h4 align="center">Eliminar Usuario</h4>
+                                            <input type="hidden" id="id" name="id" value="" />
+                                            <h6 style="text-align: center">¿Realmente desea eliminar este usuario?</h6>
+                                        </div>
+                                        <div class="modal-footer orange">
+                                            <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
+                                            <button type="submit" name="action" class="btn cyan waves-effect waves-light right">Eliminar
+                                                <i class="waves-effect waves-orange btn-flat modal-action modal-close"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <script src="<?php echo base_url(); ?>assets/demo/js/plugins/datatables/jquery.dataTables.js"></script>
+            <script src="<?php echo base_url(); ?>assets/demo/js/plugins/datatables/dataTables.bootstrap.js"></script>
+
+            <script type="text/javascript">
+
+                //datables con Server side processing
+                $('#tblPersonas').DataTable().destroy();
+                $('#tblPersonas').DataTable({
+                    "language": {
+                        "emptyTable": "No hay entradas en la busqueda."
+                    },
+                    "lengthMenu": [[5, 10, 15, 20], [5, 10, 15, 20]],
+                    'paging': true,
+                    'info': true,
+                    'filter': true,
+                    'stateSave': true,
+                    'processing':true,
+                    'serverSide':true,
+
+                    'ajax': {
+                        "url":"<?php echo base_url()?>listas/getParroquias",
+                        "type":"POST"
+                    },
+                    'columns': [
+
+                        {data: 'nombre'},
+                        {data: 'direccion'},
+                        {data: 'telefono'},
+                        {data: 'email'},
+                        {data: 'jurisdiccion'},
+                        {"orderable": true,
+                            render: function (data, type, row) {
+                                return '<span class="pull-right">' +
+                                    '    <a href="<?php echo base_url();?>jurisdiccion/edit/'+row.rownum+'" title="Editar informacion" class="btn waves-effect waves-light amber darken-4""><i class="mdi-editor-border-color"></i></a>' +
+                                    '    <a href="#modal1" cliente='+row.rownum+' style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red darken-4" "><i class="mdi-action-delete"></i></a>' +
+                                    '</span>';
+                            }
+                        }
+                    ],
+                    "order": [[ 1, "asc" ]],
+                });
+
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $(document).on('click', 'a', function(event) {
+                        var cliente = $(this).attr('cliente');
+                        $('#id').val(cliente);
+
+                    });
+                });
+
+            </script>
