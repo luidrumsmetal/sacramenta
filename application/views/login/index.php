@@ -21,8 +21,8 @@
         </div>
     <?php } ?>
   <div class="col s12 z-depth-5 card-panel">
-    <form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>login/checkLogin">
-
+    <!--<form class="login-form" id="formLogin" method="post" action="<?php echo base_url(); ?>login/checkLogin">-->
+        <?php echo form_open('login/checkLogin', 'class="login-form"','method=post','id="formLogin"'); ?>
       <div class="row">
         <div class="input-field col s12 center">
           <h1>Bienvenido</h1>
