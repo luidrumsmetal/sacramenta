@@ -104,7 +104,7 @@
 
 										</div>
 
-
+<!--
                     <h5><span class="card-title"><b>DATOS DE LOS PADRES</b></span></h5><hr><br><br>
                     <div class="row">
                       <div class="row">
@@ -133,7 +133,7 @@
                         <label for="procedenciaMadre" class="active"><b>Procedencia de la Madre</b></label>
                       </div>
                     </div>
-
+-->
 
                   <h5><span class="card-title"><b>OFICIALÍA DE REGISTRO CIVIL (CERTIFICADO DE NACIMIENTO)</b></span></h5><hr><br><br>
                   <div class="row">
@@ -156,7 +156,7 @@
                     <div class="row">
 
                         <div class="input-field col s7">
-                        <input type="hidden" name="idPadresFiel" value="<?php echo $get->idPadresFiel ?>" />
+                        <!--<input type="hidden" name="idPadresFiel" value="<?php echo $get->idPadresFiel ?>" />-->
                         <input type="hidden" name="id" value="<?php echo $get->id ?>" />
                         <input type="hidden" name="idCertificadoNacimiento" value="<?php echo $get->idCertificadoNacimiento ?>" />
                           <button type="submit" name="mit" class="btn cyan waves-effect waves-light" >Guardar
