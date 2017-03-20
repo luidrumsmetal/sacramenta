@@ -46,9 +46,9 @@
                         <div class="input-field col s12 m6 l12">
                             <i class="mdi-action-account-circle prefix"></i>
                             <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text" value="<?php echo $get->Fiel?>" onclick="this.value=' '">
-                            <input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $get->idFiel?>">
+                            <input id="feligres_id" name="feligres_id" type="hidden" value="<?php echo $get->idPersona?>">
                             <input type="hidden" name="idCertificado" id="idCertificado" value="<?php echo $get->idCertificado  ?>">
-                            <input type="hidden" name="idSacramento" id="idSacramento" value="<?php echo $get->idSacramento  ?>">
+                            <input type="hidden" name="idSacramento" id="idSacramento" value="<?php echo $get->sacramento_id  ?>">
                             <label for="feligres" class="active"><b>Feligrés (*)</b></label>
                         </div>
                        <!-- <div class="input-field col s6">
@@ -67,8 +67,8 @@
 
                         <div class="input-field col s12 m6 l6">
                           <i class="mdi-action-home prefix"></i>
-                          <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" value="<?php echo $get->nombre ?>" onclick="this.value=' '">
-                          <input id="parroquia_id" name="parroquia_id" type="hidden"value="<?php echo $get->idParroquia?>">
+                          <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" value="<?php echo $get->parroquia ?>" onclick="this.value=' '">
+                          <input id="parroquia_id" name="parroquia_id" type="hidden"value="<?php echo $get->parroquia_id?>">
                           <label for="parroquia" class="active"><b>Parroquia de registro (*)</b></label>
                         </div>
                     </div>

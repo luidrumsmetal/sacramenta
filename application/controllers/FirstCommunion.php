@@ -148,42 +148,18 @@ class FirstCommunion extends CI_Controller{
     public function edit() {
         $uri = $this->uri->segment(3);
         $data['title'] = 'Primera Comunión';
-        $data['get'] = $this->Sacrament_model->editFirst($uri);
+        $data['get']= $this->Sacrament_model->editFirst($uri);
         #echo $data['get'].'<br>';
-       # print_r($data['get']);
-        $this->load->view('template/header',$data);
+        #print_r($data['get']);
+        #var_dump($data['get']);
+        #echo $get['parroquia'];
+       $this->load->view('template/header',$data);
         $this->load->view('sacramentos/firstCommunion/firstCommunionEdit', $data);
         $this->load->view('template/footer');
     }
 
     public function update()
     {
-        /*echo '<br>sacramento';
-       echo $sacramento = $this->input->post('idSacramento');
-       echo '<br>vertificado';
-        echo $idCertificado = $this->input->post('idCertificado');
-        echo '<br>persona';
-        echo $persona_id = $this->input->post('feligres_id');
-        echo '<br>';
-        echo $parroquia_id = $this->input->post('parroquia_id');
-        echo '<br>';
-        echo $jurisdiccion_id = $this->input->post('jurisdiccion_id');
-        echo '<br>';
-        echo $fecha = $this->input->post('fecha');
-
-        echo '<br>';
-        echo  $idLibroParroquia = $this->input->post('idLibro');
-        echo '<br>';
-        echo  $libro = $this->input->post('libro');
-        echo '<br>';
-        echo  $pagina = $this->input->post('pagina');
-        echo '<br>';
-        echo  $numero = $this->input->post('numero');
-        echo '<br>';
-        echo  $celebrante = '1';
-        echo '<br>';
-        echo  $certificador='1';
-*/
         $this->form_validation->set_rules('parroquia_id', 'Parroquia', 'trim|required|xss_clean');
         $this->form_validation->set_rules('fecha', 'Fecha Bautizo', 'trim|required|xss_clean');
         $this->form_validation->set_rules('jurisdiccion_id', 'jurisdiccion', 'trim|required|xss_clean');
