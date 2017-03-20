@@ -49,25 +49,26 @@
 										    <input placeholder="INGRESE SU APELLIDO PATERNO" id="apellidoPaterno" name="apellidoPaterno" type="text" value="<?php echo $get->apellidoPaterno ?>">
 										    <label for="apellidoPaterno" class="active"><b>Apellido Paterno (*)</b></label>
 										  </div>
-											<div class="input-field col s6">
+											<div class="input-field col s12 m6 l6">
 										    <i class="mdi-action-account-circle prefix"></i>
 										    <input placeholder="INGRESE SU APELLIDO MATERNO" id="apellidoMaterno" name="apellidoMaterno" type="text" value="<?php echo $get->apellidoMaterno ?>">
 										    <label for="apellidoMaterno" class="active"><b>Apellido Materno (*)</b></label>
 										  </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m6 l6">
                             <i class="mdi-action-account-circle prefix"></i>
                             <input placeholder="INGRESE SUS NOMBRES" id="nombres" name="nombres" type="text" value="<?php echo $get->nombres ?>">
                             <label for="nombres" class="active"><b>Nombres (*)</b></label>
                           </div>
-												  <div class="input-field col s6">
+												  <div class="input-field col s12 m6 l6">
 												          <i class="mdi-action-event prefix"></i>
 												          <input placeholder="" id="fechanac" name="fechanac" type="date" value="<?php echo $get->fechanacimiento ?>">
 												          <label for="fechanac" class="active"><b>Fecha de Nacimiento (*)</b></label>
 												  </div>
                     </div>
                     <div class="row">
+
                       <div class="input-field col s0">
                         <i class="mdi-social-group prefix"></i>&nbsp &nbsp
                       </div>
@@ -81,14 +82,17 @@
                       </div>
                       <div class="input-field col s0">
                         &nbsp &nbsp  &nbsp &nbsp  &nbsp &nbsp
+
                       </div>
-                      <div class="input-field col s6">
+
+                      <div class="input-field col s12 m6 l6">
 										    <i class="mdi-action-home prefix"></i>
 										    <input placeholder="INGRESE SU DIRECCIÓN" id="procedencia" name="procedencia" type="text" value="<?php echo $get->procedencia ?>">
 										    <label for="procedencia" class="active"><b>Procedencia (*)</b></label>
 										  </div>
                     </div>
 										<div class="row">
+
 											<div class="input-field col s12">
 												<i class="mdi-action-credit-card prefix"></i>
 
@@ -97,6 +101,7 @@
 												<label for="ci" class="active"><b>Carnet de Identidad</b></label>
 
 											</div>
+
 										</div>
 
 
@@ -149,6 +154,7 @@
                     </div>
                   </div>
                     <div class="row">
+
                         <div class="input-field col s7">
                         <input type="hidden" name="idPadresFiel" value="<?php echo $get->idPadresFiel ?>" />
                         <input type="hidden" name="id" value="<?php echo $get->id ?>" />
@@ -156,8 +162,10 @@
                           <button type="submit" name="mit" class="btn cyan waves-effect waves-light" >Guardar
                           </button>
                           <button type="button" onclick="location.href='<?php echo site_url('users/listFiel') ?>'" class="btn btn-danger">Volver Atras<i class="mdi-content-send right"></i></button>
+
                         </div>
                     </div>
+                    
                 </div>
               </div>
             </div>
