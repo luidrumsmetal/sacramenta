@@ -38,7 +38,7 @@ $pdf->SetSubject('TCPDF Tutorial');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 006', PDF_HEADER_STRING);
+/*$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, 'DIOCESIS DE TARIJA', "Calle Gral. Bernardo Trigo N° 0769\nCasilla 1192\nTARIJA - BOLIVIA");*/
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -76,40 +76,103 @@ $pdf->SetFont('dejavusans', '', 10);
 
 // add a page
 $pdf->AddPage();
-$heading = <<<EOD
+$heading = "<h1>VICARIATO APOSTOLICO DE CAMIRI</h1>";
+$pdf->writeHTMLCell(0, 0,'','',$heading,0,1,0,true,'C',true);
+
+$heading = 'Camiri-Bolivia
 <h3>CERTIFICADO DE  BAUTISMO</h3>
-<p align="left"><h3>SERIE-B</p></p>
-EOD;
+<p align="left"><h3>SERIE-B</p></p>';
 $pdf->writeHTMLCell(0, 0,'','',$heading,0,1,0,true,'C',true);
 $html = '<p align="left">Parroquia'.$get->parroquia;
 $pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
 
-$html = '<p align="left">Libro Nro:'.$get->libro.'Pagina:'.$get->partida.'Nro de  Certif:'.$get->orc;
+$html = '<p align="right">Libro N°:'.$get->libro.'  Pagina:'.$get->partida.'  N° de  Certif:'.$get->orc;
 $pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
 // create some HTML content
 
 
 
 $pdf->Ln(8);
-$table ='<table style = "border: 1px solid black">';
-$table .=  '<tr>
-             <th data-field="nombre">Apellido Paterno</th>
-             <th data-field="direccion">Apellido Materno</th>
-             <th data-field="direccion">Nombres</th>
-             <th data-field="direccion">Fecha de Bautizo</th>
-             <th data-field="direccion">Genero</th>
-           </tr>';
-           
-               $table .= '<tr>
-               			  <td>'.$get->apellidoPaterno.'</td>
-               			  <td>'.$get->apellidoMaterno.'</td>
-               			  <td>'.$get->nombres.'</td>
-               			  <td>'.$get->fecha.'</td>
-               			  <td>'.$get->genero.'</td>
-               			  <td>';
-            
-$table .=  '</table>';
+$table ='<center>'.$get->apellidoPaterno.' '.$get->apellidoMaterno.' '.$get->nombres.'</center>';
+$table .='<HR width=3% align="CENTER">';
 $pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$table= '<center>APELLIDOS Y NOMBRES DEL BAUTIZADO</center>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$html = '<BR>';
+
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$table ='<center>'.$get->fechanacimiento.'</center>';
+$table .='<HR width=20% align="CENTER">';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$table= '<center>FECHA DE NACIMIENTO</center>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$html = '<BR>';
+
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$table ='<center>'.$get->fechanacimiento.'</center>';
+$table .='<HR width=20% align="CENTER">';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$table= '<center>NOMBRES Y APELLIDOS DEL PADRE</center>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$html = '<BR>';
+
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$table ='<center>'.$get->fechanacimiento.'</center>';
+$table .='<HR width=20% align="CENTER">';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$table= '<center>NOMBRES Y APELLIDOS DE LA MADRE</center>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$html = '<BR>';
+
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$table ='<center>'.$get->fechanacimiento.'</center>';
+$table .='<HR width=20% align="CENTER">';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$table= '<center>PADRINOS DE BAUTIZO</center>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$html = '<BR>';
+
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$table ='<p>'.$get->fecha.'&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;'.$get->fecha.'</p>';
+$table .='<HR width=20% align="CENTER">';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$table= 'MINISTRO DEL BAUTISMO  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; LUGAR Y FECHA';
+
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$html = '<BR>';
+
+
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$table= '<p align="left">Los datos que anteceden concuerden con el original de referencia, en fe de la cual firmo y signo con el seño parroquial</p>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$html = '<BR>';
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$html = '<BR>';
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$html = '<BR>';
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$html = '<BR>';
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$html = '<BR>';
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+$html = '<BR>';
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+
+$table ='<p align="right">________________________</p>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$table= '<p align="right">Parroco / Responsable</p>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$html = '<BR>';
+$pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
+
+$table ='<p align="right">________________________</p>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+$table= '<p align="right">Parroco / Responsable</p>';
+$pdf->writeHTMLCell(0, 0,'','',$table,0,1,0,true,'C',true);
+           
+               
+            
+
        
 // output the HTML content
 

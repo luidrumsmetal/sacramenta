@@ -53,6 +53,7 @@ class Listas_model extends CI_Model
         if ($search) {
             $srch = "AND (p.nombre LIKE '%".$search."%' OR 
 							p.direccion LIKE '%".$search."%' OR
+							c.jurisdiccion LIKE '%".$search."%' OR
 							p.telefono LIKE '%".$search."%' OR
 							p.email LIKE '%".$search."%') ";
         }
@@ -69,7 +70,7 @@ class Listas_model extends CI_Model
 
 
         $q = "
-			SELECT p.idParroquia as rownum, p.*, c.*
+			SELECT p.idParroquia as rownum, p.*, c.idJurisdiccion, c.jurisdiccion
 			FROM parroquia p, jurisdiccion c
 			WHERE p.jurisdiccion_id = c.idJurisdiccion
 			".$srch." LIMIT $start,$length";
