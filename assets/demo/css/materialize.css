@@ -2195,7 +2195,7 @@ a {
 }
 
 html {
-  line-height: 1.5;
+  line-height: 1.8;
   font-family: "Roboto", sans-serif !important;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.87);
@@ -2832,7 +2832,7 @@ ul {
 }
 
 a {
-  color: #00bcd4;
+  color: #ffa400;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -2964,7 +2964,7 @@ video.responsive-video {
 }
 
 .pagination li.active {
-  background-color: #00bcd4;
+  background-color: #ffa400;
 }
 
 .pagination li.disabled a {
@@ -8747,8 +8747,8 @@ button:focus {
 }
 
 label {
-  font-size: 0.8rem;
-  color: #9e9e9e;
+  font-size: 1.4rem;
+  color: #000;
 }
 
 /***************************

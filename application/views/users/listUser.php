@@ -1,4 +1,3 @@
-
 <section id = "content">
     <div class="section">
       <div class="row">
@@ -23,7 +22,7 @@
               </button>
             </div>
         <?php } ?>
-<section id = "content">
+<section id = "content">    
     <div class="section">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -43,7 +42,7 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 5%;background-color: #006699; color: white;">#</th>
-                                        <th style="width: 10%;background-color: #006699; color: white;">ci</th>
+                                        <th style="width: 10%;background-color: #006699; color: white;">CI</th>
                                         <th style="width: 10%;background-color: #006699; color: white;">Paterno</th>
                                         <th style="width: 10%;background-color: #006699; color: white;">Materno</th>
                                         <th style="width: 10%;background-color: #006699; color: white;">Nombre</th>
@@ -90,7 +89,7 @@
         $('#tblPersonas').DataTable().destroy();
         $('#tblPersonas').DataTable({
             "language": {
-                      "emptyTable": "No hay entradas en la busqueda."
+                      "emptyTable": "Usuario inexistente."
             },
             "lengthMenu": [[5, 10, 15, 20], [5, 10, 15, 20]],
             'paging': true,

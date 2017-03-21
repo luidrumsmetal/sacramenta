@@ -559,5 +559,48 @@ class Users_model extends CI_Model{
 
         return $retornar;
     }
+    public function getParroquias($start, $length, $search)
+    {
+        $srch = "";
+        if ($search) {
+            $srch = "AND (p.nombre LIKE '%".$search."%' OR 
+							c.email LIKE '%".$search."%') ";
+        }
+
+        $qnr = "
+			SELECT count(1) cant
+			FROM parroquia p, users c
+			WHERE c.parroquia_id = p.idParroquia
+		".$srch;
+
+        $qnr = $this->db->query($qnr);
+        $qnr = $qnr->row();
+        $qnr = $qnr->cant;
+
+
+        $q = "
+			SELECT c.id as rownum, p.nombre as parroquia, p.telefono, c.email, c.tipoUsuario
+			FROM parroquia p, users c
+			WHERE c.parroquia_id = p.idParroquia
+			".$srch." LIMIT $start,$length";
+
+        $r = $this->db->query($q);
+
+        $retornar = array(
+            'numDataTotal' => $qnr,
+            'datos' => $r
+        );
+
+        return $retornar;
+    }
+    function editParroquia($uri)
+    {
+        $this->db->select('*, users.email as emailParroquia');
+        $this->db->from('users');
+        $this->db->join('parroquia', 'parroquia.idParroquia = users.parroquia_id');
+        $this->db->where('users.id', $uri);
+        return $this->db->get()->row();
+    }
+
 
 }

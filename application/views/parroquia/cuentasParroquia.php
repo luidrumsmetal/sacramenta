@@ -1,4 +1,3 @@
-
 <section id = "content">
     <div class="section">
         <div class="row">
@@ -30,7 +29,7 @@
                             <nav class="amber darken-4">
                                 <div class="nav-wrapper">
                                     <div class="col s12">
-                                        <h1 class="brand-logo center">Lista de Parroquias</h1>
+                                        <h1 class="brand-logo center">Lista de Cuentas Parroquias</h1>
                                     </div>
                                 </div>
                             </nav>
@@ -42,12 +41,11 @@
                                         <table id="tblPersonas" class="table table-bordered table-striped">
                                             <thead>
                                             <tr>
-
+                                                <th style="width: 5%;background-color: #006699; color: white;">#</th>
                                                 <th style="width: 10%;background-color: #006699; color: white;">Nombre</th>
-                                                <th style="width: 10%;background-color: #006699; color: white;">Dirección</th>
-                                                <th style="width: 10%;background-color: #006699; color: white;">Teléfono</th>
-                                               <!-- <th style="width: 10%;background-color: #006699; color: white;">Email</th>-->
-                                                <th style="width: 10%;background-color: #006699; color: white;">Jurisdicción</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Email</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Telefono</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Tipo</th>
                                                 <th style="width: 10%;background-color: #006699; color: white;">Opciones</th>
                                             </tr>
                                             </thead>
@@ -59,7 +57,7 @@
 
                                 </div>
                                 <div id="modal1" class="modal">
-                                    <form action="<?php echo base_url(); ?>jurisdiccion/delete" method="post">
+                                    <form action="<?php echo base_url(); ?>users/delete_user" method="post">
                                         <div class="modal-content">x
                                             <h4 align="center">Eliminar Usuario</h4>
                                             <input type="hidden" id="id" name="id" value="" />
@@ -89,7 +87,7 @@
                 $('#tblPersonas').DataTable().destroy();
                 $('#tblPersonas').DataTable({
                     "language": {
-                        "emptyTable": "Parroquia inexistente."
+                        "emptyTable": "Usuario inexistente."
                     },
                     "lengthMenu": [[5, 10, 15, 20], [5, 10, 15, 20]],
                     'paging': true,
@@ -100,19 +98,19 @@
                     'serverSide':true,
 
                     'ajax': {
-                        "url":"<?php echo base_url()?>listas/getParroquias",
+                        "url":"<?php echo base_url()?>users/getParroquias",
                         "type":"POST"
                     },
                     'columns': [
-
-                        {data: 'nombre'},
-                        {data: 'direccion'},
+                        {data: 'rownum'},
+                        {data: 'parroquia'},
+                        {data: 'email'},
                         {data: 'telefono'},
-                        {data: 'jurisdiccion'},
+                        {data: 'tipoUsuario'},
                         {"orderable": true,
                             render: function (data, type, row) {
                                 return '<span class="pull-right">' +
-                                    '    <a href="<?php echo base_url();?>jurisdiccion/edit/'+row.rownum+'" title="Editar informacion" class="btn waves-effect waves-light amber darken-4""><i class="mdi-editor-border-color"></i></a>' +
+                                    '    <a href="<?php echo base_url();?>users/edit_parroquia/'+row.rownum+'" title="Editar informacion" class="btn waves-effect waves-light amber darken-4""><i class="mdi-editor-border-color"></i></a>' +
                                     '    <a href="#modal1" cliente='+row.rownum+' style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red darken-4" "><i class="mdi-action-delete"></i></a>' +
                                     '</span>';
                             }
@@ -130,5 +128,4 @@
 
                     });
                 });
-
             </script>
