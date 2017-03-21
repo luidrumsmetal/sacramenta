@@ -91,6 +91,7 @@ $pdf->writeHTMLCell(0, 0,'','',$html,0,1,0,true,'C',true);
 // create some HTML content
 
 
+
 $pdf->Ln(8);
 $table ='<center>'.$get->apellidoPaterno.' '.$get->apellidoMaterno.' '.$get->nombres.'</center>';
 $table .='<HR width=3% align="CENTER">';

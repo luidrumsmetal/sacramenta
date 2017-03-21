@@ -69,6 +69,7 @@ class Users extends CI_Controller{
     $this->load->view('template/footer');
 }
 
+
   function listSacerdote($offset = NULL)
 
   {
