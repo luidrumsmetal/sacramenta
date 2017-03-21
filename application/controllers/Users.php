@@ -9,6 +9,8 @@ class Users extends CI_Controller{
     //Codeigniter : Write Less Do More
     $this->load->model('Users_model');
     $this->load->model('Jurisdiccion_model');
+      $this->load->model('Listas_model');
+
 
   }
     /**
@@ -183,12 +185,30 @@ class Users extends CI_Controller{
           redirect(base_url().'home');
         }
     }
-
-      $data['title'] = 'Lista de Usuarios';
-
+    $data['title'] = 'Lista de Usuarios';
     $this->load->view('template/header',$data);
     $this->load->view('users/listUser');
     $this->load->view('template/footer');
+  }
+
+  function listParroquia()
+  {
+      if (!$this->session->userdata('nombre')) {
+          redirect(base_url().'login');
+      }
+      if ($this->session->userdata('tipo') != 'administrador') {
+          if (!$this->session->userdata('nombre')) {
+              redirect(base_url().'login');
+          }
+          else
+          {
+              redirect(base_url().'home');
+          }
+      }
+      $data['title'] = 'Lista de Parroquias';
+      $this->load->view('template/header',$data);
+      $this->load->view('parroquia/cuentasParroquia');
+      $this->load->view('template/footer');
   }
 
   function faithfullCreate()
@@ -593,8 +613,20 @@ class Users extends CI_Controller{
         $this->load->view('users/usuarioEdit', $data);
         $this->load->view('template/footer');
   }
+    public function edit_parroquia() {
+        $uri = $this->uri->segment(3);
+        $data1['title'] = 'Editar Parroquia';
+        $data['get'] = $this->Users_model->editParroquia($uri);
+        $this->load->view('template/header',$data1);
+        $this->load->view('users/parroquiaEdit', $data);
+        $this->load->view('template/footer');
+    }
+    function  update_parroquia()
+    {
 
-  function update_user() {
+    }
+
+    function update_user() {
 
       /*echo $id = $this->input->post('id').'/';
       echo '<br>'.$idCuenta = $this->input->post('idCuenta').'/';
@@ -848,6 +880,41 @@ class Users extends CI_Controller{
          # $array['cuenta_id'] = $row['cuenta_id'];
          # $array['parroquia_id'] = $row['parroquia_id'];
         #  $array['email'] = $row['email'];
+          $datos[] = $array;
+      }
+
+      $totalDatoObtenido = $resultado->num_rows();
+
+      $json_data = array(
+          "draw"            => intval($this->input->post('draw')),
+          "recordsTotal"    => intval($totalDatoObtenido),
+          "recordsFiltered" => intval($totalDatos),
+          "data"            => $datos
+      );
+      echo json_encode($json_data);
+  }
+  function getParroquias()
+  {
+      $start = $this->input->post('start');
+      $length = $this->input->post('length');
+      $search = $this->input->post('search')['value'];
+
+      $result = $this->Users_model->getParroquias($start,$length,$search);
+
+      $resultado = $result['datos'];
+      #print_r($resultado);
+      $totalDatos = $result['numDataTotal'];;
+      $datos = array();
+      foreach ($resultado->result_array() as $row) {
+          $array = array();
+          $array['rownum'] = $row['rownum'];
+          $array['parroquia'] = $row['parroquia'];
+          $array['email'] = $row['email'];
+          $array['telefono'] = $row['telefono'];
+          $array['tipoUsuario'] = $row['tipoUsuario'];
+          # $array['cuenta_id'] = $row['cuenta_id'];
+          # $array['parroquia_id'] = $row['parroquia_id'];
+          #  $array['email'] = $row['email'];
           $datos[] = $array;
       }
 

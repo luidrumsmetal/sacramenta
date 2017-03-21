@@ -1,4 +1,3 @@
-
 <section id = "content">
     <div class="section">
       <div class="row">
