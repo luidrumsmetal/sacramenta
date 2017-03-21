@@ -83,4 +83,45 @@ class Listas_model extends CI_Model
 
         return $retornar;
     }
+
+    function getBautizados($start,$length,$search)
+    {
+        $srch = "";
+        if ($search) {
+            $srch = "AND (p.nombres LIKE '%".$search."%' OR 
+                            p.ci LIKE '%".$search."%' OR
+                            p.apellidoPaterno LIKE '%".$search."%' OR
+							p.apellidoMaterno LIKE '%".$search."%' OR
+							p.procedencia LIKE '%".$search."%' OR
+							p.genero LIKE '%".$search."%') ";
+        }
+
+        $qnr = "
+			SELECT count(1) cant
+			FROM certificado c, persona p
+			WHERE c.sacramento_id = 1
+			AND p.id = c.persona_id
+		".$srch;
+
+        $qnr = $this->db->query($qnr);
+        $qnr = $qnr->row();
+        $qnr = $qnr->cant;
+
+
+        $q = "
+			SELECT c.idCertificado as rownum, p.*, c.*, a.*
+			FROM persona p, certificado c, parroquia a
+			WHERE p.id = c.persona_id
+			AND a.idParroquia = c.parroquia_id
+			".$srch." LIMIT $start,$length";
+
+        $r = $this->db->query($q);
+
+        $retornar = array(
+            'numDataTotal' => $qnr,
+            'datos' => $r
+        );
+
+        return $retornar;
+    }
 }
