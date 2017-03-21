@@ -39,7 +39,7 @@
                 </nav>
               <div class="card-panel">
                 <div class="row">
-                  <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>firstCommunion/update">
+                <?php echo form_open('FirstCommunion/update', 'role="form"', 'method=post'); ?>
                   <font color="black" size="5" face="Lucida Calligraphy">Datos Generales</font><br><Br>
 
                       <div class="row">
@@ -68,7 +68,7 @@
                         <div class="input-field col s12 m6 l6">
                           <i class="mdi-action-home prefix"></i>
                           <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" value="<?php echo $get->parroquia ?>" onclick="this.value=' '">
-                          <input id="parroquia_id" name="parroquia_id" type="hidden"value="<?php echo $get->parroquia_id?>">
+                          <input id="parroquia_id" name="parroquia_id" type="hidden" value="<?php echo $get->parroquia_id?>">
                           <label for="parroquia" class="active"><b>Parroquia de registro (*)</b></label>
                         </div>
                     </div>
@@ -93,12 +93,12 @@
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-find-in-page prefix"></i>
-                        <input placeholder="Ingrese número de página" id="pagina" name="pagina" type="text" value="<?php echo $get->pagina?>" onclick="this.value=' '">
+                        <input placeholder="Ingrese número de página" id="pagina" name="pagina" type="text" value="<?php echo $get->pagina ?>" onclick="this.value=' '">
                         <label for="pagina" class="active"><b>Página (*)</b></label>
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
-                        <input placeholder="Ingrese número registro" id="numero" name="numero" type="text" value="<?php echo $get->numero?>" onclick="this.value=' '">
+                        <input placeholder="Ingrese número registro" id="numero" name="numero" type="text" value="<?php echo $get->numero ?>" onclick="this.value=' '">
                         <label for="numero" class="active"><b>Número (*)</b></label>
                       </div>
                     </div>
@@ -117,6 +117,7 @@
           </div>
 		</div>
 </section>
+<?php echo form_close(); ?>
 <!--<script type="text/javascript">
   function comprobar(ci)
   {
