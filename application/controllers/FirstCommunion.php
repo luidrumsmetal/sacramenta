@@ -32,13 +32,50 @@ class FirstCommunion extends CI_Controller{
     #$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[2]|xss_clean');
     #$this->form_validation->set_rules('apellido', 'Apellido', 'trim|required|min_length[2]|xss_clean');
     #$this->form_validation->set_rules('fechanac', 'Fecha nacimiento', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('fechacom', 'Fecha Primera Confirmacion', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('parroquia_id', 'Parroquia', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('libroOne', 'Libro', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('paginaOne', 'Pagina', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('numeroOne', 'Numero', 'trim|required|xss_clean');
+    $this->form_validation->set_rules(
+        'feligres', '<b>"Nombre del feligrés"</b>', 
+        'trim|required|xss_clean',
+            array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+          ));
+    $this->form_validation->set_rules(
+        'fechacom', '<b>"Fecha de Primera Comunión"</b>', 
+        'trim|required|xss_clean',
+                array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+          ));
+    $this->form_validation->set_rules(
+        'parroquia_id', '<b>"Parroquia de celebración"</b>', 
+        'trim|required|xss_clean',
+            array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+          ));
+    $this->form_validation->set_rules(
+      'jurisdiccion', '<b>"Jurisdicción"</b>', 
+      'trim|required|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+          ));    
+    $this->form_validation->set_rules(
+      'libroOne', '<B>"Libro de registro Sacramental"</B>', 
+      'trim|required|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+          ));
+    $this->form_validation->set_rules(
+      'paginaOne', '<b>"Número de Página"</b>', 
+      'trim|required|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+          ));
+    $this->form_validation->set_rules(
+      'numeroOne', '<B>"Número"</B>', 
+      'trim|required|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s de registro.</font></div>',
+          ));
     if ($this->form_validation->run() == FALSE) {
-        $this->session->set_flashdata('error', 'Ingrese correctamente los datos');
+        $this->session->set_flashdata('error', validation_errors());
         redirect(base_url().'firstCommunion');
     }
     else

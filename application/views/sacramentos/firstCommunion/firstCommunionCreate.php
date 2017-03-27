@@ -63,6 +63,7 @@
                             <input placeholder="Ingrese nombre completo" id="feligres" name="feligres" type="text" value='<?php echo set_value('feligres') ?>'>
                             <input id="feligres_id" name="feligres_id" type="hidden">                            
                             <label for="feligres" class="active"><b>Feligrés (*)</b></label>
+                            <?php echo form_error('feligres')?>
                         </div>
                        <!-- <div class="input-field col s6">
                           <i class="mdi-action-account-circle prefix"></i>
@@ -76,6 +77,7 @@
                               <i class="mdi-action-event prefix"></i>
                               <input placeholder="" id="fechacom" name="fechacom" type="date" value='<?php echo set_value('fechacom') ?>'>
                               <label for="first_name" class="active"><b>Fecha Comunión (*)</b></label>
+                              <?php echo form_error('fechacom')?>
                         </div>
 
                         <div class="input-field col s12 m6 l6">
@@ -83,6 +85,7 @@
                           <input placeholder="Ingrese la parroquia" id="parroquia" name="parroquia" type="text" value='<?php echo set_value('parroquia') ?>'>
                           <input id="parroquia_id" name="parroquia_id" type="hidden">
                           <label for="parroquia" class="active"><b>Parroquia de registro (*)</b></label>
+                          <?php echo form_error('parroquia')?>
                         </div>
                     </div>
 
@@ -92,6 +95,7 @@
                             <input placeholder="Ingrese lugar de Comunión" id="jurisdiccion" name="jurisdiccion" type="text" value='<?php echo set_value('jurisdiccion') ?>'>
                             <input id="jurisdiccion_id" name="jurisdiccion_id" type="hidden">                            
                             <label for="jurisdiccion" class="active"><b>Jurisdicción Eclesiástica (*)</b></label>
+                            <?php echo form_error('jurisdiccion')?>
                         </div>
                     </div>
 
@@ -101,16 +105,19 @@
                         <i class="mdi-action-book prefix"></i>
                         <input placeholder="Ingrese libro de registro" id="libroOne" name="libroOne" type="text" value='<?php echo set_value('libroOne') ?>'>
                         <label for="libro" class="active"><b>Libro (*)</b></label>
+                        <?php echo form_error('libroOne')?>
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-find-in-page prefix"></i>
                         <input placeholder="Ingrese número de página" id="paginaOne" name="paginaOne" type="text" value='<?php echo set_value('paginaOne') ?>'>
                         <label for="pagina" class="active"><b>Página (*)</b></label>
+                        <?php echo form_error('paginaOne')?>
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-editor-format-list-numbered prefix"></i>
                         <input placeholder="Ingrese número registro" id="numeroOne" name="numeroOne" type="text" value='<?php echo set_value('numeroOne') ?>'>
                         <label for="numero" class="active"><b>Número (*)</b></label>
+                        <?php echo form_error('numeroOne')?>
                       </div>
                     </div>
 

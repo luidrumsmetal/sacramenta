@@ -389,20 +389,75 @@ class Users extends CI_Controller{
   {
     $tipoUsuario = 'fiel';
     $this->load->library('form_validation');
-    $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|min_length[5]|numeric|is_unique[cuenta.ci]|xss_clean');
-    $this->form_validation->set_rules('apellidoPaterno', 'Apellido Paterno', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('apellidoMaterno', 'Apellido Materno', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('nombres', 'Nombre', 'trim|required|min_length[2]|xss_clean');
-    $this->form_validation->set_rules('fechanac', 'Fecha nacimineto', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('genero', 'Genero', 'trim|required|xss_clean');
+    $this->form_validation->set_rules(
+        'ci', 'Carnet de Identidad',
+        'trim|min_length[7]|numeric|is_unique[cuenta.ci]|xss_clean',
+        array(
+            'min_length'    => '<div align="center"><font color="FFFFFF">Debe ingresar %s con al menos %s caracteres.</font></div>',
+            'numeric'       => '<div align="center"><font color="000000">En el campo %s debe ser numerico</font></div>'
+        )
+    );
+
+    $this->form_validation->set_rules(
+      'apellidoPaterno', '<B>"Apellido Paterno"</B>', 
+      'trim|required|min_length[2]|max_length[15]|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'min_length'     => '<div align="center"><font color="FFFFFF">Debe ingresar %s con al menos %s caracteres.</font></div>',
+              'max_length'     => '<div align="center"><font color="FFFFFF">El campo %s no debe tener mas de %s letras.</font></div>'
+          )
+      );
+    $this->form_validation->set_rules(
+      'apellidoMaterno', '<B>"Apellido Materno"</B>', 
+      'trim|required|min_length[2]|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'min_length'     => '<div align="center"><font color="FFFFFF">Debe ingresar %s con al menos %s caracteres.</font></div>'
+          )
+
+      );
+    $this->form_validation->set_rules(
+      'nombres', '<B>"Nombre"</B>', 
+      'trim|required|min_length[2]|max_length[15]|xss_clean',
+                array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'min_length'     => '<div align="center"><font color="FFFFFF">Debe ingresar %s con al menos %s caracteres.</font></div>',
+              'max_length'     => '<div align="center"><font color="FFFFFF">El campo %s no debe tener mas de %s letras.</font></div>'
+          ));
+    $this->form_validation->set_rules(
+      'fechanac', '<b>"Fecha nacimiento"</b>', 
+      'trim|required|xss_clean',
+       array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>'
+          ));
+    $this->form_validation->set_rules(
+      'genero', '<b>"Sexo"</b>', 
+      'trim|required|xss_clean',
+             array(
+              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>'
+          ));
     #$this->form_validation->set_rules('celular', 'Celular', 'trim|required|min_length[5]|max_length[12]|xss_clean');
     #$this->form_validation->set_rules('facebook', 'Facebook', 'trim|required|min_length[5]|max_length[12]|xss_clean');
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[5]|max_length[50]|valid_email|is_unique[users.email]|xss_clean');
-    $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[2]|max_length[18]|xss_clean');
-    $this->form_validation->set_message('required', 'El %s es importante');
+    $this->form_validation->set_rules(
+      'email', '<b>"Email"</b>', 
+      'trim|required|min_length[5]|max_length[50]|valid_email|is_unique[users.email]|xss_clean',
+      array(
+              'required'      => '<div align="center"><font color="FFFFFF">%s es un campo obligatorio.</font></div>'
+          )
+      );
+    $this->form_validation->set_rules(
+      'password', '<b>"Contraseña"</b>', 
+      'trim|required|min_length[2]|max_length[18]|xss_clean',
+      array(
+              'required'      => '<div align="center"><font color="FFFFFF">%s es un campo obligatorio.</font></div>',
+              'min_length'     => '<div align="center"><font color="FFFFFF">Debe ingresar %s con al menos %s caracteres.</font></div>',
+              'max_length'     => '<div align="center"><font color="FFFFFF">El campo %s no debe tener mas de %s caracteres.</font></div>'
+          )
+      );
     if ($this->form_validation->run()==false)
     {
-        $this->session->set_flashdata('error','Ingrese correctamente los datos');
+     
+        $this->session->set_flashdata('error', validation_errors());
         redirect(base_url() . 'users/faithfulAccount');
     }
     else {
