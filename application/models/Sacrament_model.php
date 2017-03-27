@@ -71,7 +71,7 @@ class Sacrament_model extends CI_Model{
     function editConfirmacion($uri)
     {
         $this->db->select('*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Fiel, persona.id as idFiel,
-         CONCAT(C.apellidoPaterno, " ",C.apellidoMaterno," ",C.nombres) as Sacerdote_certificador, A.idSacerdote as sacerdoteCertificador,  C.id as personaCertificador  , CONCAT(D.apellidoPaterno, " ",D.apellidoMaterno," ",D.nombres) as Sacerdote_certificante, B.idSacerdote as sacerdoteCertificante' );
+         CONCAT(C.apellidoPaterno, " ",C.apellidoMaterno," ",C.nombres) as Sacerdote_certificador, A.idSacerdote as sacerdoteCertificador,  C.id as personaCertificador  , CONCAT(D.apellidoPaterno, " ",D.apellidoMaterno," ",D.nombres) as Sacerdote_certificante, B.idSacerdote as sacerdoteCertificante,padrinofiel.* ');
       $this->db->from('certificado');
       $this->db->join('persona', 'persona.id = certificado.persona_id');
       $this->db->join('sacramento', 'sacramento.idSacramento = certificado.sacramento_id');
