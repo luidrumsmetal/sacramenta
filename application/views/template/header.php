@@ -62,7 +62,7 @@
         <!-- start header nav-->
         <div class="navbar-fixed">
             <nav class="navbar-color">
-           <font color="white" size="6" face="Lucida Calligraphy" align="center">Pastoral Digital</font><br><Br>
+           <font color="white" size="6" face="Lucida Calligraphy" align="center">Registro Sacramental</font><br><Br>
                 <div class="nav-wrapper">
                     <ul>
                       <li>

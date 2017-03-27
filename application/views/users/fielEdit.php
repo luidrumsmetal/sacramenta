@@ -78,7 +78,7 @@
                           <option value="1">Masculino</option>
                           <option value="2">Femenino</option>
                         </select>
-                        <label><b>Género (*) </b></label>
+                        <label><b>Sexo (*) </b></label>
                       </div>
                       <div class="input-field col s0">
                         &nbsp &nbsp  &nbsp &nbsp  &nbsp &nbsp
@@ -96,7 +96,7 @@
 											<div class="input-field col s12">
 												<i class="mdi-action-credit-card prefix"></i>
 
-												<input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value="<?php echo $get->ci ?>">
+												<input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="number" value="<?php echo $get->ci ?>">
                         <div id="msgUsuario"></div>
 												<label for="ci" class="active"><b>Carnet de Identidad</b></label>
 
