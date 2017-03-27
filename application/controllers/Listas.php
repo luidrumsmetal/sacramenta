@@ -120,6 +120,77 @@ class Listas extends CI_Controller
         );
         echo json_encode($json_data);
     }
+    function getComunion()
+    {
+        $start = $this->input->post('start');
+        $length = $this->input->post('length');
+        $search = $this->input->post('search')['value'];
+        $tipo = $this->session->userdata('tipo');
+        $result = $this->Listas_model->getComunion($start,$length,$search,$tipo);
+
+        $resultado = $result['datos'];
+
+        $totalDatos = $result['numDataTotal'];;
+
+        $datos = array();
+
+        foreach ($resultado->result_array() as $row) {
+            $array = array();
+            $array['rownum'] = $row['rownum'];
+            $array['apellidoPaterno'] = $row['apellidoPaterno'];
+            $array['apellidoMaterno'] = $row['apellidoMaterno'];
+            $array['nombres'] = $row['nombres'];
+            $array['fecha'] = $row['fecha'];
+            $array['genero'] = $row['genero'];
+            $datos[] = $array;
+        }
+
+        $totalDatoObtenido = $resultado->num_rows();
+
+        $json_data = array(
+            "draw"            => intval($this->input->post('draw')),
+            "recordsTotal"    => intval($totalDatoObtenido),
+            "recordsFiltered" => intval($totalDatos),
+            "data"            => $datos
+        );
+        echo json_encode($json_data);
+    }
+    function getConfirmados()
+    {
+        $start = $this->input->post('start');
+        $length = $this->input->post('length');
+        $search = $this->input->post('search')['value'];
+        $tipo = $this->session->userdata('tipo');
+        $result = $this->Listas_model->getConfirmados($start,$length,$search,$tipo);
+
+        $resultado = $result['datos'];
+
+        $totalDatos = $result['numDataTotal'];;
+
+        $datos = array();
+
+        foreach ($resultado->result_array() as $row) {
+            $array = array();
+            $array['rownum'] = $row['rownum'];
+            $array['apellidoPaterno'] = $row['apellidoPaterno'];
+            $array['apellidoMaterno'] = $row['apellidoMaterno'];
+            $array['nombres'] = $row['nombres'];
+            $array['fecha'] = $row['fecha'];
+            $array['genero'] = $row['genero'];
+            $datos[] = $array;
+        }
+
+        $totalDatoObtenido = $resultado->num_rows();
+
+        $json_data = array(
+            "draw"            => intval($this->input->post('draw')),
+            "recordsTotal"    => intval($totalDatoObtenido),
+            "recordsFiltered" => intval($totalDatos),
+            "data"            => $datos
+        );
+        echo json_encode($json_data);
+    }
+
 
 
 }

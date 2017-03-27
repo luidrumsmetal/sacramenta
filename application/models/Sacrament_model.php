@@ -100,12 +100,23 @@ class Sacrament_model extends CI_Model{
           return FALSE;
       }
   }
-    function delete($a) {
-        $sql = "SET foreign_key_checks = 0";
-        $this->db->query($sql);
+    function deleteBaptism($a) {
+      #  $sql = "SET foreign_key_checks = 0";
+        #$this->db->query($sql);
+        $this->db->delete('libroparroquia', array('certificado_id' => $a));
+        $this->db->delete('padrinofiel', array('certificado_id' => $a));
         $this->db->delete('certificado', array('idCertificado' => $a));
-        $sql = "SET foreign_key_checks = 1";
-        $this->db->query($sql);
+        #$sql = "SET foreign_key_checks = 1";
+        #$this->db->query($sql);
+
+    }
+    function deleteCommunion($a) {
+      #  $sql = "SET foreign_key_checks = 0";
+        #$this->db->query($sql);
+        $this->db->delete('libroparroquia', array('certificado_id' => $a));
+        $this->db->delete('certificado', array('idCertificado' => $a));
+        #$sql = "SET foreign_key_checks = 1";
+        #$this->db->query($sql);
 
     }
 
