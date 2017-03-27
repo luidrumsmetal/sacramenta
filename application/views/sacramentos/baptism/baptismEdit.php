@@ -122,8 +122,18 @@
 						</div>
 						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidosNombreMadrina" name="apellidosNombreMadrina" type="text" value="<?php echo $get->apellidosNombreMadrina ?>">
+							<input id="apellidosNombreMadrina" name="apellidosNombreMadrina" type="text" value="<?php echo $get->apellidosNombreMadrina ?>" onclick="this.value=' '">
 							<label for="apellidosNombreMadrina" class="active"><b>Nombre completo Madrina</b></label>
+						</div>
+					</div>
+
+					<font color="black" size="5" face="Lucida Calligraphy">Observaciones</font><br><Br>
+
+					<div class="row">
+						<div class="input-field col s12 m6 l12">
+							<i class="mdi-social-person prefix"></i>
+							<input id="observacion" name="observacion" type="text" value='<?php echo $get->observacion ?>' onclick="this.value=' '">
+							<label for="observacion" class="active"><b>Obsevacion</b></label>
 						</div>
 					</div>
 

@@ -102,6 +102,16 @@
                         <label for="numero" class="active"><b>Número (*)</b></label>
                       </div>
                     </div>
+
+                    <font color="black" size="5" face="Lucida Calligraphy">Observaciones</font><br><Br>
+
+          <div class="row">
+            <div class="input-field col s12 m6 l12">
+              <i class="mdi-social-person prefix"></i>
+              <input id="observacion" name="observacion" type="text" value='<?php echo $get->observacion ?>' onclick="this.value=' '">
+              <label for="observacion" class="active"><b>Obsevacion</b></label>
+            </div>
+          </div>
                     <Br><BR>
                     <div class="row">
                         <div class="input-field col s12 m6 l6">

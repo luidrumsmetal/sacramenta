@@ -92,7 +92,8 @@ class FirstCommunion extends CI_Controller{
         'sacramento_id' => $sacramento,
         'sacerdoteCelebrante_id'=>$celebrante,
         'sacerdoteCertificador_id'=>$certificador,
-        'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
+        'jurisdiccion_id' => $this->input->post('jurisdiccion_id'),
+        'observacion' => $this->input->post('observacion')
       );
         if ($this->Sacrament_model->Register('certificado', $data) ==TRUE) {
           $fecha = $this->input->post('fechacom');
@@ -180,6 +181,7 @@ class FirstCommunion extends CI_Controller{
             $libro = $this->input->post('libro');
             $pagina = $this->input->post('pagina');
             $numero = $this->input->post('numero');
+            $observacion = $this->input->post('observacion');
 
             $data = array(
                 'fecha' => $fecha,
@@ -188,7 +190,8 @@ class FirstCommunion extends CI_Controller{
                 'sacramento_id' => $sacramento,
                 'sacerdoteCertificador_id' => $certificador,
                 'sacerdoteCelebrante_id' => $celebrante,
-                'jurisdiccion_id' => $jurisdiccion_id
+                'jurisdiccion_id' => $jurisdiccion_id,
+                'observacion' => $observacion
             );
 
             $this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data);

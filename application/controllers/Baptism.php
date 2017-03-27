@@ -128,7 +128,8 @@ class Baptism extends CI_Controller{
             'sacramento_id' => $sacramento,
             'sacerdoteCertificador_id' => $this->input->post('sacerdoteCertificador_id'),
             'sacerdoteCelebrante_id' => $this->input->post('sacerdoteCelebrante_id'),
-            'jurisdiccion_id' => $this->input->post('jurisdiccion_id')
+            'jurisdiccion_id' => $this->input->post('jurisdiccion_id'),
+            'observacion' => $this->input->post('observacion')
           );
           //registramos el certificado
             if ($this->Sacrament_model->Register('certificado', $data) == TRUE) {
@@ -223,7 +224,7 @@ class Baptism extends CI_Controller{
           $numero = $this->input->post('numero');
           $apellidosNombrePadrino = $this->input->post('apellidosNombrePadrino');
           $apellidosNombreMadrina = $this->input->post('apellidosNombreMadrina');
-
+          $observacion = $this->input->post('observacion');
           $data = array(
               'fecha' => $fecha,
               'persona_id' => $persona_id,
@@ -231,7 +232,8 @@ class Baptism extends CI_Controller{
               'sacramento_id' => $sacramento,
               'sacerdoteCertificador_id' => $sacerdoteCertificador_id,
               'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
-              'jurisdiccion_id' => $jurisdiccion_id
+              'jurisdiccion_id' => $jurisdiccion_id,
+              'observacion' => $observacion
           );
           $this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data);
 
