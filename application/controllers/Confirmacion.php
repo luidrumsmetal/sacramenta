@@ -267,9 +267,8 @@ class Confirmacion extends CI_Controller{
         /// FIN -->
     }
     function delete() {
-        $u = $this->input->post('id');
-        $this->Sacrament_model->delete($u);
-
+        $uri = $this->uri->segment(3);
+        $this->Sacrament_model->deleteBaptism($uri);
         $this->session->set_flashdata('success','Eliminacion completada');
         redirect(base_url() .'confirmacion/listConfirmacion');
 

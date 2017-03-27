@@ -100,8 +100,8 @@
                     render: function (data, type, row) {
                        return '<span class="pull-right">' +
                         '    <a href="<?php echo base_url();?>baptism/edit/'+row.rownum+'" title="Editar informacion" class="btn waves-effect waves-light amber darken-4""><i class="mdi-editor-border-color"></i></a>' +
-                        '    <a href="#modal1" cliente='+row.rownum+' onClick="selPersona('+row.rownum+')" style="margin-right: 1%" class="btn waves-effect waves-light btn modal-trigger red darken-4" "><i class="mdi-action-delete"></i></a>' +
-                        '<a href="<?php echo base_url();?>Pdf_Controller/printCertificado/'+row.rownum+'" style="margin-right: 2%" class="btn waves-effect waves-light blue darken-4" title="Editar Cliente"><i class="mdi-maps-local-print-shop"></i></a>'+
+                        '    <a href="<?php echo base_url();?>baptism/delete/'+row.rownum+'"  class="btn waves-effect waves-light btn modal-trigger red darken-4" title="Eliminar"><i class="mdi-action-delete"></i></a>' +
+                        '<a href="<?php echo base_url();?>Pdf_Controller/printCertificado/'+row.rownum+'" class="btn waves-effect waves-light blue darken-4" title="Imprimir Certificado"><i class="mdi-maps-local-print-shop"></i></a>'+
                            '</span>';
         }
                 }
@@ -110,29 +110,7 @@
         });
 
 </script>
-          <div id="modal1" class="modal">
-              <form action="<?php echo base_url(); ?>users/delete_user" method="post">
-                  <div class="modal-content">x
-                      <h4 align="center">Eliminar Usuario</h4>
-                      <input type="hidden" id="id" name="id" value="" />
-                      <h6 style="text-align: center">¿Realmente desea eliminar este usuario?</h6>
-                  </div>
-                  <div class="modal-footer orange">
-                      <a href="#" class="waves-effect waves-orange btn-flat modal-action modal-close" style="margin-right: 2%">Cancelar</a>
-                      <button type="submit" name="action" class="btn cyan waves-effect waves-light right">Eliminar
-                          <i class="waves-effect waves-orange btn-flat modal-action modal-close"></i>
-                      </button>
-                  </div>
-              </form>
-          </div>
 
-          <div class="row section">
-              <div class="col">
-                  <!-- Modal Trigger -->
-                  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-              </div>
-          </div>
-          <!-- Modal Structure -->
 
 <script type="text/javascript">
     $(document).ready(function(){
