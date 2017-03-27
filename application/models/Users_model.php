@@ -102,37 +102,15 @@ class Users_model extends CI_Model{
     }
   }
 
-  /*function editFiel($uri) {
-    $d = $this->db->query("SELECT a.*, b.*, c.* FROM persona a, padrinofiel b, certificadonacimiento c  WHERE a.id = $uri AND b.persona_id = a.id AND c.persona_id = a.id ")->row();
-
-    #$d = $this->db->get_where('obras_datos', array('cod_obrasdatos' => $a))->row();
-    return $d;  
-  }*/
-
   function editFiel($uri) {
-      //$data = array();
       $this->db->select('*');
-      $this->db->from('persona'); 
+
+      $this->db->from('persona');
       $this->db->join('certificadonacimiento', 'persona.id = certificadonacimiento.persona_id');
       $this->db->join('padresFiel', 'padresFiel.persona_id = persona.id');
-      $this->db->where('persona.id',$uri);       
+      $this->db->where('persona.id',$uri);
       return $this->db->get()->row(); 
-      /*$query = $this->db->get();
-      if ($query->num_rows() > 0) {
-      foreach ($query->result() as $row) {
-        $data[] = $row;
-            }
-        }
-        $query->free_result();
-        //return the array to the controller
-        return $data;*/
   }
-
-/*
-  function editFiel($a) {
-    $d = $this->db->get_where('persona', array('id' => $a))->row();
-    return $d;
-  }*/
 
   function editUser($uri) {
       $this->db->select('*');
@@ -168,17 +146,6 @@ class Users_model extends CI_Model{
           return FALSE;
       }
   }
-
-  /*function delete_user($a) {
-    $this->db->delete('users', array('id' => $a));
-    return;
-  }
-
-  function delete_fiel($a) {
-    $this->db->delete('persona', array('id' => $a));
-    return;
-  }*/
-
 
   function delete_user($a) {
         $sql = "SET foreign_key_checks = 0";
@@ -417,18 +384,7 @@ class Users_model extends CI_Model{
         return $result;
     }
 
-    function listGetFiel($table,$perpage)
-    {
-        $this->db->select('*');
-        $this->db->from($table);
-        $this->db->order_by('id','asc');
-        $this->db->limit($perpage);
-        $query = $this->db->get()->result();
-        return $query;
-    }
-
-
-    function autoCompleteFeligres($data)
+     function autoCompleteFeligres($data)
     {
       $this->db->select('*');
       $this->db->limit(5);
@@ -528,7 +484,7 @@ class Users_model extends CI_Model{
 
         $srch = "";
         if ($search) {
-            $srch = "AND (p.nombres LIKE '%".$search."%' OR 
+            $srch = "AND (p.nombres LIKE '%".$search."%' OR
 							p.apellidoPaterno LIKE '%".$search."%' OR
 							p.apellidomaterno LIKE '%".$search."%' OR
 							p.ci LIKE '%".$search."%') ";
@@ -564,7 +520,7 @@ class Users_model extends CI_Model{
     {
         $srch = "";
         if ($search) {
-            $srch = "AND (p.nombre LIKE '%".$search."%' OR 
+            $srch = "AND (p.nombre LIKE '%".$search."%' OR
 							c.email LIKE '%".$search."%') ";
         }
 
@@ -603,5 +559,12 @@ class Users_model extends CI_Model{
         return $this->db->get()->row();
     }
 
-
+    function personaParrqouiaRegistro($table,$data)
+    {
+        $this->db->insert($table, $data);
+        if ($this->db->affected_rows() == '1') {
+            return TRUE;
+        }
+        return FALSE;
+    }
 }

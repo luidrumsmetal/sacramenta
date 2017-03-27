@@ -10,31 +10,53 @@ class Listas_model extends CI_Model
         //Codeigniter : Write Less Do More
     }
 
-    function getFieles($start,$length,$search)
+    function getFieles($start,$length,$search,$tipo)
     {
 
         $srch = "";
         if ($search) {
-            $srch = "WHERE (p.nombres LIKE '%".$search."%' OR 
+            $srch = "WHERE (p.nombres LIKE '%".$search."%' OR
 							p.apellidoPaterno LIKE '%".$search."%' OR
 							p.apellidomaterno LIKE '%".$search."%' OR
 							p.ci LIKE '%".$search."%') ";
         }
-
-        $qnr = "
+        if ($tipo == 'administrador')
+        {
+            $qnr = "
 			SELECT count(1) cant
 			FROM persona p
-		".$srch;
+	    	".$srch;
+        }
+        else{
+            $idParroquia = $this->session->userdata('id');
+            $qnr = "
+			SELECT count(1) cant
+			FROM persona p, parroquia_persona a
+			WHERE a.persona_id = p.id
+			AND a.parroquia_idParroquia = $idParroquia
+	    	".$srch;
+        }
 
         $qnr = $this->db->query($qnr);
         $qnr = $qnr->row();
         $qnr = $qnr->cant;
 
-
-        $q = "
+        if ($tipo == 'administrador')
+        {
+            $q = "
 			SELECT p.id as rownum, p.*
 			FROM persona p
 			".$srch." LIMIT $start,$length";
+        }
+        else
+        {
+            $q = "
+			SELECT p.id as rownum, p.*
+			FROM persona p, parroquia_persona a
+			WHERE p.id = a.persona_id
+			AND a.parroquia_idParroquia = $idParroquia
+			".$srch." LIMIT $start,$length";
+        }
 
         $r = $this->db->query($q);
 
@@ -51,7 +73,7 @@ class Listas_model extends CI_Model
     {
         $srch = "";
         if ($search) {
-            $srch = "AND (p.nombre LIKE '%".$search."%' OR 
+            $srch = "AND (p.nombre LIKE '%".$search."%' OR
 							p.direccion LIKE '%".$search."%' OR
 							c.jurisdiccion LIKE '%".$search."%' OR
 							p.telefono LIKE '%".$search."%' OR
@@ -85,36 +107,60 @@ class Listas_model extends CI_Model
         return $retornar;
     }
 
-    function getBautizados($start,$length,$search)
+    function getBautizados($start,$length,$search,$tipo)
     {
         $srch = "";
         if ($search) {
-            $srch = "AND (p.nombres LIKE '%".$search."%' OR 
+            $srch = "AND (p.nombres LIKE '%".$search."%' OR
                             p.ci LIKE '%".$search."%' OR
                             p.apellidoPaterno LIKE '%".$search."%' OR
-							p.apellidoMaterno LIKE '%".$search."%' OR
-							p.procedencia LIKE '%".$search."%' OR
-							p.genero LIKE '%".$search."%') ";
+							              p.apellidoMaterno LIKE '%".$search."%' OR
+							              p.procedencia LIKE '%".$search."%' OR
+							              p.genero LIKE '%".$search."%') ";
         }
 
-        $qnr = "
-			SELECT count(1) cant
-			FROM certificado c, persona p
-			WHERE c.sacramento_id = 1
-			AND p.id = c.persona_id
-		".$srch;
+        if ($tipo == 'administrador') {
+          $qnr = "
+          SELECT count(1) cant
+          FROM certificado c, persona p
+          WHERE c.sacramento_id = 1
+          AND p.id = c.persona_id
+          ".$srch;
+        }
+        else {
+          $idParroquia = $this->session->userdata('id');
+          $qnr = "
+          SELECT count(1) cant
+          FROM certificado c, persona p
+          WHERE c.sacramento_id = 1
+          AND p.id = c.persona_id
+          AND c.parroquia_id = $idParroquia
+          ".$srch;
+        }
 
         $qnr = $this->db->query($qnr);
         $qnr = $qnr->row();
         $qnr = $qnr->cant;
 
-
-        $q = "
-			SELECT c.idCertificado as rownum, p.*, c.*, a.*
-			FROM persona p, certificado c, parroquia a
-			WHERE p.id = c.persona_id
-			AND a.idParroquia = c.parroquia_id
-			".$srch." LIMIT $start,$length";
+          if ($tipo == 'administrador') {
+            $q = "
+            SELECT c.idCertificado as rownum, p.*, c.*, a.*
+            FROM persona p, certificado c, parroquia a
+            WHERE c.sacramento_id = 1
+            AND p.id = c.persona_id
+            AND a.idParroquia = c.parroquia_id
+            ".$srch." LIMIT $start,$length";
+          }
+          else {
+            $q = "
+            SELECT c.idCertificado as rownum, p.*, c.*, a.*
+            FROM persona p, certificado c, parroquia a
+            WHERE c.sacramento_id = 1
+            AND p.id = c.persona_id
+            AND a.idParroquia = c.parroquia_id
+            AND c.parroquia_id = $idParroquia
+            ".$srch." LIMIT $start,$length";
+          }
 
         $r = $this->db->query($q);
 

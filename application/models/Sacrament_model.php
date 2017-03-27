@@ -19,7 +19,7 @@ class Sacrament_model extends CI_Model{
   }
 
     function editBaptism($uri) {
-      $this->db->select('*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Fiel, persona.id as idFiel ,CONCAT(C.apellidoPaterno, " ",C.apellidoMaterno," ",C.nombres) as Sacerdote_certificador, A.idSacerdote as sacerdoteCertificador, 
+      $this->db->select('*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Fiel, persona.id as idFiel ,CONCAT(C.apellidoPaterno, " ",C.apellidoMaterno," ",C.nombres) as Sacerdote_certificador, A.idSacerdote as sacerdoteCertificador,
                         C.id as personaCertificador  , CONCAT(D.apellidoPaterno, " ",D.apellidoMaterno," ",D.nombres) as Sacerdote_certificante, B.idSacerdote as sacerdoteCertificante,
                         D.id as personaCertificante, padrinofiel.*');
       $this->db->from('certificado');
@@ -31,14 +31,14 @@ class Sacrament_model extends CI_Model{
       $this->db->join('sacerdote B', 'B.idSacerdote = certificado.sacerdoteCelebrante_id');
       $this->db->join('persona C', 'C.id = A.persona_id');
       $this->db->join('persona D', 'D.id = B.persona_id');
-      $this->db->join('libroparroquia','certificado_id=idCertificado');
-      $this->db->join('padrinofiel','padrinofiel.certificado_id=idCertificado');
+      $this->db->join('libroparroquia','certificado_id=certificado.idCertificado');
+      $this->db->join('padrinofiel','padrinofiel.certificado_id=certificado.idCertificado');
       $this->db->where('certificado.idCertificado', $uri);
       return $this->db->get()->row();
   }
 
   function editMatrimonio($uri) {
-      $this->db->select('*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Esposo, persona.id as esposo_id ,CONCAT(C.apellidoPaterno, " ",C.apellidoMaterno," ",C.nombres) as Sacerdote_certificador, A.idSacerdote as sacerdoteCertificador, 
+      $this->db->select('*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Esposo, persona.id as esposo_id ,CONCAT(C.apellidoPaterno, " ",C.apellidoMaterno," ",C.nombres) as Sacerdote_certificador, A.idSacerdote as sacerdoteCertificador,
                         C.id as personaCertificador  , CONCAT(D.apellidoPaterno, " ",D.apellidoMaterno," ",D.nombres) as Sacerdote_certificante, B.idSacerdote as sacerdoteCertificante,
                         D.id as personaCertificante, padrinofiel.apellidosNombres as padrino, padrinofiel.idPadrinoFiel as idPadrino');
       $this->db->from('certificado');
@@ -57,7 +57,7 @@ class Sacrament_model extends CI_Model{
   }
     function editFirst($uri)
     {
-        $this->db->select('certificado.*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Fiel, persona.id as idPersona, 
+        $this->db->select('certificado.*, CONCAT(persona.apellidoPaterno," ",persona.apellidoMaterno," ",persona.nombres) as Fiel, persona.id as idPersona,
         parroquia.nombre as parroquia, jurisdiccion.*, libroparroquia.*');
         $this->db->from('certificado');
         $this->db->join('persona', 'persona.id = certificado.persona_id');

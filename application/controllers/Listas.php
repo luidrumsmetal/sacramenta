@@ -17,8 +17,8 @@ class Listas extends CI_Controller
         $start = $this->input->post('start');
         $length = $this->input->post('length');
         $search = $this->input->post('search')['value'];
-
-        $result = $this->Listas_model->getFieles($start,$length,$search);
+        $tipo = $this->session->userdata('tipo');
+        $result = $this->Listas_model->getFieles($start,$length,$search,$tipo);
 
         $resultado = $result['datos'];
 
@@ -90,8 +90,8 @@ class Listas extends CI_Controller
         $start = $this->input->post('start');
         $length = $this->input->post('length');
         $search = $this->input->post('search')['value'];
-
-        $result = $this->Listas_model->getBautizados($start,$length,$search);
+        $tipo = $this->session->userdata('tipo');
+        $result = $this->Listas_model->getBautizados($start,$length,$search,$tipo);
 
         $resultado = $result['datos'];
 
@@ -106,10 +106,7 @@ class Listas extends CI_Controller
             $array['apellidoMaterno'] = $row['apellidoMaterno'];
             $array['nombres'] = $row['nombres'];
             $array['fecha'] = $row['fecha'];
-            $array['procedencia'] = $row['procedencia'];
             $array['genero'] = $row['genero'];
-            $array['nombre'] = $row['nombre'];
-
             $datos[] = $array;
         }
 

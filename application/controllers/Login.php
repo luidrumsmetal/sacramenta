@@ -45,7 +45,7 @@ class Login extends CI_Controller{
                     echo json_encode($json);
                 }
                 else{
-                    redirect(base_url());
+                    redirect(base_url().home);
                 }
           }
           else
