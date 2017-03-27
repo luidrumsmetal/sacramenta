@@ -113,13 +113,13 @@
 					<div class="row">
 						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
-							<input placeholder="Ingrese el apellido y nombre del Padrino " id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value='<?php echo set_value('apellidoNombrePadrino') ?>'>
-							<label for="apellidoNombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
+							<input placeholder="Ingrese el apellido y nombre del Padrino " id="apellidosNombrePadrino" name="apellidosNombrePadrino" type="text" value='<?php echo set_value('apellidosNombrePadrino') ?>'>
+							<label for="apellidosNombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
 						</div>
 						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
-							<input placeholder="Ingrese el apellido y nombre de la Madrina " id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value='<?php echo set_value('apellidoNombreMadrina') ?>'>
-							<label for="apellidoNombreMadrina" class="active"><b>Nombre completo Madrina</b></label>
+							<input placeholder="Ingrese el apellido y nombre de la Madrina " id="apellidosNombreMadrina" name="apellidosNombreMadrina" type="text" value='<?php echo set_value('apellidosNombreMadrina') ?>'>
+							<label for="apellidosNombreMadrina" class="active"><b>Nombre completo Madrina</b></label>
 						</div>
 					</div>
 

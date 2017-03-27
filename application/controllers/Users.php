@@ -757,7 +757,7 @@ class Users extends CI_Controller{
 
       
 
-
+      $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE!');
       redirect('Users/listFiel');
         
     }
