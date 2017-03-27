@@ -184,21 +184,6 @@ class Baptism extends CI_Controller{
   }
 
   function update() {
-
-      /*echo 'Certificado '.$idCertificado = $this->input->post('idCertificado').'<br>';
-      echo  'persona '.$persona_id = $this->input->post('feligres_id').'<br>';
-      echo  'parroquia '.$parroquia_id = $this->input->post('parroquia_id').'<br>';
-      echo 'jurisdiccion '.$jurisdiccion_id = $this->input->post('jurisdiccion_id').'<br>';
-      echo 'fecha '.$fecha = $this->input->post('fecha').'<br>';
-      echo 'cerlebrante '.$sacerdoteCelebrante_id = $this->input->post('sacerdoteCelebrante_id').'<br>';
-      echo 'certificador '.$sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador_id').'<br>';
-      echo 'IDLIBRO '.$idLibroParroquia = $this->input->post('idLibro').'<br>';
-      echo 'libro '.$libro = $this->input->post('libro').'<br>';
-      echo 'pagina '.$pagina = $this->input->post('pagina').'<br>';
-      echo 'numero '.$numero = $this->input->post('numero').'<br>';
-      echo $apellidosNombresPadrino = $this->input->post('apellidoNombrePadrino').'<br>';
-      echo $apellidosNombresMadrina = $this->input->post('apellidoNombreMadrina').'<br>';*/
-
     $this->form_validation->set_rules('feligres_id', 'Nombre o Apellido', 'trim|required|xss_clean');
       $this->form_validation->set_rules('parroquia_id', 'Parroquia', 'trim|required|xss_clean');
       $this->form_validation->set_rules('fecha', 'Fecha Bautizo', 'trim|required|xss_clean');

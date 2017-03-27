@@ -29,7 +29,7 @@
 	          </div>
 	      <?php } ?>
 			</div>
-			<?php print_r($get); ?>
+	
             <div class="col s12 m12 l12">
               <nav class="amber darken-4">
                   <div class="nav-wrapper">
