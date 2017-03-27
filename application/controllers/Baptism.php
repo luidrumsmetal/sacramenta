@@ -137,25 +137,24 @@ class Baptism extends CI_Controller{
                   'parroquia_id' => $parroquia_id,
                   'certificado_id' => $certificado_id
                 );
-                if ($this->Sacrament_model->Register('libroparroquia',$data)) {
-                    $padrino = $this->input->post('apellidoNombrePadrino');
-                    $madrina = $this->input->post('apellidoNombreMadrina');
-                    if ($padrino != null ) {
+                if ($this->Sacrament_model->Register('libroparroquia',$data) == TRUE){
+                    $apellidosNombrePadrino = $this->input->post('apellidosNombrePadrino');
+                    $apellidosNombreMadrina = $this->input->post('apellidosNombreMadrina');
                         $data = array(
-                            'apellidosNombres' => $padrino,
+                            'apellidosNombrePadrino' => $apellidosNombrePadrino,
+                            'apellidosNombreMadrina' => $apellidosNombreMadrina,
                             'certificado_id' => $certificado_id
                         );
-                        $this->Users_model->personRegister('padrinofiel',$data);
-                    }
-                    if ($madrina != null ) {
-                        $data = array(
-                            'apellidosNombres' => $madrina,
-                            'certificado_id' => $certificado_id
-                        );
-                        $this->Users_model->personRegister('padrinofiel',$data);
-                    }
+                    if ($this->Users_model->personRegister('padrinofiel',$data)== TRUE) {
+                  
                     $this->session->set_flashdata('success','Bautizo Registrado correctamente!');
                     redirect(base_url() . 'baptism/baptismCreate');
+                      }
+                     else {
+                     $this->session->set_flashdata('error','Error al registrar a sus padrinos');
+                     redirect(base_url() . 'baptism/baptismCreate');
+                    }
+                  
                 }
                 else {
                   $this->session->set_flashdata('error','Error al registrar su informacion de la cuenta (libro)');
@@ -209,7 +208,8 @@ class Baptism extends CI_Controller{
           $fecha = $this->input->post('fecha');
           $sacerdoteCelebrante_id = $this->input->post('sacerdoteCelebrante_id');
           $sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador_id');
-          $idLibroParroquia = $this->input->post('idLibro');
+          $idLibroParroquia = $this->input->post('idLibroParroquia');
+          $idPadrinoFiel = $this->input->post('idPadrinoFiel');
           $libro = $this->input->post('libro');
           $pagina = $this->input->post('pagina');
           $numero = $this->input->post('numero');
@@ -225,8 +225,8 @@ class Baptism extends CI_Controller{
               'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
               'jurisdiccion_id' => $jurisdiccion_id
           );
-          if($this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data) == TRUE)
-          {
+          $this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data);
+          
               $data = array(
                     'libro' => $libro,
                     'pagina' => $pagina,
@@ -234,25 +234,22 @@ class Baptism extends CI_Controller{
                     'parroquia_id' => $parroquia_id,
                     'certificado_id' => $idCertificado
               );
-              if($this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data) == TRUE )
-              {
-                  $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
-                  redirect(base_url() . 'baptism/listBaptism');
-              }
-              else
-              {
-                  $this->session->set_flashdata('success','no se actualizo datos del libro');
-                  redirect(base_url() . 'baptism/listBaptism');
-              }
-          }
-          else
-          {
-              $this->session->set_flashdata('error','Error al actualizar datos del certificado');
-              redirect(base_url() . 'baptism/listBaptism');
-          }
+          $this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data);
+              
+              $data = array(
+                    'apellidosNombresPadrino' => $apellidosNombresPadrino,
+                    'apellidosNombreMadrina' => $apellidosNombreMadrina,
+                    'certificado_id' => $idCertificado
+              );
+
+          $this->Sacrament_model->update('padrinofiel',['certificado_id'=>$idCertificado],$data);
+                  
+          $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
+          redirect(base_url() . 'baptism/listBaptism');
       }
           /// FIN -->
   }
+
     function delete() {
         $u = $this->input->post('id');
         $this->Sacrament_model->delete($u);
