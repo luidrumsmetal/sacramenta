@@ -114,6 +114,7 @@ class Users_model extends CI_Model{
       $this->db->select('*');
       $this->db->from('persona'); 
       $this->db->join('certificadonacimiento', 'persona.id = certificadonacimiento.persona_id');
+      $this->db->join('padresFiel', 'padresFiel.persona_id = persona.id');
       $this->db->where('persona.id',$uri);       
       return $this->db->get()->row(); 
       /*$query = $this->db->get();

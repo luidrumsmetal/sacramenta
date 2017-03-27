@@ -47,7 +47,7 @@
                                                 <th style="width: 10%;background-color: #006699; color: white;">Materno</th>
                                                 <th style="width: 10%;background-color: #006699; color: white;">Nombre</th>
                                                 <th style="width: 10%;background-color: #006699; color: white;">Fecha Nacimiento</th>
-                                                <th style="width: 10%;background-color: #006699; color: white;">Genero</th>
+                                                <th style="width: 10%;background-color: #006699; color: white;">Sexo</th>
                                                 <th style="width: 10%;background-color: #006699; color: white;">Opciones</th>
                                             </tr>
                                             </thead>

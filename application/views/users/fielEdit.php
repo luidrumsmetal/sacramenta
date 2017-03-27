@@ -104,18 +104,18 @@
 
 										</div>
 
-<!--
+
                     <h5><span class="card-title"><b>DATOS DE LOS PADRES</b></span></h5><hr><br><br>
                     <div class="row">
                       <div class="row">
   										  <div class="input-field col s6">
   										    <i class="mdi-action-account-circle prefix"></i>
-  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoPaterno" name="apellidoNombrePadre" type="text" value="<?php echo $get->apellidoNombrePadre ?>">
+  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoNombrePadre" name="apellidoNombrePadre" type="text" value="<?php echo $get->apellidoNombrePadre ?>">
   										    <label for="apellidoPaterno" class="active"><b>Apellidos y Nombres del Padre</b></label>
   										  </div>
   											<div class="input-field col s6">
   										    <i class="mdi-action-account-circle prefix"></i>
-  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoMaterno" name="apellidoNombreMadre" type="text" value="<?php echo $get->apellidoNombrePadre ?>">
+  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoNombreMadre" name="apellidoNombreMadre" type="text" value="<?php echo $get->apellidoNombreMadre ?>">
   										    <label for="apellidoMaterno" class="active"><b>Apellidos y Nombres de la Madre</b></label>
   										  </div>
                       </div>
@@ -129,11 +129,11 @@
                       <div class="input-field col s6">
                         <i class="mdi-action-account-circle prefix"></i>
                         <input placeholder="INGRESE LA PROCEDENCIA DE LA MADRE " id="procedenciaMadre" name="procedenciaMadre" type="text"
-                        value="<?php echo $get->procedenciaPadre ?>">
+                        value="<?php echo $get->procedenciaMadre ?>">
                         <label for="procedenciaMadre" class="active"><b>Procedencia de la Madre</b></label>
                       </div>
                     </div>
--->
+
 
                   <h5><span class="card-title"><b>OFICIALÍA DE REGISTRO CIVIL (CERTIFICADO DE NACIMIENTO)</b></span></h5><hr><br><br>
                   <div class="row">

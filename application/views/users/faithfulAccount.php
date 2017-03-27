@@ -59,11 +59,11 @@
 						</div>
 				    <div class="input-field col s11">
 				      <select id="genero" name="genero" value='<?php echo set_value('genero') ?>'>
-				        <option value="" disabled selected>  Seleccione un genero</option>
+				        <option value="" disabled selected>  Seleccione sexo</option>
 				        <option value="1">Masculino</option>
 				        <option value="2">Femenino</option>
 				      </select>
-				      <label>&nbsp&nbspGénero: </label>
+				      <label>&nbsp&nbspSexo: </label>
 				  	</div>
 					</div>
           <div class="row margin">

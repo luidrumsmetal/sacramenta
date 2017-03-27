@@ -96,7 +96,7 @@
                               <option value="1">&nbsp&nbsp&nbsp&nbspMasculino</option>
                               <option value="2">&nbsp&nbsp&nbsp&nbspFemenino</option>
                           </select>
-                          <label>&nbsp&nbsp&nbsp<b>Género: </b></label>
+                          <label>&nbsp&nbsp&nbsp<b>Sexo: </b></label>
                           </div>
                        </div>
                     <br>
