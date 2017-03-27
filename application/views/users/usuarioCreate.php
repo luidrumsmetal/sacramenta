@@ -70,7 +70,7 @@
                     <div class="row">
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-credit-card prefix"></i>
-                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>'>
+                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="number" value='<?php echo set_value('ci') ?>'>
                         <label for="ci" class="active"><b>Carnet de Identidad</b></label>
                                                       <?php echo form_error('ci'); ?>
                       </div>
@@ -86,7 +86,7 @@
 
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-home prefix"></i>
-                        <input placeholder="Ingrese su número celular" id="celular" name="celular" type="text" value='<?php echo set_value('celular') ?>'>
+                        <input placeholder="Ingrese su número celular" id="celular" name="celular" type="number" value='<?php echo set_value('celular') ?>'>
 
                         <label for="celular" class="active"><b>Celular</b></label>
                       </div>                    

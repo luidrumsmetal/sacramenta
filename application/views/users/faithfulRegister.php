@@ -76,7 +76,7 @@
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-credit-card prefix"></i>
 
-                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>' data-inputmask="'mask' : '(999) 999-9999'" >
+                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="number" value='<?php echo set_value('ci') ?>' data-inputmask="'mask' : '(999) 999-9999'" >
 
 
                         <label for="ci" class="active"><b>Carnet de Identidad</b></label>

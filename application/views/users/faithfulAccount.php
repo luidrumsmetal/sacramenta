@@ -21,7 +21,7 @@
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-action-credit-card prefix"></i>
-              <input id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>'>
+              <input id="ci" name="ci" type="number" value='<?php echo set_value('ci') ?>'>
               <label for="ci" class="center-align">Carnet de Identidad</label>
             </div>
           </div>
@@ -69,7 +69,7 @@
           <div class="row margin">
             <div class="input-field col s12">
               <i class="mdi-communication-phone prefix"></i>
-              <input id="celular" name="celular" type="text" value='<?php echo set_value('celular') ?>'>
+              <input id="celular" name="celular" type="number" value='<?php echo set_value('celular') ?>'>
               <label for="celular" class="center-align">celular</label>
             </div>
           </div>
