@@ -23,6 +23,7 @@
               <i class="mdi-action-credit-card prefix"></i>
               <input id="ci" name="ci" type="number" value='<?php echo set_value('ci') ?>'>
               <label for="ci" class="center-align">Carnet de Identidad</label>
+              <?php echo form_error('ci')?>
             </div>
           </div>
           <div class="row margin">
@@ -30,6 +31,7 @@
               <i class="mdi-action-account-circle prefix"></i>
               <input id="apellidoPaterno" name="apellidoPaterno" type="text" value='<?php echo set_value('apellidoPaterno') ?>'>
               <label for="apellidoPaterno" class="center-align">Apellido Paterno</label>
+              <?php echo form_error('apellidoPaterno')?>
             </div>
           </div>
           <div class="row margin">
@@ -37,6 +39,7 @@
               <i class="mdi-action-account-circle prefix"></i>
               <input id="apellidoMaterno" name="apellidoMaterno" type="text" value='<?php echo set_value('apellidoMaterno') ?>'>
               <label for="apelliodMaterno" class="center-align">Apellido Materno</label>
+              <?php echo form_error('apellidoMaterno')?>
             </div>
           </div>
           <div class="row margin">
@@ -44,6 +47,7 @@
               <i class="mdi-social-person-outline prefix"></i>
               <input id="nombres" name="nombres" type="text" value='<?php echo set_value('nombres') ?>'>
               <label for="nombres" class="center-align">Nombres</label>
+              <?php echo form_error('nombres')?>
             </div>
           </div><br>
           <div class="row margin">
@@ -51,6 +55,7 @@
               <i class="mdi-action-event prefix"></i>
               <input placeholder="" id="fechanac" name="fechanac" type="date" value='<?php echo set_value('fechanac') ?>'>
               <label for="fechanac" class="active">Fecha de nacimiento</label>
+              <?php echo form_error('fechanac')?>
             </div>          
     			</div>
           <div class="row margin">
@@ -64,6 +69,7 @@
 				        <option value="2">Femenino</option>
 				      </select>
 				      <label>&nbsp&nbspSexo: </label>
+              <?php echo form_error('genero')?>
 				  	</div>
 					</div>
           <div class="row margin">
@@ -90,6 +96,7 @@
               <i class="mdi-communication-email prefix"></i>
               <input id="email" name="email" type="email" value='<?php echo set_value('email') ?>'>
               <label for="email" class="center-align">Email</label>
+              <?php echo form_error('email')?>
             </div>
           </div>
           <div class="row margin">
@@ -97,6 +104,7 @@
               <i class="mdi-action-lock-outline prefix"></i>
               <input id="password" name="password" type="password" value='<?php echo set_value('password') ?>'>
               <label for="password">Password</label>
+              <?php echo form_error('password')?>
             </div>
           </div>
           <div class="row">
