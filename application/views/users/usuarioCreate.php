@@ -65,7 +65,7 @@
                     <div class="row">
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-credit-card prefix"></i>
-                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value='<?php echo set_value('ci') ?>'>
+                        <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="number" value='<?php echo set_value('ci') ?>'>
                         <label for="ci" class="active"><b>Carnet de Identidad</b></label>
                       </div>
 
@@ -79,7 +79,7 @@
 
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-action-home prefix"></i>
-                        <input placeholder="Ingrese su número celular" id="celular" name="celular" type="text" value='<?php echo set_value('celular') ?>'>
+                        <input placeholder="Ingrese su número celular" id="celular" name="celular" type="number" value='<?php echo set_value('celular') ?>'>
 
                         <label for="celular" class="active"><b>Celular</b></label>
                       </div>                    
@@ -97,11 +97,11 @@
 
                       <div class="input-field col s11 m5 l6">
                         <select id="genero" name="genero">
-                          <option value="" disabled selected>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSeleccione un género</option>
+                          <option value="" disabled selected>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSeleccione sexo</option>
                         <option value="1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMasculino</option>
                           <option value="2">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFemenino</option>
                         </select>
-                        <label><b>&nbsp&nbsp&nbsp&nbsp&nbspGénero: </b></label>
+                        <label><b>&nbsp&nbsp&nbsp&nbsp&nbspSexo: </b></label>
                       </div>
 
                     </div>

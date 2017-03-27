@@ -42,7 +42,7 @@
                             <th data-field="direccion">Apellido Materno</th>
                             <th data-field="direccion">Nombres</th>
                             <th data-field="direccion">Fecha de Comunión</th>
-                            <th data-field="direccion">Genero</th>
+                            <th data-field="direccion">Sexo</th>
                             <th data-field="opciones">Opciones</th>
                       </tr>
                     </thead>
@@ -78,7 +78,7 @@
                             <th data-field="direccion">Apellido Materno</th>
                             <th data-field="direccion">Nombres</th>
                             <th data-field="direccion">Fecha de Comunión</th>
-                            <th data-field="direccion">Genero</th>
+                            <th data-field="direccion">Sexo</th>
                             <th data-field="opciones">Opciones</th>
                         </tr>
                       </thead>
