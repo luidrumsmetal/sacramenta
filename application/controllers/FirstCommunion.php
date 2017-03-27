@@ -182,6 +182,10 @@ class FirstCommunion extends CI_Controller{
             $fecha = $this->input->post('fecha');
             $celebrante = '1';
             $certificador='1';
+            $idLibroParroquia = $this->input->post('idLibro');
+            $libro = $this->input->post('libro');
+            $pagina = $this->input->post('pagina');
+            $numero = $this->input->post('numero');
             $data = array(
                 'fecha' => $fecha,
                 'persona_id' => $persona_id,
@@ -193,12 +197,7 @@ class FirstCommunion extends CI_Controller{
             );
             if($this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data) == TRUE)
             {
-                $idLibroParroquia = $this->input->post('idLibro');
-                $libro = $this->input->post('libro');
-                $pagina = $this->input->post('pagina');
-                $numero = $this->input->post('numero');
-                $parroquia_id = $this->input->post('parroquia_id');
-                $idCertificado = $this->input->post('idCertificado');
+                
                 $data = array(
                     'libro' => $libro,
                     'pagina' => $pagina,

@@ -104,10 +104,12 @@ class Users_model extends CI_Model{
 
   function editFiel($uri) {
       $this->db->select('*');
+
       $this->db->from('persona');
-      $this->db->join('certificadonacimiento', 'certificadonacimiento.persona_id = persona.id');
-      $this->db->where('persona.id', $uri);
-      return $this->db->get()->row();
+      $this->db->join('certificadonacimiento', 'persona.id = certificadonacimiento.persona_id');
+      $this->db->join('padresFiel', 'padresFiel.persona_id = persona.id');
+      $this->db->where('persona.id',$uri);
+      return $this->db->get()->row(); 
   }
 
   function editUser($uri) {

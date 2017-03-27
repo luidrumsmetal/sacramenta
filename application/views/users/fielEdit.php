@@ -78,7 +78,7 @@
                           <option value="1">Masculino</option>
                           <option value="2">Femenino</option>
                         </select>
-                        <label><b>Género (*) </b></label>
+                        <label><b>Sexo (*) </b></label>
                       </div>
                       <div class="input-field col s0">
                         &nbsp &nbsp  &nbsp &nbsp  &nbsp &nbsp
@@ -96,7 +96,7 @@
 											<div class="input-field col s12">
 												<i class="mdi-action-credit-card prefix"></i>
 
-												<input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="text" value="<?php echo $get->ci ?>">
+												<input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="number" value="<?php echo $get->ci ?>">
                         <div id="msgUsuario"></div>
 												<label for="ci" class="active"><b>Carnet de Identidad</b></label>
 
@@ -104,18 +104,18 @@
 
 										</div>
 
-<!--
+
                     <h5><span class="card-title"><b>DATOS DE LOS PADRES</b></span></h5><hr><br><br>
                     <div class="row">
                       <div class="row">
   										  <div class="input-field col s6">
   										    <i class="mdi-action-account-circle prefix"></i>
-  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoPaterno" name="apellidoNombrePadre" type="text" value="<?php echo $get->apellidoNombrePadre ?>">
+  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoNombrePadre" name="apellidoNombrePadre" type="text" value="<?php echo $get->apellidoNombrePadre ?>">
   										    <label for="apellidoPaterno" class="active"><b>Apellidos y Nombres del Padre</b></label>
   										  </div>
   											<div class="input-field col s6">
   										    <i class="mdi-action-account-circle prefix"></i>
-  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoMaterno" name="apellidoNombreMadre" type="text" value="<?php echo $get->apellidoNombrePadre ?>">
+  										    <input placeholder="INGRESE SU APELLIDO Y NOMBRE COMPLETO" id="apellidoNombreMadre" name="apellidoNombreMadre" type="text" value="<?php echo $get->apellidoNombreMadre ?>">
   										    <label for="apellidoMaterno" class="active"><b>Apellidos y Nombres de la Madre</b></label>
   										  </div>
                       </div>
@@ -129,11 +129,11 @@
                       <div class="input-field col s6">
                         <i class="mdi-action-account-circle prefix"></i>
                         <input placeholder="INGRESE LA PROCEDENCIA DE LA MADRE " id="procedenciaMadre" name="procedenciaMadre" type="text"
-                        value="<?php echo $get->procedenciaPadre ?>">
+                        value="<?php echo $get->procedenciaMadre ?>">
                         <label for="procedenciaMadre" class="active"><b>Procedencia de la Madre</b></label>
                       </div>
                     </div>
--->
+
 
                   <h5><span class="card-title"><b>OFICIALÍA DE REGISTRO CIVIL (CERTIFICADO DE NACIMIENTO)</b></span></h5><hr><br><br>
                   <div class="row">
