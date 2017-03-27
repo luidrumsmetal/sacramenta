@@ -200,7 +200,7 @@ class Users extends CI_Controller{
           'required|min_length[2]|max_length[15]|xss_clean',
           array(
               'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
-              'min_length'     => '<div align="center"><font color="FF0000">Debe ingresar al menos  %s.</font></div>',
+              'min_length'     => '<div align="center"><font color="FF0000">En el campo %s, debe ingresar al menos %s caracteres.</font></div>',
               'max_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener mas de %s letras.</font></div>'
           )
       );
@@ -558,7 +558,7 @@ class Users extends CI_Controller{
       $data = array(
                 'apellidoNombrePadre' => $apellidoNombrePadre,
                 'procedenciaPadre' => $procedenciaPadre
-                
+
             );
       $this->Users_model->update_fiel('padresfiel',['idPadresFiel' => $idPadresFiel] ,$data);
       $data = array(
@@ -578,7 +578,7 @@ class Users extends CI_Controller{
             );
       $this->Users_model->update_fiel('persona',['id' => $id] ,$data);
       redirect('Users/listFiel');
-        
+
     }
   }
 
