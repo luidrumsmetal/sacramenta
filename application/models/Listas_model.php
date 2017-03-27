@@ -10,7 +10,7 @@ class Listas_model extends CI_Model
         //Codeigniter : Write Less Do More
     }
 
-    function getFieles($start,$length,$search)
+    function getFieles($start,$length,$search,$tipo)
     {
 
         $srch = "";
@@ -20,21 +20,43 @@ class Listas_model extends CI_Model
 							p.apellidomaterno LIKE '%".$search."%' OR
 							p.ci LIKE '%".$search."%') ";
         }
-
-        $qnr = "
+        if ($tipo == 'administrador')
+        {
+            $qnr = "
 			SELECT count(1) cant
 			FROM persona p
-		".$srch;
+	    	".$srch;
+        }
+        else{
+            $idParroquia = $this->session->userdata('id');
+            $qnr = "
+			SELECT count(1) cant
+			FROM persona p, parroquia_persona a
+			WHERE a.persona_id = p.id 
+			AND a.parroquia_idParroquia = $idParroquia
+	    	".$srch;
+        }
 
         $qnr = $this->db->query($qnr);
         $qnr = $qnr->row();
         $qnr = $qnr->cant;
 
-
-        $q = "
+        if ($tipo == 'administrador')
+        {
+            $q = "
 			SELECT p.id as rownum, p.*
 			FROM persona p
 			".$srch." LIMIT $start,$length";
+        }
+        else
+        {
+            $q = "
+			SELECT p.id as rownum, p.*
+			FROM persona p, parroquia_persona a
+			WHERE p.id = a.persona_id
+			AND a.parroquia_idParroquia = $idParroquia
+			".$srch." LIMIT $start,$length";
+        }
 
         $r = $this->db->query($q);
 

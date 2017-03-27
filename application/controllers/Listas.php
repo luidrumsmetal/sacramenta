@@ -17,8 +17,8 @@ class Listas extends CI_Controller
         $start = $this->input->post('start');
         $length = $this->input->post('length');
         $search = $this->input->post('search')['value'];
-
-        $result = $this->Listas_model->getFieles($start,$length,$search);
+        $tipo = $this->session->userdata('tipo');
+        $result = $this->Listas_model->getFieles($start,$length,$search,$tipo);
 
         $resultado = $result['datos'];
 

@@ -125,7 +125,7 @@ class Users extends CI_Controller{
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
-    if ($this->session->userdata('tipo') != 'administrador') {
+   /* if ($this->session->userdata('tipo') != 'administrador') {
         if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
@@ -133,40 +133,11 @@ class Users extends CI_Controller{
         {
           redirect(base_url().'home');
         }
-    }
-    
+    }*/
 
-
-        $config['base_url'] = base_url().'users/listFiel';
-        $config['total_rows'] = $this->Users_model->count_persona('persona');
-        $config['per_page'] = 10;
-        $config['next_link'] = 'Próxima';
-        $config['prev_link'] = 'Anterior';
-        $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
-        $config['full_tag_close'] = '</ul></div>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li><a style="color: #2D335B"><b>';
-        $config['cur_tag_close'] = '</b></a></li>';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['first_link'] = 'Primeira';
-        $config['last_link'] = 'Última';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
     $data['title'] = 'Lista de Fieles';
-    $this->load->library('table');
-    $this->load->library('pagination');
-    $this->pagination->initialize($config);
-    $data['results']= $this->Users_model->listGetFiel('persona',$config['per_page']);
     $this->load->view('template/header',$data);
-
-    $this->load->view('users/listFiel',$data);
-
+    $this->load->view('users/listFiel');
     $this->load->view('template/footer');
   }
 
@@ -354,6 +325,12 @@ class Users extends CI_Controller{
               );
               $this->Users_model->personRegister('padresfiel',$data);
           }
+          $data = array(
+            'parroquia_idParroquia' => $this->session->userdata('id'),
+                'persona_id' => $persona_id,
+              'fecha' => date('Y-m-d')
+          );
+          $this->Users_model->personaParrqouiaRegistro('parroquia_persona',$data);
 
           $data = array(
               'orc' => $this->input->post('orc'),
@@ -464,6 +441,12 @@ class Users extends CI_Controller{
         redirect(base_url() . 'users/usuarioRegister');
     }
     else {
+        if ($this->input->post('genero') == '1') {
+            $genero = 'masculino';
+        }
+        else {
+            $genero = 'femenino';
+        }
         $data = array(
           'ci'=> $this->input->post('ci'),
           'apellidoPaterno' => $this->input->post('apellidoPaterno'),
@@ -522,12 +505,9 @@ class Users extends CI_Controller{
 
   function edit_fiel() {
     $uri = $this->uri->segment(3);
-    $data1['title'] = 'Editar Fiel';
+    $data['title'] = 'Editar Fiel';
     $data['get'] = $this->Users_model->editFiel($uri);
-    var_dump($data);
-    #echo $data['get'].'<br>';
-    # print_r($data['get']);
-    $this->load->view('template/header',$data1);
+    $this->load->view('template/header',$data);
     $this->load->view('users/fielEdit', $data);
     $this->load->view('template/footer');
   }
