@@ -133,52 +133,9 @@ class FirstCommunion extends CI_Controller{
             redirect(base_url().'home');
         }
     }
-        $data['title'] = 'Lista de Primera Comunión';
-        $idParroquia = $this->session->userdata('id');
-        $sacramento = 2;
-        $this->load->library('table');
-        $this->load->library('pagination');
-        $config['base_url'] = base_url().'firstCommunion/listComunion';
-        if($this->session->userdata('tipo') == 'administrador')
-        {
-           $config['total_rows'] = $this->Users_model->count_administrador('certificado',$sacramento);
-        }
-        else
-        {
-           $config['total_rows'] = $this->Users_model->count_parroquia('certificado',$idParroquia);
-        }
-        $config['per_page'] = 10;
-        $config['next_link'] = 'Próxima';
-        $config['prev_link'] = 'Anterior';
-        $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
-        $config['full_tag_close'] = '</ul></div>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li><a style="color: #2D335B"><b>';
-        $config['cur_tag_close'] = '</b></a></li>';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['first_link'] = 'Primera';
-        $config['last_link'] = 'Última';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-
-    $this->pagination->initialize($config);
-      if($this->session->userdata('tipo') == 'administrador')
-      {
-          $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 2",$config['per_page'],$this->uri->segment(3));
-
-      }
-      else
-      {
-          $data['results']= $this->Sacrament_model->listGetSacramento('persona, certificado',' id, idCertificado, fecha, nombres, apellidoPaterno,apellidoMaterno, genero',"id = persona_id AND sacramento_id = 2 AND parroquia_id = $idParroquia",$config['per_page'],$this->uri->segment(3));
-      }
+        $data['title'] = 'Lista de Primera Comunión';    
     $this->load->view('template/header',$data);
-    $this->load->view('sacramentos/firstCommunion/firstCommunionList',$data);
+    $this->load->view('sacramentos/firstCommunion/firstCommunionList');
     $this->load->view('template/footer');
   }
 
@@ -203,7 +160,7 @@ class FirstCommunion extends CI_Controller{
         $this->form_validation->set_rules('libro', 'Libro', 'trim|required|xss_clean');
         $this->form_validation->set_rules('pagina', 'Pagina', 'trim|required|xss_clean');
         $this->form_validation->set_rules('numero', 'Numero', 'trim|required|xss_clean');
-        
+
         if($this->form_validation->run() == FALSE)
         {
             $this->session->set_flashdata('error', validation_errors());
@@ -219,6 +176,11 @@ class FirstCommunion extends CI_Controller{
             $fecha = $this->input->post('fecha');
             $celebrante = '1';
             $certificador='1';
+            $idLibroParroquia = $this->input->post('idLibro');
+            $libro = $this->input->post('libro');
+            $pagina = $this->input->post('pagina');
+            $numero = $this->input->post('numero');
+
             $data = array(
                 'fecha' => $fecha,
                 'persona_id' => $persona_id,
@@ -228,14 +190,9 @@ class FirstCommunion extends CI_Controller{
                 'sacerdoteCelebrante_id' => $celebrante,
                 'jurisdiccion_id' => $jurisdiccion_id
             );
-            if($this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data) == TRUE)
-            {
-                $idLibroParroquia = $this->input->post('idLibro');
-                $libro = $this->input->post('libro');
-                $pagina = $this->input->post('pagina');
-                $numero = $this->input->post('numero');
-                $parroquia_id = $this->input->post('parroquia_id');
-                $idCertificado = $this->input->post('idCertificado');
+
+            $this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data);
+                
                 $data = array(
                     'libro' => $libro,
                     'pagina' => $pagina,
@@ -243,28 +200,18 @@ class FirstCommunion extends CI_Controller{
                     'parroquia_id' => $parroquia_id,
                     'certificado_id' => $idCertificado
                 );
-                if($this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data) == TRUE )
-                {
-                    $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
-                    redirect(base_url() . 'firstCommunion/listComunion');
-                }
-                else
-                {
-                    $this->session->set_flashdata('success','no se actualizo datos del certificado');
-                    redirect(base_url() . 'firstCommunion/listComunion');
-                }
-            }
-            else
-            {
-                $this->session->set_flashdata('error','Error al actualizar datos del libro');
-                redirect(base_url() . 'firstCommunion/listComunion');
-            }
+            $this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data);
+                
+            $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
+            redirect(base_url() . 'firstCommunion/listComunion');
+                
+                
+            
         }
     }
     function delete() {
-        $u = $this->input->post('id');
-        $this->Sacrament_model->delete($u);
-
+          $uri = $this->uri->segment(3);
+        $this->Sacrament_model->deleteCommunion($uri);
         $this->session->set_flashdata('success','Se elimino correctamente');
         redirect(base_url() .'firstCommunion/listComunion');
     }

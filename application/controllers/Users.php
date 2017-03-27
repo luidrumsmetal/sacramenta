@@ -125,7 +125,7 @@ class Users extends CI_Controller{
     if (!$this->session->userdata('nombre')) {
       redirect(base_url().'login');
     }
-    if ($this->session->userdata('tipo') != 'administrador') {
+   /* if ($this->session->userdata('tipo') != 'administrador') {
         if (!$this->session->userdata('nombre')) {
             redirect(base_url().'login');
         }
@@ -133,40 +133,11 @@ class Users extends CI_Controller{
         {
           redirect(base_url().'home');
         }
-    }
-    
+    }*/
 
-
-        $config['base_url'] = base_url().'users/listFiel';
-        $config['total_rows'] = $this->Users_model->count_persona('persona');
-        $config['per_page'] = 10;
-        $config['next_link'] = 'Próxima';
-        $config['prev_link'] = 'Anterior';
-        $config['full_tag_open'] = '<div class="pagination alternate"><ul>';
-        $config['full_tag_close'] = '</ul></div>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li><a style="color: #2D335B"><b>';
-        $config['cur_tag_close'] = '</b></a></li>';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['first_link'] = 'Primeira';
-        $config['last_link'] = 'Última';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
     $data['title'] = 'Lista de Fieles';
-    $this->load->library('table');
-    $this->load->library('pagination');
-    $this->pagination->initialize($config);
-    $data['results']= $this->Users_model->listGetFiel('persona',$config['per_page']);
     $this->load->view('template/header',$data);
-
-    $this->load->view('users/listFiel',$data);
-
+    $this->load->view('users/listFiel');
     $this->load->view('template/footer');
   }
 
@@ -229,7 +200,7 @@ class Users extends CI_Controller{
           'required|min_length[2]|max_length[15]|xss_clean',
           array(
               'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
-              'min_length'     => '<div align="center"><font color="FF0000">Debe ingresar al menos  %s.</font></div>',
+              'min_length'     => '<div align="center"><font color="FF0000">En el campo %s, debe ingresar al menos %s caracteres.</font></div>',
               'max_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener mas de %s letras.</font></div>'
           )
       );
@@ -334,6 +305,38 @@ class Users extends CI_Controller{
         $persona_id = $this->Users_model->registerWithId('persona',$data);
         if ($persona_id != False)
         {
+
+          $apellidoNombrePadre = $this->input->post('apellidoNombrePadre');
+          $apellidoNombreMadre = $this->input->post('apellidoNombreMadre');
+          $procedenciaPadre = $this->input->post('procedenciaPadre');
+          $procedenciaMadre = $this->input->post('procedenciaMadre');
+              $data = array(
+                  'apellidoNombrePadre' => $apellidoNombrePadre,
+                  'procedenciaPadre' => $procedenciaPadre,
+                  'apellidoNombreMadre' => $apellidoNombreMadre,
+                  'procedenciaMadre' => $procedenciaMadre,
+                  'persona_id' => $persona_id
+              );
+              $this->Users_model->personRegister('padresfiel',$data);
+
+
+          $data = array(
+              'orc' => $this->input->post('orc'),
+              'libro' => $this->input->post('libro'),
+              'partida' => $this->input->post('partida'),
+              'persona_id' => $persona_id
+          );
+          if ($this->Users_model->personRegister('certificadonacimiento',$data)) {
+            $this->session->set_flashdata('success','Fiel Registrado correctamente!');
+            redirect(base_url() . 'users/listFiel');
+          }
+          else {
+            $this->session->set_flashdata('error ','Error al registrar su informacion personal (Oficialía)');
+            redirect(base_url() . 'users/faithfulRegister');
+          }
+
+
+        /*
           $padre = $this->input->post('apellidoNombrePadre');
           $madre = $this->input->post('apellidoNombreMadre');
           $procedenciaPadre = $this->input->post('procedenciaPadre');
@@ -354,6 +357,12 @@ class Users extends CI_Controller{
               );
               $this->Users_model->personRegister('padresfiel',$data);
           }
+          $data = array(
+            'parroquia_idParroquia' => $this->session->userdata('id'),
+                'persona_id' => $persona_id,
+              'fecha' => date('Y-m-d')
+          );
+          $this->Users_model->personaParrqouiaRegistro('parroquia_persona',$data);
 
           $data = array(
               'orc' => $this->input->post('orc'),
@@ -368,7 +377,7 @@ class Users extends CI_Controller{
           else {
             $this->session->set_flashdata('error ','Error al registrar su informacion personal (Oficialía)');
             redirect(base_url() . 'users/faithfulRegister');
-          }
+          }*/
         }
         else {
           $this->session->set_flashdata('error ','Error al registrar su informacion personal (id persona)');
@@ -508,17 +517,131 @@ class Users extends CI_Controller{
   function usuarioCreate()
   {
     $this->load->library('form_validation');
-    $this->form_validation->set_rules('fechanac', 'Fecha nacimineto', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('genero', 'Genero', 'trim|required|xss_clean');
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[5]|max_length[50]|valid_email|is_unique[users.email]|xss_clean');
-    $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[5]|max_length[18]|xss_clean');
-    $this->form_validation->set_message('required', 'El %s es importante');
-    if ($this->form_validation->run()==false)
-    {
-        $this->session->set_flashdata('error','Ingrese correctamente los datos');
-        redirect(base_url() . 'users/usuarioRegister');
+    $this->form_validation->set_rules(
+        'ci', 'Carnet de Identidad',
+        'trim|min_length[5]|numeric|is_unique[persona.ci]|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
+            'min_length'    => '<div align="center"><font color="FF0000">Debe ingresar al menos  %s.</font></div>',
+            'numeric'       => '<div align="center"><font color="FF0000">En el campo %s debe ser numerico</font></div>'
+        )
+    );
+
+    $this->form_validation->set_rules(
+          'apellidoPaterno', '<b>"APELLIDO PATERNO"</b>',
+          'required|min_length[2]|max_length[15]|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
+              'min_length'     => '<div align="center"><font color="FF0000">Debe ingresar al menos  %s.</font></div>',
+              'max_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener mas de %s letras.</font></div>'
+          )
+      );
+    $this->form_validation->set_rules(
+          'apellidoMaterno', '<b>"APELLIDO MATERNO"</b>',
+          'required|min_length[2]|max_length[15]|xss_clean',
+          array(
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
+              'min_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener al menos %s letras.</font></div>',
+              'max_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener mas de %s letras.</font></div>'
+          )
+      );
+    $this->form_validation->set_rules(
+        'nombres', '<b>NOMBRES</b>',
+        'trim|required|min_length[2]|max_length[15]|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
+            'min_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener al menos %s letras.</font></div>',
+            'max_length'     => '<div align="center"><font color="FF0000">El campo %s debe tener mas de %s letras.</font></div>'
+        )
+    );
+
+    $this->form_validation->set_rules(
+        'fechanac', '<b>"FECHA DE NACIMIENTO"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+    );
+    $this->form_validation->set_rules('genero', '<b>"GENERO"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+     );
+    $this->form_validation->set_rules('tipoUsuario', '<b>"TIPO DE USUARIO"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+     );
+    $this->form_validation->set_rules('email', '<b>"CORREO ELECTRONICO"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+     );
+    $this->form_validation->set_rules('password', '<b>"CONTRASEÑA"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+     );
+    $this->form_validation->set_rules('procedencia', '<b>"PROCEDENCIA"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+    );
+    $this->form_validation->set_rules(
+        'orc', '<b>"OFICIALIA DE REGISTRO CIVIL"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+    );
+    $this->form_validation->set_rules(
+        'libro', '<b>"LIBRO"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+    );
+    $this->form_validation->set_rules(
+        'partida', '<b>"PARTIDA"</b>',
+        'trim|required|xss_clean',
+        array(
+            'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>'
+        )
+    );
+      $this->form_validation->set_rules(
+          'apellidoNombrePadre', '<b>"PADRE"</b>',
+          'trim|xss_clean',
+          array(
+              'xss_clean'   => '<div align="center"><font color="FF0000">Error de datos</font></div>'
+          )
+      );
+      $this->form_validation->set_rules(
+          '$procedenciaPadre', '<b>"PROCEDENCIA DEL PADRE"</b>',
+          'trim|xss_clean'#,
+          #array(
+          #    'xss_clean'   => '<div align="center"><font color="FF0000">Error de datos</font></div>'
+          #)
+      );
+
+      if ($this->form_validation->run()==false) {
+        $this->session->set_flashdata('error ', 'Ingrese correctamente los datos');
+        $data['title'] = 'Registro Fiel';
+        $this->load->view('template/header',$data);
+        $this->load->view('users/usuarioCreate');
+        $this->load->view('template/footer');
     }
     else {
+        if ($this->input->post('genero') == '1') {
+            $genero = 'masculino';
+        }
+        else {
+            $genero = 'femenino';
+        }
         $data = array(
           'ci'=> $this->input->post('ci'),
           'apellidoPaterno' => $this->input->post('apellidoPaterno'),
@@ -577,17 +700,15 @@ class Users extends CI_Controller{
 
   function edit_fiel() {
     $uri = $this->uri->segment(3);
-    $data1['title'] = 'Editar Fiel';
+    $data['title'] = 'Editar Fiel';
     $data['get'] = $this->Users_model->editFiel($uri);
-    var_dump($data);
-    #echo $data['get'].'<br>';
-    # print_r($data['get']);
-    $this->load->view('template/header',$data1);
+    $this->load->view('template/header',$data);
     $this->load->view('users/fielEdit', $data);
     $this->load->view('template/footer');
   }
 
   function update_fiel() {
+
     $data1['title'] = 'Editar Fiel';
     $this->form_validation->set_rules('ci', 'Carnet de Identidad', 'trim|xss_clean');
     $this->form_validation->set_rules('apellidoPaterno', 'Apellido Paterno', 'trim|required|min_length[2]|xss_clean');
@@ -623,25 +744,25 @@ class Users extends CI_Controller{
       $genero = $this->input->post('genero');
       $apellidoNombrePadre = $this->input->post('apellidoNombrePadre');
       $procedenciaPadre = $this->input->post('procedenciaPadre');
+      $apellidoNombreMadre = $this->input->post('apellidoNombreMadre');
+      $procedenciaMadre = $this->input->post('procedenciaMadre');
       /*if ($genero == '1') {
         $genero = 'masculino';
       }
       else {
         $genero = 'femenino';
       }*/
-
-      $data = array(
-                'apellidoNombrePadre' => $apellidoNombrePadre,
-                'procedenciaPadre' => $procedenciaPadre
-                
-            );
-      $this->Users_model->update_fiel('padresfiel',['idPadresFiel' => $idPadresFiel] ,$data);
       $data = array(
                 'orc' => $orc,
                 'libro' => $libro,
                 'partida' => $partida
             );
+
+      //$this->db->where('idCertificadoNacimiento', $idCertificadoNacimiento);
+      //$this->db->update('certificadonacimiento',$data);
       $this->Users_model->update_fiel('certificadonacimiento',['idCertificadoNacimiento' => $idCertificadoNacimiento] ,$data);
+
+
       $data = array(
                 'apellidoPaterno' => $apellidoPaterno,
                 'apellidoMaterno' => $apellidoMaterno,
@@ -651,9 +772,27 @@ class Users extends CI_Controller{
                 'procedencia' => $procedencia,
                 'genero' => $genero
             );
+      //$this->db->where('id', $id);
+      //$this->db->update('persona',$data);
       $this->Users_model->update_fiel('persona',['id' => $id] ,$data);
+
+      $data = array(
+                'apellidoNombrePadre' => $apellidoNombrePadre,
+                'procedenciaPadre' => $procedenciaPadre,
+                'apellidoNombreMadre' => $apellidoNombreMadre,
+                'procedenciaMadre' => $procedenciaMadre,
+                'persona_id' => $id
+
+            );
+      //$this->db->where('idPadresFiel', $idPadresFiel);
+      //$this->db->update('padresfiel',$data);
+      $this->Users_model->update_fiel('padresfiel',['persona_id' => $id] ,$data);
+
+
+
+      $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE!');
       redirect('Users/listFiel');
-        
+
     }
   }
 

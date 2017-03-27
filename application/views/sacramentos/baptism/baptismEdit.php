@@ -29,6 +29,7 @@
 	          </div>
 	      <?php } ?>
 			</div>
+	
             <div class="col s12 m12 l12">
               <nav class="amber darken-4">
                   <div class="nav-wrapper">
@@ -92,7 +93,7 @@
 					</div>
 				<font color="black" size="5" face="Lucida Calligraphy">Libro Sacramental</font><br><Br>
                     <div class="row">
-                        <input type="hidden" name="idLibro" value="<?php echo $get->idLibroParroquia?>">
+                        <input type="hidden" id="idLibroParroquia" name="idLibroParroquia" value="<?php echo $get->idLibroParroquia ?>">
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-action-book prefix"></i>
                         <input id="libro" name="libro" type="text" value="<?php echo $get->libro ?>" onclick="this.value=' '">
@@ -113,15 +114,16 @@
 					<font color="black" size="5" face="Lucida Calligraphy">Padrinos</font><br><Br>
 
 					<div class="row">
+					<input type="hidden" id="idPadrinoFiel" name="idPadrinoFiel" value="<?php echo $get->idPadrinoFiel ?>">
 						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $get->padrino ?>" onclick="this.value=' '">
-							<label for="apellidoNombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
+							<input id="apellidosNombrePadrino" name="apellidosNombrePadrino" type="text" value="<?php echo $get->apellidosNombrePadrino ?>" onclick="this.value=' '">
+							<label for="apellidosNombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
 						</div>
 						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value="">
-							<label for="apellidoNombreMadrina" class="active"><b>Nombre completo Madrina</b></label>
+							<input id="apellidosNombreMadrina" name="apellidosNombreMadrina" type="text" value="<?php echo $get->apellidosNombreMadrina ?>">
+							<label for="apellidosNombreMadrina" class="active"><b>Nombre completo Madrina</b></label>
 						</div>
 					</div>
 
