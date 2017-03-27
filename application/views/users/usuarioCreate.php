@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/jquery-ui-1.9.2.custom.css" />
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-ui-1.9.2.custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/validate.js"></script>
+<script src="<?php echo base_url()?>assets/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 
+<!--<script type="text/javascript" src="<?php echo base_url()?>assets/js/prototype-1.6.0.2.js"></script>-->
 <section id = "content">
 		<div class="section">
       <div class="row">
@@ -42,23 +44,26 @@
               <div class="card-panel">
                 <h4 class="header2"><b>Información General</b></h4><br>
                 <div class="row">
-                  <form class="col s12" id="formPriest" method="post" action="<?php echo base_url(); ?>users/usuarioCreate">
+                <?php echo form_open('users/usuarioCreate', 'role="form"','method=post'); ?>
 
                     <div class="row">
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-social-person-outline prefix"></i>
                         <input placeholder="Ingrese el apellido paterno" id="apellidoPaterno" name="apellidoPaterno" type="text" value='<?php echo set_value('apellidoPaterno') ?>'>
-                        <label for="apelliodPaterno" class="active"><b>Apellido Paterno</b></label>
+                        <label for="apellidoPaterno" class="active"><b>Apellido Paterno (*)</b></label>
+                                                      <?php echo form_error('apellidoPaterno'); ?>
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-social-person-outline prefix"></i>
                         <input placeholder="Ingrese el apellido materno" id="apellidoMaterno" name="apellidoMaterno" type="text" value='<?php echo set_value('apellidoMaterno') ?>'>
                         <label for="apelliodMaterno" class="active"><b>Apellido Materno</b></label>
+                                                      <?php echo form_error('apellidoMaterno'); ?>
                       </div>
                       <div class="input-field col s12 m6 l4">
                         <i class="mdi-social-person-outline prefix"></i>
                         <input  placeholder="Ingrese el nombre completo" id="nombres" name="nombres" type="text" value='<?php echo set_value('nombres') ?>'>
                         <label for="nombres" class="active"><b>Nombres</b></label>
+                                                      <?php echo form_error('nombres'); ?>
                        </div>
                     </div>
 
@@ -67,12 +72,14 @@
                         <i class="mdi-action-credit-card prefix"></i>
                         <input placeholder="Ingrese su carnet de identidad" id="ci" name="ci" type="number" value='<?php echo set_value('ci') ?>'>
                         <label for="ci" class="active"><b>Carnet de Identidad</b></label>
+                                                      <?php echo form_error('ci'); ?>
                       </div>
 
                       <div class="input-field col s12 m6 l6">
                             <i class="mdi-action-event prefix"></i>
                             <input placeholder="" id="fechanac" name="fechanac" type="date" value='<?php echo set_value('fechanac') ?>'>
                             <label for="fechanac" class="active"><b>Fecha Nacimiento</b></label>
+                                                          <?php echo form_error('fechanac'); ?>
                       </div>
                     </div>
                     <div class="row">
@@ -102,6 +109,7 @@
                           <option value="2">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFemenino</option>
                         </select>
                         <label><b>&nbsp&nbsp&nbsp&nbsp&nbspSexo: </b></label>
+                                                      <?php echo form_error('genero'); ?>
                       </div>
 
                     </div>
@@ -114,12 +122,14 @@
                         <i class="mdi-communication-quick-contacts-mail prefix"></i>
                         <input placeholder="Ingrese su correo electrónico" id="email" name="email" type="text" value='<?php echo set_value('email') ?>'>
                         <label for="email" class="active"><b>Correo Electrónico</b></label>
+                                                      <?php echo form_error('email'); ?>
                       </div>                    
 
                       <div class="input-field col s12 m6 l6">
                         <i class="mdi-communication-vpn-key prefix"></i>
                         <input placeholder="Ingrese su Contraseña" id="password" name="password" type="password" value='<?php echo set_value('password') ?>'>
                         <label for="password" class="active"><b>Contraseña</b></label>
+                                                      <?php echo form_error('password'); ?>
                       </div>  
                     </div>
                     
@@ -136,6 +146,7 @@
                             <option value="sacerdote">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSacerdote</option>
                           </select>
                         <label><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTipo Usuario: </b></label>
+                                                      <?php echo form_error('tipoUsuario'); ?>
                       </div>
                     </div><br>
 
