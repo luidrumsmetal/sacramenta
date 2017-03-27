@@ -29,6 +29,7 @@
 	          </div>
 	      <?php } ?>
 			</div>
+			<?php print_r($get); ?>
             <div class="col s12 m12 l12">
               <nav class="amber darken-4">
                   <div class="nav-wrapper">
@@ -115,12 +116,12 @@
 					<div class="row">
 						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $get->padrino ?>" onclick="this.value=' '">
+							<input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $get->apellidosNombrePadrino ?>" onclick="this.value=' '">
 							<label for="apellidoNombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
 						</div>
 						<div class="input-field col s12 m6 l6">
 							<i class="mdi-social-person prefix"></i>
-							<input id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value="">
+							<input id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text" value="<?php echo $get->apellidosNombreMadrina ?>">
 							<label for="apellidoNombreMadrina" class="active"><b>Nombre completo Madrina</b></label>
 						</div>
 					</div>
