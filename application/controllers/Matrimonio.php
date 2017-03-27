@@ -122,7 +122,9 @@ class Matrimonio extends CI_Controller{
         'sacramento_id' => $sacramento,
         'jurisdiccion_id' => $jurisdiccion_id,
         'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
-        'sacerdoteCertificador_id' => $sacerdoteCertificador_id
+        'sacerdoteCertificador_id' => $sacerdoteCertificador_id,
+        'observacion' => $this->input->post('observacion')
+
       );
         if ($this->Sacrament_model->Register('certificado', $data) ==TRUE) {
           $persona_id = $this->input->post('esposa_id');
@@ -138,7 +140,8 @@ class Matrimonio extends CI_Controller{
             'sacramento_id' => $sacramento,
             'jurisdiccion_id' => $jurisdiccion_id,
             'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
-            'sacerdoteCertificador_id' => $sacerdoteCertificador_id
+            'sacerdoteCertificador_id' => $sacerdoteCertificador_id,
+            'observacion' => $this->input->post('observacion')
           );
             if ($this->Sacrament_model->Register('certificado',$data) == TRUE) {
                $fecha = $this->input->post('fechacom');
@@ -251,6 +254,7 @@ class Matrimonio extends CI_Controller{
       $jurisdiccion_id = $this->input->post('jurisdiccion_id');
       $sacerdoteCelebrante_id = $this->input->post('sacerdoteCelebrante_id');
       $sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador_id');
+      $observacion = $this->input->post('observacion');
       $data = array(
         'fecha' => $this->input->post('fechacom'),
         'persona_id' => $persona_id,
@@ -258,7 +262,8 @@ class Matrimonio extends CI_Controller{
         'sacramento_id' => $sacramento,
         'jurisdiccion_id' => $jurisdiccion_id,
         'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
-        'sacerdoteCertificador_id' => $sacerdoteCertificador_id
+        'sacerdoteCertificador_id' => $sacerdoteCertificador_id,
+        'observacion' => $observacion
       );
         if ($this->Sacrament_model->Register('certificado', $data) ==TRUE) {
           $persona_id = $this->input->post('esposa_id');
@@ -274,7 +279,8 @@ class Matrimonio extends CI_Controller{
             'sacramento_id' => $sacramento,
             'jurisdiccion_id' => $jurisdiccion_id,
             'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
-            'sacerdoteCertificador_id' => $sacerdoteCertificador_id
+            'sacerdoteCertificador_id' => $sacerdoteCertificador_id,
+            'observacion' => $observacion
           );
             if ($this->Sacrament_model->Register('certificado',$data) == TRUE) {
                $fecha = $this->input->post('fechacom');

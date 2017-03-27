@@ -162,6 +162,16 @@
                       </div>
                     </div>
 
+                    <font color="black" size="5" face="Lucida Calligraphy">Observaciones</font><br><Br>
+
+                      <div class="row">
+                        <div class="input-field col s12 m6 l12">
+                          <i class="mdi-social-person prefix"></i>
+                          <input placeholder="Ingrese las observaciones de este certificado" id="observacion" name="observacion" type="text" value='<?php             echo set_value('observacion') ?>'>
+                          <label for="observacion" class="active"><b>Obsevacion</b></label>
+                        </div>
+                      </div>
+
 
                     <div class="row">
                         <div class="input-field col s7">
@@ -232,11 +242,6 @@ $(document).ready(function(){
          $("#esposa_id").val(ui.item.id);
       }
     });
-    
-   
-    
-    
-
 });
 </script>
 

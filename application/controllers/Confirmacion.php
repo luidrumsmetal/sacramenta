@@ -119,7 +119,8 @@ class Confirmacion extends CI_Controller{
         'sacramento_id' => $sacramento,
         'jurisdiccion_id' => $jurisdiccion_id,
         'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
-        'sacerdoteCertificador_id' => $sacerdoteCertificador_id
+        'sacerdoteCertificador_id' => $sacerdoteCertificador_id,
+        'observacion' => $this->input->post('observacion')
       );
 
           //registramos el certificado
@@ -230,6 +231,7 @@ class Confirmacion extends CI_Controller{
             $numero = $this->input->post('numero');
             $apellidosNombrePadrino = $this->input->post('apellidosNombrePadrino');
             $apellidosNombreMadrina = $this->input->post('apellidosNombreMadrina');
+            $observacion = $this->input->post('observacion');
 
             $data = array(
                 'fecha' => $fecha,
@@ -238,7 +240,8 @@ class Confirmacion extends CI_Controller{
                 'sacramento_id' => $sacramento,
                 'sacerdoteCertificador_id' => $sacerdoteCertificador_id,
                 'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
-                'jurisdiccion_id' => $jurisdiccion_id
+                'jurisdiccion_id' => $jurisdiccion_id,
+                'observacion' => $observacion
             );
             $this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data);
             
