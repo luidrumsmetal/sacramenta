@@ -99,7 +99,8 @@ class Confirmacion extends CI_Controller{
     $this->form_validation->set_rules('libroOne', 'Libro', 'trim|required|xss_clean');
     $this->form_validation->set_rules('paginaOne', 'Pagina', 'trim|required|xss_clean');
     $this->form_validation->set_rules('numeroOne', 'Numero', 'trim|required|xss_clean');
-    if ($this->form_validation->run() == FALSE) {
+    if ($this->form_validation->run() == FALSE) 
+    {
         $this->session->set_flashdata('error', 'Ingrese correctamente los datos');
         redirect(base_url().'confirmacion');
     }
@@ -134,26 +135,26 @@ class Confirmacion extends CI_Controller{
                   'certificado_id' => $certificado_id
                 );
                 if ($this->Sacrament_model->Register('libroparroquia',$data)) {
-                  $certificateWithCi = $this->Sacrament_model->getCertificate($persona_id,$fecha);
-                  $certificado_id = $certificateWithCi->idCertificado;
-                    $padrino = $this->input->post('apellidoNombrePadrino');
-                    $madrina = $this->input->post('apellidoNombreMadrina');
-                    if ($padrino != null ) {
+
+
+                  $apellidosNombrePadrino = $this->input->post('apellidosNombrePadrino');
+                    $apellidosNombreMadrina = $this->input->post('apellidosNombreMadrina');
                         $data = array(
-                            'apellidosNombres' => $padrino,
+                            'apellidosNombrePadrino' => $apellidosNombrePadrino,
+                            'apellidosNombreMadrina' => $apellidosNombreMadrina,
                             'certificado_id' => $certificado_id
                         );
-                        $this->Users_model->personRegister('padrinofiel',$data);
-                    }
-                    if ($madrina != null ) {
-                        $data = array(
-                            'apellidosNombres' => $madrina,
-                            'certificado_id' => $certificado_id
-                        );
-                        $this->Users_model->personRegister('padrinofiel',$data);
-                    }
-                    $this->session->set_flashdata('success','Confirmación Registrado correctamente!');
+                    if ($this->Users_model->personRegister('padrinofiel',$data)== TRUE) {
+                  
+                    $this->session->set_flashdata('success','Confirmacion Registrado correctamente!');
                     redirect(base_url() . 'confirmacion');
+                      }
+                     else {
+                     $this->session->set_flashdata('error','Error al registrar a sus padrinos');
+                     redirect(base_url() . 'confirmacion');
+                    }
+
+
                 }
                 else {
                   $this->session->set_flashdata('error','Error al registrar su informacion de la cuenta (libro)');
@@ -209,8 +210,8 @@ class Confirmacion extends CI_Controller{
 
         if($this->form_validation->run() == FALSE)
         {
-            $this->session->set_flashdata('error', 'Ingrese correctamente los datos #Error');
-            redirect(base_url().'confirmacion/listConfirmacion');
+          $this->session->set_flashdata('error', validation_errors());
+          redirect(base_url().'confirmacion/listConfirmacion');
         }
         else
         {
@@ -223,11 +224,12 @@ class Confirmacion extends CI_Controller{
             $sacerdoteCelebrante_id = $this->input->post('sacerdoteCelebrante_id');
             $sacerdoteCertificador_id = $this->input->post('sacerdoteCertificador_id');
             $idLibroParroquia = $this->input->post('idLibro');
+            $idPadrinoFiel = $this->input->post('idPadrinoFiel');
             $libro = $this->input->post('libro');
             $pagina = $this->input->post('pagina');
             $numero = $this->input->post('numero');
-            $apellidosNombresPadrino = $this->input->post('apellidoNombrePadrino');
-            $apellidosNombresMadrina = $this->input->post('apellidoNombreMadrina');
+            $apellidosNombrePadrino = $this->input->post('apellidosNombrePadrino');
+            $apellidosNombreMadrina = $this->input->post('apellidosNombreMadrina');
 
             $data = array(
                 'fecha' => $fecha,
@@ -238,31 +240,30 @@ class Confirmacion extends CI_Controller{
                 'sacerdoteCelebrante_id' => $sacerdoteCelebrante_id,
                 'jurisdiccion_id' => $jurisdiccion_id
             );
-            if($this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data) == TRUE)
-            {
-                $data = array(
-                    'libro' => $libro,
-                    'pagina' => $pagina,
-                    'numero' => $numero,
-                    'parroquia_id' => $parroquia_id,
+            $this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data);
+            
+            $data = array(
+                'libro' => $libro,
+                'pagina' => $pagina,
+                'numero' => $numero,
+                'parroquia_id' => $parroquia_id,
+                'certificado_id' => $idCertificado
+            );
+            $this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data);
+
+            $data = array(
+                    'apellidosNombrePadrino' => $apellidosNombrePadrino,
+                    'apellidosNombreMadrina' => $apellidosNombreMadrina,
                     'certificado_id' => $idCertificado
-                );
-                if($this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data) == TRUE )
-                {
-                    $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
-                    redirect(base_url() . 'confirmacion/listConfirmacion');
-                }
-                else
-                {
-                    $this->session->set_flashdata('success','no se actualizo datos del libro');
-                    redirect(base_url() . 'confirmacion/listConfirmacion');
-                }
-            }
-            else
-            {
-                $this->session->set_flashdata('error','Error al actualizar datos del certificado');
-                redirect(base_url() . 'confirmacion/listConfirmacion');
-            }
+              );
+
+          $this->Sacrament_model->update('padrinofiel',['idPadrinoFiel'=>$idPadrinoFiel],$data);
+                
+            $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
+            redirect(base_url() . 'confirmacion/listConfirmacion');
+                
+                
+            
         }
         /// FIN -->
     }

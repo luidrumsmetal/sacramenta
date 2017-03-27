@@ -143,6 +143,7 @@ class FirstCommunion extends CI_Controller{
             $libro = $this->input->post('libro');
             $pagina = $this->input->post('pagina');
             $numero = $this->input->post('numero');
+
             $data = array(
                 'fecha' => $fecha,
                 'persona_id' => $persona_id,
@@ -152,9 +153,9 @@ class FirstCommunion extends CI_Controller{
                 'sacerdoteCelebrante_id' => $celebrante,
                 'jurisdiccion_id' => $jurisdiccion_id
             );
-            if($this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data) == TRUE)
-            {
 
+            $this->Sacrament_model->update('certificado',['idCertificado'=>$idCertificado],$data);
+                
                 $data = array(
                     'libro' => $libro,
                     'pagina' => $pagina,
@@ -162,22 +163,13 @@ class FirstCommunion extends CI_Controller{
                     'parroquia_id' => $parroquia_id,
                     'certificado_id' => $idCertificado
                 );
-                if($this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data) == TRUE )
-                {
-                    $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
-                    redirect(base_url() . 'firstCommunion/listComunion');
-                }
-                else
-                {
-                    $this->session->set_flashdata('success','no se actualizo datos del certificado');
-                    redirect(base_url() . 'firstCommunion/listComunion');
-                }
-            }
-            else
-            {
-                $this->session->set_flashdata('error','Error al actualizar datos del libro');
-                redirect(base_url() . 'firstCommunion/listComunion');
-            }
+            $this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data);
+                
+            $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
+            redirect(base_url() . 'firstCommunion/listComunion');
+                
+                
+            
         }
     }
     function delete() {

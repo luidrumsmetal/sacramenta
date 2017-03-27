@@ -114,21 +114,18 @@
                     </div>
                     <font color="black" size="5" face="Lucida Calligraphy">Padrinos</font><br><Br>
                     <div class="row">
-
-
-                      <div class="input-field col s12 m6 l6">
-                        <i class="mdi-social-person prefix"></i>
-                          <input id="apellidoNombrePadrino" name="apellidoNombrePadrino" type="text" value="<?php echo $get->padrino ?>" onclick="this.value=' '">
-                          <label for="nombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
-                      </div>    
-
-                       <div class="input-field col s12 m6 l6">
-                        <i class="mdi-social-person prefix"></i>
-                        <input placeholder="Ingrese el apellido y nombre de la Madrina " id="apellidoNombreMadrina" name="apellidoNombreMadrina" type="text">
-                        <label for="nombrePadrino" class="active"><b>Nombre completo Madrina</b></label>
-                      </div>                                          
-
-                    </div>
+                          <input type="hidden" id="idPadrinoFiel" name="idPadrinoFiel" value="<?php echo $get->idPadrinoFiel ?>">
+                            <div class="input-field col s12 m6 l6">
+                              <i class="mdi-social-person prefix"></i>
+                              <input id="apellidosNombrePadrino" name="apellidosNombrePadrino" type="text" value="<?php echo $get->apellidosNombrePadrino ?>"                 onclick="this.value=' '">
+                              <label for="apellidosNombrePadrino" class="active"><b>Nombre completo Padrino</b></label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                             <i class="mdi-social-person prefix"></i>
+                              <input id="apellidosNombreMadrina" name="apellidosNombreMadrina" type="text" value="<?php echo $get->apellidosNombreMadrina ?>">
+                              <label for="apellidosNombreMadrina" class="active"><b>Nombre completo Madrina</b></label>
+                            </div>
+                          </div>
 
 
                     <br><br>

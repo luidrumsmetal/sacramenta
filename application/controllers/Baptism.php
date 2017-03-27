@@ -153,7 +153,7 @@ class Baptism extends CI_Controller{
       if($this->form_validation->run() == FALSE)
       {
           $this->session->set_flashdata('error', validation_errors());
-          redirect(base_url().'baptism/edit'.$idCertificado);
+          redirect(base_url().'baptism/edit/'.$idCertificado);
       }
       else
       {
@@ -170,8 +170,8 @@ class Baptism extends CI_Controller{
           $libro = $this->input->post('libro');
           $pagina = $this->input->post('pagina');
           $numero = $this->input->post('numero');
-          $apellidosNombresPadrino = $this->input->post('apellidoNombrePadrino');
-          $apellidosNombresMadrina = $this->input->post('apellidoNombreMadrina');
+          $apellidosNombrePadrino = $this->input->post('apellidosNombrePadrino');
+          $apellidosNombreMadrina = $this->input->post('apellidosNombreMadrina');
 
           $data = array(
               'fecha' => $fecha,
@@ -194,12 +194,14 @@ class Baptism extends CI_Controller{
           $this->Sacrament_model->update('libroparroquia',['idLibroParroquia'=>$idLibroParroquia],$data);
 
               $data = array(
-                    'apellidosNombresPadrino' => $apellidosNombresPadrino,
+                    'apellidosNombrePadrino' => $apellidosNombrePadrino,
                     'apellidosNombreMadrina' => $apellidosNombreMadrina,
                     'certificado_id' => $idCertificado
               );
 
-          $this->Sacrament_model->update('padrinofiel',['certificado_id'=>$idCertificado],$data);
+
+          $this->Sacrament_model->update('padrinofiel',['idPadrinoFiel'=>$idPadrinoFiel],$data);
+                  
 
           $this->session->set_flashdata('success','DATOS ACTUALIZADOS CORRECTAMENTE');
           redirect(base_url() . 'baptism/listBaptism');
