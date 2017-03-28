@@ -12,6 +12,7 @@
 	          <div id="card-alert" class="card red">
 	            <div class="card-content white-text">
 	              <p><?php echo $this->session->flashdata('error') ?></p>
+                 <p>     <?php echo validation_errors();?></p>
 	            </div>
 	            <button type="button" class="close red-text" data-dismiss="alert" aria-label="Close">
 	              <span aria-hidden="true">×</span>
