@@ -58,6 +58,7 @@ class Baptism extends CI_Controller{
           //'feligres_id', 'Nombre o Apellido',     
           'trim|required|xss_clean',
           array(
+             'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
           )
       );    
     $this->form_validation->set_rules(
