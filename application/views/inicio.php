@@ -306,7 +306,7 @@
 			<!-- Contact form section
 			================================================== -->
 			<div class="col-md-offset-1 col-md-10 col-sm-12">
-				<form action="#" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
+				<form action="<?php echo base_url(); ?>inicio/sendEmail" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
 					<div class="col-md-4 col-sm-6">
 						<input type="text" class="form-control" placeholder="Nombre" name="name">
 					</div>
@@ -317,7 +317,7 @@
 						<input type="text" class="form-control" placeholder="Asunto" name="subject">
 					</div>
 					<div class="col-md-12 col-sm-12">
-						<textarea class="form-control" placeholder="Escriba aquí su mensaje" rows="7" name"message"></textarea>
+						<textarea class="form-control" placeholder="Escriba aquí su mensaje" rows="7" name="message"></textarea>
 					</div>
 					<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
 						<input type="submit" class="form-control" value="ENVIAR MENSAJE;">
