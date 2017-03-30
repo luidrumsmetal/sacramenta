@@ -7892,6 +7892,11 @@ nav .input-field label.active {
   border-radius: 0 0 2px 2px;
 }
 
+.card2 .card-content {
+  padding: 20px;
+  border-radius: 0 0 2px 2px;
+}
+
 .card .card-content p {
   margin: 0;
   color: inherit;

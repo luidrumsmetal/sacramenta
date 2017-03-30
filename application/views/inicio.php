@@ -83,18 +83,33 @@
             </div>
         </div>
     </div> <!-- /.site-slider -->
+    		<br><br>
+    		<div class="container">
+				<div class="row">
+
+					<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+						<div class="section-title">
+							<h5 class="wow bounceIn"> Desea obtener su certificado</h5>
+							<h1 class="heading"><a href="<?php echo base_url(); ?>users/faithfulAccount" target="_blank">REGISTRATE</a></h1>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
 </div>
 
 
 <!-- Work section
 ================================================== -->
-<section id="work" class="parallax-section">
+<!--<section id="work" class="parallax-section">
 	<div class="container">
-		<div class="row">
+		<div class="row">-->
 
 			<!-- Section title
 			================================================== -->
-			<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+			<!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
 				<div class="section-title">
 					<h5 class="wow bounceIn">Conócenos</h5>
 					<h1 class="heading">SOBRE NOSOTROS</h1>
@@ -102,12 +117,12 @@
 					<p>Conserva la esperanza, déjate sorprender por Dios y vive con alegría.</p>
 					<h6><font color="#ffa400">Papa Francisco</font></h6>
 				</div>
-			</div>
+			</div>-->
 
 
 			<!-- Work Owl Carousel section
 			================================================== -->
-			<div id="owl-work" class="owl-carousel">
+			<!--<div id="owl-work" class="owl-carousel">
 
 				<div class="item col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
 					<a href="<?php echo base_url(); ?>Acercade"><img src="<?php echo base_url(); ?>assets/inicio/images/ceb.jpg" width="300" height="200"></a>
@@ -144,11 +159,10 @@
 						<p><font color="black">La Asamblea es un espacio de animación pastoral y de reflexión a la luz de la fe.</font></p>
 				</div>
 
-			</div>
-
-		</div>
+			</div>-->
+		<!--</div>
 	</div>
-</section>
+</section>-->
 
 
 <!-- team section
@@ -219,13 +233,13 @@
 
 <!-- Plan section
 ================================================== -->
-<section id="plan" class="parallax-section">
+<!--<section id="plan" class="parallax-section">
 	<div class="container">
-		<div class="row">
+		<div class="row"> -->
 
 			<!-- Section title
 			================================================== -->
-			<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 wow fadeInUp">
+			<!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 wow fadeInUp">
 				<div class="section-title">
 					<h5 class="wow bounceIn">Jurisdiciones de Bolivia</h5>
 					<h1 class="heading color-white">JURISDICCIONES</h1>
@@ -263,7 +277,7 @@
         </div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 
 <!-- Contact section
@@ -285,9 +299,32 @@
 			</div>
 			<div class="container">
 			</div>
-			<div class="container">
+			<!--<div class="container">
 				<img src="<?php echo base_url(); ?>assets/inicio/images/logo.jpg" width="180" height="210">
-			</div>
+			</div>-->
+
+			<!-- Contact form section
+			================================================== -->
+			<div class="col-md-offset-1 col-md-10 col-sm-12">
+				<form action="<?php echo base_url(); ?>inicio/sendEmail" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
+					<div class="col-md-4 col-sm-6">
+						<input type="text" class="form-control" placeholder="Nombre" name="name">
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<input type="email" class="form-control" placeholder="Correo electrónico" name="email">
+					</div>
+					<div class="col-md-4 col-sm-12">
+						<input type="text" class="form-control" placeholder="Asunto" name="subject">
+					</div>
+					<div class="col-md-12 col-sm-12">
+						<textarea class="form-control" placeholder="Escriba aquí su mensaje" rows="7" name="message"></textarea>
+					</div>
+					<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+						<input type="submit" class="form-control" value="ENVIAR MENSAJE;">
+					</div>
+				</form>
+			</div>			
+
 
 			<!-- Contact detail section
 			================================================== -->

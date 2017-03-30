@@ -58,33 +58,33 @@ class Baptism extends CI_Controller{
           //'feligres_id', 'Nombre o Apellido',     
           'trim|required|xss_clean',
           array(
-              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+             'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
           )
       );    
     $this->form_validation->set_rules(
       'fechabautismo', '<B>"Fecha Bautizo"</B>', 
       'trim|required|xss_clean',
           array(
-              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
           ));
     $this->form_validation->set_rules(
       'parroquia_id', '<b>"Parroquia de Celebración"</b>', 
       'trim|required|xss_clean',
           array(
-              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
           ));
     $this->form_validation->set_rules(
       'jurisdiccion_id', '<b>"Jurisdicción"</b>', 
       'trim|required|xss_clean',
           array(
-              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
           ));
     $this->form_validation->set_rules(
       #'sacerdoteCelebrante_id', 'Sacerdote Celebrante', 
       'sacerdoteCelebrante', '<b>"Sacerdote Celebrante"</b>',
       'trim|required|xss_clean',
           array(
-              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
           )
       );
     $this->form_validation->set_rules(
@@ -92,30 +92,34 @@ class Baptism extends CI_Controller{
       'sacerdoteCertificador', '<b>"Sacerdote certificador"</b>',
       'trim|required|xss_clean',
           array(
-              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
           ));
     $this->form_validation->set_rules(
       'libroOne', '<B>"Libro de registro Sacramental"</B>', 
       'trim|required|xss_clean',
           array(
-              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
           ));
     $this->form_validation->set_rules(
       'paginaOne', '<b>"Número de Página"</b>', 
       'trim|required|xss_clean',
           array(
-              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s.</font></div>',
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s.</font></div>',
           ));
     $this->form_validation->set_rules(
       'numeroOne', '<B>"Número de registro"</B>', 
       'trim|required|xss_clean',
           array(
-              'required'      => '<div align="center"><font color="FFFFFF">No ha ingresado %s de registro.</font></div>',
+              'required'      => '<div align="center"><font color="FF0000">No ha ingresado %s de registro.</font></div>',
           ));
     if ($this->form_validation->run() == FALSE)
     {
-      $this->session->set_flashdata('error', validation_errors());
-      redirect(base_url().'baptism/baptismCreate');
+      $this->session->set_flashdata('error ', validation_errors());
+    $data['title'] = 'Registro Bautizo';
+    $this->load->view('template/header',$data);
+    $this->load->view('sacramentos/baptism/baptismCreate');
+    $this->load->view('template/footer');
+
     }
     else {
           $persona_id = $this->input->post('feligres_id');
